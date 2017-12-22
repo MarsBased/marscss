@@ -1,0 +1,105 @@
+// marscss config
+$mars-debug: false !default;
+$mars-tests: false !default;
+$mars-init: false !default;
+
+$white:    #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #868e96 !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+
+$grays: () !default;
+$grays: map-merge(
+  (
+    "100": $gray-100,
+    "200": $gray-200,
+    "300": $gray-300,
+    "400": $gray-400,
+    "500": $gray-500,
+    "600": $gray-600,
+    "700": $gray-700,
+    "800": $gray-800,
+    "900": $gray-900
+  ),
+  $grays
+);
+
+$blue:    #007bff !default;
+$indigo:  #6610f2 !default;
+$purple:  #6f42c1 !default;
+$pink:    #e83e8c !default;
+$red:     #dc3545 !default;
+$orange:  #fd7e14 !default;
+$yellow:  #ffc107 !default;
+$green:   #28a745 !default;
+$teal:    #20c997 !default;
+$cyan:    #17a2b8 !default;
+
+$colors: () !default;
+$colors: map-merge(
+  (
+    "blue":       $blue,
+    "indigo":     $indigo,
+    "purple":     $purple,
+    "pink":       $pink,
+    "red":        $red,
+    "orange":     $orange,
+    "yellow":     $yellow,
+    "green":      $green,
+    "teal":       $teal,
+    "cyan":       $cyan,
+    "white":      $white,
+    "gray":       $gray-600,
+    "gray-dark":  $gray-800
+  ),
+  $colors
+);
+
+$primary:                     $blue !default;
+$border-color:                $gray-300;
+$color-font-base:             #000 !default;
+$font-family-base:            "Lato", sans-serif !default;
+$font-weight-base:            normal !default;
+$line-height-base:            1.4 !default;
+
+$font-size-lead:              4.8rem !default;
+$font-size-large:             1.8rem !default;
+$font-size-base:              1.6rem !default;
+$font-size-small:             1.4rem !default;
+
+$font-size-h1:                2.5rem !default;
+$font-size-h2:                2.2rem !default;
+$font-size-h3:                $font-size-large !default;
+$font-size-h4:                $font-size-base !default;
+$font-size-h5:                $font-size-base !default;
+$font-size-h6:                $font-size-small !default;
+
+$grid-columns:                12 !default;
+$grid-gutter-width:           3rem !default;
+$gutter:                      $grid-gutter-width;
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+
+@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+@include _assert-starts-at-zero($grid-breakpoints);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px
+) !default;
+
+@include _assert-ascending($container-max-widths, "$container-max-widths");

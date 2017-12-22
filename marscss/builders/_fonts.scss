@@ -1,0 +1,25 @@
+//stylelint-disable rule-empty-line-before,
+@mixin mars-build-fonts {
+  @include msg-css("🚀 mars-build-fonts");
+
+  .h1{ @include h1; }
+  .h2{ @include h2; }
+  .h3{ @include h3; }
+  .h4{ @include h4; }
+  .h5{ @include h5; }
+  .h6{ @include h6; }
+
+  p { @include p; }
+  ul{ @include ul; }
+  ol{ @include ol; }
+  dl{ @include dl; }
+
+  .s1{ @include s1; }
+  .s2{ @include s2; }
+  .s3{ @include s3; }
+  .s4{ @include s4; }
+  .s5{ @include s5; }
+  .s6{ @include s6; }
+  .large{ @include large; }
+  small, .small{ @include small; }
+}

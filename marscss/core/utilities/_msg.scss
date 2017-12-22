@@ -1,0 +1,11 @@
+@mixin msg-debug($text, $debug: $mars-debug){
+  @if ($debug == true) {
+    @debug #{$text};
+  }
+}
+
+@mixin msg-css($text, $debug: $mars-debug){
+  @if ($debug == true) {
+    /* ///////// #{$text} */
+  }
+}

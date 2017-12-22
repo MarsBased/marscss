@@ -1,0 +1,38 @@
+@mixin mars-build-reset {
+  @include msg-css("🚀 mars-build-reset");
+
+  * {
+    box-sizing: border-box; //or inherit
+  }
+
+  html {
+    @include html;
+  }
+
+  body {
+    @include body;
+  }
+
+  button{
+    padding: 0;
+    margin: 0;
+    font-size: inherit;
+    color: inherit;
+    background-color: transparent;
+    border: 0;
+    appearance: none;
+    &:hover,
+    &:focus,
+    &:active{
+      text-decoration: none;
+      outline: 0;
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: inherit;
+    color: inherit;
+  }
+}

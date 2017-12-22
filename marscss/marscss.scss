@@ -1,0 +1,26 @@
+@import "functions";
+@import "default-variables";
+@import "core";
+@import "builders";
+@import "tests";
+
+@mixin mars-init-default {
+  @include mars-build-reset;
+  @include mars-build-normalize;
+  @include mars-build-grid;
+  @include mars-build-helpers;
+}
+
+@mixin mars-init-mars {
+  @include mars-build-reset;
+  @include mars-build-normalize;
+  @include mars-build-fonts;
+}
+
+@if ($mars-init){
+  @include mars-init-default;
+}
+
+@if ($mars-tests){
+  @include mars-tests;
+}

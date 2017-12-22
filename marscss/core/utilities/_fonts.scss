@@ -1,0 +1,148 @@
+//stylelint-disable block-no-empty
+
+@mixin html {
+  height: 100%;
+  font-size: 62.5%; // Now 10px = 1rem!
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+}
+
+@mixin body {
+  min-width: 320px;
+  margin: 0;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $color-font-base;
+}
+
+@mixin common-headings {
+  margin-bottom: 1rem;
+}
+
+@mixin h1 {
+  font-size: $font-size-h1;
+  @include common-headings;
+  @include extend-h1;
+}
+@mixin extend-h1 {}
+
+@mixin h2 {
+  font-size: $font-size-h2;
+  @include common-headings;
+  @include extend-h2;
+}
+@mixin extend-h2 {}
+
+@mixin h3 {
+  font-size: $font-size-h3;
+  @include common-headings;
+  @include extend-h3;
+}
+@mixin extend-h3 {}
+
+@mixin h4 {
+  font-size: $font-size-h4;
+  @include common-headings;
+  @include extend-h4;
+}
+@mixin extend-h4 {}
+
+@mixin h5 {
+  font-size: $font-size-h5;
+  @include common-headings;
+  @include extend-h5;
+}
+@mixin extend-h5 {}
+
+@mixin h6 {
+  font-size: $font-size-h6;
+  @include common-headings;
+  @include extend-h6;
+}
+@mixin extend-h6 {}
+
+@mixin common-block{
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+@mixin ul{
+  padding-left: 1.5rem;
+  @include common-block;
+  @include extend-ul;
+
+  ul {
+    margin-bottom: 0;
+  }
+}
+@mixin extend-ul {}
+
+@mixin ol{
+  padding-left: 1.5rem;
+  @include common-block;
+  @include extend-ol;
+
+  ol {
+    margin-bottom: 0;
+  }
+}
+@mixin extend-ol {}
+
+@mixin dl{
+  @include common-block;
+  @include extend-dl;
+
+  dl {
+    margin-bottom: 0;
+  }
+}
+@mixin extend-dl {}
+
+@mixin dd{
+  @include common-block;
+  @include extend-dd;
+}
+@mixin extend-dd {}
+
+@mixin dt{
+  @include common-block;
+  @include extend-dt;
+}
+@mixin extend-dt {}
+
+@mixin li {
+  @include extend-li;
+  margin-bottom: .25em;
+}
+@mixin extend-li {}
+
+@mixin p{
+  @include extend-p;
+  @include common-block;
+}
+@mixin extend-p {}
+
+@mixin blockquote{
+  max-width: 600px;
+  padding-left: 1em;
+  margin-top: 0;
+  margin-right: 0;
+  margin-left: 0;
+  font-size: $font-size-large;
+  font-weight: 800;
+  border-left: 4px solid $primary;
+  @include extend-blockquote;
+}
+@mixin extend-blockquote {}
+
+
+@mixin s1{ font-size: $font-size-h1; }
+@mixin s2{ font-size: $font-size-h2; }
+@mixin s3{ font-size: $font-size-h3; }
+@mixin s4{ font-size: $font-size-h4; }
+@mixin s5{ font-size: $font-size-h5; }
+@mixin s6{ font-size: $font-size-h6; }
+@mixin large{ font-size: $font-size-large; }
+@mixin small{ font-size: $font-size-small; }

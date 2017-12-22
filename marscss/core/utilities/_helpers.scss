@@ -1,0 +1,126 @@
+// stylelint-disable declaration-no-important
+@mixin last-margin-0 {
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@mixin margin-bottom ($margin-bottom: .8em) {
+  margin-bottom: $margin-bottom;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@mixin focus ($color: $gray-100, $opacity: .4) {
+  outline: none;
+  box-shadow: 0 0 4px rgba($color, $opacity);
+}
+
+// Helpers
+@mixin sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+@mixin reset-link {
+  color: inherit;
+  &:hover,
+  &.active,
+  &:focus{
+    text-decoration: none;
+  }
+}
+
+@mixin reset-list{
+  padding-right: 0;
+  padding-left: 0;
+  margin-right: 0;
+  margin-left: 0;
+  list-style: none;
+}
+
+@mixin pull-right {
+  float: right !important;
+}
+
+@mixin pull-left {
+  float: left !important;
+}
+
+@mixin text-center{
+  text-align: center;
+}
+
+@mixin text-right {
+  text-align: right;
+}
+
+@mixin text-left {
+  text-align: left;
+}
+
+@mixin text-nowrapp {
+  white-space: nowrap;
+}
+
+@mixin text-truncate() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin text-hide() {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+@mixin vertical-middle {
+  vertical-align: middle;
+}
+
+@mixin is-hidden{
+  display: none;
+}
+
+@mixin bg($bg, $text: false){
+  background-color: $bg;
+  @if $text{
+    color: $text;
+  }
+}
+
+@mixin ratio($padding: false){
+  position: relative;
+  @if ($padding != false){
+    padding-top: $padding;
+  }
+  overflow: hidden;
+
+  > *{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  > img {
+    object-fit: cover;
+    //ie11 and edge modernizr.objectfit
+    background-size: cover;
+  }
+}
+

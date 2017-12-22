@@ -1,0 +1,97 @@
+//stylelint-disable declaration-no-important
+//stylelint-disable rule-empty-line-before
+@mixin mars-build-helpers-align($prefix: "align-"){
+  @include msg-css("🚀 mars-build-helpers-align");
+
+  .#{$prefix}baseline    { vertical-align: baseline !important; } // Browser default
+  .#{$prefix}top         { vertical-align: top !important; }
+  .#{$prefix}middle      { vertical-align: middle !important; }
+  .#{$prefix}bottom      { vertical-align: bottom !important; }
+  .#{$prefix}text-bottom { vertical-align: text-bottom !important; }
+  .#{$prefix}text-top    { vertical-align: text-top !important; }
+}
+
+@mixin mars-build-helpers-bg($prefix: "bg-", $colors: $colors){
+  @include msg-css("🚀 mars-build-helpers-bg");
+
+  .#{$prefix}white { background-color: $white !important; }
+  .#{$prefix}transparent { background-color: transparent !important; }
+
+  @each $color in $colors {
+    .#{$prefix}#{nth($color, 1)} {
+      @include bg(nth($color, 2));
+    }
+  }
+}
+
+@mixin mars-build-helpers-colors($prefix: "color-", $colors: $colors){
+  @include msg-css("🚀 mars-build-helpers-colors");
+
+  @each $color in $colors {
+    .#{$prefix}#{nth($color, 1)} {
+      color: nth($color, 2);
+    }
+  }
+}
+
+@mixin mars-build-helpers-pull($prefix: "pull-") {
+  @include msg-css("🚀 mars-build-helpers-pull");
+
+  .#{$prefix}left  { @include pull-left; }
+  .#{$prefix}right { @include pull-right; }
+}
+
+@mixin mars-build-helpers-ratio($prefix: "ratio-"){
+  @include msg-css("🚀 mars-build-helpers-ratio");
+
+  %ratio {
+    @include ratio;
+  }
+
+  .#{$prefix}16-9 {
+    @extend %ratio;
+    padding-top: percent-ratio(16, 9);
+  }
+
+  .#{$prefix}4-3 {
+    @extend %ratio;
+    padding-top: percent-ratio(4, 3);
+  }
+
+  .#{$prefix}1-1 {
+    @extend %ratio;
+    padding-top: percent-ratio(1, 1);
+  }
+}
+
+@mixin mars-build-helpers-text($prefix: "text-"){
+  @include msg-css("🚀 mars-build-helpers-text");
+
+  .#{$prefix}lowercase   { text-transform: lowercase !important; }
+  .#{$prefix}uppercase   { text-transform: uppercase !important; }
+  .#{$prefix}capitalize  { text-transform: capitalize !important; }
+  .#{$prefix}upper-first {
+    &::first-letter{
+      text-transform: capitalize !important;
+    }
+  }
+  .#{$prefix}hide       { @include text-hide; }
+  .#{$prefix}truncate   { @include text-truncate; }
+}
+
+@mixin mars-build-helpers(
+  $prefix-align: "align-",
+  $prefix-bg: "bg-",
+  $prefix-colors: "color-",
+  $prefix-pull: "pull-",
+  $prefix-ratio: "ratio-",
+  $prefix-text: "text-",
+  $colors: $colors){
+
+  @include mars-build-helpers-align($prefix-align);
+  @include mars-build-helpers-bg($prefix-bg, $colors);
+  @include mars-build-helpers-colors($prefix-colors, $colors);
+  @include mars-build-helpers-pull($prefix-pull);
+  @include mars-build-helpers-ratio($prefix-ratio);
+  @include mars-build-helpers-text($prefix-text);
+}
