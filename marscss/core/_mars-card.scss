@@ -1,18 +1,15 @@
-@mixin mars-card(
-  $background: $white,
-  $padding: $grid-gutter-width/2,
-  $border: 1px solid $border-color,
-  $border-radius: false,
-
-  $__content: __content,
-  $__image: __image,
-  $__header: __header,
-  $__footer: __footer){
-
-  position: relative;
-  background: $background;
-  border: $border;
-  border-radius: $border-radius;
+@mixin mars-card($background: $white,
+                 $padding: $grid-gutter-width/2,
+                 $border: 1px solid $border-color,
+                 $border-radius: false,
+                 $__content: __content,
+                 $__image: __image,
+                 $__header: __header,
+                 $__footer: __footer){
+  @include mars-card-root($background,
+                          $padding,
+                          $border,
+                          $border-radius);
 
   @if ($__content != false){
     &#{$__content} {
@@ -41,6 +38,16 @@
       @include mars-card-footer-item($padding, $border, $border-radius);
     }
   }
+}
+
+@mixin mars-card-root($background: $white,
+                      $padding: $grid-gutter-width/2,
+                      $border: 1px solid $border-color,
+                      $border-radius: false){
+  position: relative;
+  background: $background;
+  border: $border;
+  border-radius: $border-radius;
 }
 
 @mixin mars-card-content ($padding: false) {
@@ -86,7 +93,9 @@
   }
 }
 
-@mixin mars-card-footer-item ($padding: false, $border: false, $border-radius: false) {
+@mixin mars-card-footer-item ($padding: false,
+                              $border: false,
+                              $border-radius: false) {
   display: flex;
   flex: 1 0 0;
   align-items: center;

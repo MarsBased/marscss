@@ -11,7 +11,10 @@
 @include mars-tests;
 @include mars-build-reset;
 
+.block{
+  width: 90%;
+  margin: 30px;
+}
 
-// CUSTOM RULES
 
-
+.card { @include mars-card; }

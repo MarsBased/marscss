@@ -1,0 +1,28 @@
+<div class="block__header">
+  <h1>Cards</h1>
+</div>
+<p>
+  Cards may contain a photo, text, and a link about a single subject.
+  They may display content containing elements of varying size, such as
+  photos with captions of variable length.
+</p>
+
+<div class="block__part">
+  <div class="card">
+    <div class="card__header">
+      <h1>The cards</h1>
+    </div>
+    <div class="card__content">
+      <%= image_tag Faker::LoremPixel.image("200x200", false, 'sports'),
+                    class: 'card__image' %>
+      <% Faker::Lorem.paragraphs(3).each do |a| %>
+        <%= content_tag :p, a %>
+      <% end %>
+    </div>
+    <div class="card__footer">
+      <p class="card__footer-item">
+        <%= Faker::Lorem.sentence(3) %>
+      </p>
+    </div>
+  </div>
+</div>

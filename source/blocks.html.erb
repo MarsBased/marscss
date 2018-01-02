@@ -1,0 +1,23 @@
+---
+title: Blocks
+body: Blocks
+---
+
+<% blocks = %w[ cards ] %>
+
+
+<div class="main-content">
+  <ul class="sidebar">
+    <% blocks.each do |block| %>
+      <%= link_to block, "##{block}" %>
+    <% end %>
+  </ul>
+
+  <div class="blocks">
+    <% blocks.each do |block| %>
+      <section id="<%= block %>" class="block">
+        <%= partial "blocks/#{block}" %>
+      </section>
+    <% end %>
+  </div>
+</div>
