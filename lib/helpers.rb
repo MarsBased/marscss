@@ -1,6 +1,6 @@
 module Helpers
 
-  def active(name, class_name = 'active', reverse = false)
+  def active(name, class_name = 'is-active', reverse = false)
     if(class_active = current_page.data.active)
       class_active.split(/[\s,']/)
       if(reverse)

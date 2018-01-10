@@ -1,10 +1,12 @@
 require "lib/helpers"
 helpers Helpers
 
+set :markdown, :fenced_code_blocks => true
 set :relative_links, true
 
 activate :pry
 activate :directory_indexes
+activate :syntax
 activate :webpack
 
 configure :development do

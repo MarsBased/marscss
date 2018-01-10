@@ -1,6 +1,6 @@
 //stylelint-disable rule-empty-line-before,
-@mixin mars-build-fonts {
-  @include msg-css("🚀 mars-build-fonts");
+@mixin mars-build-fonts-class {
+  @include msg-css("🚀 mars-build-fonts-class");
 
   .h1{ @include h1; }
   .h2{ @include h2; }
@@ -9,10 +9,10 @@
   .h5{ @include h5; }
   .h6{ @include h6; }
 
-  p { @include p; }
-  ul{ @include ul; }
-  ol{ @include ol; }
-  dl{ @include dl; }
+  .p { @include p; }
+  .ul{ @include ul; }
+  .ol{ @include ol; }
+  .dl{ @include dl; }
 
   .s1{ @include s1; }
   .s2{ @include s2; }
@@ -21,5 +21,30 @@
   .s5{ @include s5; }
   .s6{ @include s6; }
   .large{ @include large; }
-  small, .small{ @include small; }
+  .small{ @include small; }
+}
+
+@mixin mars-build-fonts-html($selector: "%html-content") {
+  @include msg-css("🚀 mars-build-fonts-html");
+
+  #{$selector} {
+    h1{ @include h1; }
+    h2{ @include h2; }
+    h3{ @include h3; }
+    h4{ @include h4; }
+    h5{ @include h5; }
+    h6{ @include h6; }
+
+    p { @include p; }
+    ul{ @include ul; }
+    ol{ @include ol; }
+    dl{ @include dl; }
+
+    small{ @include small; }
+  }
+}
+
+@mixin mars-build-fonts($selector-html: "%html-content") {
+  @include mars-build-fonts-class;
+  @include mars-build-fonts-html($selector-html);
 }

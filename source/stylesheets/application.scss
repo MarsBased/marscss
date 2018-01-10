@@ -1,15 +1,21 @@
-// CUSTOM VARIABLES
-@import "utilities/variables";
+
 
 // CORE MARSCSS
 @import "../../marscss/marscss";
 
-// CUSTOM CORE
+// CUSTOM VARIABLES
+@import "utilities/variables";
 
+// CUSTOM CORE
+@import "base/code";
+@import "blocks/sidebar-menu";
 
 // BUILDERS MARSCSS
 @include mars-tests;
 @include mars-build-reset;
+@include mars-build-fonts;
+
+@import "layouts/documentation";
 
 .block{
   width: 90%;

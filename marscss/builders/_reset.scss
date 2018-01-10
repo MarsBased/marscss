@@ -21,6 +21,7 @@
     background-color: transparent;
     border: 0;
     appearance: none;
+
     &:hover,
     &:focus,
     &:active{
@@ -34,5 +35,11 @@
     margin-bottom: 0;
     font-size: inherit;
     color: inherit;
+  }
+
+  ul, ol, dl {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
   }
 }

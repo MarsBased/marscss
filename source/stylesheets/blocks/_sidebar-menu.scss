@@ -1,0 +1,46 @@
+.sidebar-menu {
+  $color-is-active: $gray-800;
+  $color: $gray-600;
+
+  position: relative;
+
+  li {
+    position: relative;
+    padding-left: .5em;
+    margin-bottom: .5em;
+    color: $color;
+
+    > & a {
+      font-weight: 800;
+      color: $color-is-active;
+    }
+  }
+
+  > li {
+    color: $color-is-active;
+  }
+
+  ul li {
+    padding-left: 1.5em;
+
+    &.is-active {
+      color: $color-is-active;
+
+      &::after {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 2px;
+        content: "";
+        background-color: $primary;
+      }
+    }
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+}

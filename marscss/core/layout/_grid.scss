@@ -35,6 +35,8 @@
   padding-left: ($grid-gutter-width / 2);
 }
 
+%grid-column { @include make-col-ready; }
+
 @mixin make-col($size, $columns: $grid-columns) {
   @if is-percentage($size) or is-length($size) {
     flex: 0 0 $size;
