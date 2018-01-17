@@ -1,4 +1,3 @@
-import './body/$_get';
-import './body/open-menu';
-import './body/scrollTo';
+import './body/$_get.js'
+import './body/example-tabs.js'
 import './body/modernizr.objectfit';

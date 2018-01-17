@@ -13,6 +13,12 @@ pre {
   }
 }
 
+code {
+  font-family: Consolas, "Courier New", monospace;
+  font-weight: 700;
+  color: $primary;
+}
+
 //monokai
 .highlight {
   $gray: #8f8e8e;

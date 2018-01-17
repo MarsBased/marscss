@@ -1,0 +1,22 @@
+.example-tabs {
+  margin-top: $gutter;
+
+  &__container {
+    & > *:not(.is-active) {
+      display: none;
+    }
+  }
+
+  &__btn {
+    padding: .5em;
+    margin-right: 1em;
+    color: $white;
+    cursor: pointer;
+    background-color: $gray-400;
+    transition: background-color .3s ease-out;
+
+    &:hover, &:focus, &.is-active {
+      background-color: $gray-800;
+    }
+  }
+}
