@@ -1,36 +1,12 @@
-# MarsMan
+# marscss
 
-<a href="https://waffle.io/MarsBased/marsman"><img src="https://img.shields.io/badge/Waffle-marsman-blue.svg?colorB=78bdf2" /></a>
-
-Frontend framework for starting new projects.
-
-Take a look at https://marsman.marsbased.com
-
-Developed with Middleman (https://middlemanapp.com/). Uses Grunt to automatize SVG inline generation.
-
-## MarsMan Installation
-
-To use MarsMan as a template, init the project with the following command:
-
-```
-middleman init new_project -T marsbased/marsman
-```
+Framework for professional front-end for faster and easier web development.
 
 =======
 
-# Project README
+## Running documentation
 
-## Development
-
-```
-npm install
-bundle install
-bundle exec middleman server
-```
-
-To update the SVG shapes, place the needed SVG files inside source/shapes and
-call:
-
-```
-grunt svg
-```
+1. Run `bundle install` to install Ruby and middleman dependencies
+2. Run `npm install` to install Node.js dependencies.
+3. Run `bundle exec middleman server` to up middleman server
+4. Open http://localhost:4567/documentation in you browser
