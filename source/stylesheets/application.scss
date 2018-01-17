@@ -25,3 +25,8 @@
 
 
 .card { @include mars-card; }
+
+// documentation/components/alert
+.alert { @include mars-alert; }
+.alert-info { @include mars-alert($teal, $gray-800); }
+.alert-warning { @include mars-alert($yellow, $gray-800); }

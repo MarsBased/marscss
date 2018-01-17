@@ -24,4 +24,9 @@ body.documentation {
 
     @extend %html-content;
   }
+
+  .documentation-example {
+    padding: $gutter/2;
+    border: 2px solid $gray-200;
+  }
 }

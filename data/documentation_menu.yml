@@ -8,3 +8,8 @@
   subpages:
   - name: What are the builders?
     url: 'builders'
+- name: Components
+  url: 'components/alerts'
+  subpages:
+  - name: Alerts
+    url: 'components/alerts'

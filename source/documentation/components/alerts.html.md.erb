@@ -1,0 +1,68 @@
+---
+title: marscss components
+layout: documentation
+active: Components, Alerts
+---
+
+# Alerts
+
+
+## Alert Builder
+
+If you want to use alerts first you need to add the mars-alert style and classe to a css element. To do this you should add the mars-alert builder like:
+
+~~~scss
+.alert { @include mars-alert; }
+~~~
+
+This generate the next css:
+
+[TODO]
+
+
+And now you have the defaults MarsCss alert:
+
+<% example_html do %>
+<div class="alert">
+  This is an alert sample!
+</div>
+<% end %>
+
+By default you have the closer too:
+
+<% example_html do %>
+<div class="alert">
+  This is an alert sample!
+  <div class="alert__close">X</div>
+</div>
+<% end %>
+
+
+## Working with alerts
+
+With  MARSCSS you don't have a lot of alerts classes, you have an easy way to add only the alerts that you need. If for example, you need two different alerts one for info and one for a warning, you can use the mars-alert mixin and set different arguments.
+
+~~~scss
+.alert-info { @include mars-alert($indigo); }
+.alert-warning { @include mars-alert($yellow, $black); }
+~~~
+
+This generate the next css:
+
+[TODO]
+
+And you could use the building like:
+
+<% example_html do %>
+<div class="alert-info">
+  This is an alert sample!
+</div>
+
+<div class="alert-warning">
+  This is an alert sample!
+</div>
+<% end %>
+
+### Arguments
+
+[TODO]
