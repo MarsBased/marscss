@@ -1,6 +1,5 @@
 const merge = require('webpack-merge');
 const sharedConfig = require('./shared.js');
-const postcssConsole = require('postcss-console');
 
 module.exports = merge(sharedConfig, {
   devtool: 'sourcemap',
