@@ -1,17 +1,20 @@
-// CORE MARSCSS
+// MARSCSS CORE
 @import "../../marscss/marscss";
 
 // CUSTOM VARIABLES
 @import "utilities/variables";
 
 // CUSTOM CORE
-@import "base/code";
-@import "blocks/example-tabs";
-@import "blocks/sidebar-menu";
 
-// BUILDERS MARSCSS
+// MARSCSS BUILDERS
 @include mars-tests;
 @include mars-build-reset;
 @include mars-build-fonts;
+
+// CUSTOM CSS
+@import "base/code";
+
+@import "blocks/example-tabs";
+@import "blocks/sidebar-menu";
 
 @import "layouts/documentation";
