@@ -1,7 +1,12 @@
 .example-tabs {
   margin-top: $gutter;
 
+  &__menu {
+    margin-bottom: $gutter/2;
+  }
+
   &__container {
+    margin-bottom: $gutter/2;
     & > *:not(.is-active) {
       display: none;
     }
