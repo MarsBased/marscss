@@ -11,11 +11,11 @@
 
     //add to names child items
     $items.each(function(){
-      if($(this).hasClass('highlight')){
+      if (name = $(this).data('code-lang')) {
+        names.push(name);
+      } else if($(this).hasClass('highlight')){
         var cssClass = $(this).children().attr('class').split(' ');
         names.push(cssClass.pop())
-      } else if (name = $(this).data('code-lang')) {
-        names.push(name);
       } else {
         names.push('html');
       }
