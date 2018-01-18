@@ -13,8 +13,12 @@
 
 // CUSTOM CSS
 @import "base/code";
+@import "base/extend";
+@import "base/general";
 
+@import "blocks/header";
 @import "blocks/example-tabs";
+@import "blocks/footer";
 @import "blocks/sidebar-menu";
 
 @import "layouts/documentation";

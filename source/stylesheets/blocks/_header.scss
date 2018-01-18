@@ -1,0 +1,40 @@
+.header {
+  color: $white;
+  background-color: $primary;
+
+  &__container {
+    @extend %container;
+    display: flex;
+    align-items: center;
+    padding-top: $gutter/4;
+    padding-bottom: $gutter/4;
+  }
+
+  &__logo {
+    flex: 1 0 auto;
+    font-size: $font-size-h2;
+  }
+
+  &__menu {
+    flex: 0 0 auto;
+
+    a {
+      display: inline-block;
+      padding: .25em .75em;
+      margin-right: .25em;
+      margin-left: .25em;
+      background-color: rgba($white, .2);
+      border-radius: .5rem;
+      transition: background-color .3s ease-out;
+
+      &:hover,
+      &:focus {
+        background-color: rgba($black, .2);
+      }
+
+      &.is-active {
+        background-color: rgba($black, .1);
+      }
+    }
+  }
+}

@@ -16,7 +16,11 @@
     <%= javascript_pack_tag 'vendor' %>
   </head>
   <body class="<%= current_page.data.body %> <%= current_page.options[:layout] %>">
-    <%= yield %>
+    <%= partial 'partials/header' %>
+    <div class="main-content">
+      <%= yield %>
+    </div>
+    <%= partial 'partials/footer' %>
     <%= javascript_pack_tag 'body' %>
   </body>
 </html>

@@ -1,0 +1,7 @@
+.footer {
+  color: $white;
+
+  &__container {
+    @extend %container;
+  }
+}

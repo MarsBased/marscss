@@ -1,4 +1,6 @@
 $mars-debug: true;
 
-$primary:                     $red;
-$color-font-base:             $gray-800;
+$primary:           $red;
+$color-font-base:   $gray-800;
+
+$container:         map-get($container-max-widths, "xl");
