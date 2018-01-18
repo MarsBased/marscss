@@ -50,4 +50,13 @@ module Helpers
       end
     )
   end
+
+  def markdown(&block)
+    #remove tabs
+    result = capture_html(&block).gsub(/\t/, '')
+    puts result
+    concat_content(
+      Tilt['markdown'].new { result }.render
+    )
+  end
 end

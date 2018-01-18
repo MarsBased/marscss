@@ -1,6 +1,10 @@
 $mars-debug: true;
+$images-path:       "~assets/images/";
 
-$primary:           $red;
-$color-font-base:   $gray-800;
+$font-family-base:            "Roboto", sans-serif;
 
-$container:         map-get($container-max-widths, "xl");
+$primary:                     $red;
+$color-font-base:             $gray-800;
+
+$header-height:               4.5rem;
+$container:                   map-get($container-max-widths, "xl");

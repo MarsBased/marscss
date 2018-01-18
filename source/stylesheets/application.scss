@@ -5,20 +5,27 @@
 @import "utilities/variables";
 
 // CUSTOM CORE
+@function image-url($image-name) {
+  @return url("~assets/images/#{$image-name}");
+}
 
 // MARSCSS BUILDERS
 @include mars-tests;
 @include mars-build-reset;
 @include mars-build-fonts;
+@include mars-build-flex-columns;
 
 // CUSTOM CSS
 @import "base/code";
 @import "base/extend";
 @import "base/general";
 
-@import "blocks/header";
+@import "blocks/block";
 @import "blocks/example-tabs";
 @import "blocks/footer";
+@import "blocks/header";
+@import "blocks/hero";
 @import "blocks/sidebar-menu";
 
 @import "layouts/documentation";
+@import "layouts/home";

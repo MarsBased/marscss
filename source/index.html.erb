@@ -1,7 +1,39 @@
 ---
 title: Welcome to marscss
 body: home
+active: home
 ---
 
-<div class="main-content">
+<div class="hero">
+	<div class="hero__background">
+		<div class="hero__container">
+			<h1 class="hero__title">mars<strong>css</strong></h1>
+			<p class="hero__text">
+				The front-end framework, from 0KB
+			</p>
+		</div>
+	</div>
+</div>
+<div class="block">
+	<div class="block__container columns-xs">
+		<div class="block__content">
+			<h2 class="h1">framework marscss</h1>
+			<p><%= lorem.words(20).humanize %></p>
+			<p><%= lorem.words(12).humanize %></p>
+		</div>
+		<div class="block__content">
+			<h2 class="h1">framework marscss</h1>
+			<p><%= lorem.words(20).humanize %></p>
+			<p><%= lorem.words(12).humanize %></p>
+		</div>
+		<div class="block__content">
+			<h2 class="h1">framework marscss</h1>
+			<% markdown do %>
+			~~~scss
+			@include mars-build();
+			@include other...
+			~~~
+			<% end %>
+		</div>
+	</div>
 </div>
