@@ -1,15 +1,20 @@
 pre {
   padding: $gutter/2;
+  margin: 0;
 
   &:not(.highlight) {
+    margin: 3rem 0;
     background-color: #f2f2f2;
     border: none;
     border-radius: 3px;
-    margin: 3rem 0;
 
     code {
       background-color: #f2f2f2;
     }
+  }
+
+  code {
+    color: inherit;
   }
 }
 
@@ -20,6 +25,7 @@ code {
 }
 
 //monokai
+
 .highlight {
   $gray: #8f8e8e;
   background: #272822;
