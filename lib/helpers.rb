@@ -33,7 +33,8 @@ module Helpers
 
   def example_html(&block)
     concat_content(
-      content_tag(:div, class: 'documentation-example') do
+      content_tag(:div, class: 'documentation-example',
+       data: { "code-lang" => 'Example' } ) do
         capture_html(&block)
       end
     )
