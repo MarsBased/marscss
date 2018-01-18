@@ -5,6 +5,7 @@
 
   $tabs.each(function(){
     var names = [],
+        name,
         $items = $(this).children(),
         htmlButtons;
 
@@ -13,8 +14,10 @@
       if($(this).hasClass('highlight')){
         var cssClass = $(this).children().attr('class').split(' ');
         names.push(cssClass.pop())
-      } else  {
-        names.push('html')
+      } else if (name = $(this).data('code-lang')) {
+        names.push(name);
+      } else {
+        names.push('html');
       }
     })
 
