@@ -8,15 +8,13 @@ const { sync } = require('glob');
 const isProduction = process.env.NODE_ENV === 'production';
 const publicPath = 'dist';
 
-process.noDeprecation = true;
-
 module.exports = {
   entry: {
     body: './source/javascripts/body.js',
     head: './source/javascripts/head.js',
     application: './source/stylesheets/application.scss',
     images: sync('./source/images/**/*', { nodir: true }),
-    vendor: ['lodash', 'jquery', 'bootstrap-loader']
+    vendor: ['lodash', 'jquery', 'bootstrap-loader', 'select2']
   },
 
   output: {
@@ -86,7 +84,7 @@ module.exports = {
         use: [{
           loader: 'file-loader',
           options: {
-            publicPath: 'img/',
+            publicPath: '',
             outputPath: 'img/',
             context: 'source/images/',
             // can't use 'images' because it conflicts with Middleman
