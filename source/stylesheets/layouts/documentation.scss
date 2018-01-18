@@ -1,3 +1,4 @@
+//stylelint-disable rule-empty-line-before,
 body.documentation {
   .wrapper {
     @include make-container;
@@ -29,4 +30,9 @@ body.documentation {
     padding: $gutter/2;
     border: 2px solid $gray-200;
   }
+
+  //http://localhost:4567/documentation/components/alerts
+  .alert { @include mars-alert; }
+  .alert-info { @include mars-alert($teal, $gray-800); }
+  .alert-warning { @include mars-alert($yellow, $gray-800); }
 }

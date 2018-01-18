@@ -1,5 +1,3 @@
-
-
 // CORE MARSCSS
 @import "../../marscss/marscss";
 
@@ -17,16 +15,3 @@
 @include mars-build-fonts;
 
 @import "layouts/documentation";
-
-.block{
-  width: 90%;
-  margin: 30px;
-}
-
-
-.card { @include mars-card; }
-
-// documentation/components/alert
-.alert { @include mars-alert; }
-.alert-info { @include mars-alert($teal, $gray-800); }
-.alert-warning { @include mars-alert($yellow, $gray-800); }
