@@ -8,6 +8,8 @@ const { sync } = require('glob');
 const isProduction = process.env.NODE_ENV === 'production';
 const publicPath = 'dist';
 
+process.noDeprecation = true;
+
 module.exports = {
   entry: {
     body: './source/javascripts/body.js',
