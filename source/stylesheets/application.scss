@@ -5,9 +5,7 @@
 @import "utilities/variables";
 
 // CUSTOM CORE
-@function image-url($image-name) {
-  @return url("~assets/images/#{$image-name}");
-}
+
 
 // MARSCSS BUILDERS
 @include mars-tests;
