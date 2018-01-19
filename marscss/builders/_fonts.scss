@@ -14,12 +14,12 @@
   .ol{ @include ol; }
   .dl{ @include dl; }
 
-  .s1{ @include s1; }
-  .s2{ @include s2; }
-  .s3{ @include s3; }
-  .s4{ @include s4; }
-  .s5{ @include s5; }
-  .s6{ @include s6; }
+  .fs1{ @include fs1; }
+  .fs2{ @include fs2; }
+  .fs3{ @include fs3; }
+  .fs4{ @include fs4; }
+  .fs5{ @include fs5; }
+  .fs6{ @include fs6; }
   .large{ @include large; }
   .small{ @include small; }
 }

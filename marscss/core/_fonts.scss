@@ -138,11 +138,11 @@
 @mixin extend-blockquote {}
 
 
-@mixin s1{ font-size: $font-size-h1; }
-@mixin s2{ font-size: $font-size-h2; }
-@mixin s3{ font-size: $font-size-h3; }
-@mixin s4{ font-size: $font-size-h4; }
-@mixin s5{ font-size: $font-size-h5; }
-@mixin s6{ font-size: $font-size-h6; }
+@mixin fs1{ font-size: $font-size-h1; }
+@mixin fs2{ font-size: $font-size-h2; }
+@mixin fs3{ font-size: $font-size-h3; }
+@mixin fs4{ font-size: $font-size-h4; }
+@mixin fs5{ font-size: $font-size-h5; }
+@mixin fs6{ font-size: $font-size-h6; }
 @mixin large{ font-size: $font-size-large; }
 @mixin small{ font-size: $font-size-small; }
