@@ -17,6 +17,21 @@
   color: $color-font-base;
 }
 
+@mixin a {
+  color: $primary;
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
+  transition: border .3s ease-out, color .3s ease-out;
+
+  &:hover,
+  &:focus {
+    color: darken($primary, 20%);
+    border-bottom-color: currentColor;
+  }
+
+  @include extend-a;
+}
+@mixin extend-a {}
+
 @mixin common-headings {
   margin-bottom: 1rem;
 }

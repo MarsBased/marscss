@@ -2,6 +2,8 @@
 @mixin mars-build-fonts-class {
   @include msg-css("🚀 mars-build-fonts-class");
 
+  .a{ @include a; }
+
   .h1{ @include h1; }
   .h2{ @include h2; }
   .h3{ @include h3; }
@@ -28,6 +30,8 @@
   @include msg-css("🚀 mars-build-fonts-html");
 
   #{$selector} {
+    a{ @include a; }
+
     h1{ @include h1; }
     h2{ @include h2; }
     h3{ @include h3; }
