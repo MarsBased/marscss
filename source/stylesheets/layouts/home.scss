@@ -2,21 +2,16 @@ body.home {
   .hero {
     color: $white;
     background-color: $black;
-    background-image: image-url("space.jpg");
-    background-repeat: no-repeat;
-    background-position: 0 0;
-    background-size: cover;
 
     &__title {
       font-weight: 300;
       text-shadow: 0 0 1rem rgba($black, .3);
       opacity: 0;
-      //transform: translateY(50%) scale(2);
       animation: 5s ease-out 2s home-fade;
       animation-fill-mode: forwards;
 
       strong {
-        font-weight: 500;
+        font-weight: 400;
       }
     }
 
@@ -42,7 +37,7 @@ body.home {
         background-position-y: 0;
         background-size: 100% auto;
         transform: translateY(100%);
-        animation: 24s ease-in home-mars;
+        animation: 24s ease-out home-mars;
         animation-fill-mode: forwards;
       }
     }
@@ -54,8 +49,6 @@ body.home {
     opacity: 0;
     transform: translateY(50%) scale(2);
   }
-
-
 
   40% {
     transform: translateY(0) scale(1);
