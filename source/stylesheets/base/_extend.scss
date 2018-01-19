@@ -2,3 +2,7 @@
   @include make-container;
   max-width: $container;
 }
+
+%row {
+  @include make-row;
+}

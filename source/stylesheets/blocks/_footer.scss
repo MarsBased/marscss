@@ -2,6 +2,8 @@
   color: $white;
 
   &__container {
+    padding-top: $gutter;
+    padding-bottom: $gutter;
     @extend %container;
   }
 }

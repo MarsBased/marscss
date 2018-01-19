@@ -1,7 +1,7 @@
 //stylelint-disable rule-empty-line-before,
 body.documentation {
   .wrapper {
-    @include make-container;
+    @extend %container;
     @extend %row;
   }
 
