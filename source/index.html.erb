@@ -9,7 +9,7 @@ active: home
 		<div class="hero__container">
 			<h1 class="hero__title">mars<strong>css</strong></h1>
 			<p class="hero__text">
-				The front-end framework, from 0KB
+				The framework for front-end, from 0 KB
 			</p>
 		</div>
 	</div>
@@ -17,22 +17,31 @@ active: home
 <div class="block">
 	<div class="block__container columns-xs">
 		<div class="block__content">
-			<h2 class="h1">framework marscss</h1>
-			<p><%= lorem.words(20).humanize %></p>
-			<p><%= lorem.words(12).humanize %></p>
+			
 		</div>
 		<div class="block__content">
-			<h2 class="h1">framework marscss</h1>
-			<p><%= lorem.words(20).humanize %></p>
-			<p><%= lorem.words(12).humanize %></p>
+			<h2>Why is the marscss framework different?</h2>
+
+			<p>Unlike other CSS frameworks it works through mixins and not with rules, which allows us to have access to an infinite number of possibilities without adding a line to CSS</p>
+
+      <p>Although there are mechanisms to generate css such as builders or components, their potential lies in that they in turn work generating code from mixins with what can be rewritten.</p>
 		</div>
 		<div class="block__content">
-			<h2 class="h1">framework marscss</h1>
-			<% markdown do %>
-			~~~scss
-			@include mars-build();
-			@include other...
-			~~~
+      <% markdown do %>
+      ~~~scss
+      // MARSCSS CORE
+      @import "../../marscss/marscss";
+
+      // CUSTOM VARIABLES
+      @import "utilities/variables";
+
+      // CUSTOM CORE
+
+      // MARSCSS BUILDERS
+      @include mars-build-reset;
+
+      // WEB STYLES
+      ~~~
 			<% end %>
 		</div>
 	</div>
