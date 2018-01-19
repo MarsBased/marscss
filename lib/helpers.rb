@@ -52,11 +52,11 @@ module Helpers
   end
 
   def markdown(&block)
-    #remove tabs
-    result = capture_html(&block).gsub(/\t/, '')
-    puts result
+    content = capture_html(&block)
+    indent = content.scan(/^[ \t]*(?=\S)/).min.try(:size) || 0
+
     concat_content(
-      Tilt['markdown'].new { result }.render
+      Tilt['markdown'].new { content.gsub(/^[ \t]{#{indent}}/, '') }.render
     )
   end
 end
