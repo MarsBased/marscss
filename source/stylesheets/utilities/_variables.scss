@@ -1,10 +1,7 @@
 $mars-debug: true;
-$images-path:       "~assets/images/";
+$images-path:                 "~assets/images/";
 
-$font-family-base:            "Roboto", sans-serif;
-
-$primary:                     $red;
-$color-font-base:             $gray-800;
+$primary:                     #dc3545;
 
 $header-height:               4.5rem;
 $container:                   100%;

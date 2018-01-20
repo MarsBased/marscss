@@ -63,9 +63,10 @@ $colors: map-merge(
 );
 
 $primary:                     $blue !default;
-$border-color:                $gray-300;
-$color-font-base:             #000 !default;
-$font-family-base:            "Lato", sans-serif !default;
+$border-color:                $gray-300 !default;
+$color-font-base:             $black !default;
+$color-link:                  $primary !default;
+$font-family-base:            "Roboto", sans-serif !default;
 $font-weight-base:            normal !default;
 $line-height-base:            1.4 !default;
 
@@ -82,8 +83,9 @@ $font-size-h5:                $font-size-base !default;
 $font-size-h6:                $font-size-small !default;
 
 $grid-columns:                12 !default;
-$grid-gutter-width:           3rem !default;
-$gutter:                      $grid-gutter-width;
+$gutter:                      3rem !default;
+$grid-gutter-width:           $gutter !default;
+
 $grid-breakpoints: (
   xs: 0,
   sm: 576px,
@@ -92,14 +94,9 @@ $grid-breakpoints: (
   xl: 1200px
 ) !default;
 
-@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
-@include _assert-starts-at-zero($grid-breakpoints);
-
 $container-max-widths: (
   sm: 540px,
   md: 720px,
   lg: 960px,
   xl: 1140px
 ) !default;
-
-@include _assert-ascending($container-max-widths, "$container-max-widths");
