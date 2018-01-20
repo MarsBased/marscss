@@ -8,10 +8,6 @@
   %columns {
     margin-right: $grid-gutter-width / -2;
     margin-left: $grid-gutter-width / -2;
-
-    & > *:not(.column) {
-      @extend %column;
-    }
   }
 
   .column {
