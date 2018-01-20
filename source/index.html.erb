@@ -14,26 +14,31 @@ active: home
 		</div>
 	</div>
 </div>
-<div class="block">
-	<div class="block__container columns-xs">
-		<div class="block__content">
-			
+<div class="column-block">
+	<div class="column-block__container columns-xs">
+		<div class="column-block__content">
+			<blockquote>
+        <p>
+          minima commodi quisquam ullam aliquid numquam ipsa voluptatum ab minima
+        </p>
+        <cite>download</cite>
+      </blockquote>
 		</div>
-		<div class="block__content">
+		<div class="column-block__content">
 			<h2>Why is the marscss framework different?</h2>
 
-			<p>Unlike other CSS frameworks it works through mixins and not with rules, which allows us to have access to an infinite number of possibilities without adding a line to CSS</p>
+			<p>Unlike other CSS frameworks it works through mixins and not with rules, which allows us to have access to an infinite number of possibilities without adding a line to CSS file</p>
 
       <p>Although there are mechanisms to generate css such as builders or components, their potential lies in that they in turn work generating code from mixins with what can be rewritten.</p>
 		</div>
-		<div class="block__content">
+		<div class="column-block__content">
       <% markdown do %>
       ~~~scss
-      // MARSCSS CORE
-      @import "../../marscss/marscss";
-
       // CUSTOM VARIABLES
       @import "utilities/variables";
+
+      // MARSCSS CORE
+      @import "../../marscss/marscss";
 
       // CUSTOM CORE
 

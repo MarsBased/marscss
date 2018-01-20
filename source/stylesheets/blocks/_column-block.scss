@@ -1,0 +1,18 @@
+.column-block {
+  &__container {
+    //padding-top: $gutter;
+    //padding-bottom: $gutter;
+    @extend %container;
+    @extend %columns;
+  }
+
+  &__content {
+    @extend %column;
+    @extend %html-content;
+    padding: $gutter;
+
+    &:not(:first-of-type){
+      border-left: 1px solid $gray-200;
+    }
+  }
+}

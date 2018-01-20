@@ -16,7 +16,7 @@ body.home {
     }
 
     &__text {
-      text-shadow: 0 0 1rem rgba($black, .4);
+      text-shadow: 0 0 .5rem rgba($black, .5);
       opacity: 0;
       animation: 6s ease-out 6s home-fade;
       animation-fill-mode: forwards;
