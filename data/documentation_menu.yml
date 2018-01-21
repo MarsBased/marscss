@@ -8,6 +8,8 @@
   subpages:
   - name: What are the builders?
     url: 'builders'
+  - name: mars-build-reset
+    url: 'builders/mars-build-reset'
 - name: Components
   url: 'components/alerts'
   subpages:

@@ -1,0 +1,81 @@
+---
+title: mars-build-reset
+layout: documentation
+active: Builders, mars-build-reset
+---
+
+#mars-build-reset
+
+This builder is responsible for restarting the default styles of browsers, unlike normalize.css we do not look for everyone to have the same appearance but we seek to eliminate the appearance of the default markup.
+
+The idea of marscss is to avoid that we have to redefine the presentation of the markup depending on the semantic, if there are elements that require using a label linked to the labeling we have the builder mars-build-fonts-html that can be assigned to a class or extend a specific selector.
+
+sice
+: 1.0.0
+
+<div class="alert">
+Being a CSS reset it is important that this be added first in the builders section
+</div>
+
+##Example
+<% example_tabs do %>
+~~~scss
+// BUILDERS MARSCSS
+@include mars-build-reset;
+~~~
+
+~~~css
+/* ///////// 🚀 mars-build-reset */
+* {
+  box-sizing: border-box; }
+
+html {
+  height: 100%;
+  font-size: 62.5%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px; }
+
+body {
+  min-width: 320px;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.4;
+  color: #000; }
+
+a {
+  color: inherit;
+  text-decoration: none; }
+
+button {
+  padding: 0;
+  margin: 0;
+  font-size: inherit;
+  color: inherit;
+  background-color: transparent;
+  border: 0;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none; }
+  button:hover, button:focus, button:active {
+    text-decoration: none;
+    outline: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: inherit;
+  color: inherit; }
+
+p, blockquote {
+  margin: 0; }
+
+ul, ol, dl {
+  padding: 0;
+  margin: 0;
+  list-style-type: none; }
+
+~~~
+<% end %>
+
