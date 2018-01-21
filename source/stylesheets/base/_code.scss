@@ -1,6 +1,7 @@
 pre {
   padding: $gutter/2;
   margin: 0;
+  overflow-y: auto;
 
   &:not(.highlight) {
     margin: 3rem 0;
