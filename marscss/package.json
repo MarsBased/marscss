@@ -1,13 +1,24 @@
 {
   "name": "@marsbased/marscss",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Front-end CSS framework",
   "main": "marscss.scss",
-  "repository": "http://github.com/MarsBased/marscss",
+  "sass": "marscss.scss",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarsBased/marscss.git"
+  },
   "author": "MarsBased",
   "license": "MIT",
-  "keywords": ["css", "framework", "marsbased", "scss"],
-  "homepage": "https://github.com/MarsBased/marscss#readme",
+  "keywords": [
+    "marscss",
+    "marscss.scss",
+    "css",
+    "framework",
+    "marsbased",
+    "scss"
+  ],
+  "homepage": "https://marscss.com",
   "bugs": {
     "url": "https://github.com/MarsBased/marscss/issues"
   }
