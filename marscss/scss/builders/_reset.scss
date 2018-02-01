@@ -1,5 +1,5 @@
 @mixin mars-build-reset {
-  @include msg-css("🚀 mars-build-reset");
+  @include log("🚀 mars-build-reset");
 
   * {
     box-sizing: border-box; //or inherit

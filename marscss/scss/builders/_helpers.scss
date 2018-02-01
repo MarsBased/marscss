@@ -1,7 +1,7 @@
 //stylelint-disable declaration-no-important
 //stylelint-disable rule-empty-line-before
 @mixin mars-build-helpers-align($prefix: "align-"){
-  @include msg-css("🚀 mars-build-helpers-align");
+  @include log("🚀 mars-build-helpers-align");
 
   .#{$prefix}baseline    { vertical-align: baseline !important; } // Browser default
   .#{$prefix}top         { vertical-align: top !important; }
@@ -12,7 +12,7 @@
 }
 
 @mixin mars-build-helpers-fs($prefix: "fs-"){
-  @include msg-css("🚀 mars-build-helpers-fs");
+  @include log("🚀 mars-build-helpers-fs");
 
   .#{$prefix}lead { font-size: $font-size-lead !important; }
   .#{$prefix}1{ font-size: $font-size-h1 !important; }
@@ -26,7 +26,7 @@
 }
 
 @mixin mars-build-helpers-bg($prefix: "bg-", $colors: $colors){
-  @include msg-css("🚀 mars-build-helpers-bg");
+  @include log("🚀 mars-build-helpers-bg");
 
   .#{$prefix}white { background-color: $white !important; }
   .#{$prefix}transparent { background-color: transparent !important; }
@@ -39,7 +39,7 @@
 }
 
 @mixin mars-build-helpers-colors($prefix: "color-", $colors: $colors){
-  @include msg-css("🚀 mars-build-helpers-colors");
+  @include log("🚀 mars-build-helpers-colors");
 
   @each $color in $colors {
     .#{$prefix}#{nth($color, 1)} {
@@ -49,14 +49,14 @@
 }
 
 @mixin mars-build-helpers-pull($prefix: "pull-") {
-  @include msg-css("🚀 mars-build-helpers-pull");
+  @include log("🚀 mars-build-helpers-pull");
 
   .#{$prefix}left  { @include pull-left; }
   .#{$prefix}right { @include pull-right; }
 }
 
 @mixin mars-build-helpers-ratio($prefix: "ratio-"){
-  @include msg-css("🚀 mars-build-helpers-ratio");
+  @include log("🚀 mars-build-helpers-ratio");
 
   %ratio {
     @include ratio;
@@ -79,7 +79,7 @@
 }
 
 @mixin mars-build-helpers-text($prefix: "text-"){
-  @include msg-css("🚀 mars-build-helpers-text");
+  @include log("🚀 mars-build-helpers-text");
 
   .#{$prefix}lowercase   { text-transform: lowercase !important; }
   .#{$prefix}uppercase   { text-transform: uppercase !important; }

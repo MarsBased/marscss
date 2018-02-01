@@ -1,6 +1,6 @@
 //stylelint-disable rule-empty-line-before,
 @mixin mars-build-elements-class {
-  @include msg-css("🚀 mars-build-elements-class");
+  @include log("🚀 mars-build-elements-class");
 
   .a{ @include a; }
 
@@ -21,7 +21,7 @@
 }
 
 @mixin mars-build-elements-html() {
-  @include msg-css("🚀 mars-build-elements-html");
+  @include log("🚀 mars-build-elements-html");
 
   a{ @include a; }
 

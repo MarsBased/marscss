@@ -60,7 +60,7 @@
     @include mars-card;
   }
 
-  @include msg-css("✅ mars-tests-core");
+  @include log("✅ mars-tests-core");
 }
 
 @mixin mars-tests-builders ($selector: "%test") {
@@ -73,7 +73,7 @@
     @include mars-build-grid;
   }
 
-  @include msg-css("✅ mars-tests-build");
+  @include log("✅ mars-tests-build");
 }
 
 @mixin mars-tests-variables () {
@@ -82,7 +82,7 @@
   @include _assert-starts-at-zero($grid-breakpoints);
   @include _assert-ascending($container-max-widths, "$container-max-widths");
 
-  @include msg-css("✅ mars-tests-variables");
+  @include log("✅ mars-tests-variables");
 }
 
 @mixin mars-tests($selector: "%test") {

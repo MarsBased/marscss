@@ -6,7 +6,7 @@
   $__close: __close,
   $close-padding: calc(#{$grid-gutter-width/2} + 1em)
 ){
-  @include msg-css("🚀 mars-alert");
+  @include log("🚀 mars-alert");
 
   @include mars-alert-root($bg, $color, $padding, $margin);
 
