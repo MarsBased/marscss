@@ -70,7 +70,7 @@ $font-margin:           2 + $unit !default;
 $font-size:             $base+$unit !default;
 $font-size-small:       $base * pow($multiplier, -1) + $unit !default;
 $font-size-large:       $base * pow($multiplier, 1) + $unit !default;
-$font-size-lead:        $base * pow($multiplier, 5) + $unit !default;
+$font-size-hero:        $base * pow($multiplier, 5) + $unit !default;
 $font-size-h1:          $base * pow($multiplier, 4) + $unit !default;
 $font-size-h2:          $base * pow($multiplier, 3) + $unit !default;
 $font-size-h3:          $base * pow($multiplier, 2) + $unit !default;
