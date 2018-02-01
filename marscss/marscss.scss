@@ -14,7 +14,7 @@
 @mixin mars-init-mars {
   @include mars-build-reset;
   @include mars-build-normalize;
-  @include mars-build-fonts;
+  @include mars-build-elements;
 }
 
 @if ($mars-init){

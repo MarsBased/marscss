@@ -23,7 +23,7 @@ body.documentation {
       max-width: 800px;
     }
 
-    @extend %html-content;
+    @extend %raw-html-styles;
   }
 
   .documentation-example {

@@ -188,12 +188,3 @@
   @include extend-blockquote;
 }
 @mixin extend-blockquote {}
-
-@mixin fs-1{ font-size: $font-size-h1; }
-@mixin fs-2{ font-size: $font-size-h2; }
-@mixin fs-3{ font-size: $font-size-h3; }
-@mixin fs-4{ font-size: $font-size-h4; }
-@mixin fs-5{ font-size: $font-size-h5; }
-@mixin fs-6{ font-size: $font-size-h6; }
-@mixin fs-large{ font-size: $font-size-h5; }
-@mixin fs-small{ font-size: $font-size-h6; }

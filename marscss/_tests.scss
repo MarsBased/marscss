@@ -69,8 +69,7 @@
     @include mars-build-normalize;
     @include mars-build-flex-columns;
     @include mars-build-helpers;
-    @include mars-build-fonts;
-    @include mars-build-fonts-html;
+    @include mars-build-elements;
     @include mars-build-grid;
   }
 

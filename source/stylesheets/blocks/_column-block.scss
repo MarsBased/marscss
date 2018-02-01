@@ -8,7 +8,7 @@
 
   &__content {
     @extend %column;
-    @extend %html-content;
+    @extend %raw-html-styles;
     padding: $gutter;
 
     &:not(:first-of-type){

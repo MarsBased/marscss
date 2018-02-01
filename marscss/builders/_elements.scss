@@ -1,0 +1,48 @@
+//stylelint-disable rule-empty-line-before,
+@mixin mars-build-elements-class {
+  @include msg-css("🚀 mars-build-elements-class");
+
+  .a{ @include a; }
+
+  .lead { @include lead; }
+  .h1{ @include h1; }
+  .h2{ @include h2; }
+  .h3{ @include h3; }
+  .h4{ @include h4; }
+  .h5{ @include h5; }
+  .h6{ @include h6; }
+  .large{ @include large; }
+
+  .small{ @include small; }
+  .p { @include p; }
+  .ul{ @include ul; }
+  .ol{ @include ol; }
+  .dl{ @include dl; }
+}
+
+@mixin mars-build-elements-html() {
+  @include msg-css("🚀 mars-build-elements-html");
+
+  a{ @include a; }
+
+  h1{ @include h1; }
+  h2{ @include h2; }
+  h3{ @include h3; }
+  h4{ @include h4; }
+  h5{ @include h5; }
+  h6{ @include h6; }
+
+  p { @include p; }
+  ul{ @include ul; }
+  ol{ @include ol; }
+  dl{ @include dl; }
+
+  small{ @include small; }
+}
+
+@mixin mars-build-elements() {
+  @include mars-build-elements-class;
+  %raw-html-styles{
+    @include mars-build-elements-html;
+  }
+}

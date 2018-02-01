@@ -11,6 +11,20 @@
   .#{$prefix}text-top    { vertical-align: text-top !important; }
 }
 
+@mixin mars-build-helpers-fs($prefix: "fs-"){
+  @include msg-css("🚀 mars-build-helpers-fs");
+
+  .#{$prefix}lead { font-size: $font-size-lead !important; }
+  .#{$prefix}1{ font-size: $font-size-h1 !important; }
+  .#{$prefix}2{ font-size: $font-size-h2 !important; }
+  .#{$prefix}3{ font-size: $font-size-h3 !important; }
+  .#{$prefix}4{ font-size: $font-size-h4 !important; }
+  .#{$prefix}5{ font-size: $font-size-h5 !important; }
+  .#{$prefix}6{ font-size: $font-size-h6 !important; }
+  .#{$prefix}large{ font-size: $font-size-h5 !important; }
+  .#{$prefix}small{ font-size: $font-size-h6 !important; }
+}
+
 @mixin mars-build-helpers-bg($prefix: "bg-", $colors: $colors){
   @include msg-css("🚀 mars-build-helpers-bg");
 
@@ -81,6 +95,7 @@
 
 @mixin mars-build-helpers(
   $prefix-align: "align-",
+  $prefix-fs: "fs-",
   $prefix-bg: "bg-",
   $prefix-colors: "color-",
   $prefix-pull: "pull-",
@@ -89,6 +104,7 @@
   $colors: $colors){
 
   @include mars-build-helpers-align($prefix-align);
+  @include mars-build-helpers-align($prefix-fs);
   @include mars-build-helpers-bg($prefix-bg, $colors);
   @include mars-build-helpers-colors($prefix-colors, $colors);
   @include mars-build-helpers-pull($prefix-pull);
