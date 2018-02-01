@@ -1,0 +1,14 @@
+{
+  "name": "marscss",
+  "version": "0.0.1",
+  "description": "Front-end CSS framework",
+  "main": "marscss.scss",
+  "repository": "git@github.com:MarsBased/marscss.git",
+  "author": "MarsBased",
+  "license": "MIT",
+  "keywords": ["css", "framework", "marsbased", "scss"],
+  "homepage": "https://github.com/MarsBased/marscss#readme",
+  "bugs": {
+    "url": "https://github.com/MarsBased/marscss/issues"
+  }
+}

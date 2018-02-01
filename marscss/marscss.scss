@@ -1,8 +1,8 @@
-@import "functions";
-@import "default-variables";
-@import "core";
-@import "builders";
-@import "tests";
+@import "scss/functions";
+@import "scss/default-variables";
+@import "scss/core";
+@import "scss/builders";
+@import "scss/tests";
 
 @mixin mars-init-default {
   @include mars-build-reset;
