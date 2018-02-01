@@ -11,20 +11,20 @@
 @mixin body {
   min-width: 320px;
   margin: 0;
-  font-family: $font-family-base;
-  font-size: $font-size-base;
-  line-height: $line-height-base;
-  color: $color-font-base;
+  font-family: $font-family;
+  font-size: $font-size;
+  line-height: $line-height;
+  color: $font-color;
 }
 
 @mixin a {
-  color: $color-link;
+  color: $link-color;
   border-bottom: 1px solid rgba(0, 0, 0, .2);
   transition: border .3s ease-out, color .3s ease-out;
 
   &:hover,
   &:focus {
-    color: darken($color-link, 20%);
+    color: darken($link-color, 20%);
     border-bottom-color: currentColor;
   }
   @include extend-a;
@@ -106,7 +106,7 @@
 
 @mixin large{
   font-size: $font-size-large;
-  line-height: $line-height-base;
+  line-height: $line-height;
   @include common-block;
   @include extend-large;
 }

@@ -42,49 +42,41 @@ $green:   #28a745 !default;
 $teal:    #20c997 !default;
 $cyan:    #17a2b8 !default;
 
+$primary: $blue !default;
+
 $colors: () !default;
 $colors: map-merge(
   (
-    "blue":       $blue,
-    "indigo":     $indigo,
-    "purple":     $purple,
-    "pink":       $pink,
-    "red":        $red,
-    "orange":     $orange,
-    "yellow":     $yellow,
-    "green":      $green,
-    "teal":       $teal,
-    "cyan":       $cyan,
+    "primary"     $primary,
     "white":      $white,
-    "gray":       $gray-600,
-    "gray-dark":  $gray-800
+    "black":      $black,
+    "gray":       $gray-600
   ),
   $colors
 );
 
-$primary:              $blue !default;
-$border-color:         $gray-300 !default;
-$color-font-base:      $black !default;
-$color-link:           $primary !default;
-$font-family-base:     sans-serif !default;
-$font-weight-base:     normal !default;
+$border-color:          $gray-300 !default;
+$font-color:            $black !default;
+$link-color:            $primary !default;
+$font-family:           sans-serif !default;
 
-$line-height-base:     1.5 !default;
-$font-size:            1.6 !default;
-$font-unit:            rem !default;
-$font-margin:          2 + $font-unit !default;
-$magic-number:         1.2 !default;
+$line-height:           1.5 !default;
 
-$font-size-base:       $font-size+$font-unit !default;
-$font-size-small:      $font-size * pow($magic-number, -1) + $font-unit !default;
-$font-size-large:      $font-size * pow($magic-number, 1) + $font-unit !default;
-$font-size-lead:       $font-size * pow($magic-number, 5) + $font-unit !default;
-$font-size-h1:         $font-size * pow($magic-number, 4) + $font-unit !default;
-$font-size-h2:         $font-size * pow($magic-number, 3) + $font-unit !default;
-$font-size-h3:         $font-size * pow($magic-number, 2) + $font-unit !default;
-$font-size-h4:         $font-size-large !default;
-$font-size-h5:         $font-size-base !default;
-$font-size-h6:         $font-size-small !default;
+$base:        1.6 !default;
+$multiplier:  1.2 !default;
+$unit:  rem !default;
+
+$font-margin:           2 + $unit !default;
+$font-size:             $base+$unit !default;
+$font-size-small:       $base * pow($multiplier, -1) + $unit !default;
+$font-size-large:       $base * pow($multiplier, 1) + $unit !default;
+$font-size-lead:        $base * pow($multiplier, 5) + $unit !default;
+$font-size-h1:          $base * pow($multiplier, 4) + $unit !default;
+$font-size-h2:          $base * pow($multiplier, 3) + $unit !default;
+$font-size-h3:          $base * pow($multiplier, 2) + $unit !default;
+$font-size-h4:          $font-size-large !default;
+$font-size-h5:          $font-size !default;
+$font-size-h6:          $font-size-small !default;
 
 $grid-columns:         12 !default;
 $gutter:               3rem !default;
