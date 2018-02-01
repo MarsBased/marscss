@@ -62,29 +62,33 @@ $colors: map-merge(
   $colors
 );
 
-$primary:                     $blue !default;
-$border-color:                $gray-300 !default;
-$color-font-base:             $black !default;
-$color-link:                  $primary !default;
-$font-family-base:            "Roboto", sans-serif !default;
-$font-weight-base:            normal !default;
-$line-height-base:            1.4 !default;
+$primary:              $blue !default;
+$border-color:         $gray-300 !default;
+$color-font-base:      $black !default;
+$color-link:           $primary !default;
+$font-family-base:     sans-serif !default;
+$font-weight-base:     normal !default;
 
-$font-size-lead:              4.8rem !default;
-$font-size-large:             1.8rem !default;
-$font-size-base:              1.6rem !default;
-$font-size-small:             1.4rem !default;
+$line-height-base:     1.5 !default;
+$font-size:            1.6 !default;
+$font-unit:            rem !default;
+$font-margin:          2 + $font-unit !default;
+$magic-number:         1.2 !default;
 
-$font-size-h1:                2.5rem !default;
-$font-size-h2:                2.2rem !default;
-$font-size-h3:                $font-size-large !default;
-$font-size-h4:                $font-size-base !default;
-$font-size-h5:                $font-size-base !default;
-$font-size-h6:                $font-size-small !default;
+$font-size-base:       $font-size+$font-unit !default;
+$font-size-small:      $font-size * pow($magic-number, -1) + $font-unit !default;
+$font-size-large:      $font-size * pow($magic-number, 1) + $font-unit !default;
+$font-size-lead:       $font-size * pow($magic-number, 5) + $font-unit !default;
+$font-size-h1:         $font-size * pow($magic-number, 4) + $font-unit !default;
+$font-size-h2:         $font-size * pow($magic-number, 3) + $font-unit !default;
+$font-size-h3:         $font-size * pow($magic-number, 2) + $font-unit !default;
+$font-size-h4:         $font-size-large !default;
+$font-size-h5:         $font-size-base !default;
+$font-size-h6:         $font-size-small !default;
 
-$grid-columns:                12 !default;
-$gutter:                      3rem !default;
-$grid-gutter-width:           $gutter !default;
+$grid-columns:         12 !default;
+$gutter:               3rem !default;
+$grid-gutter-width:    $gutter !default;
 
 $grid-breakpoints: (
   xs: 0,

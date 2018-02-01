@@ -19,12 +19,15 @@
     @include html;
     @include body;
     @include a;
+    @include lead;
     @include h1;
     @include h2;
     @include h3;
     @include h4;
     @include h5;
     @include h6;
+    @include large;
+    @include small;
     @include ul;
     @include ol;
     @include li;

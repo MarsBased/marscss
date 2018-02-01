@@ -4,26 +4,29 @@
 
   .a{ @include a; }
 
+  .lead { @include lead; }
   .h1{ @include h1; }
   .h2{ @include h2; }
   .h3{ @include h3; }
   .h4{ @include h4; }
   .h5{ @include h5; }
   .h6{ @include h6; }
+  .large{ @include large; }
 
+  .small{ @include small; }
   .p { @include p; }
   .ul{ @include ul; }
   .ol{ @include ol; }
   .dl{ @include dl; }
 
-  .fs1{ @include fs1; }
-  .fs2{ @include fs2; }
-  .fs3{ @include fs3; }
-  .fs4{ @include fs4; }
-  .fs5{ @include fs5; }
-  .fs6{ @include fs6; }
-  .large{ @include large; }
-  .small{ @include small; }
+  .fs-1{ @include fs-1; }
+  .fs-2{ @include fs-2; }
+  .fs-3{ @include fs-3; }
+  .fs-4{ @include fs-4; }
+  .fs-5{ @include fs-5; }
+  .fs-6{ @include fs-6; }
+  .fs-large{ @include fs-large; }
+  .fs-small{ @include fs-small; }
 }
 
 @mixin mars-build-fonts-html($selector: "%html-content") {
