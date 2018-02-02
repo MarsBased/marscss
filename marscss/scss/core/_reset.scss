@@ -1,5 +1,9 @@
 @mixin reset-all {
-  box-sizing: border-box;
+  &,
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
 }
 
 @mixin reset-html {
@@ -15,6 +19,7 @@
   margin: 0;
   font-family: $font-family;
   font-size: $font-size;
+  font-weight: $font-weight;
   line-height: $line-height;
   color: $font-color;
 }
@@ -45,6 +50,7 @@
   margin-top: 0;
   margin-bottom: 0;
   font-size: inherit;
+  font-weight: $font-weight;
   color: inherit;
 }
 
