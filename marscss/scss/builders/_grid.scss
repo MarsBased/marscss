@@ -1,10 +1,6 @@
 @mixin mars-build-grid-container {
   @include log("🚀 mars-build-grid-container");
 
-  %container {
-    @include make-container;
-  }
-
   .container {
     @extend %container;
     @include make-container-max-widths();

@@ -2,6 +2,10 @@
 @mixin mars-extend{
   @include log("🚀 mars-extend");
 
+  %container { @include make-container; }
+  %row { @include make-row; }
+  %grid-column { @include make-col-ready; }
+
   %a{ @include a; }
   %h1{ @include h1; }
   %h2{ @include h2; }
