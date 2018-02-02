@@ -26,7 +26,7 @@
   }
 
   p, blockquote {
-    margin: 0;
+    @include reset-text-block;
   }
 
   ul, ol, dl {
