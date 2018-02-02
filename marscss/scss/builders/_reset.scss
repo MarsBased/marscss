@@ -2,44 +2,27 @@
   @include log("🚀 mars-build-reset");
 
   * {
-    box-sizing: border-box; //or inherit
+    @include reset-all;
   }
 
   html {
-    @include html;
+    @include reset-html;
   }
 
   body {
-    @include body;
+    @include reset-body;
   }
 
   a {
-    color: inherit;
-    text-decoration: none;
+    @include reset-a;
   }
 
-  button{
-    padding: 0;
-    margin: 0;
-    font-size: inherit;
-    color: inherit;
-    background-color: transparent;
-    border: 0;
-    appearance: none;
-
-    &:hover,
-    &:focus,
-    &:active{
-      text-decoration: none;
-      outline: 0;
-    }
+  button {
+    @include reset-button;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    margin-top: 0;
-    margin-bottom: 0;
-    font-size: inherit;
-    color: inherit;
+    @include reset-heading;
   }
 
   p, blockquote {
@@ -47,8 +30,6 @@
   }
 
   ul, ol, dl {
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
+    @include reset-list;
   }
 }

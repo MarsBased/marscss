@@ -30,15 +30,6 @@
   border: 0;
 }
 
-@mixin reset-link {
-  color: inherit;
-  &:hover,
-  &.active,
-  &:focus{
-    text-decoration: none;
-  }
-}
-
 @mixin reset-list{
   padding-right: 0;
   padding-left: 0;
