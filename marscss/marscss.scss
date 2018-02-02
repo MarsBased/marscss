@@ -7,13 +7,9 @@
 @import "scss/tests";
 
 
-
-@mixin mars-init($reset: $mars-reset, $tests: $mars-tests){
+@mixin mars-init($reset: true){
   @if ($reset) {
     @include mars-build-reset;
   }
   @include mars-extend;
-  @if ($tests){
-    @include mars-tests;
-  }
 }
