@@ -18,7 +18,7 @@
   @include log("🚀 mars-build-grid-row");
 
   .row {
-    @include make-row();
+    @extend %row;
   }
 
   // Remove the negative margin from default .row, then the horizontal padding

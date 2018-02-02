@@ -8,9 +8,6 @@
     @include make-col-offset(1);
     @include make-grid-columns;
 
-    @include make-flex-column;
-    @include make-flex-vertical-align;
-
     @include media-breakpoint-up("sm");
     @include media-breakpoint-down("sm");
     @include media-breakpoint-between("sm","md");
@@ -28,7 +25,6 @@
     @include mars-build-reset;
     @include mars-build-elements;
     @include mars-build-normalize;
-    @include mars-build-flex-columns;
     @include mars-build-helpers;
     @include mars-build-grid;
   }
