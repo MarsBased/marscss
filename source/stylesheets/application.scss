@@ -8,9 +8,7 @@
 
 
 // MARSCSS BUILDERS
-@include mars-tests;
-@include mars-build-reset;
-@include mars-build-elements;
+@include mars-init;
 @include mars-build-flex-columns;
 
 // CUSTOM CSS

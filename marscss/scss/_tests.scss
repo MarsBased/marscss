@@ -16,27 +16,6 @@
     @include media-breakpoint-between("sm","md");
     @include media-breakpoint-only("sm");
 
-    @include html;
-    @include body;
-    @include a;
-    @include hero;
-    @include h1;
-    @include h2;
-    @include h3;
-    @include h4;
-    @include h5;
-    @include h6;
-    @include large;
-    @include small;
-    @include ul;
-    @include ol;
-    @include li;
-    @include dl;
-    @include dt;
-    @include dd;
-    @include p;
-    @include blockquote;
-
     @include last-margin-0;
     @include focus;
     @include sr-only;
@@ -66,7 +45,6 @@
     @include mars-build-normalize;
     @include mars-build-flex-columns;
     @include mars-build-helpers;
-    @include mars-build-elements;
     @include mars-build-grid;
   }
 

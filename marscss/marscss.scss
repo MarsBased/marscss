@@ -1,27 +1,18 @@
 @import "scss/functions";
 @import "scss/default-variables";
 @import "scss/core";
+@import "scss/extends";
 @import "scss/components";
 @import "scss/builders";
 @import "scss/tests";
 
-@mixin mars-init-default {
-  @include mars-build-reset;
-  @include mars-build-normalize;
-  @include mars-build-grid;
-  @include mars-build-helpers;
-}
 
-@mixin mars-init-mars {
-  @include mars-build-reset;
-  @include mars-build-normalize;
-  @include mars-build-elements;
-}
-
-@if ($mars-init){
-  @include mars-init-default;
-}
-
-@if ($mars-tests){
-  @include mars-tests;
+@mixin mars-init($reset: $mars-reset, $tests: $mars-tests){
+  @if ($reset) {
+    @include mars-build-reset;
+  }
+  @include mars-extend;
+  @if ($tests){
+    @include mars-tests;
+  }
 }

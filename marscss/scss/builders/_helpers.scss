@@ -1,5 +1,28 @@
 //stylelint-disable declaration-no-important
 //stylelint-disable rule-empty-line-before
+@mixin mars-build-helpers-elements($prefix: "") {
+  @include log("🚀 mars-build-helpers-elements");
+
+  .#{$prefix}a{ @include a; }
+
+  .#{$prefix}hero { @include hero; }
+  .#{$prefix}h1{ @include h1; }
+  .#{$prefix}h2{ @include h2; }
+  .#{$prefix}h3{ @include h3; }
+  .#{$prefix}h4{ @include h4; }
+  .#{$prefix}h5{ @include h5; }
+  .#{$prefix}h6{ @include h6; }
+  .#{$prefix}large{ @include large; }
+
+  .#{$prefix}small{ @include small; }
+  .#{$prefix}blockquote { @include blockquote; }
+  .#{$prefix}p { @include p; }
+  .#{$prefix}ul{ @include ul; }
+  .#{$prefix}ol{ @include ol; }
+  .#{$prefix}dl{ @include dl; }
+}
+
+
 @mixin mars-build-helpers-align($prefix: "align-"){
   @include log("🚀 mars-build-helpers-align");
 
@@ -94,6 +117,7 @@
 }
 
 @mixin mars-build-helpers(
+  $prefix-elements: "",
   $prefix-align: "align-",
   $prefix-fs: "fs-",
   $prefix-bg: "bg-",
@@ -103,6 +127,7 @@
   $prefix-text: "text-",
   $colors: $colors){
 
+  @include mars-build-helpers-elements($prefix-elements);
   @include mars-build-helpers-align($prefix-align);
   @include mars-build-helpers-align($prefix-fs);
   @include mars-build-helpers-bg($prefix-bg, $colors);

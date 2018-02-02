@@ -1,0 +1,34 @@
+//stylelint-disable rule-empty-line-before,
+@mixin mars-extend{
+  @include log("🚀 mars-extend");
+
+  %a{ @include a; }
+  %h1{ @include h1; }
+  %h2{ @include h2; }
+  %h3{ @include h3; }
+  %h4{ @include h4; }
+  %h5{ @include h5; }
+  %h6{ @include h6; }
+  %small{ @include small; }
+  %blockquote { @include blockquote; }
+  %p { @include p; }
+  %ul{ @include ul; }
+  %ol{ @include ol; }
+  %dl{ @include dl; }
+
+  %raw-html-styles{
+    a{ @extend %a; }
+    h1{ @extend %h1; }
+    h2{ @extend %h2; }
+    h3{ @extend %h3; }
+    h4{ @extend %h4; }
+    h5{ @extend %h5; }
+    h6{ @extend %h6; }
+    small{ @extend %small; }
+    blockquote { @extend %blockquote; }
+    p { @extend %p; }
+    ul{ @extend %ul; }
+    ol{ @extend %ol; }
+    dl{ @extend %dl; }
+  }
+}
