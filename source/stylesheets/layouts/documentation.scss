@@ -10,7 +10,7 @@ body.documentation {
     padding-bottom: $gutter*2;
     @extend %grid-column;
     @include media-breakpoint-up("sm"){
-      @include make-col(25rem);
+      @include make-col(3);
     }
   }
 

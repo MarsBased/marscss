@@ -1,5 +1,5 @@
 /node_modules
-/external
+/scss/external
 /dist
 
 .DS_Store

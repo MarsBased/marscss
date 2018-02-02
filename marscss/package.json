@@ -1,6 +1,6 @@
 {
   "name": "@marsbased/marscss",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Front-end CSS framework",
   "main": "marscss.scss",
   "sass": "marscss.scss",
@@ -31,9 +31,9 @@
     "rimraf": "^2.6.2"
   },
   "scripts": {
-    "postinstall": "rimraf ./external && mkdirp ./external && yarn copy:bootstrap",
-    "copy:bootstrap": "ncp ./node_modules/bootstrap/scss/mixins/_grid.scss ./external/_grid.scss; ncp ./node_modules/bootstrap/scss/mixins/_grid-framework.scss ./external/_grid-framework.scss",
-    "build": "yarn copy:bootstrap && rimraf ./dist && mkdirp ./dist && ncp ./marscss.scss ./dist/marscss.scss && ncp ./scss/ ./dist/scss && ncp ./external/ ./dist/external",
+    "postinstall": "rimraf ./scss/external && mkdirp ./scss/external && yarn copy:bootstrap",
+    "copy:bootstrap": "ncp ./node_modules/bootstrap/scss/mixins/_grid.scss ./scss/external/_grid.scss; ncp ./node_modules/bootstrap/scss/mixins/_grid-framework.scss ./scss/external/_grid-framework.scss; ncp ./node_modules/bootstrap/scss/mixins/_breakpoints.scss ./scss/external/_breakpoints.scss",
+    "build": "yarn copy:bootstrap && rimraf ./dist && mkdirp ./dist && ncp ./marscss.scss ./dist/marscss.scss && ncp ./scss/ ./dist/scss",
     "release-zip": "yarn build && zip -r9 marscss-$npm_package_version-dist.zip dist/"
   }
 }
