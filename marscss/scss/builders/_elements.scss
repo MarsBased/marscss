@@ -14,6 +14,7 @@
   .large{ @include large; }
 
   .small{ @include small; }
+  .blockquote { @include blockquote; }
   .p { @include p; }
   .ul{ @include ul; }
   .ol{ @include ol; }
@@ -32,12 +33,12 @@
   h5{ @include h5; }
   h6{ @include h6; }
 
+  small{ @include small; }
+  blockquote { @include blockquote; }
   p { @include p; }
   ul{ @include ul; }
   ol{ @include ol; }
   dl{ @include dl; }
-
-  small{ @include small; }
 }
 
 @mixin mars-build-elements() {
