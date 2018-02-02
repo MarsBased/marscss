@@ -1,14 +1,9 @@
 //utilities
-@import "core/msg";
+@import "core/log";
 @import "core/breakpoints";
 @import "core/elements";
 @import "core/helpers";
-
-//plugin
 @import "core/flex";
 @import "core/grid";
 @import "core/grid-framework";
-
-//components
-@import "components/mars-alert";
-@import "components/mars-card";
+@import "core/reset";

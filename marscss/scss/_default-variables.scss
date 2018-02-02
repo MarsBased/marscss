@@ -1,7 +1,7 @@
 // marscss config
 $mars-debug: false !default;
 $mars-tests: false !default;
-$mars-init: false !default;
+$mars-reset: true !default;
 
 $white:    #fff !default;
 $gray-100: #f8f9fa !default;
@@ -59,6 +59,7 @@ $border-color:          $gray-300 !default;
 $font-color:            $black !default;
 $link-color:            $primary !default;
 $font-family:           sans-serif !default;
+$font-weight:           400 !default;
 
 $line-height:           1.5 !default;
 

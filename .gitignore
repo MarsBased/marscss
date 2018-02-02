@@ -24,3 +24,4 @@
 
 # Webpack output directory
 dist
+*.orig

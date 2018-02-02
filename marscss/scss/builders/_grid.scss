@@ -1,5 +1,5 @@
 @mixin mars-build-grid-container {
-  @include msg-css("🚀 mars-build-grid-container");
+  @include log("🚀 mars-build-grid-container");
 
   %container {
     @include make-container;
@@ -19,7 +19,7 @@
 }
 
 @mixin mars-build-grid-row {
-  @include msg-css("🚀 mars-build-grid-row");
+  @include log("🚀 mars-build-grid-row");
 
   .row {
     @include make-row();
@@ -41,12 +41,12 @@
 }
 
 @mixin mars-build-grid-columns {
-  @include msg-css("🚀 mars-build-grid-columns");
+  @include log("🚀 mars-build-grid-columns");
   @include make-grid-columns();
 }
 
 @mixin mars-build-grid(){
-  @include msg-css("🚀 mars-build-grid");
+  @include log("🚀 mars-build-grid");
   @include mars-build-grid-container;
   @include mars-build-grid-row;
   @include mars-build-grid-columns;
