@@ -15,14 +15,18 @@ pre {
   }
 
   code {
+    padding: 0;
     color: inherit;
+    background-color: transparent;
   }
 }
 
 code {
+  padding: 0 0.15em;
   font-family: Consolas, "Courier New", monospace;
   font-weight: 700;
   color: $primary;
+  background: $white;
 }
 
 //monokai

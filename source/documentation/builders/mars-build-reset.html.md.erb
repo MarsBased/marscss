@@ -13,20 +13,55 @@ The idea of marscss is to avoid that we have to redefine the presentation of the
 since
 : 1.0.0
 
+core
+: reset
+
 <div class="alert">
-Being a CSS reset it is important that this be added first in the builders section
+It is added by default when launching <code>mars-init</code> as long as it is not passed as an argument false
 </div>
 
-##Example
 <% example_tabs do %>
 ~~~scss
-// BUILDERS MARSCSS
-@include mars-build-reset;
+@mixin mars-build-reset {
+  @include log("🚀 mars-build-reset");
+
+  * {
+    @include reset-all;
+  }
+
+  html {
+    @include reset-html;
+  }
+
+  body {
+    @include reset-body;
+  }
+
+  a {
+    @include reset-a;
+  }
+
+  button {
+    @include reset-button;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @include reset-heading;
+  }
+
+  p, blockquote {
+    @include reset-text-block;
+  }
+
+  ul, ol, dl {
+    @include reset-list;
+  }
+}
 ~~~
 
 ~~~css
 /* ///////// 🚀 mars-build-reset */
-* {
+*, *::before, *::after {
   box-sizing: border-box; }
 
 html {
@@ -39,9 +74,10 @@ html {
 body {
   min-width: 320px;
   margin: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: sans-serif;
   font-size: 1.6rem;
-  line-height: 1.4;
+  font-weight: 400;
+  line-height: 1.5;
   color: #000; }
 
 a {
@@ -66,6 +102,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 0;
   font-size: inherit;
+  font-weight: 400;
   color: inherit; }
 
 p, blockquote {
@@ -78,4 +115,3 @@ ul, ol, dl {
 
 ~~~
 <% end %>
-

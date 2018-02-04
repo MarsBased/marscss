@@ -45,7 +45,7 @@ $primary: $blue !default;
 $colors: () !default;
 $colors: map-merge(
   (
-    "primary"     $primary,
+    "primary":    $primary,
     "white":      $white,
     "black":      $black,
     "gray":       $gray-600

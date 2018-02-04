@@ -1,7 +1,7 @@
 //stylelint-disable declaration-no-important
 //stylelint-disable rule-empty-line-before
 @mixin mars-build-elements($prefix: "") {
-  @include log("🚀 mars-build-helpers-elements");
+  @include log("🚀 mars-build-elements");
 
   .#{$prefix}a{ @include a; }
   .#{$prefix}hero { @include hero; }
@@ -17,5 +17,8 @@
   .#{$prefix}p { @include p; }
   .#{$prefix}ul{ @include ul; }
   .#{$prefix}ol{ @include ol; }
+  .#{$prefix}li{ @include li; }
   .#{$prefix}dl{ @include dl; }
+  .#{$prefix}dt{ @include dt; }
+  .#{$prefix}dd{ @include dd; }
 }

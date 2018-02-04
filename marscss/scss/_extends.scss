@@ -18,7 +18,10 @@
   %p { @include p; }
   %ul{ @include ul; }
   %ol{ @include ol; }
+  %li{ @include li; }
   %dl{ @include dl; }
+  %dt{ @include dt; }
+  %dd{ @include dd; }
 
   %raw-html-styles{
     a{ @extend %a; }
@@ -33,6 +36,9 @@
     p { @extend %p; }
     ul{ @extend %ul; }
     ol{ @extend %ol; }
+    li{ @extend %li; }
     dl{ @extend %dl; }
+    dt{ @extend %dt; }
+    dd{ @extend %dd; }
   }
 }

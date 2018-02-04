@@ -24,12 +24,31 @@ body.documentation {
     }
 
     @extend %raw-html-styles;
+
+    dt {
+      margin-top: .5em;
+      font-weight: 800;
+      @include fs-h5;
+    }
+    dd {
+      margin-bottom: 0;
+    }
   }
 
   .documentation-example {
     padding: $gutter/2;
     border: 2px solid $gray-200;
+    @include text-block;
     @include last-margin-0;
+
+    .row {
+      @extend %row;
+    }
+
+    .col {
+      @extend %grid-column;
+      flex: 1 1 0;
+    }
   }
 
   //http://localhost:4567/documentation/components/alerts
