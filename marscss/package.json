@@ -30,7 +30,6 @@
   "scripts": {
     "postinstall": "node scripts/postinstall.js",
     "build": "node scripts/build.js",
-    "release-zip":
-      "yarn build && zip -r9 marscss-$npm_package_version-dist.zip dist/"
+    "release-zip": "yarn build && zip -r9 marscss-$npm_package_version-dist.zip dist/"
   }
 }

@@ -41,5 +41,9 @@
     "select2": "^4.0.3",
     "webpack-manifest-plugin": "^1.1.0",
     "webpack-merge": "^4.1.0"
+  },
+  "scripts": {
+    "postinstall": "yarn build:marscss",
+    "build:marscss": "cd marscss && yarn"
   }
 }
