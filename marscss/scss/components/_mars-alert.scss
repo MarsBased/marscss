@@ -3,7 +3,7 @@
   $color: $white,
   $padding: $grid-gutter-width/2,
   $margin: 0 0 $grid-gutter-width/2,
-  $__close: __close,
+  $__close: false,
   $close-padding: calc(#{$grid-gutter-width/2} + 1em)
 ){
   @include log("🚀 mars-alert");
@@ -12,7 +12,7 @@
 
   @if ($__close != false){
     position: relative;
-    padding-left: calc(#{$padding} + 1em);
+    padding-right: calc(#{$padding} + 1em);
 
     &#{$__close}{
       @include mars-alert-close;

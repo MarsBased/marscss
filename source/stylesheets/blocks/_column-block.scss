@@ -3,16 +3,22 @@
     //padding-top: $gutter;
     //padding-bottom: $gutter;
     @extend %container;
-    @extend %columns;
+    @include media-breakpoint-up("sm") {
+      display: flex;
+    }
   }
 
   &__content {
-    @extend %column;
-    @extend %raw-html-styles;
+    @extend %grid-column;
+    flex: 1 1 0;
     padding: $gutter;
 
     &:not(:first-of-type){
       border-left: 1px solid $gray-200;
     }
+
+    h2{ @extend %h3; }
+
+    p { @extend %p; }
   }
 }

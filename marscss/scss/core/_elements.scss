@@ -35,7 +35,7 @@
   margin-bottom: 1rem;
 
   &:not(:first-child){
-    margin-top: 1em;
+    margin-top: 2em;
   }
 }
 
@@ -104,6 +104,10 @@
   margin-bottom: $font-margin;
 }
 
+@mixin list-block{
+  margin-bottom: .5em;
+}
+
 @mixin large{
   font-size: $font-size-large;
   line-height: $line-height;
@@ -146,29 +150,30 @@
 }
 @mixin extend-ol {}
 
+
+@mixin li {
+  @include extend-li;
+  @include list-block;
+}
+@mixin extend-li {}
+
 @mixin dl{
   @include text-block;
   @include extend-dl;
 }
 @mixin extend-dl {}
 
-@mixin dd{
-  @include text-block;
-  @include extend-dd;
-}
-@mixin extend-dd {}
-
 @mixin dt{
-  @include text-block;
+  font-weight: 800;
   @include extend-dt;
 }
 @mixin extend-dt {}
 
-@mixin li {
-  @include extend-li;
-  margin-bottom: .25em;
+@mixin dd{
+  @include list-block;
+  @include extend-dd;
 }
-@mixin extend-li {}
+@mixin extend-dd {}
 
 @mixin p{
   @include extend-p;

@@ -1,0 +1,551 @@
+---
+title: mars-build-helpers
+layout: documentation
+active: Builders, mars-build-helpers
+---
+
+#mars-build-helpers
+
+marscss e allows to include different classes of css to function as helpers.
+
+Helpers are usually small variations in appearance that force the over-writing of some property by `!important`
+
+When calling mars-buil-helpers all the different helpers are included, it is preferable to choose which helpers you will need to not generate unnecessary css classes in your document.
+
+since
+: 1.0.0
+
+core
+: helpers
+
+arguments
+: prefixes
+: colors
+
+~~~scss
+@mixin mars-build-helpers(
+  $prefix-align: "align-",
+  $prefix-bg: "bg-",
+  $prefix-border: "border",
+  $prefix-colors: "color-",
+  $prefix-fs: "fs-",
+  $prefix-pull: "pull-",
+  $prefix-ratio: "ratio-",
+  $prefix-text: "text-",
+  $prefix-utilities: "",
+  $colors: $colors){
+
+  @include mars-build-helpers-align($prefix-align);
+  @include mars-build-helpers-bg($prefix-bg, $colors);
+  @include mars-build-helpers-border($prefix-border);
+  @include mars-build-helpers-color($prefix-colors, $colors);
+  @include mars-build-helpers-fs($prefix-fs);
+  @include mars-build-helpers-pull($prefix-pull);
+  @include mars-build-helpers-ratio($prefix-ratio);
+  @include mars-build-helpers-text($prefix-text);
+  @include mars-build-helpers-utilities($prefix-utilities);
+}
+~~~
+
+##mars-build-helpers-align
+
+It is a set of helpers to work with the alignment
+
+since
+: 1.0.0
+
+core
+: helpers
+
+arguments
+: prefix: "align-"
+
+<% example_tabs do %>
+~~~scss
+@mixin mars-build-helpers-align($prefix: "align-"){
+  @include log("🚀 mars-build-helpers-align");
+
+  .#{$prefix}baseline    { @include align-baseline; }
+  .#{$prefix}top         { @include align-top; }
+  .#{$prefix}middle      { @include align-middle; }
+  .#{$prefix}bottom      { @include align-bottom; }
+  .#{$prefix}text-bottom { @include align-text-bottom; }
+  .#{$prefix}text-top    { @include align-text-top; }
+}
+~~~
+
+~~~css
+/* ///////// 🚀 mars-build-helpers-align */
+.align-baseline {
+  vertical-align: baseline !important; }
+
+.align-top {
+  vertical-align: top !important; }
+
+.align-middle {
+  vertical-align: middle !important; }
+
+.align-bottom {
+  vertical-align: bottom !important; }
+
+.align-text-bottom {
+  vertical-align: text-bottom !important; }
+
+.align-text-top {
+  vertical-align: text-top !important; }
+~~~
+
+<% end %>
+
+
+##mars-build-helpers-bg
+
+Use the array of $ colors to generate a class with prefix of each of the colors using its name.
+
+since
+: 1.0.1
+
+core
+: helpers
+
+arguments
+: prefix: "bg-"
+: colors: $colors
+
+<% example_tabs do %>
+~~~scss
+@mixin mars-build-helpers-bg($prefix: "bg-", $colors: $colors){
+  @include log("🚀 mars-build-helpers-bg");
+
+  @each $color in $colors {
+    .#{$prefix}#{nth($color, 1)} {
+      @include bg(nth($color, 2));
+    }
+  }
+  .#{$prefix}transparent { @include bg-transparent; }
+}
+~~~
+
+~~~css
+/* ///////// 🚀 mars-build-helpers-bg */
+.bg-primary {
+  background-color: #dc3545; }
+
+.bg-white {
+  background-color: #fff; }
+
+.bg-black {
+  background-color: #000; }
+
+.bg-gray {
+  background-color: #868e96; }
+
+.bg-transparent {
+  background-color: transparent !important; }
+~~~
+<% end %>
+
+
+##mars-build-helpers-border
+
+This set of helpers allows you to have control over the edge of an element, inheriting the color of the element's text as the border color.
+
+since
+: 1.0.0
+
+core
+: helpers
+
+arguments
+: prefix: "border"
+
+<% example_tabs do %>
+~~~scss
+@mixin mars-build-helpers-border($prefix: "border"){
+  @include log("🚀 mars-build-helpers-border");
+
+  .#{$prefix}             { @include border; }
+  .#{$prefix}-0           { @include border-0; }
+  .#{$prefix}-top         { @include border-top; }
+  .#{$prefix}-right       { @include border-right; }
+  .#{$prefix}-bottom      { @include border-bottom; }
+  .#{$prefix}-left        { @include border-left; }
+}
+~~~
+
+~~~css
+.border {
+  border: 1px solid !important; }
+
+.border-0 {
+  border: 0 !important; }
+
+.border-top {
+  border-top: 1px solid !important; }
+
+.border-right {
+  border-right: 1px solid !important; }
+
+.border-bottom {
+  border-bottom: 1px solid !important; }
+
+.border-left {
+  border-left: 1px solid !important; }
+~~~
+<% end %>
+
+
+##mars-build-helpers-colors
+
+Use the color array to generate a class for each of the colors, which modifies the color of the element
+
+since
+: 1.0.1
+
+core
+: helpers
+
+arguments
+: prefix: "color-"
+: colors: $colors
+
+<% example_tabs do %>
+~~~scss
+@mixin mars-build-helpers-color($prefix: "color-", $colors: $colors){
+  @include log("🚀 mars-build-helpers-colors");
+
+  @each $color in $colors {
+    .#{$prefix}#{nth($color, 1)} {
+      @include color(nth($color, 2));
+    }
+  }
+}
+~~~
+
+~~~css
+/* ///////// 🚀 mars-build-helpers-colors */
+.color-primary {
+  color: #dc3545 !important; }
+
+.color-white {
+  color: #fff !important; }
+
+.color-black {
+  color: #000 !important; }
+
+.color-gray {
+  color: #868e96 !important; }
+~~~
+<% end %>
+
+##mars-build-helpers-fs
+
+Assign the font size from the values of the different elements of the application
+
+since
+: 1.0.0
+
+core
+: helpers
+
+arguments
+: prefix: "fs-"
+
+<% example_tabs do %>
+~~~scss
+@mixin mars-build-helpers-fs($prefix: "fs-"){
+  @include log("🚀 mars-build-helpers-fs");
+
+  .#{$prefix}hero         { @include fs-hero; }
+  .#{$prefix}1            { @include fs-h1; }
+  .#{$prefix}2            { @include fs-h2; }
+  .#{$prefix}3            { @include fs-h3; }
+  .#{$prefix}4            { @include fs-h4; }
+  .#{$prefix}5            { @include fs-h5; }
+  .#{$prefix}6            { @include fs-h6; }
+  .#{$prefix}large        { @include fs-large; }
+  .#{$prefix}small        { @include fs-small; }
+}
+~~~
+
+~~~css
+/* ///////// 🚀 mars-build-helpers-fs */
+.fs-hero {
+  font-size: 3.98131rem !important; }
+
+.fs-1 {
+  font-size: 3.31776rem !important; }
+
+.fs-2 {
+  font-size: 2.7648rem !important; }
+
+.fs-3 {
+  font-size: 2.304rem !important; }
+
+.fs-4 {
+  font-size: 1.92rem !important; }
+
+.fs-5 {
+  font-size: 1.6rem !important; }
+
+.fs-6 {
+  font-size: 1.33333rem !important; }
+
+.fs-large {
+  font-size: 1.92rem !important; }
+
+.fs-small {
+  font-size: 1.33333rem !important; }
+~~~
+<% end %>
+
+
+#mars-build-helpers-pull
+
+Add float right or left to the element
+
+since
+: 1.0.0
+
+core
+: helpers
+
+arguments
+: prefix: "pull-"
+
+<% example_tabs do %>
+~~~scss
+@mixin mars-build-helpers-pull($prefix: "pull-") {
+  @include log("🚀 mars-build-helpers-pull");
+
+  .#{$prefix}left  { @include pull-left; }
+  .#{$prefix}right { @include pull-right; }
+}
+~~~
+
+~~~css
+/* ///////// 🚀 mars-build-helpers-pull */
+.pull-left {
+  float: left !important; }
+
+.pull-right {
+  float: right !important; }
+~~~
+<% end %>
+
+
+##mars-build-helpers-ratio
+
+Adjusts the height of an element by a proportion of its width, it is very useful for iframes or elements with background images.
+
+It requires of 2 elements the parent element that contains the class and the child element that is resized to the size of the parent.
+
+since
+: 1.0.1
+
+core
+: helpers
+
+arguments
+: prefix: "ratio-"
+
+<% example_html do %>
+  <div class="row">
+    <div class="col">
+      <div class="ratio-16-9">
+        <div class="bg-primary">16-9</div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="ratio-4-3">
+        <div class="bg-primary">4-3</div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="ratio-1-1">
+        <div class="bg-primary">1-1</div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<% example_tabs do%>
+~~~scss
+@mixin mars-build-helpers-ratio($prefix: "ratio-"){
+  @include log("🚀 mars-build-helpers-ratio");
+
+  %ratio {
+    @include ratio;
+  }
+
+  .#{$prefix}16-9 {
+    @extend %ratio;
+    padding-top: percent-ratio(16, 9);
+  }
+
+  .#{$prefix}4-3 {
+    @extend %ratio;
+    padding-top: percent-ratio(4, 3);
+  }
+
+  .#{$prefix}1-1 {
+    @extend %ratio;
+    padding-top: percent-ratio(1, 1);
+  }
+}
+~~~
+
+~~~css
+/* ///////// 🚀 mars-build-helpers-ratio */
+.ratio-16-9, .ratio-4-3, .ratio-1-1 {
+  position: relative;
+  overflow: hidden; }
+  .ratio-16-9 > *, .ratio-4-3 > *, .ratio-1-1 > * {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+  .ratio-16-9 > img, .ratio-4-3 > img, .ratio-1-1 > img {
+    -o-object-fit: cover;
+       object-fit: cover;
+    background-size: cover; }
+
+.ratio-16-9 {
+  padding-top: 56.25%; }
+
+.ratio-4-3 {
+  padding-top: 75%; }
+
+.ratio-1-1 {
+  padding-top: 100%; }
+~~~
+<% end %>
+
+
+##mars-build-helpers-text
+
+A set of rules to work the presentation of the text, includes alignments, nowrapp, truncate, etc ...
+
+since
+: 1.0.0
+
+core
+: helpers
+
+arguments
+:prefix: "text-"
+
+<% example_tabs do %>
+~~~scss
+@mixin mars-build-helpers-text($prefix: "text-"){
+  @include log("🚀 mars-build-helpers-text");
+
+  .#{$prefix}center           { @include text-center; }
+  .#{$prefix}left             { @include text-left; }
+  .#{$prefix}right            { @include text-right; }
+  .#{$prefix}capitalize       { @include text-capitalize; }
+  .#{$prefix}lowercase        { @include text-lowercase; }
+  .#{$prefix}uppercase        { @include text-uppercase; }
+  .#{$prefix}upper-first      { @include text-upper-first; }
+  .#{$prefix}hide             { @include text-hide; }
+  .#{$prefix}nowrapp          { @include text-nowrapp; }
+  .#{$prefix}truncate         { @include text-truncate; }
+}
+~~~
+
+~~~css
+/* ///////// 🚀 mars-build-helpers-text */
+.text-center {
+  text-align: center; }
+
+.text-left {
+  text-align: left; }
+
+.text-right {
+  text-align: right; }
+
+.text-capitalize {
+  text-transform: capitalize !important; }
+
+.text-lowercase {
+  text-transform: lowercase !important; }
+
+.text-uppercase {
+  text-transform: uppercase !important; }
+
+.text-upper-first::first-letter {
+  text-transform: capitalize !important; }
+
+.text-hide {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0; }
+
+.text-nowrapp {
+  white-space: nowrap; }
+
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+~~~
+<% end %>
+
+
+##mars-build-helpers-utilities
+
+A set of utilities that can be useful in the application or when we work the presentation of elements using javascript
+
+since
+: 1.0.0
+
+core
+: helpers
+
+arguments
+: prefix: ""
+
+<% example_tabs do %>
+~~~scss
+@mixin mars-build-helpers-utilities($prefix: ""){
+  @include log("🚀 mars-build-helpers-utilities");
+
+  .#{$prefix}clear            { @include clear; }
+  .#{$prefix}focus            { @include focus; }
+  .#{$prefix}is-hidden        { @include is-hidden; }
+  .#{$prefix}last-margin-0    { @include last-margin-0; }
+  .#{$prefix}sr-only          { @include sr-only; }
+}
+~~~
+
+~~~css
+/* ///////// 🚀 mars-build-helpers-utilities */
+.clear {
+  clear: both !important; }
+
+.focus {
+  outline: none;
+  box-shadow: 0 0 4px rgba(248, 249, 250, 0.4); }
+
+.is-hidden {
+  display: none; }
+
+.last-margin-0 > *:last-child {
+  margin-bottom: 0; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0; }
+~~~
+<% end %>

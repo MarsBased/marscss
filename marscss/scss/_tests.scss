@@ -8,29 +8,10 @@
     @include make-col-offset(1);
     @include make-grid-columns;
 
-    @include make-flex-column;
-    @include make-flex-vertical-align;
-
     @include media-breakpoint-up("sm");
     @include media-breakpoint-down("sm");
     @include media-breakpoint-between("sm","md");
     @include media-breakpoint-only("sm");
-
-    @include last-margin-0;
-    @include focus;
-    @include sr-only;
-    @include pull-right;
-    @include pull-left;
-    @include text-center;
-    @include text-right;
-    @include text-left;
-    @include text-nowrapp;
-    @include text-truncate;
-    @include text-hide;
-    @include vertical-middle;
-    @include is-hidden;
-    @include bg("#F00");
-    @include ratio;
 
     @include mars-alert;
     @include mars-card;
@@ -44,7 +25,6 @@
     @include mars-build-reset;
     @include mars-build-elements;
     @include mars-build-normalize;
-    @include mars-build-flex-columns;
     @include mars-build-helpers;
     @include mars-build-grid;
   }
