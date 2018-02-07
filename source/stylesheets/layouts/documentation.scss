@@ -9,7 +9,7 @@ body.documentation {
     padding-top: $gutter*2;
     padding-bottom: $gutter*2;
     @extend %grid-column;
-    @include media-breakpoint-up("sm"){
+    @include media-breakpoint-up('sm') {
       @include make-col(3);
     }
   }
@@ -18,7 +18,7 @@ body.documentation {
     padding-top: $gutter*2;
     padding-bottom: $gutter*2;
     @extend %grid-column;
-    @include media-breakpoint-up("sm"){
+    @include media-breakpoint-up('sm') {
       flex: 1 1 0;
       max-width: 800px;
     }
@@ -30,6 +30,7 @@ body.documentation {
       font-weight: 800;
       @include fs-h5;
     }
+
     dd {
       margin-bottom: 0;
     }
@@ -52,7 +53,15 @@ body.documentation {
   }
 
   //http://localhost:4567/documentation/components/alerts
-  .alert { @include mars-alert; }
-  .alert-info { @include mars-alert($teal, $gray-800); }
-  .alert-warning { @include mars-alert($yellow, $gray-800); }
+  .alert {
+    @include mars-alert;
+  }
+
+  .alert-info {
+    @include mars-alert($teal, $gray-800);
+  }
+
+  .alert-warning {
+    @include mars-alert($yellow, $gray-800);
+  }
 }

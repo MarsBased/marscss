@@ -1,7 +1,8 @@
 //stylelint-disable declaration-no-important
 //stylelint-disable rule-empty-line-before
-@mixin mars-build-helpers-align($prefix: "align-"){
-  @include log("🚀 mars-build-helpers-align");
+//stylelint-disableblock-opening-brace-space-before
+@mixin mars-build-helpers-align($prefix: 'align-'){
+  @include log('🚀 mars-build-helpers-align');
 
   .#{$prefix}baseline    { @include align-baseline; }
   .#{$prefix}top         { @include align-top; }
@@ -11,8 +12,8 @@
   .#{$prefix}text-top    { @include align-text-top; }
 }
 
-@mixin mars-build-helpers-bg($prefix: "bg-", $colors: $colors){
-  @include log("🚀 mars-build-helpers-bg");
+@mixin mars-build-helpers-bg($prefix: 'bg-', $colors: $colors){
+  @include log('🚀 mars-build-helpers-bg');
 
   @each $color in $colors {
     .#{$prefix}#{nth($color, 1)} {
@@ -22,8 +23,8 @@
   .#{$prefix}transparent { @include bg-transparent; }
 }
 
-@mixin mars-build-helpers-border($prefix: "border"){
-  @include log("🚀 mars-build-helpers-border");
+@mixin mars-build-helpers-border($prefix: 'border'){
+  @include log('🚀 mars-build-helpers-border');
 
   .#{$prefix}             { @include border; }
   .#{$prefix}-0           { @include border-0; }
@@ -33,8 +34,8 @@
   .#{$prefix}-left        { @include border-left; }
 }
 
-@mixin mars-build-helpers-color($prefix: "color-", $colors: $colors){
-  @include log("🚀 mars-build-helpers-colors");
+@mixin mars-build-helpers-color($prefix: 'color-', $colors: $colors){
+  @include log('🚀 mars-build-helpers-colors');
 
   @each $color in $colors {
     .#{$prefix}#{nth($color, 1)} {
@@ -43,8 +44,8 @@
   }
 }
 
-@mixin mars-build-helpers-fs($prefix: "fs-"){
-  @include log("🚀 mars-build-helpers-fs");
+@mixin mars-build-helpers-fs($prefix: 'fs-'){
+  @include log('🚀 mars-build-helpers-fs');
 
   .#{$prefix}hero         { @include fs-hero; }
   .#{$prefix}1            { @include fs-h1; }
@@ -57,15 +58,15 @@
   .#{$prefix}small        { @include fs-small; }
 }
 
-@mixin mars-build-helpers-pull($prefix: "pull-") {
-  @include log("🚀 mars-build-helpers-pull");
+@mixin mars-build-helpers-pull($prefix: 'pull-') {
+  @include log('🚀 mars-build-helpers-pull');
 
   .#{$prefix}left  { @include pull-left; }
   .#{$prefix}right { @include pull-right; }
 }
 
-@mixin mars-build-helpers-ratio($prefix: "ratio-"){
-  @include log("🚀 mars-build-helpers-ratio");
+@mixin mars-build-helpers-ratio($prefix: 'ratio-'){
+  @include log('🚀 mars-build-helpers-ratio');
 
   %ratio {
     @include ratio;
@@ -87,8 +88,8 @@
   }
 }
 
-@mixin mars-build-helpers-text($prefix: "text-"){
-  @include log("🚀 mars-build-helpers-text");
+@mixin mars-build-helpers-text($prefix: 'text-'){
+  @include log('🚀 mars-build-helpers-text');
 
   .#{$prefix}center           { @include text-center; }
   .#{$prefix}left             { @include text-left; }
@@ -102,8 +103,8 @@
   .#{$prefix}truncate         { @include text-truncate; }
 }
 
-@mixin mars-build-helpers-utilities($prefix: ""){
-  @include log("🚀 mars-build-helpers-utilities");
+@mixin mars-build-helpers-utilities($prefix: ''){
+  @include log('🚀 mars-build-helpers-utilities');
 
   .#{$prefix}clear            { @include clear; }
   .#{$prefix}focus            { @include focus; }
@@ -113,15 +114,15 @@
 }
 
 @mixin mars-build-helpers(
-  $prefix-align: "align-",
-  $prefix-bg: "bg-",
-  $prefix-border: "border",
-  $prefix-colors: "color-",
-  $prefix-fs: "fs-",
-  $prefix-pull: "pull-",
-  $prefix-ratio: "ratio-",
-  $prefix-text: "text-",
-  $prefix-utilities: "",
+  $prefix-align: 'align-',
+  $prefix-bg: 'bg-',
+  $prefix-border: 'border',
+  $prefix-colors: 'color-',
+  $prefix-fs: 'fs-',
+  $prefix-pull: 'pull-',
+  $prefix-ratio: 'ratio-',
+  $prefix-text: 'text-',
+  $prefix-utilities: '',
   $colors: $colors){
 
   @include mars-build-helpers-align($prefix-align);

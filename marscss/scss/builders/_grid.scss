@@ -1,15 +1,15 @@
 @mixin mars-build-grid-container(
-  $prefix: "container",
-  $container-max-widths: $container-max-widths) {
-
-  @include log("🚀 mars-build-grid-container");
+  $prefix: 'container',
+  $container-max-widths: $container-max-widths
+  ) {
+  @include log('🚀 mars-build-grid-container');
 
   .#{$prefix} {
     @extend %container;
     @include make-container-max-widths();
   }
 
-  @each $breakpoint , $container-max-width in $container-max-widths {
+  @each $breakpoint, $container-max-width in $container-max-widths {
     .#{$prefix}-#{$breakpoint} {
       @extend %container;
       max-width: $container-max-width;
@@ -17,8 +17,8 @@
   }
 }
 
-@mixin mars-build-grid-row($prefix: "row") {
-  @include log("🚀 mars-build-grid-row");
+@mixin mars-build-grid-row($prefix: 'row') {
+  @include log('🚀 mars-build-grid-row');
 
   .#{$prefix} {
     @extend %row;
@@ -32,7 +32,7 @@
     margin-left: 0;
 
     > .col,
-    > [class*="col-"] {
+    > [class*='col-'] {
       padding-right: 0;
       padding-left: 0;
     }
@@ -40,15 +40,15 @@
 }
 
 @mixin mars-build-grid-columns {
-  @include log("🚀 mars-build-grid-columns");
+  @include log('🚀 mars-build-grid-columns');
   @include make-grid-columns();
 }
 
 @mixin mars-build-grid (
-  $prefix-container: "container",
+  $prefix-container: 'container',
   $container-max-widths: $container-max-widths,
-  $prefix-row: "row"){
-
+  $prefix-row: 'row'
+  ) {
   @include mars-build-grid-container($prefix-container, $container-max-widths);
   @include mars-build-grid-row($prefix-row);
   @include mars-build-grid-columns;

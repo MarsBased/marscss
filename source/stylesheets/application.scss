@@ -1,27 +1,26 @@
 // CUSTOM VARIABLES
-@import "utilities/variables";
+@import 'utilities/variables';
 
 // MARSCSS CORE
-@import "../../marscss/marscss";
+@import '../../marscss/marscss';
 
 // CUSTOM CORE
-
 
 // MARSCSS BUILDERS
 @include mars-init;
 @include mars-tests;
 
 // CUSTOM CSS
-@import "base/code";
-@import "base/extend";
-@import "base/general";
+@import 'base/code';
+@import 'base/extend';
+@import 'base/general';
 
-@import "blocks/column-block";
-@import "blocks/example-tabs";
-@import "blocks/footer";
-@import "blocks/header";
-@import "blocks/hero";
-@import "blocks/sidebar-menu";
+@import 'blocks/column-block';
+@import 'blocks/example-tabs';
+@import 'blocks/footer';
+@import 'blocks/header';
+@import 'blocks/hero';
+@import 'blocks/sidebar-menu';
 
-@import "layouts/documentation";
-@import "layouts/home";
+@import 'layouts/documentation';
+@import 'layouts/home';

@@ -7,6 +7,7 @@
 
   &__container {
     margin-bottom: $gutter/2;
+
     & > *:not(.is-active) {
       display: none;
     }
@@ -20,7 +21,9 @@
     background-color: $gray-400;
     transition: background-color .3s ease-out;
 
-    &:hover, &:focus, &.is-active {
+    &:hover,
+    &:focus,
+    &.is-active {
       background-color: $gray-800;
     }
   }

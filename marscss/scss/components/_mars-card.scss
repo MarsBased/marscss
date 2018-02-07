@@ -7,32 +7,32 @@
   $__image: __image,
   $__header: __header,
   $__footer: __footer
-){
+) {
   @include mars-card-root(
     $background,
     $padding,
     $border,
     $border-radius);
 
-  @if ($__content != false){
+  @if ($__content != false) {
     &#{$__content} {
       @include mars-card-content($padding);
     }
   }
 
-  @if ($__header != false){
+  @if ($__header != false) {
     &#{$__header} {
       @include mars-card-header($padding, $border);
     }
   }
 
-  @if ($__image != false){
+  @if ($__image != false) {
     &#{$__image} {
       @include mars-card-image($border-radius);
     }
   }
 
-  @if ($__footer != false){
+  @if ($__footer != false) {
     &#{$__footer} {
       @include mars-card-footer($border, $border-radius);
     }
@@ -43,10 +43,12 @@
   }
 }
 
-@mixin mars-card-root($background: $white,
-                      $padding: $grid-gutter-width/2,
-                      $border: 1px solid $border-color,
-                      $border-radius: false){
+@mixin mars-card-root(
+  $background: $white,
+  $padding: $grid-gutter-width/2,
+  $border: 1px solid $border-color,
+  $border-radius: false
+) {
   position: relative;
   background: $background;
   border: $border;
@@ -55,7 +57,7 @@
 
 @mixin mars-card-content ($padding: false) {
   @include last-margin-0;
-  @if ($padding != false){
+  @if ($padding != false) {
     margin: $padding;
   }
 }
@@ -63,10 +65,10 @@
 @mixin mars-card-header ($padding: false, $border: false) {
   display: flex;
   align-items: stretch;
-  @if ($border != false){
+  @if ($border != false) {
     border-bottom: $border;
   }
-  @if ($padding != false){
+  @if ($padding != false) {
     margin: $padding;
   }
 }
@@ -87,10 +89,10 @@
 @mixin mars-card-footer ($border: false, $border-radius: false) {
   display: flex;
   align-items: stretch;
-  @if ($border != false){
+  @if ($border != false) {
     border-top: $border;
   }
-  @if ($border-radius != false){
+  @if ($border-radius != false) {
     border-bottom-right-radius: $border-radius;
     border-bottom-left-radius: $border-radius;
   }
@@ -106,22 +108,22 @@
   align-items: center;
   justify-content: center;
 
-  @if ($padding != false){
+  @if ($padding != false) {
     padding: $padding;
   }
 
   @if ($border != false) {
-    &:not(:first-of-type){
+    &:not(:first-of-type) {
       border-left: $border;
     }
   }
 
-  @if ($border-radius != false){
-    &:first-child{
+  @if ($border-radius != false) {
+    &:first-child {
       border-bottom-left-radius: $border-radius;
     }
 
-    &:last-child{
+    &:last-child {
       border-bottom-right-radius: $border-radius;
     }
   }

@@ -5,22 +5,22 @@
   $margin: 0 0 $grid-gutter-width/2,
   $__close: false,
   $close-padding: calc(#{$grid-gutter-width/2} + 1em)
-){
-  @include log("🚀 mars-alert");
+) {
+  @include log('🚀 mars-alert');
 
   @include mars-alert-root($bg, $color, $padding, $margin);
 
-  @if ($__close != false){
+  @if ($__close != false) {
     position: relative;
     padding-right: calc(#{$padding} + 1em);
 
-    &#{$__close}{
+    &#{$__close} {
       @include mars-alert-close;
     }
   }
 }
 
-@mixin mars-alert-root($bg, $color, $padding, $margin){
+@mixin mars-alert-root($bg, $color, $padding, $margin) {
   padding: $padding;
   margin: $margin;
   color: $color;
@@ -31,7 +31,7 @@
   $color: inherit,
   $distance: $grid-gutter-width/2,
   $transition: transform .2s ease-out
-){
+) {
   position: absolute;
   top: $distance;
   right: $distance;

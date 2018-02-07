@@ -29,7 +29,7 @@
   text-decoration: none;
 }
 
-@mixin reset-button{
+@mixin reset-button {
   padding: 0;
   margin: 0;
   font-size: inherit;
@@ -40,7 +40,7 @@
 
   &:hover,
   &:focus,
-  &:active{
+  &:active {
     text-decoration: none;
     outline: 0;
   }

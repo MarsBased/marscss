@@ -1,11 +1,10 @@
 //stylelint-disable block-no-empty
-
 @mixin html {
   height: 100%;
   font-size: 62.5%; // Now 10px = 1rem!
+  text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
 }
 
 @mixin body {
@@ -29,12 +28,13 @@
   }
   @include extend-a;
 }
-@mixin extend-a {}
+@mixin extend-a {
+}
 
 @mixin heading {
   margin-bottom: 1rem;
 
-  &:not(:first-child){
+  &:not(:first-child) {
     margin-top: 2em;
   }
 }
@@ -46,7 +46,8 @@
   @include heading;
   @include extend-hero;
 }
-@mixin extend-hero {}
+@mixin extend-hero {
+}
 
 @mixin h1 {
   font-size: $font-size-h1;
@@ -55,7 +56,8 @@
   @include heading;
   @include extend-h1;
 }
-@mixin extend-h1 {}
+@mixin extend-h1 {
+}
 
 @mixin h2 {
   font-size: $font-size-h2;
@@ -64,7 +66,8 @@
   @include heading;
   @include extend-h2;
 }
-@mixin extend-h2 {}
+@mixin extend-h2 {
+}
 
 @mixin h3 {
   font-size: $font-size-h3;
@@ -73,7 +76,8 @@
   @include heading;
   @include extend-h3;
 }
-@mixin extend-h3 {}
+@mixin extend-h3 {
+}
 
 @mixin h4 {
   font-size: $font-size-h4;
@@ -81,7 +85,8 @@
   @include heading;
   @include extend-h4;
 }
-@mixin extend-h4 {}
+@mixin extend-h4 {
+}
 
 @mixin h5 {
   font-size: $font-size-h5;
@@ -89,7 +94,8 @@
   @include heading;
   @include extend-h5;
 }
-@mixin extend-h5 {}
+@mixin extend-h5 {
+}
 
 @mixin h6 {
   font-size: $font-size-h6;
@@ -97,33 +103,36 @@
   @include heading;
   @include extend-h6;
 }
-@mixin extend-h6 {}
+@mixin extend-h6 {
+}
 
-@mixin text-block{
+@mixin text-block {
   margin-top: 0;
   margin-bottom: $font-margin;
 }
 
-@mixin list-block{
+@mixin list-block {
   margin-bottom: .5em;
 }
 
-@mixin large{
+@mixin large {
   font-size: $font-size-large;
   line-height: $line-height;
   @include text-block;
   @include extend-large;
 }
-@mixin extend-large{}
+@mixin extend-large {
+}
 
-@mixin small{
+@mixin small {
   font-size: $font-size-small;
   @include text-block;
   @include extend-small;
 }
-@mixin extend-small{}
+@mixin extend-small {
+}
 
-@mixin ul{
+@mixin ul {
   padding-left: 1.5em;
   list-style-type: disc;
   @include text-block;
@@ -134,9 +143,10 @@
 
   @include extend-ul;
 }
-@mixin extend-ul {}
+@mixin extend-ul {
+}
 
-@mixin ol{
+@mixin ol {
   padding-left: 1.5em;
   list-style-type: decimal;
   @include text-block;
@@ -148,40 +158,45 @@
 
   @include extend-ol;
 }
-@mixin extend-ol {}
-
+@mixin extend-ol {
+}
 
 @mixin li {
   @include extend-li;
   @include list-block;
 }
-@mixin extend-li {}
+@mixin extend-li {
+}
 
-@mixin dl{
+@mixin dl {
   @include text-block;
   @include extend-dl;
 }
-@mixin extend-dl {}
+@mixin extend-dl {
+}
 
-@mixin dt{
+@mixin dt {
   font-weight: 800;
   @include extend-dt;
 }
-@mixin extend-dt {}
+@mixin extend-dt {
+}
 
-@mixin dd{
+@mixin dd {
   @include list-block;
   @include extend-dd;
 }
-@mixin extend-dd {}
+@mixin extend-dd {
+}
 
-@mixin p{
+@mixin p {
   @include extend-p;
   @include text-block;
 }
-@mixin extend-p {}
+@mixin extend-p {
+}
 
-@mixin blockquote{
+@mixin blockquote {
   max-width: 600px;
   padding-left: 1em;
   margin-top: 0;
@@ -192,4 +207,5 @@
   border-left: 4px solid $primary;
   @include extend-blockquote;
 }
-@mixin extend-blockquote {}
+@mixin extend-blockquote {
+}

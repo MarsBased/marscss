@@ -1,5 +1,6 @@
 //stylelint-disable declaration-no-important
 //stylelint-disable rule-empty-line-before
+//stylelint-disable block-opening-brace-space-before
 //align
 @mixin align-middle       { vertical-align: middle !important; }
 @mixin align-baseline     { vertical-align: baseline !important; }
@@ -21,9 +22,9 @@
 @mixin fs-small           { font-size: $font-size-small !important; }
 
 //bg
-@mixin bg($bg, $text: false){
+@mixin bg($bg, $text: false) {
   background-color: $bg;
-  @if $text{
+  @if $text {
     color: $text;
   }
 }

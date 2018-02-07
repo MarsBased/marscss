@@ -1,5 +1,5 @@
 @mixin mars-build-reset {
-  @include log("🚀 mars-build-reset");
+  @include log('🚀 mars-build-reset');
 
   * {
     @include reset-all;
@@ -21,15 +21,23 @@
     @include reset-button;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @include reset-heading;
   }
 
-  p, blockquote {
+  p,
+  blockquote {
     @include reset-text-block;
   }
 
-  ul, ol, dl {
+  ul,
+  ol,
+  dl {
     @include reset-list;
   }
 }

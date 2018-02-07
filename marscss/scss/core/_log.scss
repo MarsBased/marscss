@@ -1,4 +1,4 @@
-@mixin log($text, $debug: $mars-debug){
+@mixin log($text, $debug: $mars-debug) {
   @if ($debug == true) {
     /* ///////// #{$text} */
   }

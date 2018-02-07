@@ -1,7 +1,6 @@
 .sidebar-menu {
   $color-is-active: $gray-800;
   $color: $gray-600;
-
   position: relative;
 
   li {
@@ -32,7 +31,7 @@
         bottom: 0;
         left: 0;
         width: 2px;
-        content: "";
+        content: '';
         background-color: $primary;
       }
     }
@@ -42,5 +41,4 @@
     color: inherit;
     text-decoration: none;
   }
-
 }
