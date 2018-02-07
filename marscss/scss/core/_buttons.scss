@@ -1,0 +1,19 @@
+@mixin button (
+  $padding: .5em,
+  $border: 0
+) {
+  padding: $padding;
+  margin: 0;
+  font-size: inherit;
+  color: inherit;
+  background-color: transparent;
+  border: $border;
+  appearance: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+    outline: 0;
+  }
+}

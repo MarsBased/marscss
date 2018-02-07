@@ -1,4 +1,4 @@
-@mixin mars-tests-core($selector: "%test") {
+@mixin mars-tests-core($selector: '%test') {
   #{$selector} {
     @include make-container;
     @include make-container-max-widths;
@@ -8,19 +8,19 @@
     @include make-col-offset(1);
     @include make-grid-columns;
 
-    @include media-breakpoint-up("sm");
-    @include media-breakpoint-down("sm");
-    @include media-breakpoint-between("sm","md");
-    @include media-breakpoint-only("sm");
+    @include media-breakpoint-up('sm');
+    @include media-breakpoint-down('sm');
+    @include media-breakpoint-between('sm','md');
+    @include media-breakpoint-only('sm');
 
     @include mars-alert;
     @include mars-card;
   }
 
-  @include log("✅ mars-tests-core");
+  @include log('✅ mars-tests-core');
 }
 
-@mixin mars-tests-builders ($selector: "%test") {
+@mixin mars-tests-builders ($selector: '%test') {
   #{$selector} {
     @include mars-build-reset;
     @include mars-build-elements;
@@ -29,19 +29,19 @@
     @include mars-build-grid;
   }
 
-  @include log("✅ mars-tests-build");
+  @include log('✅ mars-tests-build');
 }
 
 @mixin mars-tests-variables () {
   //bootstrap tests
-  @include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+  @include _assert-ascending($grid-breakpoints, '$grid-breakpoints');
   @include _assert-starts-at-zero($grid-breakpoints);
-  @include _assert-ascending($container-max-widths, "$container-max-widths");
+  @include _assert-ascending($container-max-widths, '$container-max-widths');
 
-  @include log("✅ mars-tests-variables");
+  @include log('✅ mars-tests-variables');
 }
 
-@mixin mars-tests($selector: "%test") {
+@mixin mars-tests($selector: '%test') {
   @include mars-tests-core($selector);
   @include mars-tests-builders($selector);
   @include mars-tests-variables;
