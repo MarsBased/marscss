@@ -17,6 +17,7 @@
     "webpack": "^2.3.3"
   },
   "dependencies": {
+    "@marsbased/marstyle-stylelint": "^0.2.0",
     "autoprefixer": "^6.7.7",
     "babel-core": "^6.24.0",
     "babel-loader": "^6.4.1",
