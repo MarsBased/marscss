@@ -1,0 +1,16 @@
+
+@mixin mars-build-buttons(
+  $prefix: 'btn-',
+  $extend: '%button',
+  $buttons: $buttons,
+  $default: $button-default
+) {
+  @include log('🚀 mars-build-buttons');
+
+  @each $name, $button in $buttons {
+    .#{$prefix}#{$name} {
+      @extend #{$extend};
+      @include button-theme($button, $default);
+    }
+  }
+}

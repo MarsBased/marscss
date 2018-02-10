@@ -6,6 +6,8 @@
   %row { @include make-row; }
   %grid-column { @include make-col-ready; }
 
+  %button { @include button; }
+
   %a { @include a; }
   %h1 { @include h1; }
   %h2 { @include h2; }

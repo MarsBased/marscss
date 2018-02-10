@@ -42,6 +42,10 @@ $cyan:    #17a2b8 !default;
 
 $primary: $blue !default;
 
+$border-color:          $gray-300 !default;
+$font-color:            $black !default;
+$link-color:            $primary !default;
+
 $colors: () !default;
 $colors: map-merge(
   (
@@ -53,16 +57,36 @@ $colors: map-merge(
   $colors
 );
 
-$border-color:          $gray-300 !default;
-$font-color:            $black !default;
-$link-color:            $primary !default;
+$button-default:(
+  'base': (
+    color: $white,
+    border: 1px solid,
+    background-color: $gray-600
+  ),
+  'active': (
+    background-color: darken($gray-600, 10%)
+  )
+);
+
+$buttons:(
+  'default': (),
+  'primary': (
+    'base': (
+      background-color: $primary
+    ),
+    'active': (
+      background-color: darken($primary, 10%)
+    )
+  )
+);
+
 $font-family:           sans-serif !default;
 $font-weight:           400 !default;
 
 $line-height:           1.5 !default;
 
 $base:                  1.6 !default;
-$multiplier:            1.2 !default;
+$multiplier:            1.1 !default;
 $unit:                  rem !default;
 
 $font-margin:           2 + $unit !default;

@@ -5,10 +5,22 @@
 @import '../../marscss/marscss';
 
 // CUSTOM CORE
+%button-sm {
+  @include button(.5em 1em);
+  font-size: $font-size-small;
+}
+
+%button-lg {
+  @include button(2em);
+}
 
 // MARSCSS BUILDERS
 @include mars-init;
 @include mars-tests;
+
+//examples documentation
+@include mars-build-buttons;
+@include mars-build-buttons('btn-sm-', '%button-sm');
 
 // CUSTOM CSS
 @import 'base/code';

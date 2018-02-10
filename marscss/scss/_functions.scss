@@ -1,7 +1,7 @@
 // stylelint-disable function-url-quotes
 
 @function is-number($value) {
-  @return type-of($value) == "number";
+  @return type-of($value) == 'number';
 }
 
 @function is-time($value) {
@@ -33,7 +33,7 @@
 }
 
 @function is-percentage($value) {
-  @return is-number($value) and unit($value) == "%";
+  @return is-number($value) and unit($value) == '%';
 }
 
 @function is-length($value) {
@@ -45,10 +45,10 @@
 }
 
 @function is-position($value) {
-  @return is-length($value) or is-percentage($value) or index("top" "right" "bottom" "left" "center", $value) != null;
+  @return is-length($value) or is-percentage($value) or index('top' 'right' 'bottom' 'left' 'center', $value) != null;
 }
 
-@function str-replace($string, $search, $replace: "") {
+@function str-replace($string, $search, $replace: '') {
   $index: str-index($string, $search);
 
   @if $index {
@@ -58,8 +58,8 @@
   @return $string;
 }
 
-@function image-url($url){
-  $images-path: "images/" !default;
+@function image-url($url) {
+  $images-path: 'images/' !default;
   @return url(quote($images-path + $url));
 }
 
@@ -88,25 +88,32 @@
     @if $prev-num == null {
       // Do nothing
     } @else if not comparable($prev-num, $num) {
-      @warn "Potentially invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} whose unit makes it incomparable to #{$prev-num}, the value of the previous key '#{$prev-key}' !";
+      @warn "Potentially invalid value for #{$map-name}: This map must be in ascending order,
+        but key '#{$key}' has value #{$num} whose unit makes it incomparable to #{$prev-num},
+        the value of the previous key '#{$prev-key}' !";
     } @else if $prev-num >= $num {
-      @warn "Invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} which isn't greater than #{$prev-num}, the value of the previous key '#{$prev-key}' !";
+      @warn "Invalid value for #{$map-name}: This map must be in ascending order,
+        but key '#{$key}' has value #{$num} which isn't greater than #{$prev-num},
+        the value of the previous key '#{$prev-key}' !";
     }
     $prev-key: $key;
     $prev-num: $num;
   }
 }
 
-// Starts at zero
-// Another grid mixin that ensures the min-width of the lowest breakpoint starts at 0.
-@mixin _assert-starts-at-zero($map) {
-  $values: map-values($map);
-  $first-value: nth($values, 1);
-  @if $first-value != 0 {
-    @warn "First breakpoint in `$grid-breakpoints` must start at 0, but starts at #{$first-value}.";
+//https://medium.com/@pentzzsolt/a-non-destructive-map-merge-function-for-sass-f91637f87b2e
+@function map-merge-recursive($parent-map, $child-map) {
+  $result: $parent-map;
+  @each $key, $value in $child-map {
+    @if (not map-has-key($result, $key)) or (type-of(map-get($result, $key)) != type-of($value)) or (not (type-of(map-get($result, $key)) == map and type-of($value) == map)) {
+      $result: map-merge($result, ($key: $value));
+    }
+    @else {
+      $result: map-merge(
+        $result,
+        ($key: map-merge-recursive(map-get($result, $key), $value))
+      );
+    }
   }
-}
-
-@function percent-ratio($x, $y){
-  @return #{$y / $x * 100%};
+  @return $result;
 }

@@ -41,7 +41,7 @@
 
 @mixin hero {
   font-size: $font-size-hero;
-  font-weight: 400;
+  font-weight: 700;
   line-height: 1;
   @include heading;
   @include extend-hero;
@@ -51,7 +51,7 @@
 
 @mixin h1 {
   font-size: $font-size-h1;
-  font-weight: 400;
+  font-weight: 700;
   line-height: 1;
   @include heading;
   @include extend-h1;
@@ -61,7 +61,7 @@
 
 @mixin h2 {
   font-size: $font-size-h2;
-  font-weight: 400;
+  font-weight: 700;
   line-height: 1;
   @include heading;
   @include extend-h2;

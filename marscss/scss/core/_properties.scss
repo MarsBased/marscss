@@ -1,0 +1,7 @@
+@mixin properties($properties) {
+  @each $name, $value in $properties {
+    @if $value {
+      #{$name}: #{$value};
+    }
+  }
+}

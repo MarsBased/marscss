@@ -1,19 +1,27 @@
-@mixin button (
-  $padding: .5em,
-  $border: 0
-) {
+@mixin button($padding: .4em 1em, $border: 0, $border-radius: 5px) {
   padding: $padding;
-  margin: 0;
-  font-size: inherit;
-  color: inherit;
-  background-color: transparent;
+  cursor: pointer;
   border: $border;
-  appearance: none;
+  border-radius: $border-radius;
+  transition: color .2s ease-out, background-color .2s ease-out;
+}
 
+@mixin button-active {
+  &:active,
   &:hover,
   &:focus,
-  &:active {
-    text-decoration: none;
-    outline: 0;
+  &.is-active {
+    @content;
+  }
+}
+
+@mixin button-theme($button, $default: $button-default) {
+
+  $button: map-merge-recursive($default, $button);
+
+  @include properties(map-get($button, 'base'));
+
+  @include button-active {
+    @include properties(map-get($button, 'active'));
   }
 }
