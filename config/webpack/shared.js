@@ -16,7 +16,7 @@ module.exports = {
     head: './source/javascripts/head.js',
     application: './source/stylesheets/application.scss',
     images: sync('./source/images/**/*', { nodir: true }),
-    vendor: ['lodash', 'jquery', 'bootstrap-loader', 'select2']
+    vendor: ['lodash', 'jquery']
   },
 
   output: {
