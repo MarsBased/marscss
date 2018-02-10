@@ -1,6 +1,7 @@
 //stylelint-disable declaration-no-important
 //stylelint-disable rule-empty-line-before
 //stylelint-disableblock-opening-brace-space-before
+//http://marscss.com/documentation/builders/mars-build-helpers/#mars-build-helpers-align
 @mixin mars-build-helpers-align($prefix: 'align-'){
   @include log('🚀 mars-build-helpers-align');
 
@@ -12,6 +13,7 @@
   .#{$prefix}text-top    { @include align-text-top; }
 }
 
+//http://marscss.com/documentation/builders/mars-build-helpers/#mars-build-helpers-bg
 @mixin mars-build-helpers-bg($prefix: 'bg-', $colors: $colors){
   @include log('🚀 mars-build-helpers-bg');
 
@@ -23,6 +25,7 @@
   .#{$prefix}transparent { @include bg-transparent; }
 }
 
+//http://marscss.com/documentation/builders/mars-build-helpers/#mars-build-helpers-border
 @mixin mars-build-helpers-border($prefix: 'border'){
   @include log('🚀 mars-build-helpers-border');
 
@@ -34,6 +37,7 @@
   .#{$prefix}-left        { @include border-left; }
 }
 
+//http://marscss.com/documentation/builders/mars-build-helpers/#mars-build-helpers-colors
 @mixin mars-build-helpers-color($prefix: 'color-', $colors: $colors){
   @include log('🚀 mars-build-helpers-colors');
 
@@ -44,6 +48,7 @@
   }
 }
 
+//http://marscss.com/documentation/builders/mars-build-helpers/#mars-build-helpers-fs
 @mixin mars-build-helpers-fs($prefix: 'fs-'){
   @include log('🚀 mars-build-helpers-fs');
 
@@ -58,6 +63,7 @@
   .#{$prefix}small        { @include fs-small; }
 }
 
+//http://marscss.com/documentation/builders/mars-build-helpers/#mars-build-helpers-pull
 @mixin mars-build-helpers-pull($prefix: 'pull-') {
   @include log('🚀 mars-build-helpers-pull');
 
@@ -65,6 +71,7 @@
   .#{$prefix}right { @include pull-right; }
 }
 
+//http://marscss.com/documentation/builders/mars-build-helpers/#mars-build-helpers-ratio
 @mixin mars-build-helpers-ratio($prefix: 'ratio-'){
   @include log('🚀 mars-build-helpers-ratio');
 
@@ -88,6 +95,7 @@
   }
 }
 
+//http://marscss.com/documentation/builders/mars-build-helpers/#mars-build-helpers-text
 @mixin mars-build-helpers-text($prefix: 'text-'){
   @include log('🚀 mars-build-helpers-text');
 
@@ -103,6 +111,7 @@
   .#{$prefix}truncate         { @include text-truncate; }
 }
 
+//http://marscss.com/documentation/builders/mars-build-helpers/#mars-build-helpers-utilities
 @mixin mars-build-helpers-utilities($prefix: ''){
   @include log('🚀 mars-build-helpers-utilities');
 
@@ -113,6 +122,7 @@
   .#{$prefix}sr-only          { @include sr-only; }
 }
 
+//http://marscss.com/documentation/builders/mars-build-helpers/
 @mixin mars-build-helpers(
   $prefix-align: 'align-',
   $prefix-bg: 'bg-',
