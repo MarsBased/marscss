@@ -1,4 +1,7 @@
 //stylelint-disable rule-empty-line-before,
+//stylelint-disable selector-max-type
+//stylelint-disable max-nesting-depth
+//stylelint-disable selector-max-compound-selectors
 body.documentation {
   .wrapper {
     @extend %container;
@@ -24,6 +27,38 @@ body.documentation {
     }
 
     @extend %raw-html-styles;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      a {
+        position: relative;
+        color: inherit;
+        border-bottom: 0;
+        transition: color .3s ease-out;
+
+        &:hover,
+        &:focus {
+          color: $primary;
+
+          &::before {
+            opacity: 1;
+          }
+        }
+
+        &::before {
+          position: absolute;
+          left: -.8em;
+          padding-right: .8em;
+          content: '#';
+          opacity: 0;
+          transition: opacity .3s ease-out;
+        }
+      }
+    }
 
     dt {
       margin-top: .5em;
