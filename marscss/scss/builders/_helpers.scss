@@ -1,6 +1,31 @@
+//http://marscss.com/documentation/builders/mars-build-helpers/
 //stylelint-disable declaration-no-important
 //stylelint-disable rule-empty-line-before
 //stylelint-disableblock-opening-brace-space-before
+@mixin mars-build-helpers(
+  $prefix-align: 'align-',
+  $prefix-bg: 'bg-',
+  $prefix-border: 'border',
+  $prefix-colors: 'color-',
+  $prefix-fs: 'fs-',
+  $prefix-pull: 'pull-',
+  $prefix-ratio: 'ratio-',
+  $prefix-text: 'text-',
+  $prefix-utilities: '',
+  $colors: $colors
+){
+
+  @include mars-build-helpers-align($prefix-align);
+  @include mars-build-helpers-bg($prefix-bg, $colors);
+  @include mars-build-helpers-border($prefix-border);
+  @include mars-build-helpers-color($prefix-colors, $colors);
+  @include mars-build-helpers-fs($prefix-fs);
+  @include mars-build-helpers-pull($prefix-pull);
+  @include mars-build-helpers-ratio($prefix-ratio);
+  @include mars-build-helpers-text($prefix-text);
+  @include mars-build-helpers-utilities($prefix-utilities);
+}
+
 //http://marscss.com/documentation/builders/mars-build-helpers/#mars-build-helpers-align
 @mixin mars-build-helpers-align($prefix: 'align-'){
   @include log('🚀 mars-build-helpers-align');
@@ -120,28 +145,4 @@
   .#{$prefix}is-hidden        { @include is-hidden; }
   .#{$prefix}last-margin-0    { @include last-margin-0; }
   .#{$prefix}sr-only          { @include sr-only; }
-}
-
-//http://marscss.com/documentation/builders/mars-build-helpers/
-@mixin mars-build-helpers(
-  $prefix-align: 'align-',
-  $prefix-bg: 'bg-',
-  $prefix-border: 'border',
-  $prefix-colors: 'color-',
-  $prefix-fs: 'fs-',
-  $prefix-pull: 'pull-',
-  $prefix-ratio: 'ratio-',
-  $prefix-text: 'text-',
-  $prefix-utilities: '',
-  $colors: $colors){
-
-  @include mars-build-helpers-align($prefix-align);
-  @include mars-build-helpers-bg($prefix-bg, $colors);
-  @include mars-build-helpers-border($prefix-border);
-  @include mars-build-helpers-color($prefix-colors, $colors);
-  @include mars-build-helpers-fs($prefix-fs);
-  @include mars-build-helpers-pull($prefix-pull);
-  @include mars-build-helpers-ratio($prefix-ratio);
-  @include mars-build-helpers-text($prefix-text);
-  @include mars-build-helpers-utilities($prefix-utilities);
 }
