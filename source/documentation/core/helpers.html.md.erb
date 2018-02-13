@@ -1,0 +1,163 @@
+---
+title: helpers
+layout: documentation
+active: Core, helpers
+---
+
+#helpers
+
+##align
+
+###align-middle
+
+since
+: 1.0.0
+
+<% example_tabs do %>
+~~~scss
+@mixin align-middle { vertical-align: middle !important; }
+~~~
+
+<% example_html do %>
+<span>Normal</span>
+<span class="align-middle">align-middle</span>
+<% end %>
+<% end %>
+
+
+###align-baseline
+
+since
+: 1.0.0
+
+<% example_tabs do %>
+~~~scss
+@mixin align-baseline { vertical-align: baseline !important; }
+~~~
+
+<% example_html do %>
+<span>Normal</span>
+<span class="align-middle">align-middle</span>
+<span class="align-baseline">align-baseline</span>
+<% end %>
+<% end %>
+
+
+###aling-top
+
+since
+:1.0.0
+
+<% example_tabs do %>
+~~~scss
+@mixin align-top { vertical-align: top !important; }
+~~~
+
+<% example_html do %>
+<span>Normal</span>
+<span class="align-middle">align-middle</span>
+<span class="align-top">align-top</span>
+<% end %>
+<% end %>
+
+
+###aling-middle
+
+since
+:1.0.0
+
+<% example_tabs do %>
+~~~scss
+@mixin align-middle { vertical-align: middle !important; }
+~~~
+
+<% example_html do %>
+<span>Normal</span>
+<span class="align-top">align-top</span>
+<span class="align-middle">align-middle</span>
+<% end %>
+<% end %>
+
+
+###aling-bottom
+
+since
+:1.0.0
+
+<% example_tabs do %>
+~~~scss
+@mixin align-bottom { vertical-align: bottom !important; }
+~~~
+
+<% example_html do %>
+<span>Normal</span>
+<span class="align-top">align-top</span>
+<span class="align-middle">align-middle</span>
+<span class="align-bottom">align-bottom</span>
+<% end %>
+<% end %>
+
+
+###align-text-bottom
+
+since
+:1.0.0
+
+<% example_tabs do %>
+~~~scss
+@mixin align-text-bottom { vertical-align: text-bottom !important; }
+~~~
+
+<% example_html do %>
+<span>Normal</span>
+<span class="align-text-bottom">align-text-bottom</span>
+<% end %>
+<% end %>
+
+
+##fonts
+
+###fs-hero
+
+since
+: 1.0.0
+
+<% example_tabs do %>
+~~~scss
+@mixin fs-hero { font-size: $font-size-hero !important; }
+~~~
+<% example_html do %>
+<div class="fs-hero">fs-hero</div>
+<% end %>
+
+<% end %>
+
+
+##bg
+
+since
+: 1.0.0
+
+arguments
+: bg: $bg
+: text: false
+
+<% example_tabs do %>
+~~~scss
+@mixin bg($bg, $text: false){
+  background-color: $bg !important;
+  @if $text{
+    color: $text;
+  }
+}
+~~~
+
+<% example_html do %>
+<div class="box bg-gray"></div>
+<% end %>
+
+<% end %>
+
+
+
+

@@ -11,7 +11,7 @@
           <%= link_to page.name,
           "/documentation/#{page.url || page.name.parameterize}" %>
         <% end %>
-        <% if active(page.name) %>
+        <% if active(page.name) && page.subpages %>
           <ul>
             <% page.subpages.each do |subpage|%>
               <% content_tag(:li, class: active(subpage.name)) do %>

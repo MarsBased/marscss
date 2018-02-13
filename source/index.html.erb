@@ -17,12 +17,6 @@ active: home
 <div class="column-block">
 	<div class="column-block__container columns-xs">
 		<div class="column-block__content">
-			<blockquote>
-        <p>
-          minima commodi quisquam ullam aliquid numquam ipsa voluptatum ab minima
-        </p>
-        <cite>download</cite>
-      </blockquote>
 		</div>
 		<div class="column-block__content">
 			<h2>Why is the marscss framework different?</h2>
@@ -33,19 +27,24 @@ active: home
 		</div>
 		<div class="column-block__content">
       <% markdown do %>
+      ##How to use?
+
+      Install the dependency
+
+      ~~~shell
+      npm i @marsbased/marscss --save
+      ~~~~
+
+      Use it from your main scss file:
+
       ~~~scss
-      // CUSTOM VARIABLES
-      @import "utilities/variables";
+      @import 'node_modules/marscss/marscss';
+      ~~~
 
-      // MARSCSS CORE
-      @import "../../marscss/marscss";
+      Alternatively, if you are using a bundler you probably can use a shortcut like:
 
-      // CUSTOM CORE
-
-      // MARSCSS BUILDERS
-      @include mars-build-reset;
-
-      // WEB STYLES
+      ~~~scss
+      @import '~marscss/marscss';
       ~~~
 			<% end %>
 		</div>

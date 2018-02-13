@@ -87,6 +87,12 @@ body.documentation {
     }
   }
 
+  .box {
+    width: 100px;
+    height: 100px;
+    background-color: rgba($primary, .5);
+  }
+
   //http://localhost:4567/documentation/components/alerts
   .alert {
     @include mars-alert;

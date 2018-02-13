@@ -1,25 +1,125 @@
 ---
-title: Introduction to marscss
+title: Getting started
 layout: documentation
-active: Where to start?, Introduction
+active: Getting started
 ---
 
-#Introduction
+#Getting started
 
-nulla sint porro numquam quos quis rerum eaque enim nulla aut ad expedita itaque ea quam saepe sed ut alias
+Get started with marscss, the only advanced CSS framework weighting 0KB.
+What’s marscss (and how can it weight 0KB?)
+
+marscss is a CSS framework built on top of SASS (one of the most popular CSS preprocessors). It uses mixins to define the styles of each element instead of regular CSS, thus making it possible to include in your final CSS file only the rules you are really going to use.
+
+It weights 0KB because it doesn’t add anything to your CSS by default. Because everything is encapsulated within mixins, the styles are not copied to your CSS file unless you explicitly include each rule or set of rules.
+
+##How to use?
+
+Install the dependency
+
+~~~shell
+npm i @marsbased/marscss --save
+~~~~
+
+Use it from your main scss file:
 
 ~~~scss
-// CUSTOM VARIABLES
-@import "utilities/variables";
-
-// CORE MARSCSS
-@import "../../marscss/marscss";
-
-// CUSTOM CORE
-
-
-// BUILDERS MARSCSS
-@include mars-tests;
-@include mars-build-reset;
+@import 'node_modules/marscss/marscss';
 ~~~
 
+Alternatively, if you are using a bundler you probably can use a shortcut like:
+
+~~~scss
+@import '~marscss/marscss';
+~~~
+
+##Copyright, license and contributions
+
+marscss was invented by Javier Artero and it's backed up by MarsBased, a leading Ruby and Rails & Angular development company. It is still in its early stages and it's published under the MIT license, so anyone is free to fork the repository and use it as one pleases. Any altruistic contribution or feedback will be very well received.
+
+[github.com/MarsBased/marscss](https://github.com/MarsBased/marscss)
+
+##Basic Usage
+
+Once introduced, this will not add a line to your processed CSS file, but you will have access to all the mixins of the core.
+
+If you want to access the extends and the default reset of the html marckup you need to call mars-init after the marscss import
+
+###Core mixins and builders
+
+The marscss core is composed of a set of mixins that allows you to create, extend and modify the appearance of elements, grid, forms, etc...
+
+~~~scss
+.main-title {
+  @include h1;
+}
+~~~
+
+When operating by mixins, we have many advantages such as being able to extend their functionality or completely rewrite them, the only thing we need is to create that mixin before using it, so I advise that the following structure be respected in the CSS
+
+To simplify the generation of the rules we have what we have called builders, these mixins have the function of generating css rules through the core, in the documentation you can see examples and the explanation of the different builders that you have.
+
+~~~scss
+@include mars-build-helpers($prefix-color: 'u-c-');
+~~~
+
+One of the many advantages that this has been generated with mixins is that it allows you to, for example, manipulate the names of the selectors.
+
+###Resets
+
+After many years working in CSS, we have realized that when we work with html elements from the css we restart most of their properties, this makes us waste time and generates a lot of unusable code.
+
+The philosophy of marscss is to separate the markup of the style with what is eliminated any type of presentation of the marckup html, by calling mars-init siemrpe and when it is not set to false this small reset will be added.
+
+If you need a part to continue having styles by html markup you can use the `%raw-html-styles`  for this purpose in the part of the page that you need, this will generate the styles for the elements under that selector.
+
+~~~scss
+.main-content {
+  @extend %raw-html-styles;
+}
+~~~
+
+###Your first application.scss
+
+The organization within your main file can follow the following order
+
+1. ####marscss core
+This is preferable to load first
+
+2. ####custom variables
+copy the [default-variables.scss](https://github.com/MarsBased/marscss/blob/master/marscss/scss/_default-variables.scss) file in your project, replace name by variables.scss and import, it is preferable to duplicate it whole since there are values of variables that depend on others.
+
+3. ####custom core
+This is one of the differential points of this framework, the core is designed to be extended and modified, so for that we reserve this space.
+I suggest creating a folder `/core` and that those mixins and extends modify the things you need from marscss
+
+4. ####marscss init and builders
+This is the function that starts the extensions and by default the reset unless it is passed as an argument false
+At this point we can add the different builders that we need for our project.
+
+5. ####Custom CSS
+In this part we include the scss of our project, from here we can access the core with its modifications so it is important that it always loads last.
+It also allows us to use the extends that mars-init generates in our code
+
+###Example application.scss
+~~~scss
+// MARSCSS CORE
+@import 'node_modules/marscss/marscss';
+
+// CUSTOM VARIABLES
+@import 'utilities/variables';
+
+// CUSTOM CORE
+@import 'core.scss';
+
+// MARSCSS BUILDERS
+@include mars-init;
+@include mars-builders-helpers;
+// etc...
+
+// CUSTOM SCSS
+@import 'layout/index';
+@import 'blocks/header';
+@import 'blocks/footer';
+// etc...
+~~~

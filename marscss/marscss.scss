@@ -1,13 +1,12 @@
-@import "scss/functions";
-@import "scss/default-variables";
-@import "scss/core";
-@import "scss/extends";
-@import "scss/components";
-@import "scss/builders";
-@import "scss/tests";
+@import 'scss/functions';
+@import 'scss/default-variables';
+@import 'scss/core';
+@import 'scss/extends';
+@import 'scss/components';
+@import 'scss/builders';
+@import 'scss/tests';
 
-
-@mixin mars-init($reset: true){
+@mixin mars-init($reset: true) {
   @if ($reset) {
     @include mars-build-reset;
   }

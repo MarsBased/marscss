@@ -6,7 +6,7 @@
   $prefix-align: 'align-',
   $prefix-bg: 'bg-',
   $prefix-border: 'border',
-  $prefix-colors: 'color-',
+  $prefix-color: 'color-',
   $prefix-fs: 'fs-',
   $prefix-pull: 'pull-',
   $prefix-ratio: 'ratio-',
@@ -18,7 +18,7 @@
   @include mars-build-helpers-align($prefix-align);
   @include mars-build-helpers-bg($prefix-bg, $colors);
   @include mars-build-helpers-border($prefix-border);
-  @include mars-build-helpers-color($prefix-colors, $colors);
+  @include mars-build-helpers-color($prefix-color, $colors);
   @include mars-build-helpers-fs($prefix-fs);
   @include mars-build-helpers-pull($prefix-pull);
   @include mars-build-helpers-ratio($prefix-ratio);

@@ -22,9 +22,9 @@
 @mixin fs-small           { font-size: $font-size-small !important; }
 
 //bg
-@mixin bg($bg, $text: false) {
-  background-color: $bg;
-  @if $text {
+@mixin bg($bg, $text: false){
+  background-color: $bg !important;
+  @if $text{
     color: $text;
   }
 }

@@ -17,6 +17,10 @@
 
   > li {
     color: $color-is-active;
+
+    &.is-active {
+      font-weight: 700;
+    }
   }
 
   ul li {

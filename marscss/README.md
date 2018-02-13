@@ -18,6 +18,12 @@ Use it from your main scss file:
 @import 'node_modules/marscss/marscss';
 ```
 
+Alternatively, if you are using a bundler you probably can use a shortcut like:
+
+```scss
+@import '~marscss/marscss';
+```
+
 ## Documentation
 
 Visit [Marscss](http://marscss.com/documentation/) documentation, powered by marsman [Marsman](https://github.com/MarsBased/marsman).
