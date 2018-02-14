@@ -1,6 +1,4 @@
-<%
-  current_page.data.active += (current_page.data.active) ? ', documentation' : 'documentation'
-%>
+<% add_layout_data(:active, 'documentation') %>
 
 <% wrap_layout :layout do %>
   <div class="wrapper">

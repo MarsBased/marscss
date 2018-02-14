@@ -1,6 +1,6 @@
 module Helpers
   def active(name, class_name = 'is-active', reverse = false)
-    if (class_active = current_page.data.active)
+    if (class_active = current_page.data['active'])
       class_active.split(/[\s,']/)
       if reverse
         class_name unless class_active.include?(name)
@@ -58,5 +58,13 @@ module Helpers
     concat_content(
       Tilt['markdown'].new { content.gsub(/^[ \t]{#{indent}}/, '') }.render
     )
+  end
+
+  def add_layout_data(key, value)
+    if current_page.metadata[:page][key]
+      current_page.metadata[:page][key] += " #{value}"
+    else
+      current_page.metadata[:page][key] = value
+    end
   end
 end
