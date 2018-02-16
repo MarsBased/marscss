@@ -22,6 +22,7 @@
 //examples documentation
 @include mars-build-buttons;
 @include mars-build-buttons('btn-sm-', '%button-sm');
+@include mars-build-forms;
 
 // CUSTOM CSS
 @import 'base/code';

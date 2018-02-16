@@ -8,6 +8,8 @@
     url: 'builders/mars-build-buttons'
   - name: mars-build-elements
     url: 'builders/mars-build-elements'
+  - name: mars-build-forms
+    url: 'builders/mars-build-forms'
   - name: mars-build-grid
     url: 'builders/mars-build-grid'
   - name: mars-build-helpers
@@ -18,6 +20,8 @@
   subpages:
   - name: What are the core?
     url: 'core'
+  - name: forms
+    url: 'core/forms'
   - name: helpers
     url: 'core/helpers'
 - name: Extends

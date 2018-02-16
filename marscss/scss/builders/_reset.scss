@@ -41,4 +41,9 @@
   dl {
     @include reset-list;
   }
+
+  input[type='checkbox'],
+  input[type='radio'] {
+    @include reset-checks;
+  }
 }

@@ -63,3 +63,9 @@
   margin: 0;
   list-style-type: none;
 }
+
+@mixin reset-checks {
+  margin: 4px;
+  vertical-align: baseline;
+  cursor: pointer;
+}

@@ -119,3 +119,12 @@ $container-max-widths: (
   lg: 960px,
   xl: 1140px
 ) !default;
+
+$form-element-bg: $white;
+$form-element-border-radius: 3px;
+$form-element-border: 1px solid $border-color;
+$form-element-disabled: .3;
+$form-element-icon-color: $primary;
+$form-element-line-height: 1.8em;
+$form-element-padding: .4em 1em;
+$form-element-placeholder: rgba($font-color, .4);

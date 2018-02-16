@@ -105,9 +105,9 @@
 
 // utilities
 @mixin clear { clear: both !important; }
-@mixin focus ($color: $gray-100, $opacity: .4) {
+@mixin focus {
   outline: none;
-  box-shadow: 0 0 4px rgba($color, $opacity);
+  box-shadow: 0 0 4px rgba($black, .4);
 }
 @mixin is-hidden { display: none; }
 @mixin last-margin-0 {

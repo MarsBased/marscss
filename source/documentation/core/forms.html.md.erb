@@ -1,0 +1,517 @@
+---
+title: forms
+layout: documentation
+active: Core, forms
+---
+
+#forms
+
+group the mixins for form elements, these can be used directly from your own selectors or through the mars-build-form, for these examples the selectors created by mars-build-forms are being used
+
+##variables
+
+There is a set of variables in default-variable that allow you to modify some properties of these mixins and not have to rewrite them for small adjustments
+
+~~~scss
+$form-element-bg: $white;
+$form-element-border-radius: 3px;
+$form-element-border: 1px solid $border-color;
+$form-element-disabled: .3;
+$form-element-icon-color: $primary;
+$form-element-line-height: 1.8em;
+$form-element-padding: .4em 1em;
+$form-element-placeholder: rgba($font-color, .4);
+~~~
+
+##form-element
+
+This mixin generates the styles of the common parts of most form elements, it is used by the @extend %form-element.
+
+since
+: 1.0.0
+
+extend
+: `%form-element`
+
+used by:
+: [input](#input)
+: [textarea](#textarea)
+: [select](#select)
+: [input-search](#input-search)
+
+<% example_tabs do %>
+
+~~~scss
+@mixin form-element {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  padding: $form-element-padding;
+  font-size: inherit;
+  line-height: $form-element-line-height;
+  background: $white none no-repeat calc(100% - .7em) center;
+  background-size: 1em;
+  border: $form-element-border;
+  border-radius: $form-element-border-radius;
+  transition: background .2s ease-out, border .2s ease-out;
+  appearance: none;
+
+  &:focus {
+    @extend %focus;
+  }
+
+  &::placeholder {
+    color: $form-element-placeholder;
+    opacity: 1; // Firefox's bug https://github.com/twbs/bootstrap/pull/11526
+  }
+
+  &:disabled,
+  &.is-disabled {
+    pointer-events: none;
+    opacity: $form-element-disabled;
+  }
+}
+~~~
+
+~~~css
+.textarea, .input, .select {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  padding: 0.4em 1em;
+  font-size: inherit;
+  line-height: 1.8em;
+  background: #fff none no-repeat calc(100% - .7em) center;
+  background-size: 1em;
+  border: 1px solid #dee2e6;
+  border-radius: 3px;
+  transition: background .2s ease-out, border .2s ease-out;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none; }
+  .textarea::-webkit-input-placeholder, .input::-webkit-input-placeholder, .select::-webkit-input-placeholder {
+    color: rgba(0, 0, 0, 0.4);
+    opacity: 1; }
+  .textarea:-ms-input-placeholder, .input:-ms-input-placeholder, .select:-ms-input-placeholder {
+    color: rgba(0, 0, 0, 0.4);
+    opacity: 1; }
+  .textarea::placeholder, .input::placeholder, .select::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+    opacity: 1; }
+  .textarea:disabled, .input:disabled, .select:disabled, .is-disabled.textarea, .is-disabled.input, .is-disabled.select {
+    pointer-events: none;
+    opacity: 0.3; }
+~~~
+<% end %>
+
+
+##form-checks
+
+This mixin generates the styles of the common parts of most form elements, it is used by the @extend %form-checks.
+
+since
+: 1.0.0
+
+extend
+: <%= link_to '%form-checks', '/documentation/extends' %>
+
+used by:
+: [checkbox](#checkbox)
+: [radio](#radio)
+
+<% example_tabs do %>
+~~~scss
+@mixin form-checks {
+  display: inline-block;
+  margin-bottom: .5em;
+  cursor: pointer;
+
+  & + & {
+    margin-left: .5em;
+  }
+
+  &[disabled],
+  &.is-disabled {
+    cursor: not-allowed;
+    opacity: $form-element-disabled;
+  }
+}
+~~~
+
+~~~css
+.checkbox, .radio {
+  display: inline-block;
+  margin-bottom: .5em;
+  cursor: pointer; }
+  [disabled].checkbox, [disabled].radio, .is-disabled.checkbox, .is-disabled.radio {
+    cursor: not-allowed;
+    opacity: 0.3; }
+~~~
+<% end %>
+
+
+##input
+
+Is used by `<input type="text">` tag , extends [form-element](#form-element) styles with small modifications
+
+since
+: 1.0.0
+
+builders
+: <%= link_to 'mars-build-forms', '/documentation/builders/mars-build-forms' %>
+
+extend
+: <%= link_to '%input', '/documentation/extends' %>
+
+<% example_tabs do %>
+<% example_html do %>
+<div class="container-20em">
+  <p>
+    <input class="input" name="simple-input">
+  </p>
+  <p>
+    <input class="input" name="disabled-input" disabled
+     value="disabled">
+  </p>
+  <p>
+    <input class="input" id="readonly-input" name="readonly-input"
+     readonly value="readonly">
+  </p>
+  <p>
+    <input class="input" id="country" name="country"
+     placeholder="Country" required>
+  </p>
+</div>
+<% end %>
+
+~~~scss
+@mixin input {
+  @extend %form-element;
+
+  &:required,
+  &.is-required {
+    padding-right: 2em;
+    background-image: url('data:image/svg+xml;utf8,<svg width="16px" height="16px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="icon-required" fill="'+$form-element-icon-color +'"><polygon id="*-copy" points="6.09933775 7.54054054 3 6.45945946 3.63576159 5 6.44370861 6.45945946 6.17880795 3 7.82119205 3 7.55629139 6.45945946 10.3642384 5 11 6.45945946 7.92715232 7.54054054 10.3112583 9.94594595 9.14569536 11 7.02649007 8.18918919 4.90728477 11 3.71523179 9.94594595"></polygon></g></g></svg>');
+  }
+}
+~~~
+<% end %>
+
+
+##textarea
+
+Is used by `<textarea>` tag, extends [input](#input) styles with small modifications
+
+since
+: 1.0.0
+
+builders
+: <%= link_to 'mars-build-forms', '/documentation/builders/mars-build-forms' %>
+
+extend
+: <%= link_to '%textarea', '/documentation/extends' %>
+
+<% example_tabs do %>
+<% example_html do %>
+<div class="container-20em">
+  <p>
+    <textarea class="textarea" name="simple-textarea"></textarea>
+  </p>
+  <p>
+    <textarea class="textarea no-resize" name="no-resize-textarea"
+     placeholder="without resize in firefox, chrome and safari"></textarea>
+  </p>
+  <p>
+    <textarea class="textarea" name="rows-textarea" rows="6"></textarea>
+  </p>
+</div>
+<% end %>
+
+~~~scss
+@mixin textarea {
+  @extend %input;
+  background-position-y: $form-element-line-height / 2;
+
+  &.no-resize {
+    resize: none;
+  }
+}
+~~~
+
+<% end %>
+
+
+##select
+
+Is used by `<select>` tag, extends [form-element](#form-element) styles with small modifications
+
+since
+: 1.0.0
+
+builders
+: <%= link_to 'mars-build-forms', '/documentation/builders/mars-build-forms' %>
+
+extend
+: <%= link_to '%select', '/documentation/extends' %>
+
+<% example_tabs do %>
+<% example_html do %>
+<div class="container-20em">
+  <p>
+    <select class="select">
+      <option>Harrison Kulas</option>
+      <option>Tess Hegmann V</option>
+      <option>Adelle Paucek</option>
+      <option>Burley Pfeffer</option>
+      <option>Mr. Maiya Kilback</option>
+    </select>
+  </p>
+  <p>
+    <select class="select" required>
+      <option value="" disabled selected>Select your option</option>
+      <option>Harrison Kulas</option>
+      <option>Tess Hegmann V</option>
+      <option>Adelle Paucek</option>
+      <option>Burley Pfeffer</option>
+      <option>Mr. Maiya Kilback</option>
+    </select>
+  </p>
+</div>
+<% end %>
+
+~~~scss
+@mixin select {
+  @extend %form-element;
+  padding-right: 2em;
+  background-image: url('data:image/svg+xml;utf8,<svg width="16px" height="16px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="icon-caret-down" fill="'+$form-element-icon-color +'"><path d="M11.0000095,5.49999225 C11.0000095,5.22655443 10.7734468,4.99999166 10.5000089,4.99999166 L3.5000006,4.99999166 C3.22656277,4.99999166 3,5.22655443 3,5.49999225 C3,5.63280491 3.05468757,5.75780506 3.14843768,5.85155517 L6.64844185,9.35155934 C6.74219196,9.44530945 6.86719211,9.49999702 7.00000477,9.49999702 C7.13281743,9.49999702 7.25781758,9.44530945 7.35156769,9.35155934 L9.10973664,7.59339039 L10.8515719,5.85155517 C10.945322,5.75780506 11.0000095,5.63280491 11.0000095,5.49999225 Z" id="caret-down---FontAwesome"></path></g></g></svg>');
+
+  &:invalid {
+    color: $form-element-placeholder;
+  }
+
+  &::-ms-expand {
+    display: none;
+  }
+}
+~~~
+
+<% end %>
+
+
+##label
+
+Is used by `<label>` tag
+
+since
+: 1.0.0
+
+builders
+: <%= link_to 'mars-build-forms', '/documentation/builders/mars-build-forms' %>
+
+extend
+: <%= link_to '%label', '/documentation/extends' %>
+
+<% example_tabs do %>
+<% example_html do %>
+<div class="container-20em">
+  <p>
+    <label class="label">Without for</label>
+    <input class="input">
+  </p>
+  <p>
+    <label class="label" for="description">Description</label>
+    <textarea class="input" id="description" name="description"></textarea>
+  </p>
+  <p>
+    <label class="label is-required" for="brand">Brand</label>
+    <input class="input" id="brand" name="brand" required>
+  </p>
+</div>
+<% end %>
+
+~~~scss
+@mixin label {
+  display: inline-block;
+  margin-bottom: .5em;
+
+  &[for]{
+    cursor: pointer;
+
+    &:hover {
+      color: $link-color;
+    }
+  }
+
+  @include form-element-required {
+    &::after {
+      margin-left: .5em;
+      color: $form-element-icon-color;
+      content: '*';
+    }
+  }
+}
+~~~
+<% end %>
+
+
+##checkbox
+
+Is used by `<input type="checkbox">` tag , extends [form-checks](#form-checks) styles with small modifications
+
+since
+: 1.0.0
+
+builders
+: <%= link_to 'mars-build-forms', '/documentation/builders/mars-build-forms' %>
+
+extend
+: <%= link_to '%checkbox', '/documentation/extends' %>
+
+<% example_tabs do %>
+<% example_html do %>
+<div class="container-20em">
+  <p>
+    <label class="checkbox">
+      <input type="checkbox" name="i1">
+      Inline 1
+    </label>
+    <label class="checkbox" name="i2">
+      <input type="checkbox">
+      Inline 2
+    </label>
+    <label class="checkbox" name="i3">
+      <input type="checkbox">
+      Inline 3
+    </label>
+  </p>
+  <p>
+    <div>
+      <label class="checkbox">
+        <input type="checkbox" name="b1">
+        Block
+      </label>
+    </div>
+    <div>
+      <label class="checkbox" disabled>
+        <input type="checkbox" name="b2" disabled>
+        Block disabled
+      </label>
+    </div>
+    <div>
+      <label class="checkbox">
+        <input type="checkbox" name="agree">
+        I agree to the <a href="#">terms and conditions</a>
+      </label>
+    </div>
+  </p>
+</div>
+<% end %>
+
+~~~scss
+@mixin checkbox {
+  @extend %form-checks;
+
+  & + & {
+    margin-left: .5em;
+  }
+}
+~~~
+<% end %>
+
+
+##radio
+
+Is used by `<input type="radio">` tag , extends [form-checks](#form-checks) styles with small modifications
+
+since
+: 1.0.0
+
+builders
+: <%= link_to 'mars-build-forms', '/documentation/builders/mars-build-forms' %>
+
+extend
+: <%= link_to '%radio', '/documentation/extends' %>
+
+<% example_tabs do %>
+<% example_html do %>
+<div class="container-20em">
+  <p>
+    <label class="radio">
+      <input type="radio" name="radio">
+      Inline 1
+    </label>
+    <label class="radio" name="radio">
+      <input type="radio">
+      Inline 2
+    </label>
+    <label class="radio" name="radio">
+      <input type="radio">
+      Inline 3
+    </label>
+  </p>
+  <p>
+    <div>
+      <label class="checkbox">
+        <input type="checkbox" name="radio-block">
+        Block
+      </label>
+    </div>
+    <div>
+      <label class="checkbox" disabled>
+        <input type="checkbox" name="radio-block" disabled>
+        Block disabled
+      </label>
+    </div>
+    <div>
+      <label class="checkbox">
+        <input type="checkbox" name="radio-block" checked>
+        Block checked
+      </label>
+    </div>
+  </p>
+</div>
+<% end %>
+
+~~~scss
+@mixin radio {
+  @extend %form-checks;
+
+  & + & {
+    margin-left: .5em;
+  }
+}
+~~~
+<% end %>
+
+
+##input-search
+
+since
+: 1.0.0
+
+<% example_tabs do %>
+<% example_html do %>
+<div class="container-20em">
+  <p>
+    <input class="input-search" id="search" name="s">
+  </p>
+  <p>
+    <input class="input-search" id="search" name="s" placeholder="search...">
+  </p>
+</div>
+<% end %>
+~~~scss
+@mixin input-search {
+  @extend %form-element;
+  padding-left: 2em;
+  background-color: $gray-300;
+  background-size: 1em;
+  background-position-x: .7rem;
+  background-image: url('data:image/svg+xml;utf8,<svg width="10px" height="10px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="icon-search" fill="'+$gray-800+'"><path d="M5.67195116,9.63410288 C3.50117577,9.63410288 1.74153209,7.86796818 1.74153209,5.68918518 C1.74153209,3.51040218 3.50117577,1.7435172 5.67195116,1.7435172 C7.84272655,1.7435172 9.60237024,3.51040218 9.60237024,5.68918518 C9.60237024,7.86796818 7.84272655,9.63410288 5.67195116,9.63410288 M12.8906763,12.3598324 L9.25851463,8.69176423 C9.93576067,7.87847195 10.3439023,6.83184582 10.3439023,5.68918518 C10.3439023,3.09925442 8.25236323,1 5.67195116,1 C3.0915391,1 1,3.09925442 1,5.68918518 C1,8.27836566 3.0915391,10.3783704 5.67195116,10.3783704 C6.84405027,10.3783704 7.9129927,9.94171343 8.73301356,9.2259562 L12.3621852,12.8902731 C12.5079501,13.0365756 12.7449115,13.0365756 12.8906763,12.8902731 C13.0364412,12.7439705 13.0364412,12.506135 12.8906763,12.3598324" id="Loupe"></path></g></g></svg>');
+
+  &:focus {
+    background-color: $white;
+  }
+}
+~~~
+<% end %>

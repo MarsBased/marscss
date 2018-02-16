@@ -8,6 +8,18 @@
 
   %button { @include button; }
 
+  %form-element { @include form-element; }
+  %form-checks { @include form-checks; }
+
+  %label { @include label; }
+  %input { @include input; }
+  %textarea { @include textarea; }
+  %select { @include select; }
+  %checkbox { @include checkbox; }
+  %radio { @include radio; }
+
+  %focus { @include focus; }
+
   %a { @include a; }
   %h1 { @include h1; }
   %h2 { @include h2; }

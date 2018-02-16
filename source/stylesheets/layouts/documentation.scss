@@ -73,7 +73,7 @@ body.documentation {
 
   .documentation-example {
     padding: $gutter/2;
-    border: 2px solid $gray-200;
+    border: 2px dashed $gray-200;
     @include text-block;
     @include last-margin-0;
 
@@ -91,6 +91,16 @@ body.documentation {
     width: 100px;
     height: 100px;
     background-color: rgba($primary, .5);
+  }
+
+  .container-20em {
+    @include last-margin-0;
+    max-width: 20em;
+    margin: auto;
+  }
+
+  .input-search {
+    @include input-search;
   }
 
   //http://localhost:4567/documentation/components/alerts
