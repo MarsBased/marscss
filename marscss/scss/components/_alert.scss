@@ -1,0 +1,37 @@
+$mars-alerts: (
+  '': (),
+  '-warning': (
+    background-color: $warning,
+    border-color: $warning,
+    color: $white
+  ),
+  '-success': (
+    background-color: $success,
+    border-color: $success,
+    color: $white
+  )
+);
+
+@mixin mars-alert {
+  @include log('🛸 mars-alert');
+  padding: $gutter/2;
+  color: $warning;
+  background-color: rgba($warning, .04);
+  border: 1px solid;
+  border-radius: $border-radius;
+  @include text-block;
+
+  &.is-dismissible {
+    position: relative;
+    padding-right: $gutter;
+  }
+
+  a {
+    color: inherit;
+    border-bottom: 1px solid;
+
+    &:hover {
+      color: inherit;
+    }
+  }
+}

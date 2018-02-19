@@ -14,7 +14,7 @@
     @include media-breakpoint-only('sm');
 
     @include mars-alert;
-    @include mars-card;
+    @include mars-btn-close;
   }
 
   @include log('✅ mars-tests-core');

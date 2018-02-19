@@ -1,7 +1,34 @@
 @mixin properties($properties) {
   @each $name, $value in $properties {
-    @if $value {
-      #{$name}: #{$value};
+    @if (type-of($value) == map) {
+      @if str-index($name, '&') {
+        #{$name} {
+          @include properties(map-get($properties, $name));
+        }
+      }
+      @else if str-index($name, ':active') {
+        @include properties-hover {
+          @include properties(map-get($properties, ':hover'));
+        }
+      }
+
+      @include extend-properties($name, $properties);
     }
+    @else {
+      @if $value {
+        #{$name}: #{$value};
+      }
+    }
+  }
+}
+
+@mixin extend-properties($name, $properties) {
+}
+
+@mixin properties-active {
+  &:hover,
+  &:focus,
+  &.is-active {
+    @content;
   }
 }

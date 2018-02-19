@@ -13,9 +13,10 @@
     );
   }
   $(document).ready(function() {
-    scroll(window.location.hash);
+    if (window.location.hash) {
+      scroll(window.location.hash);
+    }
 
-    console.log(window.location.hash);
     $('a').on('click', function(event) {
       if (this.hash !== '') {
         event.preventDefault();
