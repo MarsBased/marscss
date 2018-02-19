@@ -6,8 +6,6 @@
   %row { @include make-row; }
   %grid-column { @include make-col-ready; }
 
-  %button { @include button; }
-
   %form-element { @include form-element; }
   %form-checks { @include form-checks; }
 

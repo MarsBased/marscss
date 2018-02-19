@@ -1,22 +1,12 @@
-$mars-alerts: (
-  '': (),
-  '-warning': (
-    background-color: $warning,
-    border-color: $warning,
-    color: $white
-  ),
-  '-success': (
-    background-color: $success,
-    border-color: $success,
-    color: $white
-  )
-);
-
-@mixin mars-alert {
+@mixin mars-alert (
+  $color: $warning,
+  $bg: rgba($warning, .04),
+  $padding: $gutter/2
+) {
   @include log('🛸 mars-alert');
-  padding: $gutter/2;
-  color: $warning;
-  background-color: rgba($warning, .04);
+  padding: $padding;
+  color: $color;
+  background-color: $bg;
   border: 1px solid;
   border-radius: $border-radius;
   @include text-block;
@@ -35,3 +25,17 @@ $mars-alerts: (
     }
   }
 }
+
+$mars-alerts: (
+  '': (),
+  '-warning': (
+    background-color: $warning,
+    border-color: $warning,
+    color: $white
+  ),
+  '-success': (
+    background-color: $success,
+    border-color: $success,
+    color: $white,
+  )
+) !default;

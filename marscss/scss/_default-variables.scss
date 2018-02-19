@@ -59,29 +59,6 @@ $colors: map-merge(
   $colors
 );
 
-$button-default:(
-  'base': (
-    color: $white,
-    border: 1px solid,
-    background-color: $gray-600
-  ),
-  'active': (
-    background-color: darken($gray-600, 10%)
-  )
-);
-
-$buttons:(
-  'default': (),
-  'primary': (
-    'base': (
-      background-color: $primary
-    ),
-    'active': (
-      background-color: darken($primary, 10%)
-    )
-  )
-);
-
 $font-family:           sans-serif !default;
 $font-weight:           400 !default;
 $border-radius:         3px !default;

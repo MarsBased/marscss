@@ -4,8 +4,8 @@
   subpages:
   - name: What are the builders?
     url: 'builders'
-  - name: mars-build-buttons
-    url: 'builders/mars-build-buttons'
+  - name: mars-build-components
+    url: 'builders/mars-build-components'
   - name: mars-build-elements
     url: 'builders/mars-build-elements'
   - name: mars-build-forms
@@ -33,3 +33,5 @@
   subpages:
   - name: Alerts
     url: 'components/alerts'
+  - name: Buttons
+    url: 'components/buttons'

@@ -6,12 +6,6 @@
           @include properties(map-get($properties, $name));
         }
       }
-      @else if str-index($name, ':active') {
-        @include properties-hover {
-          @include properties(map-get($properties, ':hover'));
-        }
-      }
-
       @include extend-properties($name, $properties);
     }
     @else {
@@ -23,12 +17,4 @@
 }
 
 @mixin extend-properties($name, $properties) {
-}
-
-@mixin properties-active {
-  &:hover,
-  &:focus,
-  &.is-active {
-    @content;
-  }
 }
