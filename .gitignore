@@ -16,7 +16,7 @@
 *.sublime-workspace
 *.sublime-project
 
-# Ignore node & grunt related files
+# Ignore node
 /node_modules
 
 # Ignore Project Files

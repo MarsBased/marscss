@@ -34,13 +34,15 @@ $indigo:  #6610f2 !default;
 $purple:  #6f42c1 !default;
 $pink:    #e83e8c !default;
 $red:     #dc3545 !default;
-$orange:  #fd7e14 !default;
-$yellow:  #ffc107 !default;
+$orange:  #f9b13d !default;
+$yellow:  #e2ba40 !default;
 $green:   #28a745 !default;
 $teal:    #20c997 !default;
 $cyan:    #17a2b8 !default;
 
 $primary: $red !default;
+$warning: $orange !default;
+$success: $green !default;
 
 $border-color:          $gray-300 !default;
 $font-color:            $black !default;
@@ -57,31 +59,9 @@ $colors: map-merge(
   $colors
 );
 
-$button-default:(
-  'base': (
-    color: $white,
-    border: 1px solid,
-    background-color: $gray-600
-  ),
-  'active': (
-    background-color: darken($gray-600, 10%)
-  )
-);
-
-$buttons:(
-  'default': (),
-  'primary': (
-    'base': (
-      background-color: $primary
-    ),
-    'active': (
-      background-color: darken($primary, 10%)
-    )
-  )
-);
-
 $font-family:           sans-serif !default;
 $font-weight:           400 !default;
+$border-radius:         3px !default;
 
 $line-height:           1.5 !default;
 
@@ -120,11 +100,11 @@ $container-max-widths: (
   xl: 1140px
 ) !default;
 
-$form-element-bg: $white;
-$form-element-border-radius: 3px;
-$form-element-border: 1px solid $border-color;
-$form-element-disabled: .3;
-$form-element-icon-color: $primary;
-$form-element-line-height: 1.8em;
-$form-element-padding: .4em 1em;
-$form-element-placeholder: rgba($font-color, .4);
+$form-element-bg: $white !default;
+$form-element-border-radius: 3px !default;
+$form-element-border: 1px solid $border-color !default;
+$form-element-disabled: .3 !default;
+$form-element-icon-color: $primary !default;
+$form-element-line-height: 1.8em !default;
+$form-element-padding: .4em 1em !default;
+$form-element-placeholder: rgba($font-color, .4) !default;

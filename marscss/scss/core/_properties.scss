@@ -1,7 +1,20 @@
 @mixin properties($properties) {
   @each $name, $value in $properties {
-    @if $value {
-      #{$name}: #{$value};
+    @if (type-of($value) == map) {
+      @if str-index($name, '&') {
+        #{$name} {
+          @include properties(map-get($properties, $name));
+        }
+      }
+      @include extend-properties($name, $properties);
+    }
+    @else {
+      @if $value {
+        #{$name}: #{$value};
+      }
     }
   }
+}
+
+@mixin extend-properties($name, $properties) {
 }

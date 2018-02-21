@@ -2,8 +2,8 @@
 @import 'scss/default-variables';
 @import 'scss/core';
 @import 'scss/extends';
-@import 'scss/components';
 @import 'scss/builders';
+@import 'scss/components';
 @import 'scss/tests';
 
 @mixin mars-init($reset: true) {

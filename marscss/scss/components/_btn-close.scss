@@ -1,0 +1,18 @@
+@mixin mars-btn-close {
+  position: absolute;
+  font-size: $font-size-large;
+  top: 0;
+  right: 0;
+  padding: $gutter/4 $gutter/2;
+  color: inherit;
+  transition: transform .2s ease-out;
+  cursor: pointer;
+
+  &::before {
+    content: 'x';
+  }
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
