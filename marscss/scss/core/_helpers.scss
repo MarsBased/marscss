@@ -10,17 +10,6 @@
 @mixin align-text-bottom  { vertical-align: text-bottom !important; }
 @mixin align-text-top     { vertical-align: text-top !important; }
 
-//fs
-@mixin fs-hero            { font-size: $font-size-hero !important; }
-@mixin fs-h1              { font-size: $font-size-h1 !important; }
-@mixin fs-h2              { font-size: $font-size-h2 !important; }
-@mixin fs-h3              { font-size: $font-size-h3 !important; }
-@mixin fs-h4              { font-size: $font-size-h4 !important; }
-@mixin fs-h5              { font-size: $font-size-h5 !important; }
-@mixin fs-h6              { font-size: $font-size-h6 !important; }
-@mixin fs-large           { font-size: $font-size-large !important; }
-@mixin fs-small           { font-size: $font-size-small !important; }
-
 //bg
 @mixin bg($bg, $text: false){
   background-color: $bg !important;
@@ -47,6 +36,23 @@
 
 //color
 @mixin color($color)      { color: $color !important; }
+
+//display
+@mixin block              { display: block !important; }
+@mixin flex               { display: flex !important; }
+@mixin inline             { display: inline !important; }
+@mixin inline-block       { display: inline-block !important; }
+
+//fs
+@mixin fs-hero            { font-size: $font-size-hero !important; }
+@mixin fs-h1              { font-size: $font-size-h1 !important; }
+@mixin fs-h2              { font-size: $font-size-h2 !important; }
+@mixin fs-h3              { font-size: $font-size-h3 !important; }
+@mixin fs-h4              { font-size: $font-size-h4 !important; }
+@mixin fs-h5              { font-size: $font-size-h5 !important; }
+@mixin fs-h6              { font-size: $font-size-h6 !important; }
+@mixin fs-large           { font-size: $font-size-large !important; }
+@mixin fs-small           { font-size: $font-size-small !important; }
 
 //pull
 @mixin pull-right           { float: right !important; }

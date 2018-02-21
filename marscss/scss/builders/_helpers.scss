@@ -7,6 +7,7 @@
   $prefix-bg: 'bg-',
   $prefix-border: 'border',
   $prefix-color: 'color-',
+  $prefix-display: '',
   $prefix-fs: 'fs-',
   $prefix-pull: 'pull-',
   $prefix-ratio: 'ratio-',
@@ -19,6 +20,7 @@
   @include mars-build-helpers-bg($prefix-bg, $colors);
   @include mars-build-helpers-border($prefix-border);
   @include mars-build-helpers-color($prefix-color, $colors);
+  @include mars-build-helpers-display($prefix-display);
   @include mars-build-helpers-fs($prefix-fs);
   @include mars-build-helpers-pull($prefix-pull);
   @include mars-build-helpers-ratio($prefix-ratio);
@@ -62,7 +64,7 @@
   .#{$prefix}-left        { @include border-left; }
 }
 
-//http://marscss.com/documentation/builders/mars-build-helpers/#mars-build-helpers-colors
+//http://marscss.com/documentation/builders/mars-build-helpers/#mars-build-helpers-color
 @mixin mars-build-helpers-color($prefix: 'color-', $colors: $colors){
   @include log('🚀 mars-build-helpers-colors');
 
@@ -71,6 +73,16 @@
       @include color(nth($color, 2));
     }
   }
+}
+
+//http://marscss.com/documentation/builders/mars-build-helpers/#mars-build-helpers-display
+@mixin mars-build-helpers-display($prefix: ''){
+  @include log('🚀 mars-build-helpers-display');
+
+  .#{$prefix}block         { @include block; }
+  .#{$prefix}flex          { @include flex; }
+  .#{$prefix}inline        { @include inline; }
+  .#{$prefix}inline-block  { @include inline-block; }
 }
 
 //http://marscss.com/documentation/builders/mars-build-helpers/#mars-build-helpers-fs
@@ -92,8 +104,8 @@
 @mixin mars-build-helpers-pull($prefix: 'pull-') {
   @include log('🚀 mars-build-helpers-pull');
 
-  .#{$prefix}left  { @include pull-left; }
-  .#{$prefix}right { @include pull-right; }
+  .#{$prefix}left         { @include pull-left; }
+  .#{$prefix}right        { @include pull-right; }
 }
 
 //http://marscss.com/documentation/builders/mars-build-helpers/#mars-build-helpers-ratio
