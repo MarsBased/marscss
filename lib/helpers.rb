@@ -1,12 +1,8 @@
 module Helpers
-  def active(name, class_name = 'is-active', reverse = false)
-    if (class_active = current_page.data['active'])
+  def active(name, class_name = 'is-active')
+    if (class_active = current_page.metadata[:page][:active])
       class_active.split(/[\s,']/)
-      if reverse
-        class_name unless class_active.include?(name)
-      else
-        class_name if class_active.include?(name)
-      end
+      class_name if class_active.include?(name)
     end
   end
 
@@ -62,7 +58,9 @@ module Helpers
 
   def add_layout_data(key, value)
     if current_page.metadata[:page][key]
-      current_page.metadata[:page][key] += " #{value}"
+      unless current_page.metadata[:page][key].include?(value)
+        current_page.metadata[:page][key] += " #{value}"
+      end
     else
       current_page.metadata[:page][key] = value
     end
