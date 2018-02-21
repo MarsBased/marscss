@@ -13,12 +13,13 @@
   $prefix-ratio: 'ratio-',
   $prefix-text: 'text-',
   $prefix-utilities: '',
-  $colors: $colors
+  $colors: $colors,
+  $border-colors: $colors
 ){
 
   @include mars-build-helpers-align($prefix-align);
   @include mars-build-helpers-bg($prefix-bg, $colors);
-  @include mars-build-helpers-border($prefix-border);
+  @include mars-build-helpers-border($prefix-border, $border-colors);
   @include mars-build-helpers-color($prefix-color, $colors);
   @include mars-build-helpers-display($prefix-display);
   @include mars-build-helpers-fs($prefix-fs);
@@ -53,7 +54,7 @@
 }
 
 //http://marscss.com/documentation/builders/mars-build-helpers/#mars-build-helpers-border
-@mixin mars-build-helpers-border($prefix: 'border'){
+@mixin mars-build-helpers-border($prefix: 'border', $border-colors: $colors){
   @include log('🚀 mars-build-helpers-border');
 
   .#{$prefix}             { @include border; }
@@ -62,6 +63,7 @@
   .#{$prefix}-right       { @include border-right; }
   .#{$prefix}-bottom      { @include border-bottom; }
   .#{$prefix}-left        { @include border-left; }
+  .#{$prefix}-color       { @include border-color($border-colors); }
 }
 
 //http://marscss.com/documentation/builders/mars-build-helpers/#mars-build-helpers-color

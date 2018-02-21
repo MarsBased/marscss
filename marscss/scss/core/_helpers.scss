@@ -26,7 +26,7 @@
 @mixin border-right       { border-right: 1px solid !important; }
 @mixin border-bottom      { border-bottom: 1px solid !important; }
 @mixin border-left        { border-left: 1px solid !important; }
-@mixin border-color {
+@mixin border-color($colors: $colors) {
   @each $color in $colors {
     &-#{nth($color, 1)} {
       border-color: nth($color, 2) !important;
