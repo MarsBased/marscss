@@ -1,10 +1,11 @@
 const merge = require('webpack-merge');
 const sharedConfig = require('./shared.js');
+const WebpackBuildNotifierPlugin = require('webpack-build-notifier');
 
 module.exports = merge(sharedConfig, {
   devtool: 'sourcemap',
   devServer: {
-    progress: true
+    progress: false
   },
   stats: {
     assets: false,
@@ -37,5 +38,10 @@ module.exports = merge(sharedConfig, {
   },
   node: {
     console: false
-  }
+  },
+  plugins: [
+    new WebpackBuildNotifierPlugin({
+      title: 'marscss'
+    })
+  ]
 });
