@@ -92,12 +92,12 @@
   @include log('🚀 mars-build-helpers-fs');
 
   .#{$prefix}hero         { @include fs-hero; }
-  .#{$prefix}1            { @include fs-h1; }
-  .#{$prefix}2            { @include fs-h2; }
-  .#{$prefix}3            { @include fs-h3; }
-  .#{$prefix}4            { @include fs-h4; }
-  .#{$prefix}5            { @include fs-h5; }
-  .#{$prefix}6            { @include fs-h6; }
+  .#{$prefix}h1            { @include fs-h1; }
+  .#{$prefix}h2            { @include fs-h2; }
+  .#{$prefix}h3            { @include fs-h3; }
+  .#{$prefix}h4            { @include fs-h4; }
+  .#{$prefix}h5            { @include fs-h5; }
+  .#{$prefix}h6            { @include fs-h6; }
   .#{$prefix}large        { @include fs-large; }
   .#{$prefix}small        { @include fs-small; }
 }
