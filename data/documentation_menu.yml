@@ -33,5 +33,7 @@
   subpages:
   - name: Alerts
     url: 'components/alerts'
+  - name: Badge
+    url: 'components/badge'
   - name: Buttons
     url: 'components/buttons'

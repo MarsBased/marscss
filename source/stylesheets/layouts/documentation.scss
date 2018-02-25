@@ -26,34 +26,44 @@ body.documentation {
       max-width: 800px;
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      a {
-        position: relative;
-        color: inherit;
-        border-bottom: 0;
-        transition: color .3s ease-out;
+    > {
+      h1,h2,h3,h4 {
+        &:not(:first-child) {
+          margin-top: 3em;
+        }
+      }
+    }
 
-        &:hover,
-        &:focus {
-          color: $primary;
+    > {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        a {
+          position: relative;
+          color: inherit;
+          border-bottom: 0;
+          transition: color .3s ease-out;
+
+          &:hover,
+          &:focus {
+            color: $primary;
+
+            &::before {
+              opacity: 1;
+            }
+          }
 
           &::before {
-            opacity: 1;
+            position: absolute;
+            left: -.8em;
+            padding-right: .8em;
+            content: '#';
+            opacity: 0;
+            transition: opacity .3s ease-out;
           }
-        }
-
-        &::before {
-          position: absolute;
-          left: -.8em;
-          padding-right: .8em;
-          content: '#';
-          opacity: 0;
-          transition: opacity .3s ease-out;
         }
       }
     }
@@ -154,5 +164,30 @@ body.documentation {
   $prefix: '.btn-sm',
   $extend: '%button-sm',
   $elements: $mars-buttons
+);
+
+%badge {
+  @include log('📦 extend %badge');
+  @include mars-badge;
+}
+
+@include mars-build-components(
+  $prefix: '.badge',
+  $extend: '%badge',
+  $elements: $mars-badges
+);
+
+%badge-pill {
+  @include log('📦 extend %badge-pills');
+  @extend %badge;
+  padding-right: .6em;
+  padding-left: .6em;
+  border-radius: 10rem;
+}
+
+@include mars-build-components(
+  $prefix: '.badge-pill',
+  $extend: '%badge-pill',
+  $elements: $mars-badges
 );
 
