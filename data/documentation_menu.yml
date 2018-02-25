@@ -37,3 +37,5 @@
     url: 'components/badge'
   - name: Buttons
     url: 'components/buttons'
+  - name: Search
+    url: 'components/search'

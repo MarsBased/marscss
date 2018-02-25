@@ -106,10 +106,6 @@ body.documentation {
     max-width: 20em;
     margin: auto;
   }
-
-  .input-search {
-    @include input-search;
-  }
 }
 
 .html-content {
@@ -166,6 +162,8 @@ body.documentation {
   $elements: $mars-buttons
 );
 
+
+// badge
 %badge {
   @include log('📦 extend %badge');
   @include mars-badge;
@@ -190,4 +188,9 @@ body.documentation {
   $extend: '%badge-pill',
   $elements: $mars-badges
 );
+
+//search
+.search {
+  @include mars-search;
+}
 
