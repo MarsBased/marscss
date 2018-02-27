@@ -5,6 +5,10 @@
 
   $headings.each(function() {
     var link = '#' + $(this).attr('id');
-    $(this).wrapInner("<a href='" + link + "'></a>");
+
+    $(this)
+      .wrapInner('<div class="data-anchor-js"></div>')
+      .find('.data-anchor-js')
+        .append('<a href="' + link + '">#</a>');
   });
 })();

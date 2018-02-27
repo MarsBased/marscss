@@ -27,43 +27,16 @@ body.documentation {
     }
 
     > {
-      h1,h2,h3,h4 {
+      h1, h2, h3, h4 {
         &:not(:first-child) {
           margin-top: 3em;
         }
-      }
-    }
-
-    > {
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        a {
-          position: relative;
-          color: inherit;
-          border-bottom: 0;
-          transition: color .3s ease-out;
-
-          &:hover,
-          &:focus {
-            color: $primary;
-
-            &::before {
-              opacity: 1;
-            }
-          }
-
-          &::before {
-            position: absolute;
-            left: -.8em;
-            padding-right: .8em;
-            content: '#';
-            opacity: 0;
-            transition: opacity .3s ease-out;
-          }
+        &::before {
+          display: block;
+          height: 6rem;
+          margin-top: -6rem;
+          visibility: hidden;
+          content: '';
         }
       }
     }
