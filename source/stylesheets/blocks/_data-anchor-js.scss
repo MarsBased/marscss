@@ -1,0 +1,19 @@
+.data-anchor-js {
+  &:hover {
+    a {
+      opacity: 1;
+    }
+  }
+
+  a {
+    margin-left: .3em;
+    color: rgba($primary, .5);
+    border: 0;
+    opacity: 0;
+    transition: all .3s ease-out;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}

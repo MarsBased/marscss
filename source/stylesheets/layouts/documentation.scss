@@ -26,34 +26,17 @@ body.documentation {
       max-width: 800px;
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      a {
-        position: relative;
-        color: inherit;
-        border-bottom: 0;
-        transition: color .3s ease-out;
-
-        &:hover,
-        &:focus {
-          color: $primary;
-
-          &::before {
-            opacity: 1;
-          }
+    > {
+      h1, h2, h3, h4 {
+        &:not(:first-child) {
+          margin-top: 3em;
         }
-
         &::before {
-          position: absolute;
-          left: -.8em;
-          padding-right: .8em;
-          content: '#';
-          opacity: 0;
-          transition: opacity .3s ease-out;
+          display: block;
+          height: 6rem;
+          margin-top: -6rem;
+          visibility: hidden;
+          content: '';
         }
       }
     }
@@ -66,6 +49,10 @@ body.documentation {
 
     dd {
       margin-bottom: 0;
+      code ~ em {
+        @extend code;
+        padding: 0;
+      }
     }
   }
 
@@ -95,10 +82,6 @@ body.documentation {
     @include last-margin-0;
     max-width: 20em;
     margin: auto;
-  }
-
-  .input-search {
-    @include input-search;
   }
 }
 
@@ -155,4 +138,36 @@ body.documentation {
   $extend: '%button-sm',
   $elements: $mars-buttons
 );
+
+
+// badge
+%badge {
+  @include log('📦 extend %badge');
+  @include mars-badge;
+}
+
+@include mars-build-components(
+  $prefix: '.badge',
+  $extend: '%badge',
+  $elements: $mars-badges
+);
+
+%badge-pill {
+  @include log('📦 extend %badge-pills');
+  @extend %badge;
+  padding-right: .6em;
+  padding-left: .6em;
+  border-radius: 10rem;
+}
+
+@include mars-build-components(
+  $prefix: '.badge-pill',
+  $extend: '%badge-pill',
+  $elements: $mars-badges
+);
+
+//search
+.search {
+  @include mars-search;
+}
 

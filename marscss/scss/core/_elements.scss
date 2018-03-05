@@ -33,10 +33,6 @@
 
 @mixin heading {
   margin-bottom: 1rem;
-
-  &:not(:first-child) {
-    margin-top: 2em;
-  }
 }
 
 @mixin hero {

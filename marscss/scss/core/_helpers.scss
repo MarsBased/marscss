@@ -2,24 +2,12 @@
 //stylelint-disable rule-empty-line-before
 //stylelint-disable block-opening-brace-space-before
 //align
-@mixin align-middle       { vertical-align: middle !important; }
 @mixin align-baseline     { vertical-align: baseline !important; }
 @mixin align-top          { vertical-align: top !important; }
 @mixin align-middle       { vertical-align: middle !important; }
 @mixin align-bottom       { vertical-align: bottom !important; }
 @mixin align-text-bottom  { vertical-align: text-bottom !important; }
 @mixin align-text-top     { vertical-align: text-top !important; }
-
-//fs
-@mixin fs-hero            { font-size: $font-size-hero !important; }
-@mixin fs-h1              { font-size: $font-size-h1 !important; }
-@mixin fs-h2              { font-size: $font-size-h2 !important; }
-@mixin fs-h3              { font-size: $font-size-h3 !important; }
-@mixin fs-h4              { font-size: $font-size-h4 !important; }
-@mixin fs-h5              { font-size: $font-size-h5 !important; }
-@mixin fs-h6              { font-size: $font-size-h6 !important; }
-@mixin fs-large           { font-size: $font-size-large !important; }
-@mixin fs-small           { font-size: $font-size-small !important; }
 
 //bg
 @mixin bg($bg, $text: false){
@@ -37,7 +25,7 @@
 @mixin border-right       { border-right: 1px solid !important; }
 @mixin border-bottom      { border-bottom: 1px solid !important; }
 @mixin border-left        { border-left: 1px solid !important; }
-@mixin border-color {
+@mixin border-color($colors: $colors) {
   @each $color in $colors {
     &-#{nth($color, 1)} {
       border-color: nth($color, 2) !important;
@@ -47,6 +35,23 @@
 
 //color
 @mixin color($color)      { color: $color !important; }
+
+//display
+@mixin block              { display: block !important; }
+@mixin flex               { display: flex !important; }
+@mixin inline             { display: inline !important; }
+@mixin inline-block       { display: inline-block !important; }
+
+//fs
+@mixin fs-hero            { font-size: $font-size-hero !important; }
+@mixin fs-h1              { font-size: $font-size-h1 !important; }
+@mixin fs-h2              { font-size: $font-size-h2 !important; }
+@mixin fs-h3              { font-size: $font-size-h3 !important; }
+@mixin fs-h4              { font-size: $font-size-h4 !important; }
+@mixin fs-h5              { font-size: $font-size-h5 !important; }
+@mixin fs-h6              { font-size: $font-size-h6 !important; }
+@mixin fs-large           { font-size: $font-size-large !important; }
+@mixin fs-small           { font-size: $font-size-small !important; }
 
 //pull
 @mixin pull-right           { float: right !important; }

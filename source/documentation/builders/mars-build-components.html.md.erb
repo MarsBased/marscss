@@ -1,11 +1,108 @@
 ---
 title: mars-build-components
 layout: documentation
-active: Components, mars-build-components
+active: builders, mars-build-components
 ---
 
-#mars-build-components
+# mars-build-components
 
-When generating the component, the system works from 2 [map scss](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#maps), one acts generating properties of the $default and $elements generates the different variations, both map merge processing the result, you can pass as a `false` value if we want the element not to launch the default value
+This builder allows you to generate complex components with design variations
 
-[TODO]
+To understand the operation of this builder it is preferable that you look deeply at the operation of the [map scss](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#maps) and the functioning of the [placeholders selectors](https://sass-lang.com/documentation/file.SASS_REFERENCE.html#placeholder_selectors_foo).
+
+since
+: 1.0.0
+
+core
+: properties
+
+arguments
+: `$prefix: ''` *(string)*: It is added to the name of the selector.
+: `$extend: false` *(string)*: if it is specified indicates the selector of the element to be extended.
+: `$elements: ('')` *(map)*: Is responsible for generating the different variations and allows you to add the specific.properties
+: `$default: ()` *(map)*: It allows to pass a map to merge to add some default properties that will be overwritten by the `$elements`.
+
+
+## Example
+
+<% example_tabs do %>
+~~~scss
+%example-extend {
+  font-weight: 700;
+  background-color: $white;
+}
+
+@include mars-build-components(
+  $prefix: '.example-component',
+  $extend: '%example-extend',
+  $elements: (
+    '-white': (
+      color: $white
+    ),
+    '-gray': (
+      color: $gray-500
+    ),
+    '-black': (
+      color: $black,
+      '&:hover':(
+        background-color: $gray-500
+      )
+    )
+  ),
+  $default: (
+    '&:hover': (
+      background-color: $black
+    )
+  )
+)
+~~~
+
+~~~css
+.example-component-white, .example-component-gray, .example-component-black {
+  font-weight: 700;
+  background-color: #fff; }
+
+.example-component-white {
+  color: #fff; }
+  .example-component-white:hover {
+    background-color: #000; }
+
+.example-component-gray {
+  color: #adb5bd; }
+  .example-component-gray:hover {
+    background-color: #000; }
+
+.example-component-black {
+  color: #000; }
+  .example-component-black:hover {
+    background-color: #adb5bd; }
+~~~
+<% end %>
+
+Both in the `$elements` and in `$default` we can generate new descendent selectors by adding the symbol `&` at the beginning of the key, this in turn refers to the selector in which we are.
+
+<% example_tabs do %>
+~~~scss
+@include mars-build-components(
+  $elements: (
+    '.btn': (
+      color: $green,
+      '&:hover': (
+        color: lighten($green, 10%)
+      ),
+      '&:active, &.is-active': (
+        color: lighten($green, 20%)
+      )
+    )
+  )
+);
+~~~
+~~~css
+.btn {
+  color: #28a745; }
+  .btn:hover {
+    color: #34ce57; }
+  .btn:active, .btn.is-active {
+    color: #5dd879; }
+~~~
+<% end %>

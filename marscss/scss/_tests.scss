@@ -24,7 +24,7 @@
 @mixin mars-tests-builders ($selector: '%test') {
   #{$selector} {
     @include mars-build-reset;
-    @include mars-build-components('%test','%test',());
+    @include mars-build-components('%test');
     @include mars-build-elements;
     @include mars-build-helpers;
     @include mars-build-forms;
