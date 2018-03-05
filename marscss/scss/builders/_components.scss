@@ -1,7 +1,7 @@
 @mixin mars-build-components(
-  $prefix,
-  $extend,
-  $elements,
+  $prefix: '',
+  $elements: (''),
+  $extend: false,
   $default: ()
 ) {
   @include log('☄️ mars-build-components #{$prefix}');

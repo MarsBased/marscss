@@ -4,13 +4,19 @@ layout: documentation
 active: Components, Search
 ---
 
-##search
+# Search
+
+This component is added to an input to give it the appearance of a search field, to generate the icon it works with svg in base 64 which allows us to overwrite the color of that icon.
 
 since
 : 1.0.0
 
 extend
 : `%form-element`
+
+arguments
+: `$bg: $gray-300` *(color)*: background color
+: `$color: $gray-800` *(color)* : icon color
 
 <% example_html do %>
 <div class="container-20em">

@@ -2,40 +2,42 @@
   url: ''
 - name: Builders
   subpages:
-  - name: What are the builders?
-    url: 'builders'
+  - name: Introduction
+    url: builders
   - name: mars-build-components
-    url: 'builders/mars-build-components'
+    url: builders/mars-build-components
   - name: mars-build-elements
-    url: 'builders/mars-build-elements'
+    url: builders/mars-build-elements
   - name: mars-build-forms
-    url: 'builders/mars-build-forms'
+    url: builders/mars-build-forms
   - name: mars-build-grid
-    url: 'builders/mars-build-grid'
+    url: builders/mars-build-grid
   - name: mars-build-helpers
-    url: 'builders/mars-build-helpers'
+    url: builders/mars-build-helpers
   - name: mars-build-reset
-    url: 'builders/mars-build-reset'
+    url: builders/mars-build-reset
 - name: Core
   subpages:
-  - name: What are the core?
-    url: 'core'
+  - name: Introduction
+    url: core
   - name: forms
-    url: 'core/forms'
+    url: core/forms
   - name: helpers
-    url: 'core/helpers'
+    url: core/helpers
 - name: Extends
-  url: 'extends'
+  url: extends
 - name: Functions
-  url: 'functions'
+  url: functions
 - name: Components
-  url: 'components/alerts'
+  url: components
   subpages:
+  - name: Introduction
+    url: components
   - name: Alerts
-    url: 'components/alerts'
+    url: components/alerts
   - name: Badge
-    url: 'components/badge'
+    url: components/badge
   - name: Buttons
-    url: 'components/buttons'
+    url: components/buttons
   - name: Search
-    url: 'components/search'
+    url: components/search

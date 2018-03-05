@@ -49,6 +49,10 @@ body.documentation {
 
     dd {
       margin-bottom: 0;
+      code ~ em {
+        @extend code;
+        padding: 0;
+      }
     }
   }
 
