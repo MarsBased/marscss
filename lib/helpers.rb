@@ -2,7 +2,7 @@ module Helpers
   def active(name, class_name = 'is-active')
     names = Array(name)
     if (class_active = current_page.metadata[:page][:active].to_s.downcase)
-      if names.any? { |n| class_active.split(/[\s,']/).include?(n..to_s.downcase) }
+      if names.any? { |n| class_active.include?(n.downcase) }
         class_name
       end
     end
@@ -61,7 +61,7 @@ module Helpers
   def add_layout_data(key, value)
     if current_page.metadata[:page][key]
       unless current_page.metadata[:page][key].include?(value)
-        current_page.metadata[:page][key] += " #{value}"
+        current_page.metadata[:page][key] += ", #{value}"
       end
     else
       current_page.metadata[:page][key] = value
