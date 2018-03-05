@@ -1,8 +1,8 @@
 module Helpers
   def active(name, class_name = 'is-active')
     names = Array(name)
-    if (class_active = current_page.metadata[:page][:active].downcase)
-      if names.any? { |n| class_active.split(/[\s,']/).include?(n.downcase) }
+    if (class_active = current_page.metadata[:page][:active].to_s.downcase)
+      if names.any? { |n| class_active.split(/[\s,']/).include?(n..to_s.downcase) }
         class_name
       end
     end
