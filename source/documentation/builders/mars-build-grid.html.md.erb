@@ -4,7 +4,7 @@ layout: documentation
 active: Builders, mars-build-grid
 ---
 
-#mars-build-grid
+# mars-build-grid
 
 marscss uses as [bootstrap 4.0 grid](https://getbootstrap.com/docs/4.0/layout/grid/) you can look in your documentation how to use the different classes that these helpers will generate.
 
@@ -15,9 +15,9 @@ core
 : [bootstrap 4.0 grid](https://getbootstrap.com/docs/4.0/layout/grid/)
 
 arguments
-: prefix-container: "container"
-: prefix-row: "row"
-: $container-max-width: $container-max-widths
+: `$prefix-container: 'container'` *[string]*:
+: `$prefix-row: 'row'` *[string]*:
+: `$container-max-width: $container-max-widths` *[map]*:
 
 ~~~scss
 @mixin mars-build-grid (
@@ -31,7 +31,7 @@ arguments
 }
 ~~~
 
-##mars-build-grid-container
+## mars-build-grid-container
 
 Generating the class for the container uses $container-max-widths to generate the media queries for each $breakpoints.
 
@@ -44,8 +44,8 @@ core
 : [bootstrap 4.0 grid](https://getbootstrap.com/docs/4.0/layout/grid/)
 
 arguments
-: prefix: "container"
-: container-max-widths: $container-max-widths
+: `$prefix: 'container'` *[string]*:
+: `$container-max-widths: $container-max-widths` *[map]*:
 
 <% example_tabs do %>
 ~~~scss
@@ -111,7 +111,7 @@ arguments
 <% end %>
 
 
-##mars-build-grid-row
+## mars-build-grid-row
 
 It is responsible for working as a container for the generation of the columns, it has a negative margin to justify the margin of the internal columns.
 
@@ -122,7 +122,8 @@ core:
 : [bootstrap 4.0 grid](https://getbootstrap.com/docs/4.0/layout/grid/)
 
 arguments
-: prefix: "row"
+: `$prefix: 'row'` *[string]*:
+
 
 <% example_tabs do %>
 ~~~scss
@@ -172,7 +173,7 @@ arguments
 <% end %>
 
 
-##mars-build-grid-columns
+## mars-build-grid-columns
 
 Is responsible for generating the markup to work directly with the bootstrap class, it also adds order and offset.
 

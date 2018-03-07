@@ -4,7 +4,7 @@ layout: documentation
 active: Builders, mars-build-helpers
 ---
 
-#mars-build-helpers
+# mars-build-helpers
 
 marscss e allows to include different classes of css to function as helpers.
 
@@ -19,8 +19,8 @@ core
 : helpers
 
 arguments
-: prefixes
-: colors
+: `$prefixes : ''` *[string]*:
+: `$colors : $colors` *[map]*:
 
 ~~~scss
 @mixin mars-build-helpers(
@@ -47,7 +47,7 @@ arguments
 }
 ~~~
 
-##mars-build-helpers-align
+## mars-build-helpers-align
 
 It is a set of helpers to work with the alignment
 
@@ -58,7 +58,7 @@ core
 : helpers
 
 arguments
-: prefix: "align-"
+: `$prefix: 'align-'` *[string]*:
 
 <% example_tabs do %>
 ~~~scss
@@ -98,7 +98,7 @@ arguments
 <% end %>
 
 
-##mars-build-helpers-bg
+## mars-build-helpers-bg
 
 Use the array of $ colors to generate a class with prefix of each of the colors using its name.
 
@@ -109,7 +109,7 @@ core
 : helpers
 
 arguments
-: prefix: "bg-"
+: `$prefix: 'bg-'` *[string]*
 : colors: $colors
 
 <% example_tabs do %>
@@ -146,7 +146,7 @@ arguments
 <% end %>
 
 
-##mars-build-helpers-border
+## mars-build-helpers-border
 
 This set of helpers allows you to have control over the edge of an element, inheriting the color of the element's text as the border color.
 
@@ -157,7 +157,7 @@ core
 : helpers
 
 arguments
-: prefix: "border"
+: `$prefix: 'border'` *[string]*
 
 <% example_tabs do %>
 ~~~scss
@@ -195,7 +195,7 @@ arguments
 <% end %>
 
 
-##mars-build-helpers-colors
+## mars-build-helpers-colors
 
 Use the color array to generate a class for each of the colors, which modifies the color of the element
 
@@ -206,8 +206,8 @@ core
 : helpers
 
 arguments
-: prefix: "color-"
-: colors: $colors
+: `$prefix: 'color-'` *[string]*:
+: `$colors: $colors` *[map]*:
 
 <% example_tabs do %>
 ~~~scss
@@ -239,7 +239,7 @@ arguments
 <% end %>
 
 
-##mars-build-helpers-fs
+## mars-build-helpers-fs
 
 Assign the font size from the values of the different elements of the application
 
@@ -250,7 +250,7 @@ core
 : helpers
 
 arguments
-: prefix: "fs-"
+: `$prefix: 'fs-'` *[string]*
 
 <% example_tabs do %>
 ~~~scss
@@ -301,7 +301,7 @@ arguments
 <% end %>
 
 
-#mars-build-helpers-pull
+# mars-build-helpers-pull
 
 Add float right or left to the element
 
@@ -312,7 +312,7 @@ core
 : helpers
 
 arguments
-: prefix: "pull-"
+: `$prefix: 'pull-'` *[string]*
 
 <% example_tabs do %>
 ~~~scss
@@ -335,7 +335,7 @@ arguments
 <% end %>
 
 
-##mars-build-helpers-ratio
+## mars-build-helpers-ratio
 
 Adjusts the height of an element by a proportion of its width, it is very useful for iframes or elements with background images.
 
@@ -348,7 +348,7 @@ core
 : helpers
 
 arguments
-: prefix: "ratio-"
+: `$prefix: 'ratio-'` *[string]*
 
 <% example_html do %>
   <div class="row">
@@ -426,7 +426,7 @@ arguments
 <% end %>
 
 
-##mars-build-helpers-text
+## mars-build-helpers-text
 
 A set of rules to work the presentation of the text, includes alignments, nowrapp, truncate, etc ...
 
@@ -437,7 +437,7 @@ core
 : helpers
 
 arguments
-:prefix: "text-"
+: `$prefix: 'text-'` *[string]*
 
 <% example_tabs do %>
 ~~~scss
@@ -498,7 +498,7 @@ arguments
 <% end %>
 
 
-##mars-build-helpers-utilities
+## mars-build-helpers-utilities
 
 A set of utilities that can be useful in the application or when we work the presentation of elements using javascript
 
@@ -509,7 +509,7 @@ core
 : helpers
 
 arguments
-: prefix: ""
+: `$prefix: ''` *[string]*
 
 <% example_tabs do %>
 ~~~scss

@@ -4,7 +4,7 @@ layout: documentation
 active: Builders, mars-build-forms
 ---
 
-#mars-build-forms
+# mars-build-forms
 
 Is responsible for generating the set of css classes for the forms.
 
@@ -15,11 +15,19 @@ core
 : forms
 
 arguments
-: prefix: ''
-
+: `$prefix: ''` *[string]*:
 
 <% example_tabs do %>
+~~~scss
+@mixin mars-build-forms($prefix: '') {
+  @include log('🚀 mars-build-forms');
 
-
-
+  .#{$prefix}label { @extend %label; }
+  .#{$prefix}input { @extend %input; }
+  .#{$prefix}textarea { @extend %textarea; }
+  .#{$prefix}select { @extend %select; }
+  .#{$prefix}checkbox { @extend %checkbox; }
+  .#{$prefix}radio { @extend %radio; }
+}
+~~~
 <% end %>
