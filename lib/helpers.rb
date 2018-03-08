@@ -2,7 +2,7 @@ module Helpers
   def active(name, class_name = 'is-active')
     names = Array(name)
     if (class_active = current_page.metadata[:page][:active].to_s.downcase)
-      if names.any? { |n| class_active.include?(n.downcase) }
+      if names.any? { |n| class_active.split(',').map(&:lstrip).include?(n.downcase) }
         class_name
       end
     end
