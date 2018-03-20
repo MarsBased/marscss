@@ -1,77 +1,46 @@
-body.home {
-  .hero {
-    color: $white;
-    background-color: $black;
+//stylelint-disable selector-max-id
+#home-why {
+  
+}
 
-    &__title {
-      font-weight: 300;
-      text-shadow: 0 0 1rem rgba($black, .3);
-      opacity: 0;
-      animation: 5s ease-out 2s home-fade;
-      animation-fill-mode: forwards;
+#home-install {
+  background-image:linear-gradient(to top right, $gray-100, $gray-200);
+}
 
-      strong {
-        font-weight: 400;
-      }
+#home-cassete {
+  color: $white;
+  background-image:linear-gradient(to top right, $primary, lighten($orange, 10%));
+
+  svg {
+    display: block;
+    width: 100%;
+    max-width: 360px;
+    margin: auto;
+    color: darken($primary, 20%);
+    transition: color 2s ease-out;
+  }
+
+  &.on-screen svg {
+    color: $primary;
+
+    #coil1 {
+      animation: RotateCoil 7s linear 1s infinite;
+      transform-origin: 27.8% 40.8%;
     }
 
-    &__text {
-      text-shadow: 0 0 .5rem rgba($black, .5);
-      opacity: 0;
-      animation: 6s ease-out 6s home-fade;
-      animation-fill-mode: forwards;
-    }
-
-    &__background {
-      position: relative;
-      overflow: hidden;
-
-      &::before {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        content: '';
-        background-image: image-url('mars.png');
-        background-position-y: 0;
-        background-size: 100% auto;
-        transform: translateY(100%);
-        animation: 24s ease-out home-mars;
-        animation-fill-mode: forwards;
-      }
+    #coil2 {
+      animation: RotateCoil 7s linear 1s infinite;
+      transform-origin: 70.6% 40.8%;
     }
   }
 }
 
-@keyframes home-title {
+@keyframes RotateCoil {
   0% {
-    opacity: 0;
-    transform: translateY(50%) scale(2);
-  }
-
-  40% {
-    transform: translateY(0) scale(1);
+    transform: rotate(0deg);
   }
 
   100% {
-    opacity: 1;
-    transform: translateY(0);
+    transform: rotate(359.99deg);
   }
-}
-
-@keyframes home-fade {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes home-mars {
-  0% { transform: translateY(100%); }
-
-  100% { transform: translateY(0%); }
 }

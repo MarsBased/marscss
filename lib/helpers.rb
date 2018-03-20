@@ -1,4 +1,7 @@
+require 'middleman-webpacker/manifest'
+
 module Helpers
+
   def active(name, class_name = 'is-active')
     names = Array(name)
     if (class_active = current_page.metadata[:page][:active].to_s.downcase)
@@ -65,6 +68,29 @@ module Helpers
       end
     else
       current_page.metadata[:page][key] = value
+    end
+  end
+
+  def file_example_scss (
+    file_name = current_page.data.example,
+    file_path = config.examples_path
+  )
+    code('scss') do
+      File
+      .open("#{file_path}/#{file_name}.scss",'rb')
+      .read.gsub('../../../marscss/marscss', '@marsbased/marscss/marscss')
+      .force_encoding("UTF-8")
+    end
+  end
+
+  def file_example_dist (
+    file_name = current_page.data.example.tr('-', '_').camelize(:lower),
+    file_path = extension_options.dist_path+extension_options.stylesheets_base_path
+  )
+    code('css') do
+      File
+        .open("#{file_path}#{manifest_resource_path("#{file_name}.css")}",'rb')
+        .read.force_encoding("UTF-8")
     end
   end
 end

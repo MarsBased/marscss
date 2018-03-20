@@ -1,0 +1,45 @@
+.hero-block {
+  &__container {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    min-height: inherit;
+    padding: $gutter*2 $gutter;
+    margin: auto;
+    @include media-breakpoint-up('md') {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-content: center;
+    }
+  }
+
+  &__column {
+    display: flex;
+    flex: 1 1 100%;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 100%;
+    padding: $gutter;
+    @include media-breakpoint-up('md') {
+      flex: 1 1 0;
+    }
+
+    &.is-first {
+      @include media-breakpoint-down('sm') {
+        order: -1;
+      }
+    }
+  }
+
+  &__title {
+    @extend %h1;
+    font-weight: 700;
+  }
+
+  &__content {
+    @extend %h3;
+    line-height: 1.4;
+    font-weight: 700;
+  }
+}

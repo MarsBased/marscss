@@ -1,8 +1,48 @@
 body {
-  background-color: $gray-800;
+  background-color: $black;
+}
+
+p {
+  @extend %p;
+}
+
+.wrapper {
+  @include media-breakpoint-down('md') {
+    padding-top: $header-height;
+  }
 }
 
 .main-content {
   min-height: 80vh;
   background-color: $white;
 }
+
+%btn {
+  @include mars-button;
+}
+
+$mars-buttons: (
+  '-primary':
+  (
+    color: $white,
+    background-color: $primary,
+    $mars-button-active: (background-color: darken($primary, 10%))
+  ),
+  '-white':
+  (
+    color: $font-color,
+    background-color: $white,
+    $mars-button-active: (background-color: darken($white, 10%))
+  ),
+  '-default':(
+    color: $white,
+    background-color: $gray-700,
+    $mars-button-active: (background-color: darken($gray-700, 10%))
+  )
+);
+
+@include mars-build-components(
+  $prefix: '.btn',
+  $elements: $mars-buttons,
+  $extend: '%btn'
+);

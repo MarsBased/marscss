@@ -1,5 +1,9 @@
 import './body/$_get.js'
 import './body/auto-anchor.js';
-import './body/example-tabs.js'
+import './body/data-click-is-active.js';
+import './body/data-anchors-menu.js';
 import './body/data-headings-add-anchor.js';
+import './body/data-open-menu.js';
+import './body/example-tabs.js';
 import './body/modernizr.objectfit';
+import './body/onscreen.js';

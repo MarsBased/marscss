@@ -2,6 +2,7 @@
 title: badge components
 layout: documentation
 active: Components, Badge
+example: components-badge
 ---
 
 #Badge
@@ -10,6 +11,16 @@ Component to make badge and count
 
 since
 : 1.0.0
+
+## Build Component
+
+<% example_tabs do %>
+<%= file_example_scss %>
+<%= file_example_dist %>
+<% end %>
+
+
+## Examples
 
 <% example_html do %>
 <h1>Heading h1 with <span class="badge-primary">badge</span></h1>
@@ -21,7 +32,7 @@ since
 <% end %>
 
 
-## Custom variations
+### Custom variations
 
 To generate multiple variations you can use the generic @mixin <%= link_to 'mars-build-components','documentation/builders/mars-build-components' %>, visit the page on the builder to better understand how it works and arguments.
 
@@ -33,7 +44,7 @@ To generate multiple variations you can use the generic @mixin <%= link_to 'mars
 <% end %>
 
 
-## Notificatión badge
+### Notificatión badge
 
 You can use badge inside other components like <%= link_to 'buttons', 'documentation/buttons' %>
 
@@ -44,7 +55,7 @@ You can use badge inside other components like <%= link_to 'buttons', 'documenta
 <% end %>
 
 
-## Create new variations
+### Create new variations
 
 We can extend to generate new types of badge using the same stylized elements
 
@@ -53,94 +64,4 @@ We can extend to generate new types of badge using the same stylized elements
 <span class="badge-pill-primary">Primary</span>
 <span class="badge-pill-success">Success</span>
 <span class="badge-pill-warning">Warning</span>
-<% end %>
-
-
-## Compiled code
-
-<% example_tabs do %>
-~~~scss
-%badge {
-  @include log('📦 extend %badge');
-  @include mars-badge;
-}
-
-@include mars-build-components(
-  $prefix: '.badge',
-  $extend: '%badge',
-  $elements: $mars-badge
-);
-
-%badge-pill {
-  @include log('📦 extend %badge-pills');
-  @extend %badge;
-  padding-right: .6em;
-  padding-left: .6em;
-  border-radius: 10rem;
-}
-
-@include mars-build-components(
-  $prefix: '.badge-pill',
-  $extend: '%badge-pill',
-  $elements: $mars-badge
-);
-~~~~
-
-~~~css
-.badge, .badge-primary, .badge-warning, .badge-success, .badge-pill, .badge-pill-primary, .badge-pill-warning, .badge-pill-success {
-  /* ///////// 📦 extend %badge */
-  /* ///////// 🛸 mars-badge */
-  position: relative;
-  top: -1px;
-  display: inline-block;
-  padding: .25em .4em;
-  font-size: 75%;
-  font-weight: 700;
-  line-height: 1;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: baseline;
-  border-radius: .25rem; }
-
-/* ///////// ☄️ mars-build-components .badge */
-.badge {
-  background-color: #fff;
-  color: #000; }
-
-.badge-primary {
-  background-color: #dc3545;
-  color: #fff; }
-
-.badge-warning {
-  background-color: #f9b13d;
-  color: #fff; }
-
-.badge-success {
-  background-color: #28a745;
-  color: #fff; }
-
-.badge-pill, .badge-pill-primary, .badge-pill-warning, .badge-pill-success {
-  /* ///////// 📦 extend %badge-pills */
-  padding-right: .6em;
-  padding-left: .6em;
-  border-radius: 10rem; }
-
-/* ///////// ☄️ mars-build-components .badge-pill */
-.badge-pill {
-  background-color: #fff;
-  color: #000; }
-
-.badge-pill-primary {
-  background-color: #dc3545;
-  color: #fff; }
-
-.badge-pill-warning {
-  background-color: #f9b13d;
-  color: #fff; }
-
-.badge-pill-success {
-  background-color: #28a745;
-  color: #fff; }
-~~~
-
 <% end %>

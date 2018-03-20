@@ -1,0 +1,45 @@
+---
+title: hamburger component
+layout: documentation
+active: Components, Hamburger
+example: components-hamburger
+---
+
+# Hamburger
+
+add the styles and animation of the active state of the hamburger button for responsive menus
+
+since
+: 1.0.0
+
+arguments
+: `$size: 1em` *(unit)* : Size hamburger
+: `$bar-height: .1em` *(unit)* : Height bars
+: `$active: '.is-active'` *(string)* : active class
+
+## SCSS Code
+
+<% example_tabs do %>
+<%= file_example_scss %>
+<%= file_example_dist %>
+<% end %>
+
+
+## Example 1
+
+<% example_html do %>
+<button data-click-is-active>
+  <span class="icon-example-1"></span>
+</button>
+<% end %>
+
+
+## Example 2
+
+<% example_html do %>
+<button data-click-is-active>
+  <span class="icon-example-2"></span>
+</button>
+<% end %>
+
+

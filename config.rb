@@ -7,7 +7,14 @@ set :relative_links, true
 activate :pry
 activate :directory_indexes
 activate :syntax
-activate :webpack
+activate :webpack,
+ development_webpack_cmd: './node_modules/webpack/bin/webpack.js ' \
+      '--watch --config config/webpack/development.js'
+
+
+set :examples_path, File.dirname(__FILE__)+'/source/stylesheets/examples'
+set :root_path, File.dirname(__FILE__)
+
 
 configure :development do
   activate :livereload, no_swf: true

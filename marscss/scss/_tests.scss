@@ -14,8 +14,11 @@
     @include media-breakpoint-only('sm');
 
     @include mars-alert;
-    @include mars-button;
+    @include mars-badge;
     @include mars-btn-close;
+    @include mars-button;
+    @include mars-hamburger;
+    @include mars-search;
   }
 
   @include log('✅ mars-tests-core');

@@ -3361,6 +3361,10 @@ once@^1.3.0, once@^1.3.1, once@^1.3.3, once@^1.4.0:
   dependencies:
     wrappy "1"
 
+onscreen@^1.3.2:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/onscreen/-/onscreen-1.3.2.tgz#5245c7e2125614f60e59b66b8843d543fa503d5e"
+
 os-browserify@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/os-browserify/-/os-browserify-0.3.0.tgz#854373c7f5c2315914fc9bfc6bd8238fdda1ec27"

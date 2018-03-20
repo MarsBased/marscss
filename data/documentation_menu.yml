@@ -39,5 +39,7 @@
     url: components/badge
   - name: Buttons
     url: components/buttons
+  - name: Hamburger
+    url: components/hamburger
   - name: Search
     url: components/search

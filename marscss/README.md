@@ -15,13 +15,13 @@ npm i @marsbased/marscss --save
 Use it from your main scss file:
 
 ```scss
-@import 'node_modules/marscss/marscss';
+@import 'node_modules/@marsbased/marscss/marscss';
 ```
 
 Alternatively, if you are using a bundler you probably can use a shortcut like:
 
 ```scss
-@import '~marscss/marscss';
+@import '~@marsbased/marscss/marscss';
 ```
 
 ## Documentation

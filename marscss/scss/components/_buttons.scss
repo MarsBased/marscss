@@ -1,6 +1,6 @@
 @mixin mars-button(
   $padding: .25em 1em,
-  $border: 1px solid,
+  $border: 1px solid transparent,
   $border-radius: 5px
 ) {
   @include log('🛸 mars-button');
@@ -20,6 +20,12 @@ $mars-buttons: (
     color: $white,
     background-color: $primary,
     $mars-button-active: (background-color: darken($primary, 10%))
+  ),
+  '-white':
+  (
+    color: $primary,
+    background-color: $white,
+    $mars-button-active: (background-color: darken($white, 10%))
   ),
   '-default':(
     color: $white,
