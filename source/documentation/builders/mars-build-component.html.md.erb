@@ -2,6 +2,7 @@
 title: mars-build-component
 layout: documentation
 active: builders, mars-build-component
+example: builders/components
 ---
 
 # mars-build-component
@@ -22,87 +23,9 @@ arguments
 : `$elements: ('')` *[map]*: Is responsible for generating the different variations and allows you to add the specific.properties
 : `$default: ()` *[map]*: It allows to pass a map to merge to add some default properties that will be overwritten by the `$elements`.
 
-
-## Example
-
-<% example_tabs do %>
-~~~scss
-%example-extend {
-  font-weight: 700;
-  background-color: $white;
-}
-
-@include mars-build-component(
-  $prefix: '.example-component',
-  $extend: '%example-extend',
-  $elements: (
-    '-white': (
-      color: $white
-    ),
-    '-gray': (
-      color: $gray-500
-    ),
-    '-black': (
-      color: $black,
-      '&:hover':(
-        background-color: $gray-500
-      )
-    )
-  ),
-  $default: (
-    '&:hover': (
-      background-color: $black
-    )
-  )
-)
-~~~
-
-~~~css
-.example-component-white, .example-component-gray, .example-component-black {
-  font-weight: 700;
-  background-color: #fff; }
-
-.example-component-white {
-  color: #fff; }
-  .example-component-white:hover {
-    background-color: #000; }
-
-.example-component-gray {
-  color: #adb5bd; }
-  .example-component-gray:hover {
-    background-color: #000; }
-
-.example-component-black {
-  color: #000; }
-  .example-component-black:hover {
-    background-color: #adb5bd; }
-~~~
-<% end %>
-
-Both in the `$elements` and in `$default` we can generate new descendent selectors by adding the symbol `&` at the beginning of the key, this in turn refers to the selector in which we are.
+<%= source %>
 
 <% example_tabs do %>
-~~~scss
-@include mars-build-component(
-  $elements: (
-    '.btn': (
-      color: $green,
-      '&:hover': (
-        color: lighten($green, 10%)
-      ),
-      '&:active, &.is-active': (
-        color: lighten($green, 20%)
-      )
-    )
-  )
-);
-~~~
-~~~css
-.btn {
-  color: #28a745; }
-  .btn:hover {
-    color: #34ce57; }
-  .btn:active, .btn.is-active {
-    color: #5dd879; }
-~~~
+<%= file_example_scss %>
+<%= file_example_dist %>
 <% end %>
