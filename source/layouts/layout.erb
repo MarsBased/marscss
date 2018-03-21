@@ -12,7 +12,7 @@
     <%= stylesheet_pack_tag 'application' %>
 
     <% if example = current_page.data.example %>
-    <%= stylesheet_pack_tag example.tr('-', '_').camelize(:lower) %>
+    <%= stylesheet_pack_tag example.tr('/-', '_').camelize(:lower) %>
     <% end %>
     <%= javascript_pack_tag 'manifest' %>
     <%= javascript_pack_tag 'head' %>

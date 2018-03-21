@@ -41,7 +41,7 @@ $mars-buttons: (
   )
 );
 
-@include mars-build-components(
+@include mars-build-component(
   $prefix: '.btn',
   $elements: $mars-buttons,
   $extend: '%btn'

@@ -71,6 +71,18 @@ module Helpers
     end
   end
 
+  def file_marscss (
+    file_name = current_page.data.example.gsub(/(.*\/)(.+)/, '\1_\2'),
+    file_path = config.marscss_path
+  )
+
+    code('scss') do
+      File
+      .open("#{file_path}/#{file_name}.scss",'rb')
+      .read.force_encoding("UTF-8")
+    end
+  end
+
   def file_example_scss (
     file_name = current_page.data.example,
     file_path = config.examples_path
@@ -78,19 +90,35 @@ module Helpers
     code('scss') do
       File
       .open("#{file_path}/#{file_name}.scss",'rb')
-      .read.gsub('../../../marscss/marscss', '@marsbased/marscss/marscss')
+      .read.gsub('../../../../marscss/marscss', '@marsbased/marscss/marscss')
       .force_encoding("UTF-8")
     end
   end
 
   def file_example_dist (
-    file_name = current_page.data.example.tr('-', '_').camelize(:lower),
+    file_name = current_page.data.example.tr('/-', '_').camelize(:lower),
     file_path = extension_options.dist_path+extension_options.stylesheets_base_path
   )
+
     code('css') do
       File
         .open("#{file_path}#{manifest_resource_path("#{file_name}.css")}",'rb')
         .read.force_encoding("UTF-8")
     end
+  end
+
+  def source_link (
+    text = 'on GitHub',
+    file_name = current_page.data.example.gsub(/(.*\/)(.+)/, '\1_\2'),
+    url = 'https://github.com/MarsBased/marscss/tree/master/marscss/scss'
+  )
+
+    content_tag(:a, href:"#{url}/#{file_name}.scss", target:'_blank', class: 'source-link') do
+      text
+    end
+  end
+
+  def source
+    partial 'partials/documentation-source'
   end
 end

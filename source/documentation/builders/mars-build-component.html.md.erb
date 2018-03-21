@@ -1,10 +1,10 @@
 ---
-title: mars-build-components
+title: mars-build-component
 layout: documentation
-active: builders, mars-build-components
+active: builders, mars-build-component
 ---
 
-# mars-build-components
+# mars-build-component
 
 This builder allows you to generate complex components with design variations
 
@@ -32,7 +32,7 @@ arguments
   background-color: $white;
 }
 
-@include mars-build-components(
+@include mars-build-component(
   $prefix: '.example-component',
   $extend: '%example-extend',
   $elements: (
@@ -83,7 +83,7 @@ Both in the `$elements` and in `$default` we can generate new descendent selecto
 
 <% example_tabs do %>
 ~~~scss
-@include mars-build-components(
+@include mars-build-component(
   $elements: (
     '.btn': (
       color: $green,

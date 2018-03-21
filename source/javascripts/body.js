@@ -7,3 +7,4 @@ import './body/data-open-menu.js';
 import './body/example-tabs.js';
 import './body/modernizr.objectfit';
 import './body/onscreen.js';
+import './body/source-button.js';

@@ -1,10 +1,10 @@
-@mixin mars-build-components(
+@mixin mars-build-component(
   $prefix: '',
   $elements: (''),
   $extend: false,
   $default: ()
 ) {
-  @include log('☄️ mars-build-components #{$prefix}');
+  @include log('☄️ mars-build-component #{$prefix}');
   @each $name, $element in $elements {
     #{$prefix}#{$name} {
       $element: map-merge-recursive($default, $element);

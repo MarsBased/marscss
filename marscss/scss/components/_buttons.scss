@@ -11,7 +11,8 @@
   border-radius: $border-radius;
   transition: color .2s ease-out, background-color .2s ease-out;
 }
-//we store the different selectors in a variable
+
+//store the different selectors in a variable
 $mars-button-active: '&:active, &:focus, &:hover, &.is-active' !default;
 
 $mars-buttons: (

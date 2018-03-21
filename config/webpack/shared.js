@@ -15,8 +15,12 @@ module.exports = {
     body: './source/javascripts/body.js',
     head: './source/javascripts/head.js',
     application: './source/stylesheets/application.scss',
-    componentsBadge: './source/stylesheets/examples/components-badge.scss',
-    componentsHamburger: './source/stylesheets/examples/components-hamburger.scss',
+    componentsAlerts: './source/stylesheets/examples/components/alerts.scss',
+    componentsBadge: './source/stylesheets/examples/components/badge.scss',
+    componentsButtons:
+      './source/stylesheets/examples/components/buttons.scss',
+    componentsHamburger:
+      './source/stylesheets/examples/components/hamburger.scss',
     images: sync('./source/images/**/*', { nodir: true }),
     vendor: ['lodash', 'jquery']
   },

@@ -1,4 +1,4 @@
-@import '../../../marscss/marscss';
+@import '../../../../marscss/marscss';
 $mars-debug: true;
 
 //Generates the badge elements
@@ -7,7 +7,7 @@ $mars-debug: true;
   @include mars-badge;
 }
 
-@include mars-build-components(
+@include mars-build-component(
   $prefix: '.badge',
   $extend: '%badge',
   $elements: $mars-badges
@@ -22,7 +22,7 @@ $mars-debug: true;
   border-radius: 10rem;
 }
 
-@include mars-build-components(
+@include mars-build-component(
   $prefix: '.badge-pill',
   $extend: '%badge-pill',
   $elements: $mars-badges

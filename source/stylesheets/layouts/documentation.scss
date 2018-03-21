@@ -43,6 +43,12 @@ body.documentation {
     }
   }
 
+  %dt {
+    margin-top: .5em;
+    font-weight: 800;
+    @include fs-h5;
+  }
+
   .documentation-menu {
     @extend %sidebar-columns;
     position: relative;
@@ -57,6 +63,14 @@ body.documentation {
       max-height: 100vh;
       padding-top: $gutter;
       overflow-y: auto;
+    }
+  }
+
+  .documentation-source {
+    margin-bottom: 1rem;
+
+    strong {
+      @extend %dt;
     }
   }
 
@@ -82,9 +96,7 @@ body.documentation {
     }
 
     dt {
-      margin-top: .5em;
-      font-weight: 800;
-      @include fs-h5;
+      @extend %dt;
     }
 
     dd {
@@ -129,20 +141,6 @@ body.documentation {
   @extend %raw-html-styles;
 }
 
-.btn-close {
-  @include mars-btn-close;
-}
-
-%alert {
-  @include log('📦 extend %alert');
-  @include mars-alert();
-}
-
-@include mars-build-components(
-  $prefix: '.alert',
-  $extend: '%alert',
-  $elements: $mars-alerts
-);
 
 .orange-button {
   @include mars-button;
@@ -161,7 +159,7 @@ body.documentation {
   @include mars-button;
 }
 
-@include mars-build-components(
+@include mars-build-component(
   $prefix: '.btn',
   $extend: '%button',
   $elements: $mars-buttons
@@ -173,7 +171,7 @@ body.documentation {
   font-size: $font-size-small;
 }
 
-@include mars-build-components(
+@include mars-build-component(
   $prefix: '.btn-sm',
   $extend: '%button-sm',
   $elements: $mars-buttons
