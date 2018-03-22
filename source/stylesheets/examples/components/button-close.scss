@@ -1,8 +1,8 @@
 @import '../../../../marscss/marscss';
 $mars-debug: true;
 
-.btn-close {
-  @include mars-btn-close;
+.button-close {
+  @include mars-button-close;
 }
 
 %alert {

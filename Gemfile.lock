@@ -30,6 +30,7 @@ GEM
     fast_blank (1.0.0)
     fastimage (2.1.1)
     ffi (1.9.21)
+    filesize (0.1.1)
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
@@ -124,6 +125,7 @@ PLATFORMS
 
 DEPENDENCIES
   faker (~> 1.7.3)
+  filesize
   middleman (>= 4.0.0)
   middleman-livereload
   middleman-pry

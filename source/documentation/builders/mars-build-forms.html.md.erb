@@ -2,6 +2,7 @@
 title: mars-build-forms
 layout: documentation
 active: Builders, mars-build-forms
+example: builders/forms
 ---
 
 # mars-build-forms
@@ -17,17 +18,14 @@ core
 arguments
 : `$prefix: ''` *[string]*:
 
-<% example_tabs do %>
-~~~scss
-@mixin mars-build-forms($prefix: '') {
-  @include log('🚀 mars-build-forms');
+size compiled
+: <%= file_dist_size %> not minified
 
-  .#{$prefix}label { @extend %label; }
-  .#{$prefix}input { @extend %input; }
-  .#{$prefix}textarea { @extend %textarea; }
-  .#{$prefix}select { @extend %select; }
-  .#{$prefix}checkbox { @extend %checkbox; }
-  .#{$prefix}radio { @extend %radio; }
-}
-~~~
+<%= source %>
+
+## Examples
+
+<% example_tabs do %>
+<%= file_example_scss %>
+<%= file_example_dist %>
 <% end %>

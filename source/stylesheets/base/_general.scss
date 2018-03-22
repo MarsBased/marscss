@@ -17,6 +17,10 @@ p {
   background-color: $white;
 }
 
+.alert {
+  @include mars-alert($primary,rgba($primary,.1));
+}
+
 %btn {
   @include mars-button;
 }

@@ -83,6 +83,12 @@ module Helpers
     end
   end
 
+  def code_snippet(snippet, file, lenguage = File.extname(file).delete('.'))
+    code(lenguage) do
+      File.open(file,'rb').read.match(%r{//--- #{snippet}\n(.*?)//---}m)[1]
+    end
+  end
+
   def file_example_scss (
     file_name = current_page.data.example,
     file_path = config.examples_path
@@ -105,6 +111,18 @@ module Helpers
         .open("#{file_path}#{manifest_resource_path("#{file_name}.css")}",'rb')
         .read.force_encoding("UTF-8")
     end
+  end
+
+  def file_dist_size (
+    file_name = current_page.data.example.tr('/-', '_').camelize(:lower),
+    file_path = extension_options.dist_path+extension_options.stylesheets_base_path
+  )
+
+    file_size = File
+      .open("#{file_path}#{manifest_resource_path("#{file_name}.css")}",'rb')
+      .size;
+
+    Filesize.from("#{file_size} b").to_s('Kb')
   end
 
   def source_link (

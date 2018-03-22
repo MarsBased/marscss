@@ -2,8 +2,8 @@
 $mars-debug: true;
 
 //generate button close
-.btn-close {
-  @include mars-btn-close;
+.button-close {
+  @include mars-button-close;
 }
 
 %alert {

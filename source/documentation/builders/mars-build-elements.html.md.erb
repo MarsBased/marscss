@@ -22,6 +22,9 @@ core
 arguments
 : `$prefix: ''` *[string]*:
 
+size compiled
+: <%= file_dist_size %> not minified
+
 <%= source %>
 
 ## Examples
@@ -30,21 +33,3 @@ arguments
 <%= file_example_scss %>
 <%= file_example_dist %>
 <% end %>
-
-<% example_html do %>
-<div class="alert is-dismissible">
-  <h1 class="mars-build-elements">This is an alert sample!</h1>
-  <h2 class="mars-build-elements">This is an alert sample!</h2>
-  <h3 class="mars-build-elements">This is an alert sample!</h3>
-  <h3 class="mars-build-elements">This is an alert sample!</h3>
-  <h4 class="mars-build-elements">This is an alert sample!</h4>
-  <h5 class="mars-build-elements">This is an alert sample!</h5>
-  <h6 class="mars-build-elements">This is an alert sample!</h6>
-  <large class="mars-build-elements">This is an alert sample!</large>
-  <small class="mars-build-elements">This is an alert sample!</small>
-
-  You can add <a class="mars-build-elements" href="#"> view links </a> or texts with <strong>format</strong>
-  <button class="btn-close"></button>
-</div>
-<% end %>
-

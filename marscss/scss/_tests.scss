@@ -15,7 +15,7 @@
 
     @include mars-alert;
     @include mars-badge;
-    @include mars-btn-close;
+    @include mars-button-close;
     @include mars-button;
     @include mars-hamburger;
     @include mars-search;
@@ -47,6 +47,7 @@
 }
 
 @mixin mars-tests($selector: '%test') {
+  @include mars-extend;
   @include mars-tests-core($selector);
   @include mars-tests-builders($selector);
   @include mars-tests-variables;

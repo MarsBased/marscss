@@ -15,13 +15,38 @@ module.exports = {
     body: './source/javascripts/body.js',
     head: './source/javascripts/head.js',
     application: './source/stylesheets/application.scss',
-    buildersComponents: './source/stylesheets/examples/builders/components.scss',
+    buildersComponents:
+      './source/stylesheets/examples/builders/components.scss',
     buildersElements: './source/stylesheets/examples/builders/elements.scss',
+    buildersForms: './source/stylesheets/examples/builders/forms.scss',
+    buildersGrid: './source/stylesheets/examples/builders/grid.scss',
+    buildersGridContainer:
+      './source/stylesheets/examples/builders/grid-container.scss',
+    buildersGridRow: './source/stylesheets/examples/builders/grid-row.scss',
+    buildersGridColumns:
+      './source/stylesheets/examples/builders/grid-columns.scss',
+    buildersHelpers: './source/stylesheets/examples/builders/helpers.scss',
+    buildersHelpersAlign:
+      './source/stylesheets/examples/builders/helpers-align.scss',
+    buildersHelpersBorder:
+      './source/stylesheets/examples/builders/helpers-border.scss',
+    buildersHelpersColor:
+      './source/stylesheets/examples/builders/helpers-color.scss',
+    buildersHelpersFs: './source/stylesheets/examples/builders/helpers-fs.scss',
+    buildersHelpersPull:
+      './source/stylesheets/examples/builders/helpers-pull.scss',
+    buildersHelpersRatio:
+      './source/stylesheets/examples/builders/helpers-ratio.scss',
+    buildersHelpersText:
+      './source/stylesheets/examples/builders/helpers-text.scss',
+    buildersHelpersUtilities:
+      './source/stylesheets/examples/builders/helpers-utilities.scss',
+    buildersReset: './source/stylesheets/examples/builders/reset.scss',
     componentsAlerts: './source/stylesheets/examples/components/alerts.scss',
     componentsBadge: './source/stylesheets/examples/components/badge.scss',
     componentsButtons: './source/stylesheets/examples/components/buttons.scss',
-    componentsBtnClose:
-      './source/stylesheets/examples/components/btn-close.scss',
+    componentsButtonClose:
+      './source/stylesheets/examples/components/button-close.scss',
     componentsHamburger:
       './source/stylesheets/examples/components/hamburger.scss',
     componentsSearch: './source/stylesheets/examples/components/search.scss',

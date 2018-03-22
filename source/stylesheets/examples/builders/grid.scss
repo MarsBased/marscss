@@ -4,4 +4,4 @@ $mars-debug: true;
 //you need to include mars-extend or mars-init;
 @include mars-extend;
 
-@include mars-build-elements($prefix: 'example-');
+@include mars-build-grid;

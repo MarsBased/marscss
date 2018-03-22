@@ -39,8 +39,8 @@
     url: components/mars-badge
   - name: mars-button
     url: components/mars-button
-  - name: mars-btn-close
-    url: components/mars-btn-close
+  - name: mars-button-close
+    url: components/mars-button-close
   - name: mars-hamburger
     url: components/mars-hamburger
   - name: mars-search

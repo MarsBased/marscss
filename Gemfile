@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'faker', '~> 1.7.3'
+gem 'filesize'
 
 #middleman gems
 gem 'middleman', '>= 4.0.0'

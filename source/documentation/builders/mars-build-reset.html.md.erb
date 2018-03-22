@@ -2,6 +2,7 @@
 title: mars-build-reset
 layout: documentation
 active: Builders, mars-build-reset
+example: builders/reset
 ---
 
 #mars-build-reset
@@ -16,102 +17,16 @@ since
 core
 : reset
 
+size compiled
+: <%= file_dist_size %> not minified
+
+<%= source %>
+
 <div class="alert">
 It is added by default when launching <code>mars-init</code> as long as it is not passed as an argument false
 </div>
 
 <% example_tabs do %>
-~~~scss
-@mixin mars-build-reset {
-  @include log("🚀 mars-build-reset");
-
-  * {
-    @include reset-all;
-  }
-
-  html {
-    @include reset-html;
-  }
-
-  body {
-    @include reset-body;
-  }
-
-  a {
-    @include reset-a;
-  }
-
-  button {
-    @include reset-button;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    @include reset-heading;
-  }
-
-  p, blockquote {
-    @include reset-text-block;
-  }
-
-  ul, ol, dl {
-    @include reset-list;
-  }
-}
-~~~
-
-~~~css
-/* ///////// 🚀 mars-build-reset */
-*, *::before, *::after {
-  box-sizing: border-box; }
-
-html {
-  height: 100%;
-  font-size: 62.5%;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px; }
-
-body {
-  min-width: 320px;
-  margin: 0;
-  font-family: sans-serif;
-  font-size: 1.6rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #000; }
-
-a {
-  color: inherit;
-  text-decoration: none; }
-
-button {
-  padding: 0;
-  margin: 0;
-  font-size: inherit;
-  color: inherit;
-  background-color: transparent;
-  border: 0;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none; }
-  button:hover, button:focus, button:active {
-    text-decoration: none;
-    outline: 0; }
-
-h1, h2, h3, h4, h5, h6 {
-  margin-top: 0;
-  margin-bottom: 0;
-  font-size: inherit;
-  font-weight: 400;
-  color: inherit; }
-
-p, blockquote {
-  margin: 0; }
-
-ul, ol, dl {
-  padding: 0;
-  margin: 0;
-  list-style-type: none; }
-
-~~~
+<%= file_example_scss %>
+<%= file_example_dist %>
 <% end %>
