@@ -4,6 +4,8 @@
   subpages:
   - name: Introduction
     url: builders
+  - name: mars-build-animation
+    url: builders/mars-build-animation
   - name: mars-build-component
     url: builders/mars-build-component
   - name: mars-build-elements
@@ -45,3 +47,5 @@
     url: components/mars-hamburger
   - name: mars-search
     url: components/mars-search
+  - name: mars-spinner
+    url: components/mars-spinner

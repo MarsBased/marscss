@@ -1,0 +1,11 @@
+$mars-active-animations: () !default;
+
+@mixin mars-build-animation($animation) {
+  @if not index($mars-active-animations, $animation) {
+    @keyframes #{$animation} {
+      @include log('🚀 mars-build-animation');
+      @content;
+    }
+    $mars-active-animations: append($mars-active-animations, $animation) !global;
+  }
+}

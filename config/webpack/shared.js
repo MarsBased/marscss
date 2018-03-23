@@ -15,6 +15,8 @@ module.exports = {
     body: './source/javascripts/body.js',
     head: './source/javascripts/head.js',
     application: './source/stylesheets/application.scss',
+    buildersAnimations:
+      './source/stylesheets/examples/builders/animations.scss',
     buildersComponents:
       './source/stylesheets/examples/builders/components.scss',
     buildersElements: './source/stylesheets/examples/builders/elements.scss',
@@ -50,6 +52,7 @@ module.exports = {
     componentsHamburger:
       './source/stylesheets/examples/components/hamburger.scss',
     componentsSearch: './source/stylesheets/examples/components/search.scss',
+    componentsSpinner: './source/stylesheets/examples/components/spinner.scss',
     images: sync('./source/images/**/*', { nodir: true }),
     vendor: ['lodash', 'jquery']
   },

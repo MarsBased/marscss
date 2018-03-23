@@ -1,6 +1,7 @@
 import './body/$_get.js'
 import './body/auto-anchor.js';
 import './body/data-click-is-active.js';
+import './body/data-click-toggle-class.js';
 import './body/data-anchors-menu.js';
 import './body/data-headings-add-anchor.js';
 import './body/data-open-menu.js';

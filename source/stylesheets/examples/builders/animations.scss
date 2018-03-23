@@ -1,0 +1,46 @@
+@import '../../../../marscss/marscss';
+$mars-debug: true;
+
+.box {
+  width: 20px;
+  height: 20px;
+  background-color: $primary;
+}
+
+.example-animation {
+  $animation-name: 'exampleRotateBox';
+  @include mars-build-animation($animation-name) {
+    0% { transform: rotate(0deg); }
+
+    100% { transform: rotate(360deg); }
+  }
+  animation: #{$animation-name} 1s infinite linear;
+}
+
+.example-repeat-animation {
+  $animation-name: 'exampleRotateBox';
+  @include mars-build-animation($animation-name) {
+    0% { transform: rotate(0deg); }
+
+    100% { transform: rotate(360deg); }
+  }
+  animation: #{$animation-name} 1s infinite linear;
+}
+
+%example-otra-cosa {
+  @keyframes prueba {
+    0% { transform: rotate(0deg); }
+
+    100% { transform: rotate(-360deg); }
+  }
+}
+
+.example-other-animation {
+  $animation-name: 'exampleRotateBoxOther';
+  @include mars-build-animation($animation-name) {
+    0% { transform: rotate(0deg); }
+
+    100% { transform: rotate(-360deg); }
+  }
+  animation: #{$animation-name} 1s infinite linear;
+}
