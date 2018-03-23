@@ -27,14 +27,6 @@ $mars-debug: true;
   animation: #{$animation-name} 1s infinite linear;
 }
 
-%example-otra-cosa {
-  @keyframes prueba {
-    0% { transform: rotate(0deg); }
-
-    100% { transform: rotate(-360deg); }
-  }
-}
-
 .example-other-animation {
   $animation-name: 'exampleRotateBoxOther';
   @include mars-build-animation($animation-name) {
