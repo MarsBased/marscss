@@ -6,6 +6,10 @@ p {
   @extend %p;
 }
 
+.html-content {
+  @extend %raw-html-styles;
+}
+
 .wrapper {
   @include media-breakpoint-down('md') {
     padding-top: $header-height;

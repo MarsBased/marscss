@@ -96,7 +96,7 @@ module Helpers
     code('scss') do
       File
       .open("#{file_path}/#{file_name}.scss",'rb')
-      .read.gsub('../../../../marscss/marscss', '@marsbased/marscss/marscss')
+      .read.gsub('../../../marscss/marscss', '~@marsbased/marscss/marscss')
       .force_encoding("UTF-8")
     end
   end

@@ -2,7 +2,7 @@
 title: mars-build-grid
 layout: documentation
 active: Builders, mars-build-grid
-example: builders/grid
+example: builders/mars-build-grid
 ---
 
 # mars-build-grid
@@ -48,11 +48,11 @@ arguments
 : `$containers-max-widths: $containers-max-widths` *[map]*:
 
 size compiled
-: <%= file_dist_size('buildersGridContainer') %> not minified
+: <%= file_dist_size('buildersMarsBuildGridContainer') %> not minified
 
 <% example_tabs do %>
-<%= file_example_scss('builders/grid-container') %>
-<%= file_example_dist('buildersGridContainer') %>
+<%= file_example_scss('builders/mars-build-grid-container') %>
+<%= file_example_dist('buildersMarsBuildGridContainer') %>
 <% end %>
 
 
@@ -70,11 +70,11 @@ arguments
 : `$prefix: 'row'` *[string]*:
 
 size compiled
-: <%= file_dist_size('buildersGridContainer') %> not minified
+: <%= file_dist_size('buildersMarsBuildGridContainer') %> not minified
 
 <% example_tabs do %>
-<%= file_example_scss('builders/grid-row') %>
-<%= file_example_dist('buildersGridRow') %>
+<%= file_example_scss('builders/mars-build-grid-row') %>
+<%= file_example_dist('buildersMarsBuildGridRow') %>
 <% end %>
 
 
@@ -91,11 +91,11 @@ core
 : [bootstrap 4.0 grid](https://getbootstrap.com/docs/4.0/layout/grid/)
 
 size compiled
-: <%= file_dist_size('buildersGridColumns') %> not minified
+: <%= file_dist_size('buildersMarsBuildGridColumns') %> not minified
 
 <% file_dist_size %>
 
 <% example_tabs do %>
-<%= file_example_scss('builders/grid-columns') %>
-<%= file_example_dist('buildersGridColumns') %>
+<%= file_example_scss('builders/mars-build-grid-columns') %>
+<%= file_example_dist('buildersMarsBuildGridColumns') %>
 <% end %>

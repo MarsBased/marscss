@@ -9,7 +9,7 @@ body.documentation {
 
   %sidebar-columns {
     flex: 0 0 260px;
-    padding: $gutter $gutter;
+    padding-top: $gutter;
   }
 
   .documentation-anchors {
@@ -22,7 +22,7 @@ body.documentation {
       position: sticky;
       top: 0;
       max-height: 100vh;
-      padding-top: $gutter;
+      padding: $gutter $gutter $gutter;
       overflow-y: auto;
     }
 
@@ -61,7 +61,7 @@ body.documentation {
       position: sticky;
       top: 0;
       max-height: 100vh;
-      padding-top: $gutter;
+      padding: $gutter $gutter $gutter;
       overflow-y: auto;
     }
   }
@@ -137,6 +137,3 @@ body.documentation {
   }
 }
 
-.html-content {
-  @extend %raw-html-styles;
-}

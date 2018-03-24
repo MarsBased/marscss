@@ -7,6 +7,7 @@ const { sync } = require('glob');
 
 const isProduction = process.env.NODE_ENV === 'production';
 const publicPath = 'dist';
+const examplePath = './source/stylesheets/examples/';
 
 process.noDeprecation = true;
 
@@ -15,44 +16,31 @@ module.exports = {
     body: './source/javascripts/body.js',
     head: './source/javascripts/head.js',
     application: './source/stylesheets/application.scss',
-    buildersAnimations:
-      './source/stylesheets/examples/builders/animations.scss',
-    buildersComponents:
-      './source/stylesheets/examples/builders/components.scss',
-    buildersElements: './source/stylesheets/examples/builders/elements.scss',
-    buildersForms: './source/stylesheets/examples/builders/forms.scss',
-    buildersGrid: './source/stylesheets/examples/builders/grid.scss',
-    buildersGridContainer:
-      './source/stylesheets/examples/builders/grid-container.scss',
-    buildersGridRow: './source/stylesheets/examples/builders/grid-row.scss',
-    buildersGridColumns:
-      './source/stylesheets/examples/builders/grid-columns.scss',
-    buildersHelpers: './source/stylesheets/examples/builders/helpers.scss',
-    buildersHelpersAlign:
-      './source/stylesheets/examples/builders/helpers-align.scss',
-    buildersHelpersBorder:
-      './source/stylesheets/examples/builders/helpers-border.scss',
-    buildersHelpersColor:
-      './source/stylesheets/examples/builders/helpers-color.scss',
-    buildersHelpersFs: './source/stylesheets/examples/builders/helpers-fs.scss',
-    buildersHelpersPull:
-      './source/stylesheets/examples/builders/helpers-pull.scss',
-    buildersHelpersRatio:
-      './source/stylesheets/examples/builders/helpers-ratio.scss',
-    buildersHelpersText:
-      './source/stylesheets/examples/builders/helpers-text.scss',
-    buildersHelpersUtilities:
-      './source/stylesheets/examples/builders/helpers-utilities.scss',
-    buildersReset: './source/stylesheets/examples/builders/reset.scss',
-    componentsAlerts: './source/stylesheets/examples/components/alerts.scss',
-    componentsBadge: './source/stylesheets/examples/components/badge.scss',
-    componentsButtons: './source/stylesheets/examples/components/buttons.scss',
-    componentsButtonClose:
-      './source/stylesheets/examples/components/button-close.scss',
-    componentsHamburger:
-      './source/stylesheets/examples/components/hamburger.scss',
-    componentsSearch: './source/stylesheets/examples/components/search.scss',
-    componentsSpinner: './source/stylesheets/examples/components/spinner.scss',
+    buildersMarsBuildAnimation: examplePath + 'builders/mars-build-animation.scss',
+    buildersMarsBuildComponent: examplePath + 'builders/mars-build-component.scss',
+    buildersMarsBuildElements: examplePath + 'builders/mars-build-elements.scss',
+    buildersMarsBuildForms: examplePath + 'builders/mars-build-forms.scss',
+    buildersMarsBuildGrid: examplePath + 'builders/mars-build-grid.scss',
+    buildersMarsBuildGridContainer: examplePath + 'builders/mars-build-grid-container.scss',
+    buildersMarsBuildGridRow: examplePath + 'builders/mars-build-grid-row.scss',
+    buildersMarsBuildGridColumns: examplePath + 'builders/mars-build-grid-columns.scss',
+    buildersMarsBuildHelpers: examplePath + 'builders/mars-build-helpers.scss',
+    buildersMarsBuildHelpersAlign: examplePath + 'builders/mars-build-helpers-align.scss',
+    buildersMarsBuildHelpersBorder: examplePath + 'builders/mars-build-helpers-border.scss',
+    buildersMarsBuildHelpersColor: examplePath + 'builders/mars-build-helpers-color.scss',
+    buildersMarsBuildHelpersFs: examplePath + 'builders/mars-build-helpers-fs.scss',
+    buildersMarsBuildHelpersPull: examplePath + 'builders/mars-build-helpers-pull.scss',
+    buildersMarsBuildHelpersRatio: examplePath + 'builders/mars-build-helpers-ratio.scss',
+    buildersMarsBuildHelpersText: examplePath + 'builders/mars-build-helpers-text.scss',
+    buildersMarsBuildHelpersUtilities: examplePath + 'builders/mars-build-helpers-utilities.scss',
+    buildersMarsBuildReset: examplePath + 'builders/mars-build-reset.scss',
+    componentsMarsAlert: examplePath + 'components/mars-alert.scss',
+    componentsMarsBadge: examplePath + 'components/mars-badge.scss',
+    componentsMarsButton: examplePath + 'components/mars-button.scss',
+    componentsMarsButtonClose: examplePath + 'components/mars-button-close.scss',
+    componentsMarsHamburger: examplePath + 'components/mars-hamburger.scss',
+    componentsMarsSearch: examplePath + 'components/mars-search.scss',
+    componentsMarsSpinner: examplePath + 'components/mars-spinner.scss',
     images: sync('./source/images/**/*', { nodir: true }),
     vendor: ['lodash', 'jquery']
   },
