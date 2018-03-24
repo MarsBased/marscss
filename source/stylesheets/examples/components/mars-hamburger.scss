@@ -1,0 +1,21 @@
+@import '../../../../marscss/marscss';
+$mars-debug: true;
+
+//example 1
+.icon-example-1 {
+  @include mars-hamburger;
+}
+
+//example 2
+.icon-example-2 {
+  color: $primary;
+  @include mars-hamburger($size: 40px, $bar-height: 4px);
+}
+
+//preview box example
+.documentation-example {
+  border: 0 !important;
+  background-color: $black;
+  color: white;
+  line-height: 1;
+}

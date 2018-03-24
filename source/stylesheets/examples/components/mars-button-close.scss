@@ -1,0 +1,17 @@
+@import '../../../../marscss/marscss';
+$mars-debug: true;
+
+.button-close {
+  @include mars-button-close;
+}
+
+%alert {
+  @include log('📦 extend %alert');
+  @include mars-alert();
+}
+
+@include mars-build-component(
+  $prefix: '.alert',
+  $extend: '%alert',
+  $elements: $mars-alerts
+);

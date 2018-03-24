@@ -1,0 +1,29 @@
+@import '../../../../marscss/marscss';
+$mars-debug: true;
+
+//Generates the badge elements
+%badge {
+  @include log('📦 extend %badge');
+  @include mars-badge;
+}
+
+@include mars-build-component(
+  $prefix: '.badge',
+  $extend: '%badge',
+  $elements: $mars-badges
+);
+
+//Generates other variations of badge
+%badge-pill {
+  @include log('📦 extend %badge-pills');
+  @extend %badge;
+  padding-right: .6em;
+  padding-left: .6em;
+  border-radius: 10rem;
+}
+
+@include mars-build-component(
+  $prefix: '.badge-pill',
+  $extend: '%badge-pill',
+  $elements: $mars-badges
+);

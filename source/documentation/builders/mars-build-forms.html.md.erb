@@ -2,9 +2,10 @@
 title: mars-build-forms
 layout: documentation
 active: Builders, mars-build-forms
+example: builders/mars-build-forms
 ---
 
-#mars-build-forms
+# mars-build-forms
 
 Is responsible for generating the set of css classes for the forms.
 
@@ -15,11 +16,16 @@ core
 : forms
 
 arguments
-: prefix: ''
+: `$prefix: ''` *[string]*:
 
+size compiled
+: <%= file_dist_size %> not minified
+
+<%= source %>
+
+## Examples
 
 <% example_tabs do %>
-
-
-
+<%= file_example_scss %>
+<%= file_example_dist %>
 <% end %>

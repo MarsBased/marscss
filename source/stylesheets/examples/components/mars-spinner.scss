@@ -1,0 +1,10 @@
+@import '../../../../marscss/marscss';
+$mars-debug: true;
+
+.spinner {
+  @include mars-spinner($primary);
+}
+
+.spinner-big-gray {
+  @include mars-spinner($gray-600, 10rem);
+}

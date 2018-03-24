@@ -30,6 +30,7 @@ GEM
     fast_blank (1.0.0)
     fastimage (2.1.1)
     ffi (1.9.21)
+    filesize (0.1.1)
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
@@ -87,7 +88,7 @@ GEM
     middleman-syntax (3.0.0)
       middleman-core (>= 3.2)
       rouge (~> 2.0)
-    middleman-webpacker (1.0.0)
+    middleman-webpacker (1.2.0)
       middleman-core (>= 4.2.1)
     minitest (5.11.3)
     padrino-helpers (0.13.3.4)
@@ -124,11 +125,12 @@ PLATFORMS
 
 DEPENDENCIES
   faker (~> 1.7.3)
+  filesize
   middleman (>= 4.0.0)
   middleman-livereload
   middleman-pry
   middleman-syntax
-  middleman-webpacker
+  middleman-webpacker (>= 1.2.0)
 
 BUNDLED WITH
    1.16.1

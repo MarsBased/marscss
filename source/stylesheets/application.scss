@@ -10,6 +10,7 @@
 // MARSCSS BUILDERS
 @include mars-init;
 @include mars-tests;
+@include mars-build-elements;
 @include mars-build-helpers;
 @include mars-build-forms;
 
@@ -23,9 +24,11 @@
 @import 'blocks/example-tabs';
 @import 'blocks/footer';
 @import 'blocks/header';
-@import 'blocks/hero';
+@import 'blocks/hero-block';
+@import 'blocks/hero-space';
+@import 'blocks/responsive-menu';
 @import 'blocks/sidebar-menu';
 
-@import 'layouts/documentation';
 @import 'layouts/home';
+@import 'layouts/documentation';
 

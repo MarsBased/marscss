@@ -1,0 +1,103 @@
+//stylelint-disable selector-max-id
+//stylelint-disable max-nesting-depth
+.hero-space {
+  height: calc(100vh - #{$header-height});
+  color: $white;
+  background-color: $black;
+
+  &__container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    height: inherit;
+    min-height: 400px;
+    padding: $gutter;
+    text-align: center;
+  }
+
+  &__background {
+    position: relative;
+    width: 100%;
+    height: inherit;
+    overflow: hidden;
+
+    &::before {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: '';
+      background-image: image-url('mars.png');
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+      transition: top 1s ease-out;
+
+      .on-screen & {
+        top: 0;
+        transition: top 24s ease-out;
+      }
+    }
+  }
+
+  &__logo {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+
+    #shape-marscss {
+      & > * {
+        opacity: 0;
+        transition: opacity 1s ease-out .2s, transform 1s ease-out .2;
+        transform: translateY(10px);
+
+        .on-screen & {
+          opacity: 1;
+          transform: translateY(0);
+
+          $items: 8;
+          $delay: 300ms;
+
+          @for $i from 0 through $items {
+            &:nth-child(#{$i}) {
+              $time: ($i * $delay) + 3000ms;
+              transition: opacity $time ease-out ($i *300ms)
+               ,transform 3s ease-out ($i *300ms);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__text {
+    width: 100%;
+    font-size: 2.6vw;
+    text-shadow: 0 0 .5rem rgba($black, .5);
+    opacity: 0;
+    transition: opacity 1s ease-out 1s;
+
+    .on-screen & {
+      opacity: 1;
+      transition: opacity 3s ease-out 3s;
+    }
+  }
+}
+
+@keyframes hero-space-title {
+  0% {
+    opacity: 0;
+    transform: translateY(50%) scale(2);
+  }
+
+  40% {
+    transform: translateY(0) scale(1);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

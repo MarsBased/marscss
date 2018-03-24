@@ -37,7 +37,9 @@ code {
   color: #f8f8f2;
   background: #272822;
   background-color: $gray-800;
-  @include text-block;
+  &:not(pre){
+    @include text-block;
+  }
 
   .hll { background-color: #49483e; }
   .c { color: $gray; } // Comment

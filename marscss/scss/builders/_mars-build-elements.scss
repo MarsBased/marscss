@@ -1,0 +1,23 @@
+//stylelint-disable rule-empty-line-before
+@mixin mars-build-elements($prefix: '') {
+  @include log('🚀 mars-build-elements');
+
+  .#{$prefix}a { @extend %a; }
+  .#{$prefix}hero { @extend %hero; }
+  .#{$prefix}h1 { @extend %h1; }
+  .#{$prefix}h2 { @extend %h2; }
+  .#{$prefix}h3 { @extend %h3; }
+  .#{$prefix}h4 { @extend %h4; }
+  .#{$prefix}h5 { @extend %h5; }
+  .#{$prefix}h6 { @extend %h6; }
+  .#{$prefix}large { @extend %large; }
+  .#{$prefix}small { @extend %small; }
+  .#{$prefix}blockquote { @extend %blockquote; }
+  .#{$prefix}p { @extend %p; }
+  .#{$prefix}ul { @extend %ul; }
+  .#{$prefix}ol { @extend %ol; }
+  .#{$prefix}li { @extend %li; }
+  .#{$prefix}dl { @extend %dl; }
+  .#{$prefix}dt { @extend %dt; }
+  .#{$prefix}dd { @extend %dd; }
+}

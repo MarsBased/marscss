@@ -1,13 +1,22 @@
 <header class="header">
   <div class="header__container">
-    <h1 class="header__logo">
-      <%= link_to 'marscss', '/' %>
-    </h1>
+    <button class="header__hamburger" data-open-menu>
+      <span class="icon-hamburger"></span>
+    </button>
+    <% link_to '/', class: 'header__logo' do %>
+      <%= partial 'partials/logo' %>
+    <% end %>
     <nav class="header__menu">
-      <%= link_to 'Home', '/',
-        class: active('home') %>
-      <%= link_to 'Documentation', '/documentation',
-        class: active('documentation') %>
+      <% link_to '/', class: "btn-home #{active('home')}" do %>
+        <%= svg('icon-marsbased') %>
+      <% end %>
+      <% link_to '/documentation', class: "btn-doc #{active('documentation')}" do %>
+        <%= svg('icon-doc') %>
+      <% end %>
+      <% link_to 'https://github.com/MarsBased/marscss', class: 'btn-github',
+       target: '_blank' do %>
+        <%= svg('icon-github') %>
+      <% end %>
     </nav>
   </div>
 </header>

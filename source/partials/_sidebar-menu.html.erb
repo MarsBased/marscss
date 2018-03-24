@@ -1,0 +1,18 @@
+<ul class="sidebar-menu">
+  <% data.documentation_menu.each do |page| %>
+    <% content_tag(:li, class: active(page.name)) do %>
+      <%= link_to page.name,
+      "/documentation/#{page.url || page.name.parameterize}" %>
+    <% end %>
+    <% if active(page.name) && page.subpages %>
+      <ul>
+        <% page.subpages.each do |subpage|%>
+          <% content_tag(:li, class: active(subpage.name)) do %>
+            <%= link_to subpage.name,
+              "/documentation/#{subpage.url || subpage.name.parameterize}" %>
+          <% end %>
+        <% end %>
+      </ul>
+    <% end %>
+  <% end %>
+</ul>

@@ -1,0 +1,35 @@
+---
+title: mars-build-animation
+layout: documentation
+active: builders, mars-build-animation
+example: builders/mars-build-animation
+---
+
+# mars-build-animation
+
+This builder allows the creation of keyframes directly from other mixins, avoiding duplications and preventing it from being generated when it has already been called.
+
+since
+: 1.0.0
+
+arguments
+: `$animation` *[string]*: Animation name
+
+<%= source %>
+
+<% example_tabs do %>
+<%= file_example_scss %>
+<%= file_example_dist %>
+<% end %>
+
+<% example_html do %>
+<div class="box example-animation"></div>
+<% end %>
+
+<% example_html do %>
+<div class="box example-repeat-animation"></div>
+<% end %>
+
+<% example_html do %>
+<div class="box example-other-animation"></div>
+<% end %>

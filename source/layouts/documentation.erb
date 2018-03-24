@@ -3,27 +3,16 @@
 <% wrap_layout :layout do %>
   <div class="wrapper">
     <div class="documentation-menu">
-      <ul class="sidebar-menu">
-      <% data.documentation_menu.each do |page| %>
-        <% content_tag(:li, class: active(page.name)) do %>
-          <%= link_to page.name,
-          "/documentation/#{page.url || page.name.parameterize}" %>
-        <% end %>
-        <% if active(page.name) && page.subpages %>
-          <ul>
-            <% page.subpages.each do |subpage|%>
-              <% content_tag(:li, class: active(subpage.name)) do %>
-                <%= link_to subpage.name,
-                  "/documentation/#{subpage.url || subpage.name.parameterize}" %>
-              <% end %>
-            <% end %>
-          </ul>
-        <% end %>
-      <% end %>
-      </ul>
+      <%= partial 'partials/sidebar-menu' %>
     </div>
-    <div class="documentation-content html-content" data-headings-add-anchor>
-       <%= yield %>
+    <div class="documentation-content html-content"
+     data-headings-add-anchor data-anchors-menu>
+      <%= yield %>
+    </div>
+    <div class="documentation-anchors">
+      <ul class="anchors-menu">
+        
+      </ul>
     </div>
   </div>
 <% end %>

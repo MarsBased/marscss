@@ -1,0 +1,37 @@
+@import '../../../../marscss/marscss';
+$mars-debug: true;
+
+.orange-button {
+  @include mars-button;
+  color: $white;
+  background-color: $orange;
+  &:hover,
+  &:focus,
+  &:active,
+  &.is-active {
+    background-color: darken($orange, 10%);
+  }
+}
+
+%button {
+  @include log('📦 extend %button');
+  @include mars-button;
+}
+
+@include mars-build-component(
+  $prefix: '.btn',
+  $extend: '%button',
+  $elements: $mars-buttons
+);
+
+%button-sm {
+  @include log('📦 extend %button-sm');
+  @extend %button;
+  font-size: $font-size-small;
+}
+
+@include mars-build-component(
+  $prefix: '.btn-sm',
+  $extend: '%button-sm',
+  $elements: $mars-buttons
+);

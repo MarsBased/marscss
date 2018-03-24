@@ -1,6 +1,6 @@
 @mixin mars-button(
   $padding: .25em 1em,
-  $border: 1px solid,
+  $border: 1px solid transparent,
   $border-radius: 5px
 ) {
   @include log('🛸 mars-button');
@@ -11,7 +11,8 @@
   border-radius: $border-radius;
   transition: color .2s ease-out, background-color .2s ease-out;
 }
-//we store the different selectors in a variable
+
+//store the different selectors in a variable
 $mars-button-active: '&:active, &:focus, &:hover, &.is-active' !default;
 
 $mars-buttons: (
@@ -20,6 +21,12 @@ $mars-buttons: (
     color: $white,
     background-color: $primary,
     $mars-button-active: (background-color: darken($primary, 10%))
+  ),
+  '-white':
+  (
+    color: $primary,
+    background-color: $white,
+    $mars-button-active: (background-color: darken($white, 10%))
   ),
   '-default':(
     color: $white,

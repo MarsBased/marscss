@@ -11,12 +11,19 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
     <%= stylesheet_pack_tag 'application' %>
 
+    <% if example = current_page.data.example %>
+    <%= stylesheet_pack_tag example.tr('/-', '_').camelize(:lower) %>
+    <% end %>
     <%= javascript_pack_tag 'manifest' %>
     <%= javascript_pack_tag 'head' %>
     <%= javascript_pack_tag 'vendor' %>
   </head>
   <body class="<%= current_page.data.body %> <%= current_page.options[:layout] %>">
+    <%= partial 'partials/shapes' %>
     <%= partial 'partials/header' %>
+    <div class="responsive-menu">
+      <%= partial 'partials/sidebar-menu' %>
+    </div>
     <div class="main-content">
       <%= yield %>
     </div>

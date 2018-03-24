@@ -4,8 +4,10 @@
   subpages:
   - name: Introduction
     url: builders
-  - name: mars-build-components
-    url: builders/mars-build-components
+  - name: mars-build-animation
+    url: builders/mars-build-animation
+  - name: mars-build-component
+    url: builders/mars-build-component
   - name: mars-build-elements
     url: builders/mars-build-elements
   - name: mars-build-forms
@@ -33,11 +35,17 @@
   subpages:
   - name: Introduction
     url: components
-  - name: Alerts
-    url: components/alerts
-  - name: Badge
-    url: components/badge
-  - name: Buttons
-    url: components/buttons
-  - name: Search
-    url: components/search
+  - name: mars-alert
+    url: components/mars-alert
+  - name: mars-badge
+    url: components/mars-badge
+  - name: mars-button
+    url: components/mars-button
+  - name: mars-button-close
+    url: components/mars-button-close
+  - name: mars-hamburger
+    url: components/mars-hamburger
+  - name: mars-search
+    url: components/mars-search
+  - name: mars-spinner
+    url: components/mars-spinner

@@ -4,27 +4,81 @@
 //stylelint-disable selector-max-compound-selectors
 body.documentation {
   .wrapper {
-    @extend %container;
-    @extend %row;
+    display: flex;
+  }
+
+  %sidebar-columns {
+    flex: 0 0 260px;
+    padding-top: $gutter;
+  }
+
+  .documentation-anchors {
+    @extend %sidebar-columns;
+    @include media-breakpoint-down('lg') {
+      display: none;
+    }
+    color: $gray-600;
+    .anchors-menu {
+      position: sticky;
+      top: 0;
+      max-height: 100vh;
+      padding: $gutter $gutter $gutter;
+      overflow-y: auto;
+    }
+
+    a {
+      &:hover {
+        color: $gray-800;
+      }
+      &::before {
+        color: $gray-400;
+        content: '- ';
+      }
+    }
+
+    @for $i from 2 through 6 {
+      .anchor-h#{$i}{
+        padding-left: ($i - 2) * .5em;
+      }
+    }
+  }
+
+  %dt {
+    margin-top: .5em;
+    font-weight: 800;
+    @include fs-h5;
   }
 
   .documentation-menu {
-    padding-top: $gutter*2;
-    padding-bottom: $gutter*2;
-    @extend %grid-column;
-    @include media-breakpoint-up('sm') {
-      @include make-col(3);
+    @extend %sidebar-columns;
+    position: relative;
+
+    @include media-breakpoint-down('md') {
+      display: none;
+    }
+
+    .sidebar-menu {
+      position: sticky;
+      top: 0;
+      max-height: 100vh;
+      padding: $gutter $gutter $gutter;
+      overflow-y: auto;
+    }
+  }
+
+  .documentation-source {
+    margin-bottom: 1rem;
+
+    strong {
+      @extend %dt;
     }
   }
 
   .documentation-content {
-    padding-top: $gutter*2;
-    padding-bottom: $gutter*2;
-    @extend %grid-column;
-    @include media-breakpoint-up('sm') {
-      flex: 1 1 0;
-      max-width: 800px;
-    }
+    flex: 1 1 auto;
+    width: 500px;
+    max-width: 100%;
+    padding: $gutter*2 $gutter;
 
     > {
       h1, h2, h3, h4 {
@@ -33,8 +87,8 @@ body.documentation {
         }
         &::before {
           display: block;
-          height: 6rem;
-          margin-top: -6rem;
+          height: 3rem;
+          margin-top: -3rem;
           visibility: hidden;
           content: '';
         }
@@ -42,9 +96,7 @@ body.documentation {
     }
 
     dt {
-      margin-top: .5em;
-      font-weight: 800;
-      @include fs-h5;
+      @extend %dt;
     }
 
     dd {
@@ -83,91 +135,5 @@ body.documentation {
     max-width: 20em;
     margin: auto;
   }
-}
-
-.html-content {
-  @extend %raw-html-styles;
-}
-
-.btn-close {
-  @include mars-btn-close;
-}
-
-%alert {
-  @include log('📦 extend %alert');
-  @include mars-alert();
-}
-
-@include mars-build-components(
-  $prefix: '.alert',
-  $extend: '%alert',
-  $elements: $mars-alerts
-);
-
-.orange-button {
-  @include mars-button;
-  background-color: $orange;
-  color: $white;
-  &:hover,
-  &:focus,
-  &:active,
-  &.is-active {
-    background-color: darken($orange,10%);
-  }
-}
-
-%button {
-  @include log('📦 extend %button');
-  @include mars-button;
-}
-
-@include mars-build-components(
-  $prefix: '.btn',
-  $extend: '%button',
-  $elements: $mars-buttons
-);
-
-%button-sm {
-  @include log('📦 extend %button-sm');
-  @extend %button;
-  font-size: $font-size-small;
-}
-
-@include mars-build-components(
-  $prefix: '.btn-sm',
-  $extend: '%button-sm',
-  $elements: $mars-buttons
-);
-
-
-// badge
-%badge {
-  @include log('📦 extend %badge');
-  @include mars-badge;
-}
-
-@include mars-build-components(
-  $prefix: '.badge',
-  $extend: '%badge',
-  $elements: $mars-badges
-);
-
-%badge-pill {
-  @include log('📦 extend %badge-pills');
-  @extend %badge;
-  padding-right: .6em;
-  padding-left: .6em;
-  border-radius: 10rem;
-}
-
-@include mars-build-components(
-  $prefix: '.badge-pill',
-  $extend: '%badge-pill',
-  $elements: $mars-badges
-);
-
-//search
-.search {
-  @include mars-search;
 }
 

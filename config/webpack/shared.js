@@ -7,6 +7,7 @@ const { sync } = require('glob');
 
 const isProduction = process.env.NODE_ENV === 'production';
 const publicPath = 'dist';
+const examplePath = './source/stylesheets/examples/';
 
 process.noDeprecation = true;
 
@@ -15,6 +16,31 @@ module.exports = {
     body: './source/javascripts/body.js',
     head: './source/javascripts/head.js',
     application: './source/stylesheets/application.scss',
+    buildersMarsBuildAnimation: examplePath + 'builders/mars-build-animation.scss',
+    buildersMarsBuildComponent: examplePath + 'builders/mars-build-component.scss',
+    buildersMarsBuildElements: examplePath + 'builders/mars-build-elements.scss',
+    buildersMarsBuildForms: examplePath + 'builders/mars-build-forms.scss',
+    buildersMarsBuildGrid: examplePath + 'builders/mars-build-grid.scss',
+    buildersMarsBuildGridContainer: examplePath + 'builders/mars-build-grid-container.scss',
+    buildersMarsBuildGridRow: examplePath + 'builders/mars-build-grid-row.scss',
+    buildersMarsBuildGridColumns: examplePath + 'builders/mars-build-grid-columns.scss',
+    buildersMarsBuildHelpers: examplePath + 'builders/mars-build-helpers.scss',
+    buildersMarsBuildHelpersAlign: examplePath + 'builders/mars-build-helpers-align.scss',
+    buildersMarsBuildHelpersBorder: examplePath + 'builders/mars-build-helpers-border.scss',
+    buildersMarsBuildHelpersColor: examplePath + 'builders/mars-build-helpers-color.scss',
+    buildersMarsBuildHelpersFs: examplePath + 'builders/mars-build-helpers-fs.scss',
+    buildersMarsBuildHelpersPull: examplePath + 'builders/mars-build-helpers-pull.scss',
+    buildersMarsBuildHelpersRatio: examplePath + 'builders/mars-build-helpers-ratio.scss',
+    buildersMarsBuildHelpersText: examplePath + 'builders/mars-build-helpers-text.scss',
+    buildersMarsBuildHelpersUtilities: examplePath + 'builders/mars-build-helpers-utilities.scss',
+    buildersMarsBuildReset: examplePath + 'builders/mars-build-reset.scss',
+    componentsMarsAlert: examplePath + 'components/mars-alert.scss',
+    componentsMarsBadge: examplePath + 'components/mars-badge.scss',
+    componentsMarsButton: examplePath + 'components/mars-button.scss',
+    componentsMarsButtonClose: examplePath + 'components/mars-button-close.scss',
+    componentsMarsHamburger: examplePath + 'components/mars-hamburger.scss',
+    componentsMarsSearch: examplePath + 'components/mars-search.scss',
+    componentsMarsSpinner: examplePath + 'components/mars-spinner.scss',
     images: sync('./source/images/**/*', { nodir: true }),
     vendor: ['lodash', 'jquery']
   },
@@ -32,9 +58,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: [
-              ["env"]
-            ]
+            presets: [['env']]
           }
         }
       },
@@ -51,7 +75,7 @@ module.exports = {
             {
               loader: 'css-loader',
               options: {
-                minimize: isProduction
+                minimize: false
               }
             },
             {
@@ -72,27 +96,35 @@ module.exports = {
       },
       {
         test: /fonts\/.*\.(svg|eot|ttf|woff|woff2)(\?v=\d+\.\d+\.\d+)?$/i,
-        use: [{
-          loader: 'file-loader',
-          options: {
-            publicPath: '',
-            // can't use 'fonts' because it conflicts with Middleman
-            name: isProduction ? 'fnt/[name]-[hash].[ext]' : 'fnt/[name].[ext]'
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              publicPath: '',
+              // can't use 'fonts' because it conflicts with Middleman
+              name: isProduction
+                ? 'fnt/[name]-[hash].[ext]'
+                : 'fnt/[name].[ext]'
+            }
           }
-        }]
+        ]
       },
       {
         test: /images\/.*\.(jpg|jpeg|png|gif|svg)$/i,
-        use: [{
-          loader: 'file-loader',
-          options: {
-            publicPath: '',
-            outputPath: 'img/',
-            context: 'source/images/',
-            // can't use 'images' because it conflicts with Middleman
-            name: isProduction ? '[path][name]-[hash].[ext]' : '[path][name].[ext]'
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              publicPath: '',
+              outputPath: 'img/',
+              context: 'source/images/',
+              // can't use 'images' because it conflicts with Middleman
+              name: isProduction
+                ? '[path][name]-[hash].[ext]'
+                : '[path][name].[ext]'
+            }
           }
-        }]
+        ]
       },
       {
         test: require.resolve('jquery'),
@@ -110,11 +142,18 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['.js', '.ts', '.sass', '.scss', '.css', '.png', '.svg', '.gif', '.jpeg'],
-    modules: [
-      resolve('source/javascripts'),
-      'node_modules'
+    extensions: [
+      '.js',
+      '.ts',
+      '.sass',
+      '.scss',
+      '.css',
+      '.png',
+      '.svg',
+      '.gif',
+      '.jpeg'
     ],
+    modules: [resolve('source/javascripts'), 'node_modules'],
     alias: {
       assets: resolve('source/'),
       modernizr$: resolve('.modernizrrc')
@@ -130,7 +169,9 @@ module.exports = {
     new Clean([publicPath], {
       root: resolve()
     }),
-    new ExtractTextPlugin(isProduction ? '[name].bundle-[hash].css' : '[name].bundle.css'),
+    new ExtractTextPlugin(
+      isProduction ? '[name].bundle-[hash].css' : '[name].bundle.css'
+    ),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',

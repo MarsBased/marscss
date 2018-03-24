@@ -41,7 +41,8 @@ module.exports = merge(sharedConfig, {
   },
   plugins: [
     new WebpackBuildNotifierPlugin({
-      title: 'marscss'
+      title: 'marscss',
+      suppressSuccess: true
     })
   ]
 });

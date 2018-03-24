@@ -4,49 +4,82 @@ body: home
 active: home
 ---
 
-<div class="hero">
-	<div class="hero__background">
-		<div class="hero__container">
-			<h1 class="hero__title">mars<strong>css</strong></h1>
-			<p class="hero__text">
+<div class="hero-space" data-onscreen>
+	<div class="hero-space__background">
+		<div class="hero-space__container">
+      <div class="hero-space__logo">
+        <%= partial 'partials/logo' %>
+      </div>
+			<p class="hero-space__text">
 				The framework for front-end, from 0 KB
 			</p>
 		</div>
 	</div>
 </div>
-<div class="column-block">
-	<div class="column-block__container columns-xs">
-		<div class="column-block__content">
-		</div>
-		<div class="column-block__content">
-			<h2>Why is the marscss framework different?</h2>
-
-			<p>Unlike other CSS frameworks it works through mixins and not with rules, which allows us to have access to an infinite number of possibilities without adding a line to CSS file</p>
+<div class="hero-block" data-onscreen id="home-why">
+  <div class="hero-block__container">
+    <div class="hero-block__column">
+      [TODO]
+    </div>
+    <div class="hero-block__column">
+      <h1 class="hero-block__title">Why is the marscss framework different?</h1>
+      <p>Unlike other CSS frameworks it works through mixins and not with rules, which allows us to have access to an infinite number of possibilities without adding a line to CSS file</p>
 
       <p>Although there are mechanisms to generate css such as builders or components, their potential lies in that they in turn work generating code from mixins with what can be rewritten.</p>
-		</div>
-		<div class="column-block__content">
+    </div>
+  </div>
+</div>
+<div class="hero-block" data-onscreen id="home-install">
+  <div class="hero-block__container">
+    <div class="hero-block__column">
+      <h1 class="hero-block__title">
+        How to use?
+      </h1>
+
+      <h2 class="h3">Install the dependency</h2>
+
       <% markdown do %>
-      ##How to use?
-
-      Install the dependency
-
       ~~~shell
       npm i @marsbased/marscss --save
       ~~~~
+      <% end %>
 
-      Use it from your main scss file:
+      <h2 class="h3">Use it from your main scss file:</h2>
 
+      <% markdown do %>
       ~~~scss
-      @import 'node_modules/marscss/marscss';
+      @import 'node_modules/@marsbased/marscss/marscss';
       ~~~
+      <% end %>
 
+      <p>
       Alternatively, if you are using a bundler you probably can use a shortcut like:
+      </p>
 
+      <% markdown do %>
       ~~~scss
-      @import '~marscss/marscss';
+      @import '~@marsbased/marscss/marscss';
       ~~~
-			<% end %>
-		</div>
-	</div>
+      <% end %>
+    </div>
+    <div class="hero-block__column is-first">
+      [TODO]
+    </div>
+  </div>
+</div>
+
+<div class="hero-block" data-onscreen id="home-cassete">
+  <div class="hero-block__container">
+    <div class="hero-block__column">
+      <%= partial 'partials/cassete' %>
+    </div>
+    <div class="hero-block__column">
+      <div class="h3">
+        Now you can save your css compiled in magnetic tapes, enjoy listening to the wanderfull sound of your web.
+      </div>
+      <footer>
+        <button class="btn-primary">DOWNLOAD</button>
+      </footer>
+    </div>
+  </div>
 </div>

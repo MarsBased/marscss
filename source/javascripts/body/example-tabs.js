@@ -18,8 +18,10 @@
         var cssClass = $(this)
           .children()
           .attr('class')
-          .split(' ');
-        names.push(cssClass.pop());
+          .split(' ')
+          .pop();
+        var result = (cssClass == 'css') ? 'Compiled CSS' : cssClass;
+        names.push(result);
       } else {
         names.push('html');
       }

@@ -1,35 +1,6 @@
----
-title: search component
-layout: documentation
-active: Components, Search
----
+@import '../../../../marscss/marscss';
+$mars-debug: true;
 
-# Search
-
-This component is added to an input to give it the appearance of a search field, to generate the icon it works with svg in base 64 which allows us to overwrite the color of that icon.
-
-since
-: 1.0.0
-
-extend
-: `%form-element`
-
-arguments
-: `$bg: $gray-300` *(color)*: background color
-: `$color: $gray-800` *(color)* : icon color
-
-<% example_html do %>
-<div class="container-20em">
-  <p>
-    <input class="search" id="search" name="s">
-  </p>
-  <p>
-    <input class="search" id="search" name="s" placeholder="search...">
-  </p>
-</div>
-<% end %>
-<% example_tabs do %>
-~~~scss
 @mixin mars-search(
   $bg: $gray-300,
   $color: $gray-800
@@ -46,9 +17,7 @@ arguments
     background-color: $white;
   }
 }
-~~~
 
-~~~css
 .search {
   /* ///////// 🛸 mars-search */
   padding-left: 2em;
@@ -78,6 +47,5 @@ arguments
     opacity: 1; }
   [disabled].textarea, [disabled].input, [disabled].select, [disabled].search, .is-disabled.textarea, .is-disabled.input, .is-disabled.select, .is-disabled.search {
     pointer-events: none;
-    opacity: 0.3; }
-~~~
-<% end %>
+    opacity: 0.3;
+  }

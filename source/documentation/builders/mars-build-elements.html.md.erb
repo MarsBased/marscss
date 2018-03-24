@@ -2,9 +2,10 @@
 title: mars-build-elements
 layout: documentation
 active: Builders, mars-build-elements
+example: builders/mars-build-elements
 ---
 
-#mars-build-elements
+# mars-build-elements
 
 The idea of marscss is to avoid that we have to redefine the presentation of the markup depending on the semantic.
 
@@ -19,150 +20,16 @@ core
 : elements
 
 arguments
-: prefix
+: `$prefix: ''` *[string]*:
+
+size compiled
+: <%= file_dist_size %> not minified
+
+<%= source %>
+
+## Examples
 
 <% example_tabs do %>
-~~~scss
-@mixin mars-build-elements($prefix: "") {
-  @include log("🚀 mars-build-elements");
-
-  .#{$prefix}a{ @include a; }
-  .#{$prefix}hero { @include hero; }
-  .#{$prefix}h1{ @include h1; }
-  .#{$prefix}h2{ @include h2; }
-  .#{$prefix}h3{ @include h3; }
-  .#{$prefix}h4{ @include h4; }
-  .#{$prefix}h5{ @include h5; }
-  .#{$prefix}h6{ @include h6; }
-  .#{$prefix}large{ @include large; }
-  .#{$prefix}small{ @include small; }
-  .#{$prefix}blockquote { @include blockquote; }
-  .#{$prefix}p { @include p; }
-  .#{$prefix}ul{ @include ul; }
-  .#{$prefix}ol{ @include ol; }
-  .#{$prefix}li{ @include li; }
-  .#{$prefix}dl{ @include dl; }
-  .#{$prefix}dt{ @include dt; }
-  .#{$prefix}dd{ @include dd; }
-}
-
-~~~
-
-~~~css
-/* ///////// 🚀 mars-build-elements */
-.a {
-  color: #dc3545;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  transition: border .3s ease-out, color .3s ease-out; }
-  .a:hover, .a:focus {
-    color: #921925;
-    border-bottom-color: currentColor; }
-
-.hero {
-  font-size: 3.98131rem;
-  font-weight: 400;
-  line-height: 1;
-  margin-bottom: 1rem; }
-  .hero:not(:first-child) {
-    margin-top: 1em; }
-
-.h1 {
-  font-size: 3.31776rem;
-  font-weight: 400;
-  line-height: 1;
-  margin-bottom: 1rem; }
-  .h1:not(:first-child) {
-    margin-top: 1em; }
-
-.h2 {
-  font-size: 2.7648rem;
-  font-weight: 400;
-  line-height: 1;
-  margin-bottom: 1rem; }
-  .h2:not(:first-child) {
-    margin-top: 1em; }
-
-.h3 {
-  font-size: 2.304rem;
-  font-weight: 800;
-  line-height: 1.2;
-  margin-bottom: 1rem; }
-  .h3:not(:first-child) {
-    margin-top: 1em; }
-
-.h4 {
-  font-size: 1.92rem;
-  font-weight: 800;
-  margin-bottom: 1rem; }
-  .h4:not(:first-child) {
-    margin-top: 1em; }
-
-.h5 {
-  font-size: 1.6rem;
-  font-weight: 800;
-  margin-bottom: 1rem; }
-  .h5:not(:first-child) {
-    margin-top: 1em; }
-
-.h6 {
-  font-size: 1.33333rem;
-  font-weight: 800;
-  margin-bottom: 1rem; }
-  .h6:not(:first-child) {
-    margin-top: 1em; }
-
-.large {
-  font-size: 1.92rem;
-  line-height: 1.5;
-  margin-top: 0;
-  margin-bottom: 2rem; }
-
-.small {
-  font-size: 1.33333rem;
-  margin-top: 0;
-  margin-bottom: 2rem; }
-
-.blockquote {
-  max-width: 600px;
-  padding-left: 1em;
-  margin-top: 0;
-  margin-right: 0;
-  margin-left: 0;
-  font-size: 1.92rem;
-  font-weight: 800;
-  border-left: 4px solid #dc3545; }
-
-.p {
-  margin-top: 0;
-  margin-bottom: 2rem; }
-
-.ul {
-  padding-left: 1.5em;
-  list-style-type: disc;
-  margin-top: 0;
-  margin-bottom: 2rem; }
-  .ul ul {
-    margin-bottom: 0; }
-
-.ol {
-  padding-left: 1.5em;
-  list-style-type: decimal;
-  margin-top: 0;
-  margin-bottom: 2rem; }
-  .ol ol {
-    margin-bottom: 0; }
-
-.li {
-  margin-bottom: .5em; }
-
-.dl {
-  margin-top: 0;
-  margin-bottom: 2rem; }
-
-.dt {
-  font-weight: 800; }
-
-.dd {
-  margin-bottom: .5em; }
-~~~
+<%= file_example_scss %>
+<%= file_example_dist %>
 <% end %>
