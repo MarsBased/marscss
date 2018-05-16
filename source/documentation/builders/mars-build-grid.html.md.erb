@@ -2,7 +2,6 @@
 title: mars-build-grid
 layout: documentation
 active: Builders, mars-build-grid
-example: builders/mars-build-grid
 ---
 
 # mars-build-grid
@@ -20,18 +19,8 @@ arguments
 : `$prefix-row: 'row'` *[string]*:
 : `$container-max-widths: $containers-max-widths` *[map]*:
 
-size compiled
-: <%= file_dist_size %> not minified
 
-<%= source %>
-
-<% example_tabs do %>
-<%= file_example_scss %>
-<%= file_example_dist %>
-<% end %>
-
-
-## mars-build-grid-container
+## grid-container
 
 Generating the class for the container uses $containers-max-widths to generate the media queries for each $breakpoints.
 
@@ -47,16 +36,8 @@ arguments
 : `$prefix: 'container'` *[string]*:
 : `$containers-max-widths: $containers-max-widths` *[map]*:
 
-size compiled
-: <%= file_dist_size('buildersMarsBuildGridContainer') %> not minified
 
-<% example_tabs do %>
-<%= file_example_scss('builders/mars-build-grid-container') %>
-<%= file_example_dist('buildersMarsBuildGridContainer') %>
-<% end %>
-
-
-## mars-build-grid-row
+## grid-row
 
 It is responsible for working as a container for the generation of the columns, it has a negative margin to justify the margin of the internal columns.
 
@@ -69,16 +50,9 @@ core:
 arguments
 : `$prefix: 'row'` *[string]*:
 
-size compiled
-: <%= file_dist_size('buildersMarsBuildGridContainer') %> not minified
-
-<% example_tabs do %>
-<%= file_example_scss('builders/mars-build-grid-row') %>
-<%= file_example_dist('buildersMarsBuildGridRow') %>
-<% end %>
 
 
-## mars-build-grid-columns
+## grid-columns
 
 Is responsible for generating the markup to work directly with the bootstrap class, it also adds order and offset.
 
@@ -89,13 +63,3 @@ since
 
 core
 : [bootstrap 4.0 grid](https://getbootstrap.com/docs/4.0/layout/grid/)
-
-size compiled
-: <%= file_dist_size('buildersMarsBuildGridColumns') %> not minified
-
-<% file_dist_size %>
-
-<% example_tabs do %>
-<%= file_example_scss('builders/mars-build-grid-columns') %>
-<%= file_example_dist('buildersMarsBuildGridColumns') %>
-<% end %>

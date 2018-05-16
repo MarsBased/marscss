@@ -1,0 +1,19 @@
+---
+title: '@include marscss'
+layout: documentation
+active: '@include marscss'
+---
+
+# @include marscss
+
+This mixin is responsible for adding the simple initial configuration, it is very important that it is always loaded after our modifications in the core, since it is responsible for initializing extend that is used by other components
+
+since
+: 1.0.0
+
+arguments
+: `$reset: true` *(boolean)*: include reset
+
+~~~scss
+@include marscss;
+~~~

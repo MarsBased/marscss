@@ -6,17 +6,12 @@
 
 // CUSTOM CORE
 
-
 // MARSCSS BUILDERS
-@include mars-init;
-@include mars-tests;
-@include mars-build-elements;
-@include mars-build-helpers;
-@include mars-build-forms;
+@include marscss;
+@include map(helpers());
 
 // CUSTOM CSS
 @import 'base/code';
-@import 'base/extend';
 @import 'base/general';
 
 @import 'blocks/column-block';
@@ -31,4 +26,3 @@
 
 @import 'layouts/home';
 @import 'layouts/documentation';
-

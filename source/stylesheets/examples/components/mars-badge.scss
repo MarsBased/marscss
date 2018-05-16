@@ -7,7 +7,7 @@ $mars-debug: true;
   @include mars-badge;
 }
 
-@include mars-build-component(
+@include mars-build-components(
   $prefix: '.badge',
   $extend: '%badge',
   $elements: $mars-badges
@@ -22,7 +22,7 @@ $mars-debug: true;
   border-radius: 10rem;
 }
 
-@include mars-build-component(
+@include mars-build-components(
   $prefix: '.badge-pill',
   $extend: '%badge-pill',
   $elements: $mars-badges

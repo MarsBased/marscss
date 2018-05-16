@@ -38,7 +38,7 @@ code {
   background: #272822;
   background-color: $gray-800;
   &:not(pre){
-    @include text-block;
+    margin-bottom: 1rem; //[TODO]
   }
 
   .hll { background-color: #49483e; }
@@ -82,7 +82,7 @@ code {
   .nx { color: #a6e22e; } // Name.Other
   .py { color: #f8f8f2; } // Name.Property
   .nt { color: #f92672; } // Name.Tag
-  .nv { color: #f8f8f2; } // Name.Variable
+  .nv { color: #e79a6d; } // Name.Variable
   .ow { color: #f92672; } // Operator.Word
   .w { color: #f8f8f2; } // Text.Whitespace
   .mb { color: #ae81ff; } // Literal.Number.Bin

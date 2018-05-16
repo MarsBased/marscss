@@ -18,7 +18,7 @@ $mars-debug: true;
   @include mars-button;
 }
 
-@include mars-build-component(
+@include mars-build-components(
   $prefix: '.btn',
   $extend: '%button',
   $elements: $mars-buttons
@@ -30,7 +30,7 @@ $mars-debug: true;
   font-size: $font-size-small;
 }
 
-@include mars-build-component(
+@include mars-build-components(
   $prefix: '.btn-sm',
   $extend: '%button-sm',
   $elements: $mars-buttons

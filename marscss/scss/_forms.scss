@@ -1,0 +1,277 @@
+//--- forms
+/////////////////////////////////////////////////////////////////////////////////////////
+// group all the form selectors using the extend
+
+@function forms() {
+  @return maps-merge(
+    rule('.checkbox', extend('%checkbox')),
+    rule('.input', extend('%input')),
+    rule('.label', extend('%label')),
+    rule('.radio', extend('%radio')),
+    rule('.select', extend('%select')),
+    rule('.textarea', extend('%textarea'))
+  );
+}
+
+//--- form-element
+/////////////////////////////////////////////////////////////////////////////////////////
+// used by extend and forms items
+
+@function form-element() {
+  @return maps-merge(
+    form-element-root(),
+    form-element-is-focus(),
+    form-element-is-placeholder(),
+    form-element-is-active()
+  );
+}
+
+@function form-element-root() {
+  @return this(
+    display(block),
+    width(100%),
+    max-width(100%),
+    padding($form-element-padding),
+    font-size(inherit),
+    line-height($form-element-line-height),
+    background($form-element-bg none no-repeat calc(100% - .7em) center),
+    background-size(1em),
+    border($form-element-border),
+    border-radius($form-element-border-radius),
+    transition(background .2s ease-out, border .2s ease-out),
+    appearance(none)
+  );
+}
+
+@function form-element-is-focus() {
+  @return this(
+    this-focus(
+      extend('%focus')
+    )
+  );
+}
+
+@function form-element-is-placeholder() {
+  @return this(
+    this-placeholder(
+      color($form-element-placeholder),
+      opacity(1)
+    )
+  );
+}
+
+@function form-element-is-disabled() {
+  @return this(
+    this-disabled(
+      pointer-events(none),
+      opacity($form-element-disabled)
+    )
+  );
+}
+
+//--- form-checks
+/////////////////////////////////////////////////////////////////////////////////////////
+// used by extend and radio and checks elements
+
+@function form-checks() {
+  @return maps-merge(
+    form-checks-root(),
+    form-checks-is-disabled()
+  );
+}
+
+@function form-checks-root() {
+  @return this(
+    display(inline-block),
+    margin-bottom(.5em),
+    cursor(pointer)
+  );
+}
+
+@function form-checks-is-disabled() {
+  @return this(
+    this-disabled(
+      cursor(not-allowed),
+      opacity($form-element-disabled)
+    )
+  );
+}
+
+//--- form-checkbox
+/////////////////////////////////////////////////////////////////////////////////////////
+// used by extend and forms()
+
+@function form-checkbox() {
+  @return maps-merge(
+    form-checkbox-root(),
+    form-checkbox-after-checkbox()
+  );
+}
+
+@function form-checkbox-root() {
+  @return this(
+    extend('%form-checks')
+  );
+}
+
+@function form-checkbox-after-checkbox() {
+  @return this(
+    rule(
+      '& + &',
+      margin-left(.5em)
+    )
+  );
+}
+
+//--- form-label
+/////////////////////////////////////////////////////////////////////////////////////////
+// used by extend and radio and checks elements
+
+@function form-label() {
+  @return maps-merge(
+    form-label-root(),
+    form-label-required(),
+    form-label-hover()
+  );
+}
+
+@function form-label-root() {
+  @return this(
+    display(inline-block),
+    margin-bottom(.5em)
+  );
+}
+
+@function form-label-hover() {
+  @return this(
+    this-for(
+      cursor(pointer),
+      this-hover(
+        color($link-color)
+      )
+    )
+  );
+}
+
+@function form-label-required() {
+  @return this(
+    this-required-after(
+      margin-left(.5em),
+      color($form-element-icon-color),
+      content('*')
+    )
+  );
+}
+
+//--- form-input
+/////////////////////////////////////////////////////////////////////////////////////////
+// used by extend and forms() is extended by textarea
+
+@function form-input() {
+  @return maps-merge(
+    form-input-required(),
+    form-input-root()
+  );
+}
+
+@function form-input-root() {
+  @return this(
+    extend('%form-element')
+  );
+}
+
+@function form-input-required() {
+  @return this(
+    this-hover(
+      padding-right(2em),
+      background-image(icon-required())
+    )
+  );
+}
+
+//--- form-radio
+/////////////////////////////////////////////////////////////////////////////////////////
+// used by extend and forms()
+
+@function form-radio() {
+  @return maps-merge(
+    form-radio-root(),
+    form-radio-after-radio()
+  );
+}
+
+@function form-radio-root() {
+  @return this(
+    extend('%form-checks')
+  );
+}
+
+@function form-radio-after-radio() {
+  @return this(
+    rule(
+      '& + &',
+      margin-left(.5em)
+    )
+  );
+}
+
+//--- form-textarea
+/////////////////////////////////////////////////////////////////////////////////////////
+// used by extend and forms()
+
+@function form-textarea() {
+  @return maps-merge(
+    form-textarea-root(),
+    form-textarea-no-resize()
+  );
+}
+
+@function form-textarea-root() {
+  @return this(
+    extend('%input')
+  );
+}
+
+@function form-textarea-no-resize() {
+  @return this(
+    this-no-resize(
+      resize(none)
+    )
+  );
+}
+
+//--- form-select
+/////////////////////////////////////////////////////////////////////////////////////////
+// used by extend and forms()
+
+@function form-select() {
+  @return maps-merge(
+    form-select-root(),
+    form-select-invalid(),
+    form-select-reset()
+  );
+}
+
+@function form-select-root() {
+  @return this(
+    extend('%form-element'),
+    padding-right(2em),
+    background-image(icon-caret-down())
+  );
+}
+
+@function form-select-invalid() {
+  @return this(
+    color($form-element-placeholder)
+  );
+}
+
+@function form-select-reset() {
+  @return this(
+    rule(
+      '&::-ms-expand',
+      display(none)
+    )
+  );
+}
+//---

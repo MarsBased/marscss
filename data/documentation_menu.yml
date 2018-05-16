@@ -1,51 +1,31 @@
 - name: Getting started
   url: ''
-- name: Builders
-  subpages:
-  - name: Introduction
-    url: builders
-  - name: mars-build-animation
-    url: builders/mars-build-animation
-  - name: mars-build-component
-    url: builders/mars-build-component
-  - name: mars-build-elements
-    url: builders/mars-build-elements
-  - name: mars-build-forms
-    url: builders/mars-build-forms
-  - name: mars-build-grid
-    url: builders/mars-build-grid
-  - name: mars-build-helpers
-    url: builders/mars-build-helpers
-  - name: mars-build-reset
-    url: builders/mars-build-reset
+- name: '@include marscss'
+- name: '@include extend'
+- name: '@include map'
+- name: 'map reset()'
+- name: 'map elements()'
+- name: 'map helpers()'
 - name: Core
+  url: 'core'
   subpages:
-  - name: Introduction
-    url: core
-  - name: forms
-    url: core/forms
-  - name: helpers
-    url: core/helpers
-- name: Extends
-  url: extends
-- name: Functions
-  url: functions
-- name: Components
-  url: components
+  - name: Functions
+    url: functions
+  - name: Properties
+    url: properties
+  - name: Names
+    url: names
+  - name: Tags
+    url: tags
+- name: Component
+  url: 'component'
   subpages:
-  - name: Introduction
-    url: components
-  - name: mars-alert
-    url: components/mars-alert
-  - name: mars-badge
-    url: components/mars-badge
-  - name: mars-button
-    url: components/mars-button
-  - name: mars-button-close
-    url: components/mars-button-close
-  - name: mars-hamburger
-    url: components/mars-hamburger
-  - name: mars-search
-    url: components/mars-search
-  - name: mars-spinner
-    url: components/mars-spinner
+  - name: Alert
+    url: component/alert
+  - name: Badge
+    url: badge
+  - name: Card
+    url: component/card
+  - name: Hamburger
+    url: hamburger
+

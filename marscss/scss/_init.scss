@@ -1,0 +1,6 @@
+@mixin marscss($reset: true) {
+  @if ($reset) {
+    @include map(reset());
+  }
+  @include extend;
+}

@@ -1,0 +1,82 @@
+$mars-build-global: false !default;
+$mars-build-items: ('': false) !default;
+$mars-build-selector-replace: (
+  '...': '.',
+  '..': '.',
+  '%.': '%'
+) !default;
+
+@function mars-build-clear-selector($selector, $array-replace: $mars-build-selector-replace) {
+  @each $key, $value in $array-replace {
+    $selector: str-replace($selector, $key, $value);
+  }
+  @return $selector;
+}
+
+@mixin map($args...) {
+  $k: keywords($args);
+  $prefix: if(map-get($k, 'prefix'), map-get($k, 'prefix'), '');
+  $name: if(map-get($k, 'name'), map-get($k, 'name'), $prefix);
+  $selector: if(map-get($k, 'selector'), map-get($k, 'selector'), false);
+  $default: if(map-get($k, 'default'), map-get($k, 'default'), false);
+  $force: if(map-get($k, 'force'), map-get($k, 'force'), false);
+  $mix: ('': false);
+
+  @if not(is-string($name)) {
+    @error '$name was expected to be string';
+  }
+
+  @for $i from 1 through length($args) {
+    @if $i > 1 {
+      $mix: maps-merge($mix, nth($args, $i));
+    }
+    @else {
+      $mix: nth($args, 1);
+    }
+  }
+
+  @if $mars-build-global {
+    $mars-build-items: map-merge-recursive($mars-build-items, $mix) !global;
+  }
+
+  @each $key, $value in $mix {
+    @if $value {
+      $full-selector: $key;
+
+      // replace & by $selector value
+      @if $selector {
+        $full-selector: str-replace($key, '&', $selector);
+      }
+
+      // clear selector replace %. and ..
+      @if ($prefix != '') {
+        @if not(is-string($prefix)) {
+          @error '$prefix was expected to be string';
+        }
+        $full-selector: mars-build-clear-selector(#{$prefix}#{$key});
+      }
+
+      #{$full-selector} {
+
+        // add mars-default inside build
+        @if ($default) {
+          @if not(is-map($default)) {
+            @error '$default was expected to be map';
+          }
+          $value: maps-merge($default, $value);
+        }
+
+        // add mars-force inside build
+        @if ($force) {
+          @if not(is-map($force)) {
+            @error '$force was expected to be map';
+          }
+          $value: maps-merge($value, $force);
+        }
+
+        // finaly
+        @include map-print($value);
+      }
+    }
+  }
+}

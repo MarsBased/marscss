@@ -1,7 +1,7 @@
 <div class="documentation-source">
   <strong>source:</strong>
-  <a class="source-button" href="" data-toggle-text="Hide">Show</a> | <%= source_link %>
+  <a class="source-button" href="" data-toggle-text="Hide">Show</a> | <%= source_link(locals[:scss_file]) %>
 </div>
 <div class="source-code">
-  <%= file_marscss %>
+  <%= file_marscss(locals[:scss_file]) %>
 </div>

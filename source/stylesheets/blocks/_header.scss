@@ -12,8 +12,8 @@
   }
 
   &__hamburger {
-    padding-right: $gutter;
-    padding-left: $gutter;
+    padding: $gutter/2 $gutter;
+    outline: 0;
     @include media-breakpoint-up('lg') {
       display: none;
     }
@@ -73,5 +73,5 @@
 }
 
 .icon-hamburger {
-  @include mars-hamburger;
+  @include map(hamburger());
 }

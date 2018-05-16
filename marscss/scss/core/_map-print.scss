@@ -1,0 +1,29 @@
+@mixin map-print($properties) {
+  @each $key, $value in $properties {
+    @if (type-of($value) == map) {
+      @if str-index($key, '&') or str-index($key, '.') or str-index($key, '#') {
+        #{$key} {
+          @include map-print(map-get($properties, $key));
+        }
+      } @else if str-index($key, '@media') {
+        $contentKey:  str-replace($key, '@media', '');
+        @media #{$contentKey} {
+          @include map-print(map-get($properties, $key));
+        }
+      } @else if str-index($key, 'function') {
+        @include map-print(map-get($properties, $key));
+      }
+    }
+    @else {
+      @if $value {
+        @if str-index($key, 'extend') {
+          @extend #{$value};
+        } @else if ($key == 'content') {
+          #{$key}: '#{$value}';
+        } @else {
+          #{$key}: #{$value};
+        }
+      }
+    }
+  }
+}

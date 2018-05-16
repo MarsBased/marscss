@@ -1,14 +1,29 @@
-@import 'scss/functions';
-@import 'scss/default-variables';
-@import 'scss/core';
-@import 'scss/extends';
-@import 'scss/builders';
-@import 'scss/components';
-@import 'scss/tests';
+@import 'scss/core/functions';
 
-@mixin mars-init($reset: true) {
-  @if ($reset) {
-    @include mars-build-reset;
-  }
-  @include mars-extend;
-}
+@import 'scss/core/default-variables';
+@import 'scss/core/log';
+@import 'scss/core/map-print';
+@import 'scss/core/map';
+@import 'scss/core/media';
+@import 'scss/core/names';
+@import 'scss/core/properties';
+@import 'scss/core/tags';
+
+@import 'scss/external/breakpoints';
+@import 'scss/external/grid';
+@import 'scss/external/grid-framework';
+
+@import 'scss/elements';
+@import 'scss/extend';
+@import 'scss/forms';
+@import 'scss/grid';
+@import 'scss/helpers';
+@import 'scss/icons';
+@import 'scss/init';
+@import 'scss/reset';
+@import 'scss/utilities';
+
+//components
+@import 'scss/component/card';
+@import 'scss/component/hamburger';
+

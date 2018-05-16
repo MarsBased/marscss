@@ -1,0 +1,39 @@
+@function this($args...) {
+  @return rule('&', $args...);
+}
+
+@function this-active($args...) {
+  @return rule('&.is-active', $args...);
+}
+
+@function this-focus($args...) {
+  @return rule('&:focus', $args...);
+}
+
+@function this-for($args...) {
+  @return rule('&[for]', $args...);
+}
+
+@function this-hover($args...) {
+  @return rule('&:hover', $args...);
+}
+
+@function this-placeholder($args...) {
+  @return rule('&:placeholder', $args...);
+}
+
+@function this-disabled($args...) {
+  @return rule('&[disabled], &.is-disabled', $args...);
+}
+
+@function this-required($args...) {
+  @return rule('&:required,&.is-required', $args...);
+}
+
+@function this-no-resize($args...) {
+  @return rule('&.no-resize::after', $args...);
+}
+
+@function this-required-after($args...) {
+  @return rule('&.is-required::after', $args...);
+}

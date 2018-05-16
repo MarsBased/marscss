@@ -1,0 +1,164 @@
+@function elements() {
+  @return maps-merge(
+    elements-blocks(),
+    elements-headings(),
+    element-a()
+  );
+}
+
+@function elements-headings() {
+  @return maps-merge(
+    element-h1(),
+    element-h2(),
+    element-h3(),
+    element-h4(),
+    element-h5(),
+    element-h6()
+  );
+}
+
+@function elements-blocks() {
+  @return maps-merge(
+    element-blockquote(),
+    element-p(),
+    element-ul(),
+    element-ol(),
+    element-li(),
+    element-dl(),
+    element-dt(),
+    element-dd()
+  );
+}
+
+@function common-heading() {
+  @return margin-bottom(1rem);
+}
+
+@function common-text-block() {
+  @return maps-merge(
+    margin-top(0),
+    margin-bottom($font-margin)
+  );
+}
+
+@function common-list-block() {
+  @return margin-bottom(.5em);
+}
+
+@function element-a() {
+  @return a(
+    color($link-color),
+    border-bottom(1px solid rgba(0, 0, 0, .2)),
+    transition('border .3s ease-out, color .3s ease-out'),
+    rule(
+      '&:hover,&:focus',
+      color(darken($link-color, 20%)),
+      border-bottom-color(currentColor)
+    )
+  );
+}
+
+@function element-h1() {
+  @return h1(
+    font-size($font-size-h1),
+    font-weight(700),
+    line-height(1),
+    common-heading()
+  );
+}
+
+@function element-h2() {
+  @return h2(
+    font-size($font-size-h2),
+    font-weight(700),
+    line-height(1),
+    common-heading()
+  );
+}
+
+@function element-h3() {
+  @return h3(
+    font-size($font-size-h3),
+    font-weight(800),
+    line-height(1.2),
+    common-heading()
+  );
+}
+
+@function element-h4() {
+  @return h4(
+    font-size($font-size-h4),
+    font-weight(800),
+    line-height(1),
+    common-heading()
+  );
+}
+
+@function element-h5() {
+  @return h5(
+    font-size($font-size-h5),
+    font-weight(800),
+    line-height(1),
+    common-heading()
+  );
+}
+
+@function element-h6() {
+  @return h6(
+    font-size($font-size-h6),
+    font-weight(800),
+    line-height(1),
+    common-heading()
+  );
+}
+
+@function element-p() {
+  @return p(common-text-block());
+}
+
+@function element-blockquote() {
+  @return blockquote(
+    max-width(600px),
+    padding-left(1em),
+    margin-top(0),
+    margin-right(0),
+    margin-left(0),
+    font-size($font-size-large),
+    font-weight(800),
+    border-left(4px solid $primary)
+  );
+}
+
+@function element-ul() {
+  @return ul(
+    padding-left(1),
+    list-style-type(disc),
+    rule('& ul', margin-bottom(0)),
+    common-text-block()
+  );
+}
+
+@function element-ol() {
+  @return ol(
+    padding-left(1),
+    list-style-type(decimal),
+    rule('& ol', margin-bottom(0)),
+    common-text-block()
+  );
+}
+
+@function element-li() {
+  @return li(common-list-block());
+}
+
+@function element-dl() {
+  @return dl(common-text-block());
+}
+
+@function element-dt() {
+  @return dt(font-weight(800));
+}
+
+@function element-dd() {
+  @return dd(common-list-block());
+}

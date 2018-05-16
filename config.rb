@@ -17,9 +17,9 @@ set :marscss_path, File.dirname(__FILE__)+'/marscss/scss'
 set :root_path, File.dirname(__FILE__)
 
 
-configure :development do
-  activate :livereload, no_swf: true
-end
+# configure :development do
+  # activate :livereload, no_swf: true, ignore: [/.*.map/]
+# end
 
 ready do
   @pages = sitemap.resources.find_all{|p| p.source_file.match(/\.html/) }

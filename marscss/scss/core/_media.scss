@@ -1,0 +1,13 @@
+@function media($content) {
+  @return '@media #{$content}';
+}
+
+@function media-up($name, $content: '', $breakpoints: $grid-breakpoints ) {
+  $min: breakpoint-min($name, $breakpoints);
+  @return '@media (#{$min})';
+  @if $min {
+    @return '@media (#{$min})';
+  } @else {
+    @return false; // move content to main selector
+  }
+}

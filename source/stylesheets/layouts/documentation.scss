@@ -24,15 +24,23 @@ body.documentation {
       max-height: 100vh;
       padding: $gutter $gutter $gutter;
       overflow-y: auto;
+      font-size: $font-size-small;
+      line-height: 1.5;
+    }
+
+    li {
+      margin-bottom: .3em;
     }
 
     a {
+      display: block;
+
       &:hover {
         color: $gray-800;
       }
       &::before {
-        color: $gray-400;
-        content: '- ';
+        color: $gray-500;
+        content: '';
       }
     }
 
@@ -43,15 +51,10 @@ body.documentation {
     }
   }
 
-  %dt {
-    margin-top: .5em;
-    font-weight: 800;
-    @include fs-h5;
-  }
-
   .documentation-menu {
     @extend %sidebar-columns;
     position: relative;
+    background-color: $gray-200;
 
     @include media-breakpoint-down('md') {
       display: none;
@@ -111,8 +114,6 @@ body.documentation {
   .documentation-example {
     padding: $gutter/2;
     border: 2px dashed $gray-200;
-    @include text-block;
-    @include last-margin-0;
 
     .row {
       @extend %row;
@@ -131,7 +132,6 @@ body.documentation {
   }
 
   .container-20em {
-    @include last-margin-0;
     max-width: 20em;
     margin: auto;
   }

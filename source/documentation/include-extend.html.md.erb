@@ -1,0 +1,30 @@
+---
+title: '@include extend'
+layout: documentation
+active: '@include extend'
+---
+
+# @include extend
+
+Add the main selectors starting with "%" to be used from @extend from your code or other parts of the application, *extend* is automatically configured from the `@include marscss`
+
+since
+: 1.0.0
+
+dependencies
+: map forms()
+: map elements()
+
+~~~scss
+@include extend
+~~~
+
+Add the following selectors:
+
+`%a, %h1, %h2, %h3, %h4, %h5, %h6, %blockquote, %p, %ul, %ol, %li, %dl, %dt, %dd`
+
+Add the following selectors of the html tags inside an invisible element `%raw-html-styles`
+
+`a, h1, h2, h3, h4, h5, h6, blockquote, p, ul, ol, li, dl, dt, dd`
+
+It is very useful to extend classes or elements that will contain html tagging as markdown to give them the styles

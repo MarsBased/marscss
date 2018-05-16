@@ -1,0 +1,52 @@
+@import '../../../marscss/marscss';
+$mars-debug: true;
+
+.documentation-example {
+  background-color: $gray-100;
+}
+
+.card-container {
+  width: 300px;
+  max-width: 100%;
+  margin: auto;
+}
+
+//--- card
+
+.card {
+  @include map(
+    card(),
+    card--shadow()
+  );
+}
+
+//--- card-rounded
+
+.card-rounded {
+  @include map(
+    card(),
+    card--rounded(),
+    card--shadow()
+  );
+}
+
+//--- card-transparent
+
+.card-transparent {
+  @include map(
+    card(),
+    card--transparent()
+  );
+}
+
+//--- card-hover
+
+.card-hover {
+  @include map(
+    card(),
+    card--rounded(),
+    card--image-hover-scale()
+  );
+}
+
+//---

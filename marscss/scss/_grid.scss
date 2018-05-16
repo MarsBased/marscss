@@ -1,0 +1,57 @@
+//add extends bootstrap grid
+
+@mixin grid (
+  $prefix-container: 'container',
+  $container-max-widths: $container-max-widths,
+  $prefix-row: 'row'
+) {
+  @include grid-container($prefix-container, $container-max-widths);
+  @include grid-row($prefix-row);
+  @include grid-columns;
+}
+
+@mixin grid-container(
+  $prefix: 'container',
+  $container-max-widths: $container-max-widths
+) {
+  @include log('🚀 grid-container');
+
+  .#{$prefix} {
+    @extend %container;
+    @include make-container-max-widths();
+  }
+
+  @each $breakpoint, $container-max-width in $container-max-widths {
+    .#{$prefix}-#{$breakpoint} {
+      @extend %container;
+      max-width: $container-max-width;
+    }
+  }
+}
+
+@mixin grid-row($prefix: 'row') {
+  @include log('🚀 grid-row');
+
+  .#{$prefix} {
+    @extend %row;
+  }
+
+  // Remove the negative margin from default .row, then the horizontal padding
+  // from all immediate children columns (to prevent runaway style inheritance).
+
+  .no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+
+    > .col,
+    > [class*='col-'] {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+}
+
+@mixin grid-columns {
+  @include log('🚀 grid-columns');
+  @include make-grid-columns();
+}

@@ -1,0 +1,113 @@
+---
+title: card
+layout: documentation
+active: card component
+example: example-card
+---
+
+# mars-card
+
+Component to make card
+
+since
+: 1.0.0
+
+vars
+: `$card-shadow`
+: `$card-radius`
+: `$card-elements`
+
+theming
+: `card`
+: `card--rounded`
+: `card--shadow`
+: `card--transparent`
+: `card--remove-root`
+: `card--remove-content`
+: `card--remove-image`
+
+<%#= source %>
+
+## Build Component
+
+<%# example_tabs do %>
+<%#= file_example_scss %>
+<%#= file_example_dist %>
+<%# end %>
+
+
+## Examples
+
+<%
+@exampleFile = "#{config.examples_path}/example-card.scss"
+%>
+
+<% example_tabs do %>
+  <% example_html do %>
+  <div class="card-container">
+    <div class="card">
+      <div class="card__image ratio-16-9">
+        <%= image_pack_tag 'mars-surface.jpg' %>
+      </div>
+      <div class="card__content">
+        <h2><%= Faker::Dune.character %></h2>
+        <%= Faker::Dune.quote %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <%= code_snippet('card', @exampleFile) %>
+<% end %>
+
+<% example_tabs do %>
+  <% example_html do %>
+  <div class="card-container">
+    <div class="card-rounded">
+      <div class="card-rounded__image ratio-16-9">
+        <%= image_pack_tag 'mars-surface.jpg' %>
+      </div>
+      <div class="card-rounded__content">
+        <h2><%= Faker::Dune.character %></h2>
+        <%= Faker::Dune.quote %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <%= code_snippet('card-rounded', @exampleFile) %>
+<% end %>
+
+<% example_tabs do %>
+  <% example_html do %>
+  <div class="card-container">
+    <div class="card-transparent">
+      <div class="card-transparent__image ratio-16-9">
+        <%= image_pack_tag 'mars-surface.jpg' %>
+      </div>
+      <div class="card-transparent__content">
+        <h2><%= Faker::Dune.character %></h2>
+        <%= Faker::Dune.quote %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <%= code_snippet('card-transparent', @exampleFile) %>
+<% end %>
+
+<% example_tabs do %>
+  <% example_html do %>
+  <div class="card-container">
+    <div class="card-hover">
+      <div class="card-hover__image ratio-16-9">
+        <% link_to '#' do %>
+        <%= image_pack_tag 'mars-surface.jpg' %>
+        <% end %>
+      </div>
+      <div class="card-hover__content">
+        <h2><%= Faker::Dune.character %></h2>
+        <%= Faker::Dune.quote %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <%= code_snippet('card-hover', @exampleFile) %>
+<% end %>

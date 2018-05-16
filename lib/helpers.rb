@@ -83,32 +83,26 @@ module Helpers
     end
   end
 
-  def code_snippet(snippet, file, lenguage = File.extname(file).delete('.'))
-    code(lenguage) do
-      File.open(file,'rb').read.match(%r{//--- #{snippet}\n(.*?)//---}m)[1]
-    end
-  end
-
   def file_example_scss (
-    file_name = current_page.data.example,
+    file_name = "#{current_page.data.example}.scss",
     file_path = config.examples_path
   )
     code('scss') do
       File
-      .open("#{file_path}/#{file_name}.scss",'rb')
+      .open("#{file_path}/#{file_name}",'rb')
       .read.gsub('../../../marscss/marscss', '~@marsbased/marscss/marscss')
       .force_encoding("UTF-8")
     end
   end
 
   def file_example_dist (
-    file_name = current_page.data.example.tr('/-', '_').camelize(:lower),
+    file_name = "#{current_page.data.example.tr('/-', '_').camelize(:lower)}.css",
     file_path = extension_options.dist_path+extension_options.stylesheets_base_path
   )
 
     code('css') do
       File
-        .open("#{file_path}#{manifest_resource_path("#{file_name}.css")}",'rb')
+        .open(file_path+manifest_resource_path(file_name),'rb')
         .read.force_encoding("UTF-8")
     end
   end
@@ -126,9 +120,9 @@ module Helpers
   end
 
   def source_link (
-    text = 'on GitHub',
     file_name = current_page.data.example.gsub(/(.*\/)(.+)/, '\1_\2'),
-    url = 'https://github.com/MarsBased/marscss/tree/master/marscss/scss'
+    url = 'https://github.com/MarsBased/marscss/tree/master/marscss/scss',
+    text = 'on GitHub'
   )
 
     content_tag(:a, href:"#{url}/#{file_name}.scss", target:'_blank', class: 'source-link') do
@@ -136,7 +130,30 @@ module Helpers
     end
   end
 
-  def source
-    partial 'partials/documentation-source'
+  def code_snippet(snippet, file, lenguage = File.extname(file).delete('.'))
+    code(lenguage) do
+      File.open(file,'rb').read.match(%r{//--- #{snippet}\n(.*?)//---}m)[1]
+      .chomp.force_encoding("UTF-8")
+    end
+  end
+
+  def css_snippet(snippet, file, lenguage = File.extname(file).delete('.'))
+    code(lenguage) do
+      File.open(file,'rb').read.match(%r{/\* --- #{snippet} \*/\n(.*?)/\* ---}m)[1].chomp.force_encoding("UTF-8")
+    end
+  end
+
+  def dist_file(file)
+    file_path = extension_options.dist_path+extension_options.stylesheets_base_path
+
+    "#{file_path}#{manifest_resource_path(file)}"
+  end
+
+  def source(scss_file = false)
+    if scss_file
+      partial 'partials/documentation-source', locals:{ scss_file: scss_file  }
+    else
+      partial 'partials/documentation-source'
+    end
   end
 end

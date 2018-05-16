@@ -11,7 +11,7 @@ $mars-debug: true;
   @include mars-alert();
 }
 
-@include mars-build-component(
+@include mars-build-components(
   $prefix: '.alert',
   $extend: '%alert',
   $elements: $mars-alerts

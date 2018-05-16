@@ -1,7 +1,5 @@
 .column-block {
   &__container {
-    //padding-top: $gutter;
-    //padding-bottom: $gutter;
     @extend %container;
     @include media-breakpoint-up('sm') {
       display: flex;

@@ -1,3 +1,12 @@
 {
-  "extends": [ "@marsbased/marstyle-stylelint" ]
+  "extends": [ "@marsbased/marstyle-stylelint" ],
+  "rules": {
+    "rule-empty-line-before": [
+      "always-multi-line"
+    ],
+    "block-closing-brace-newline-after": [
+      "always",
+      "ignoreAtRules": ["if", "else"]
+    ]
+  }
 }

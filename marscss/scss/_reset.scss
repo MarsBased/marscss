@@ -1,0 +1,146 @@
+@function reset() {
+  @return (
+    '*': reset-all(),
+    'html': reset-html(),
+    'body': reset-body(),
+    'a': reset-a(),
+    'button': reset-button(),
+    'h1': ('@extend': '%reset-heading'),
+    'h2': ('@extend': '%reset-heading'),
+    'h3': ('@extend': '%reset-heading'),
+    'h4': ('@extend': '%reset-heading'),
+    'h5': ('@extend': '%reset-heading'),
+    'h6': ('@extend': '%reset-heading'),
+    'p': ('@extend': '%reset-text-block'),
+    'blockquote': ('@extend': '%reset-text-block'),
+    'ul': ('@extend': '%reset-list'),
+    'ol': ('@extend': '%reset-list'),
+    'dl': ('@extend': '%reset-list'),
+    'input[type="checkbox"]': ('@extend': '%reset-checks'),
+    'input[type="radio"]': ('@extend': '%reset-checks')
+  );
+}
+
+@function reset-all() {
+  @return (
+    (
+      '&,&::before,&::after': (
+        box-sizing: border-box
+      )
+    )
+  );
+}
+
+@function reset-html() {
+  @return (
+    '&': (
+      height: 100%,
+      font-size: 62.5%, // Now 10px = 1rem!
+      -webkit-font-smoothing: antialiased,
+      -moz-osx-font-smoothing: grayscale,
+      text-shadow: rgba(0, 0, 0, .01) 0 0 1px
+    )
+  );
+}
+
+@function reset-body() {
+  @return(
+    '&': (
+      min-width: 320px,
+      margin: 0,
+      font-family: $font-family,
+      font-size: $font-size,
+      font-weight: $font-weight,
+      line-height: $line-height,
+      color: $font-color
+    )
+  );
+}
+
+@function reset-a() {
+  @return(
+    '&': (
+      color: inherit,
+      text-decoration: none
+    )
+  );
+}
+
+@function reset-button() {
+  @return(
+    '&': (
+      padding: 0,
+      margin: 0,
+      cursor: pointer,
+      font-size: inherit,
+      color: inherit,
+      background-color: transparent,
+      border: 0,
+      appearance: none
+    ),
+    '&::hover,&::focus,&::active': (
+      text-decoration: none,
+      outline: 0
+    )
+  );
+}
+
+@function reset-heading() {
+  @return (
+    '&': (
+      margin-top: 0,
+      margin-bottom: 0,
+      font-size: inherit,
+      font-weight: $font-weight,
+      color: inherit
+    )
+  );
+}
+
+@function reset-text-block() {
+  @return (
+    '&': (
+      margin: 0
+    )
+  );
+}
+
+@function reset-list() {
+  @return(
+    '&': (
+      padding: 0,
+      margin: 0,
+      list-style-type: none
+    )
+  );
+}
+
+@function reset-checks() {
+  @return(
+    '&': (
+      margin: 4px,
+      vertical-align: baseline,
+      cursor: pointer
+    )
+  );
+}
+
+@include map(
+  reset-heading(),
+  $selector: '%reset-heading'
+);
+
+@include map(
+  reset-text-block(),
+  $selector: '%reset-text-block'
+);
+
+@include map(
+  reset-list(),
+  $selector: '%reset-list'
+);
+
+@include map(
+  reset-checks(),
+  $selector: '%reset-checks'
+);

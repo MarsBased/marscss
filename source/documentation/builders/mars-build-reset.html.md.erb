@@ -1,8 +1,7 @@
 ---
 title: mars-build-reset
 layout: documentation
-active: Builders, mars-build-reset
-example: builders/mars-build-reset
+active: 
 ---
 
 #mars-build-reset
@@ -18,15 +17,15 @@ core
 : reset
 
 size compiled
-: <%= file_dist_size %> not minified
+: <%#= file_dist_size %> not minified
 
-<%= source %>
+<%#= source %>
 
 <div class="alert">
-It is added by default when launching <code>mars-init</code> as long as it is not passed as an argument false
+It is added by default when launching <code>marscss</code> as long as it is not passed as an argument false
 </div>
 
-<% example_tabs do %>
-<%= file_example_scss %>
-<%= file_example_dist %>
-<% end %>
+<%# example_tabs do %>
+<%#= file_example_scss %>
+<%#= file_example_dist %>
+<%# end %>

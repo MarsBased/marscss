@@ -1,20 +1,716 @@
-@mixin properties($properties) {
-  @each $name, $value in $properties {
-    @if (type-of($value) == map) {
-      @if str-index($name, '&') {
-        #{$name} {
-          @include properties(map-get($properties, $name));
-        }
-      }
-      @include extend-properties($name, $properties);
-    }
-    @else {
-      @if $value {
-        #{$name}: #{$value};
-      }
-    }
+$mod-border-radius: 5px !default;
+$mod-spacing: $gutter / 2 !default;
+
+@function border($arg) {
+  @return (border: $arg);
+}
+
+@function border-bottom($arg) {
+  @return (border-bottom: $arg);
+}
+
+@function border-bottom-color($arg) {
+  @return (border-bottom-color: $arg);
+}
+
+@function border-bottom-style($arg) {
+  @return (border-bottom-style: $arg);
+}
+
+@function border-bottom-width($arg) {
+  @return (border-bottom-width: $arg);
+}
+
+@function border-color($arg) {
+  @return (border-color: $arg);
+}
+
+@function border-image($arg) {
+  @return (border-image: $arg);
+}
+
+@function border-collapse($arg) {
+  @return (border-collapse: $arg);
+}
+
+@function border-image-source($arg) {
+  @return (border-image-source: $arg);
+}
+
+@function border-image-outset($arg) {
+  @return (border-image-outset: $arg);
+}
+
+@function border-image-repeat($arg) {
+  @return (border-image-repeat: $arg);
+}
+
+@function border-image-slice($arg) {
+  @return (border-image-slice: $arg);
+}
+
+@function border-image-source($arg) {
+  @return (border-image-source: $arg);
+}
+
+@function border-image-width($arg) {
+  @return (border-image-width: $arg);
+}
+
+@function border-left($arg) {
+  @return (border-left: $arg);
+}
+
+@function border-left-color($arg) {
+  @return (border-left-color: $arg);
+}
+
+@function border-left-style($arg) {
+  @return (border-left-style: $arg);
+}
+
+@function border-left-width($arg) {
+  @return (border-left-width: $arg);
+}
+
+@function border-radius($arg: $mod-border-radius) {
+  @return (border-radius: $arg);
+}
+
+@function border-radius-bottom($arg: $mod-border-radius) {
+  @return (
+    border-bottom-left-radius: $arg,
+    border-bottom-right-radius: $arg);
+}
+
+@function border-radius-top($arg: $mod-border-radius) {
+  @return (
+    border-top-left-radius: $arg,
+    border-top-right-radius: $arg
+  );
+}
+
+@function border-right($arg) {
+  @return (border-right: $arg);
+}
+
+@function border-right-color($arg) {
+  @return (border-right-color: $arg);
+}
+
+@function border-right-style($arg) {
+  @return (border-right-style: $arg);
+}
+
+@function border-right-width($arg) {
+  @return (border-right-width: $arg);
+}
+
+@function border-spacing($arg) {
+  @return (border-spacing: $arg);
+}
+
+@function border-style($arg) {
+  @return (border-style: $arg);
+}
+
+@function border-top($arg) {
+  @return (border-top: $arg);
+}
+
+@function border-top-color($arg) {
+  @return (border-top-color: $arg);
+}
+
+@function border-top-style($arg) {
+  @return (border-top-color: $arg);
+}
+
+@function border-top-width($arg) {
+  @return (border-top-width: $arg);
+}
+
+@function border-width($arg) {
+  @return (border-width: $arg);
+}
+
+
+@function background-attachment($arg) {
+  @return (background-attachment: $arg);
+}
+
+@function background-color($arg) {
+  @return (background-color: $arg);
+}
+
+@function background-image($arg) {
+  @return (background-image: $arg);
+}
+
+@function background-position($arg) {
+  @return (background-position: $arg);
+}
+
+@function background-repeat($arg) {
+  @return (background-repeat: $arg);
+}
+
+@function box-decoration-break($arg) {
+  @return (box-decoration-break: $arg);
+}
+
+@function box-shadow($arg...) {
+  @return (box-shadow: $arg);
+}
+
+@function box-sizing($arg) {
+  @return (box-sizing: $arg);
+}
+
+@function calc-spacing($arg) {
+  @if (is-length($arg)) {
+    @return $arg;
+  } @else if (is-number($arg)) {
+    @return $mod-spacing * $arg;
+  } @else {
+    @return false;
   }
 }
 
-@mixin extend-properties($name, $properties) {
+@function calc-color($arg) {
+  @if (is-length($arg)) {
+    @return $arg;
+  } @else if (is-number($arg)) {
+    @return $mod-spacing * $arg;
+  } @else {
+    @return false;
+  }
+}
+
+@function caption-side($arg) {
+  @return (box-sizing: $arg);
+}
+
+@function clear($arg) {
+  @return (clear: $arg);
+}
+
+@function color($arg) {
+  @return (color: $arg);
+}
+
+@function column-count($arg) {
+  @return (column-count: $arg);
+}
+
+@function column-fill($arg) {
+  @return (column-fill: $arg);
+}
+
+@function column-rule($arg) {
+  @return (column-rule: $arg);
+}
+
+@function column-rule-color($arg) {
+  @return (column-fill-color: $arg);
+}
+
+@function column-rule-style($arg) {
+  @return (column-fill-style: $arg);
+}
+
+@function column-rule-width($arg) {
+  @return (column-fill-width: $arg);
+}
+
+@function column-gap($arg) {
+  @return (column-gap: $arg);
+}
+
+@function column-span($arg) {
+  @return (column-span: $arg);
+}
+
+@function column-width($arg) {
+  @return (column-width: $arg);
+}
+
+@function columns($arg) {
+  @return (columns: $arg);
+}
+
+@function content($arg) {
+  @return (content: $arg);
+}
+
+@function counter-increment($arg) {
+  @return (counter-increment: $arg);
+}
+
+@function counter-reset($arg) {
+  @return (counter-reset: $arg);
+}
+
+@function cursor($arg) {
+  @return (cursor: $arg);
+}
+
+@function direction($arg) {
+  @return (direction: $arg);
+}
+
+@function display($arg) {
+  @return (display: $arg);
+}
+
+@function empty-cells($arg) {
+  @return (empty-cells: $arg);
+}
+
+@function extend($arg) {
+  @return ('extend': $arg);
+}
+
+@function filter($arg) {
+  @return (filter: $arg);
+}
+
+@function flex($arg) {
+  @return (flex: $arg);
+}
+
+@function flex-basis($arg) {
+  @return (flex-basis: $arg);
+}
+
+@function flex-direction($arg) {
+  @return (flex-direction: $arg);
+}
+
+@function flex-flow($arg) {
+  @return (flex-flow: $arg);
+}
+
+@function flex-grow($arg) {
+  @return (flex-grow: $arg);
+}
+
+@function flex-shrink($arg) {
+  @return (flex-shrink: $arg);
+}
+
+@function flex-wrap($arg) {
+  @return (flex-wrap: $arg);
+}
+
+@function float($arg) {
+  @return (float: $arg);
+}
+
+@function font($arg) {
+  @return (font: $arg);
+}
+
+@function font-family($arg...) {
+  @return (font-family: $arg $arg $arg);
+}
+
+@function font-kerning($arg) {
+  @return (font-kerning: $arg);
+}
+
+@function font-size($arg) {
+  @return (font-size: $arg);
+}
+
+@function font-size-adjust($arg) {
+  @return (font-size-adjust: $arg);
+}
+
+@function font-stretch($arg) {
+  @return (font-stretch: $arg);
+}
+
+@function font-style($arg) {
+  @return (font-style: $arg);
+}
+
+@function font-variant($arg) {
+  @return (font-variant: $arg);
+}
+
+@function font-weight($arg) {
+  @return (font-weight: $arg);
+}
+
+// @function grid($arg) {
+//   @return (grid: $arg /auto auto auto);
+// }
+
+// @function grid-area($arg) {
+//   @return (grid-area: $arg);
+// }
+
+// @function grid-auto-columns($arg) {
+//   @return (grid-auto-columns: $arg);
+// }
+
+@function hanging-punctuation($arg) {
+  @return (hanging-punctuation: $arg);
+}
+
+@function height($arg) {
+  @return (height: $arg);
+}
+
+@function justify-content($arg) {
+  @return (justify-content: $arg);
+}
+
+@function left($arg) {
+  @return (left: $arg);
+}
+
+@function letter-spacing($arg) {
+  @return (letter-spacing: $arg);
+}
+
+@function line-height($arg) {
+  @return (line-height: $arg);
+}
+
+@function list-style($arg) {
+  @return (list-style: $arg);
+}
+
+@function list-style-image($arg) {
+  @return (list-style-image: $arg);
+}
+
+@function list-style-position($arg) {
+  @return (list-style-position: $arg);
+}
+
+@function list-style-type($arg) {
+  @return (list-style-type: $arg);
+}
+
+@function list-style-type($arg) {
+  @return (list-style-type: $arg);
+}
+
+@function margin($arg: $gutter/2) {
+  @return (margin: $arg);
+}
+
+@function margin-top($arg) {
+  @return ( margin-top: calc-spacing($arg) );
+}
+
+@function margin-bottom($arg) {
+  @return ( margin-bottom: calc-spacing($arg) );
+}
+
+@function margin-left($arg) {
+  @return ( margin-left: calc-spacing($arg) );
+}
+
+@function margin-right($arg) {
+  @return ( margin-right: calc-spacing($arg) );
+}
+
+@function margin-x($arg) {
+  $arg: calc-spacing($arg);
+  @return (
+    margin-left: $arg,
+    margin-right: $arg
+  );
+}
+
+@function margin-y($arg) {
+  $arg: calc-spacing($arg);
+  @return (
+    margin-top: $arg,
+    margin-bottom: $arg
+  );
+}
+
+@function margin($arg) {
+  @return ( margin: calc-spacing($arg) );
+}
+
+@function max-height($arg) {
+  @return ( max-height: $arg);
+}
+
+@function max-width($arg) {
+  @return ( max-width: $arg);
+}
+
+@function min-height($arg) {
+  @return ( min-height: $arg);
+}
+
+@function min-width($arg) {
+  @return ( min-width: $arg);
+}
+
+@function object-fit($arg) {
+  @return ( object-fit: $arg);
+}
+
+@function opacity($arg) {
+  @return ( opacity: $arg);
+}
+
+@function order($arg) {
+  @return ( order: $arg);
+}
+
+@function outline($arg...) {
+  @return ( outline: $arg $arg $arg);
+}
+
+@function outline-color($arg) {
+  @return ( outline-color: $arg);
+}
+
+@function outline-offset($arg) {
+  @return ( outline-offset: $arg);
+}
+
+@function outline-style($arg) {
+  @return ( outline-style: $arg);
+}
+
+@function outline-width($arg) {
+  @return ( outline-width: $arg);
+}
+
+@function overflow($arg) {
+  @return ( overflow: $arg);
+}
+
+@function overflow-x($arg) {
+  @return ( overflow-x: $arg);
+}
+
+@function overflow-y($arg) {
+  @return ( overflow-y: $arg);
+}
+
+@function padding($arg: $gutter/2) {
+  @return (padding: $arg);
+}
+
+@function padding-top($arg) {
+  @return ( padding-top: calc-spacing($arg) );
+}
+
+@function padding-bottom($arg) {
+  @return ( padding-bottom: calc-spacing($arg) );
+}
+
+@function padding-left($arg) {
+  @return ( padding-left: calc-spacing($arg) );
+}
+
+@function padding-right($arg) {
+  @return ( padding-right: calc-spacing($arg) );
+}
+
+@function padding-x($arg) {
+  $arg: calc-spacing($arg);
+  @return (
+    padding-left: $arg,
+    padding-right: $arg
+  );
+}
+
+@function padding-y($arg) {
+  $arg: calc-spacing($arg);
+  @return (
+    padding-top: $arg,
+    padding-bottom: $arg
+  );
+}
+
+@function padding($arg) {
+  @return ( padding: calc-spacing($arg) );
+}
+
+@function page-break-after($arg) {
+  @return ( page-break-after: $arg);
+}
+
+@function page-break-before($arg) {
+  @return ( page-break-before: $arg);
+}
+
+@function page-break-inside($arg) {
+  @return ( page-break-inside: $arg);
+}
+
+@function perspective($arg) {
+  @return ( perspective: $arg);
+}
+
+@function perspective-origin($arg) {
+  @return ( perspective-origin: $arg);
+}
+
+@function pointer-events($arg) {
+  @return ( pointer-events: $arg);
+}
+
+@function position($arg) {
+  @return ( position: $arg);
+}
+
+@function quotes($arg) {
+  @return ( quotes: $arg);
+}
+
+@function resize($arg) {
+  @return ( resize: $arg);
+}
+
+@function right($arg) {
+  @return ( right: $arg);
+}
+
+@function tab-size($arg) {
+  @return ( tab-size: $arg);
+}
+
+@function table-layout($arg) {
+  @return ( table-layout: $arg);
+}
+
+@function text-align($arg) {
+  @return ( text-align: $arg);
+}
+
+@function text-align-last($arg) {
+  @return ( text-align-last: $arg);
+}
+
+@function text-decoration($arg) {
+  @return ( text-decoration: $arg);
+}
+
+@function text-decoration-color($arg) {
+  @return ( text-decoration-color: $arg);
+}
+
+@function text-decoration-line($arg) {
+  @return ( text-decoration-line: $arg);
+}
+
+@function text-decoration-style($arg) {
+  @return ( text-decoration-style: $arg);
+}
+
+@function text-indent($arg) {
+  @return ( text-indent: $arg);
+}
+
+@function text-justify($arg) {
+  @return ( text-justify: $arg);
+}
+
+@function text-overflow($arg) {
+  @return ( text-overflow: $arg);
+}
+
+@function text-shadow($arg) {
+  @return ( text-shadow: $arg);
+}
+
+@function text-transform($arg) {
+  @return ( text-transform: $arg);
+}
+
+@function transform($arg...) {
+  @return ( transform: $arg);
+}
+
+@function transformRotate($arg) {
+  @return ( transform: rotate($arg));
+}
+
+@function transformSkewY($arg) {
+  @return ( transform: skewY($arg));
+}
+
+@function transformScaleY($arg) {
+  @return ( transform: scaleY($arg));
+}
+
+@function transform-origin($arg) {
+  @return ( transform-origin: $arg);
+}
+
+@function transform-style($arg) {
+  @return ( transform-style: $arg);
+}
+
+@function transition($arg...) {
+  @return ( transition: $arg);
+}
+
+@function transition-delay($arg) {
+  @return ( transition-delay: $arg);
+}
+
+@function transition-duration($arg) {
+  @return ( transition-duration: $arg);
+}
+
+@function transition-property($arg) {
+  @return ( transition-property: $arg);
+}
+
+@function transition-timing-function($arg) {
+  @return ( transition-timing-function: $arg);
+}
+
+@function unicode-bidi($arg) {
+  @return ( unicode-bidi: $arg);
+}
+
+@function user-select($arg) {
+  @return ( user-select: $arg);
+}
+
+@function vertical-align($arg) {
+  @return ( vertical-align: $arg);
+}
+
+@function visibility($arg) {
+  @return ( visibility: $arg);
+}
+
+@function white-space($arg) {
+  @return ( white-space: $arg);
+}
+
+@function width($arg) {
+  @return ( width: $arg);
+}
+
+@function word-break($arg) {
+  @return ( width: $arg);
+}
+
+@function word-spacing($arg) {
+  @return ( word-spacing: $arg);
+}
+
+@function word-wrap($arg) {
+  @return ( word-wrap: $arg);
+}
+
+@function z-index($arg) {
+  @return ( z-index: $arg);
 }
