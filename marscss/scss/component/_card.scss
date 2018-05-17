@@ -18,7 +18,7 @@ $card-border-radius: 5px !default;
 
 @function card($background: $white, $padding: $gutter/2) {
 
-  @return maps-merge(
+  @return style(
     card__root(
       background-color($background),
       position(relative)
@@ -42,7 +42,7 @@ $card-border-radius: 5px !default;
 }
 
 @function card--rounded($radius: $card-border-radius) {
-  @return maps-merge(
+  @return style(
     card__root(
       border-radius($card-border-radius)
     ),

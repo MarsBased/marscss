@@ -32,7 +32,7 @@ $helper-columns-sizes: $grid-breakpoints !default;
   $border-colors: $helper-border-colors,
   $columns-sizes: $helper-columns-sizes
 ) {
-  @return maps-merge(
+  @return style(
     helpers-align($prefix-align),
     helpers-bg($prefix-bg, $bg-colors),
     helpers-border($prefix-border, $border-colors),
@@ -50,7 +50,7 @@ $helper-columns-sizes: $grid-breakpoints !default;
 
 //--- align
 @function helpers-align($prefix: $prefix-helper-align) {
-  @return maps-merge(
+  @return style(
     helper-align-baseline($prefix),
     helper-align-top($prefix),
     helper-align-middle($prefix),
@@ -101,7 +101,7 @@ $helper-columns-sizes: $grid-breakpoints !default;
   $prefix: $prefix-helper-bg,
   $colors: $helper-bg-colors
 ) {
-  @return maps-merge(
+  @return style(
     helper-bg-colors($prefix, $colors),
     helper-bg-transparent($prefix)
   );
@@ -135,7 +135,7 @@ $helper-columns-sizes: $grid-breakpoints !default;
   $prefix: $prefix-helper-border,
   $colors: $helper-border-colors
 ) {
-  @return maps-merge(
+  @return style(
     helper-border($prefix),
     helper-border-0($prefix),
     helper-border-top($prefix),
@@ -236,7 +236,7 @@ $helper-columns-sizes: $grid-breakpoints !default;
     $result: map-merge(
       $result,
       ('#{$prefix}-#{nth($size, 1)}' : (
-        maps-merge(
+        style(
           $media,
           ('extend': '%columns')
         )
@@ -260,7 +260,7 @@ $helper-columns-sizes: $grid-breakpoints !default;
 
 //--- display
 @function helpers-display($prefix: $prefix-helper-display) {
-  @return maps-merge(
+  @return style(
     helper-display-block($prefix),
     helper-display-flex($prefix),
     helper-display-inline($prefix),
@@ -322,7 +322,7 @@ $helper-columns-sizes: $grid-breakpoints !default;
 
 //--- fs
 @function helpers-fs($prefix: $prefix-helper-fs) {
-  @return maps-merge(
+  @return style(
     helper-fs-hero($prefix),
     helper-fs-h1($prefix),
     helper-fs-h2($prefix),
@@ -391,7 +391,7 @@ $helper-columns-sizes: $grid-breakpoints !default;
 
 //--- pull
 @function helpers-pull($prefix: $prefix-helper-pull) {
-  @return maps-merge(
+  @return style(
     helper-pull-right($prefix),
     helper-pull-left($prefix)
   );
@@ -411,7 +411,7 @@ $helper-columns-sizes: $grid-breakpoints !default;
 
 //--- ratio
 @function helpers-ratio($prefix: $prefix-helper-ratio) {
-  @return maps-merge(
+  @return style(
     helper-ratio-16-9($prefix),
     helper-ratio-4-3($prefix),
     helper-ratio-1-1($prefix)
@@ -456,7 +456,7 @@ $helper-columns-sizes: $grid-breakpoints !default;
 
 //--- text
 @function helpers-text($prefix: $prefix-helper-text) {
-  @return maps-merge(
+  @return style(
     helper-text-center($prefix),
     helper-text-left($prefix),
     helper-text-right($prefix),
@@ -531,7 +531,7 @@ $helper-columns-sizes: $grid-breakpoints !default;
 
 //--- utilities
 @function helpers-utilities($prefix: $prefix-helper-utilities) {
-  @return maps-merge(
+  @return style(
     helper-utilities-clear($prefix),
     helper-utilities-focus($prefix),
     helper-utilities-is-hidden($prefix),

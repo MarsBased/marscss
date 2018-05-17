@@ -73,5 +73,5 @@
 }
 
 .icon-hamburger {
-  @include map(hamburger());
+  @include style(hamburger());
 }

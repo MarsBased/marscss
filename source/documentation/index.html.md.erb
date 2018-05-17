@@ -95,7 +95,7 @@ It also allows us to use the extends that marscss generates in our code
 
 // MARSCSS BUILDERS
 @include marscss;
-@include map(helpers());
+@include style(helpers());
 // etc...
 
 // CUSTOM SCSS
@@ -131,7 +131,7 @@ When we add values to false these are canceled, it is also very important the or
 <%= css_snippet('e-3',@exampleDistFile) %>
 <% end %>
 
-We can be generated using directly &, this allows us to integrate it better with the normal css rules, we can also add more arguments to modify it directly from `@include map`
+We can be generated using directly &, this allows us to integrate it better with the normal css rules, we can also add more arguments to modify it directly from `@include style`
 
 <% example_tabs do %>
 <%= css_snippet('e-4',@exampleFile) %>

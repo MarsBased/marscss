@@ -2,14 +2,14 @@
 /////////////////////////////////////////////////////////////////////////////////////////
 // group all the form selectors using the extend
 
-@function forms() {
-  @return maps-merge(
-    rule('.checkbox', extend('%checkbox')),
-    rule('.input', extend('%input')),
-    rule('.label', extend('%label')),
-    rule('.radio', extend('%radio')),
-    rule('.select', extend('%select')),
-    rule('.textarea', extend('%textarea'))
+@function forms($prefix: '.') {
+  @return style(
+    rule('#{$prefix}checkbox', extend('%checkbox')),
+    rule('#{$prefix}input', extend('%input')),
+    rule('#{$prefix}label', extend('%label')),
+    rule('#{$prefix}radio', extend('%radio')),
+    rule('#{$prefix}select', extend('%select')),
+    rule('#{$prefix}textarea', extend('%textarea'))
   );
 }
 
@@ -18,7 +18,7 @@
 // used by extend and forms items
 
 @function form-element() {
-  @return maps-merge(
+  @return style(
     form-element-root(),
     form-element-is-focus(),
     form-element-is-placeholder(),
@@ -74,7 +74,7 @@
 // used by extend and radio and checks elements
 
 @function form-checks() {
-  @return maps-merge(
+  @return style(
     form-checks-root(),
     form-checks-is-disabled()
   );
@@ -102,7 +102,7 @@
 // used by extend and forms()
 
 @function form-checkbox() {
-  @return maps-merge(
+  @return style(
     form-checkbox-root(),
     form-checkbox-after-checkbox()
   );
@@ -128,7 +128,7 @@
 // used by extend and radio and checks elements
 
 @function form-label() {
-  @return maps-merge(
+  @return style(
     form-label-root(),
     form-label-required(),
     form-label-hover()
@@ -168,7 +168,7 @@
 // used by extend and forms() is extended by textarea
 
 @function form-input() {
-  @return maps-merge(
+  @return style(
     form-input-required(),
     form-input-root()
   );
@@ -194,7 +194,7 @@
 // used by extend and forms()
 
 @function form-radio() {
-  @return maps-merge(
+  @return style(
     form-radio-root(),
     form-radio-after-radio()
   );
@@ -220,7 +220,7 @@
 // used by extend and forms()
 
 @function form-textarea() {
-  @return maps-merge(
+  @return style(
     form-textarea-root(),
     form-textarea-no-resize()
   );
@@ -245,7 +245,7 @@
 // used by extend and forms()
 
 @function form-select() {
-  @return maps-merge(
+  @return style(
     form-select-root(),
     form-select-invalid(),
     form-select-reset()

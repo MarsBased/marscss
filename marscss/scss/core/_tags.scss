@@ -362,10 +362,6 @@
   @return rule('strong', $args...);
 }
 
-@function style($args...) {
-  @return rule('style', $args...);
-}
-
 @function sub($args...) {
   @return rule('sub', $args...);
 }

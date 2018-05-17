@@ -1,0 +1,42 @@
+$marscss-global-styles: false !default;
+
+@mixin style($args...) {
+  $styles: style($args...);
+
+  @if $marscss-global-styles {
+    $marscss-global-styles: map-merge-recursive($marscss-global-styles, $styles) !global;
+  }
+
+  @each $key, $value in $styles {
+    @if $value {
+      $full-selector: $key;
+
+      #{$full-selector} {
+        // finaly
+        @include map-print($value);
+      }
+    }
+  }
+}
+
+@function style($args...) {
+  $k: keywords($args);
+  // $selector: if(map-get($k, 'selector'), map-get($k, 'selector'), false);
+  $styles: ('': false);
+
+  // merge styles
+  @for $i from 1 through length($args) {
+    @if $i > 1 {
+      $styles: map-merge-recursive($styles, nth($args, $i));
+    }
+    @else {
+      $styles: nth($args, 1);
+    }
+  }
+
+  // @if ($selector) {
+  //   $styles: selector($selector, $styles);
+  // }
+
+  @return $styles;
+}

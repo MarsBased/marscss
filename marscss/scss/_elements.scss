@@ -1,32 +1,20 @@
-@function elements() {
-  @return maps-merge(
-    elements-blocks(),
-    elements-headings(),
-    element-a()
-  );
-}
-
-@function elements-headings() {
-  @return maps-merge(
-    element-h1(),
-    element-h2(),
-    element-h3(),
-    element-h4(),
-    element-h5(),
-    element-h6()
-  );
-}
-
-@function elements-blocks() {
-  @return maps-merge(
-    element-blockquote(),
-    element-p(),
-    element-ul(),
-    element-ol(),
-    element-li(),
-    element-dl(),
-    element-dt(),
-    element-dd()
+@function elements($prefix: '.') {
+  @return style(
+    rule('#{$prefix}h1', extend('%h1')),
+    rule('#{$prefix}h2', extend('%h2')),
+    rule('#{$prefix}h3', extend('%h3')),
+    rule('#{$prefix}h4', extend('%h4')),
+    rule('#{$prefix}h5', extend('%h5')),
+    rule('#{$prefix}h6', extend('%h6')),
+    rule('#{$prefix}a', extend('%a')),
+    rule('#{$prefix}blockquote', extend('%blockquote')),
+    rule('#{$prefix}p', extend('%p')),
+    rule('#{$prefix}ul', extend('%ul')),
+    rule('#{$prefix}ol', extend('%ol')),
+    rule('#{$prefix}li', extend('%li')),
+    rule('#{$prefix}dl', extend('%dl')),
+    rule('#{$prefix}dt', extend('%dt')),
+    rule('#{$prefix}dd', extend('%dd'))
   );
 }
 
@@ -35,7 +23,7 @@
 }
 
 @function common-text-block() {
-  @return maps-merge(
+  @return style(
     margin-top(0),
     margin-bottom($font-margin)
   );
@@ -46,7 +34,7 @@
 }
 
 @function element-a() {
-  @return a(
+  @return this(
     color($link-color),
     border-bottom(1px solid rgba(0, 0, 0, .2)),
     transition('border .3s ease-out, color .3s ease-out'),
@@ -59,7 +47,7 @@
 }
 
 @function element-h1() {
-  @return h1(
+  @return this(
     font-size($font-size-h1),
     font-weight(700),
     line-height(1),
@@ -68,7 +56,7 @@
 }
 
 @function element-h2() {
-  @return h2(
+  @return this(
     font-size($font-size-h2),
     font-weight(700),
     line-height(1),
@@ -77,7 +65,7 @@
 }
 
 @function element-h3() {
-  @return h3(
+  @return this(
     font-size($font-size-h3),
     font-weight(800),
     line-height(1.2),
@@ -86,7 +74,7 @@
 }
 
 @function element-h4() {
-  @return h4(
+  @return this(
     font-size($font-size-h4),
     font-weight(800),
     line-height(1),
@@ -95,7 +83,7 @@
 }
 
 @function element-h5() {
-  @return h5(
+  @return this(
     font-size($font-size-h5),
     font-weight(800),
     line-height(1),
@@ -104,7 +92,7 @@
 }
 
 @function element-h6() {
-  @return h6(
+  @return this(
     font-size($font-size-h6),
     font-weight(800),
     line-height(1),
@@ -113,11 +101,11 @@
 }
 
 @function element-p() {
-  @return p(common-text-block());
+  @return this(common-text-block());
 }
 
 @function element-blockquote() {
-  @return blockquote(
+  @return this(
     max-width(600px),
     padding-left(1em),
     margin-top(0),
@@ -130,7 +118,7 @@
 }
 
 @function element-ul() {
-  @return ul(
+  @return this(
     padding-left(1),
     list-style-type(disc),
     rule('& ul', margin-bottom(0)),
@@ -139,7 +127,7 @@
 }
 
 @function element-ol() {
-  @return ol(
+  @return this(
     padding-left(1),
     list-style-type(decimal),
     rule('& ol', margin-bottom(0)),
@@ -148,17 +136,17 @@
 }
 
 @function element-li() {
-  @return li(common-list-block());
+  @return this(common-list-block());
 }
 
 @function element-dl() {
-  @return dl(common-text-block());
+  @return this(common-text-block());
 }
 
 @function element-dt() {
-  @return dt(font-weight(800));
+  @return this(font-weight(800));
 }
 
 @function element-dd() {
-  @return dd(common-list-block());
+  @return this(common-list-block());
 }

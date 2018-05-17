@@ -69,6 +69,20 @@
   @return $result;
 }
 
+@function replace-selector($replace, $map) {
+  $result: false;
+
+  @each $key, $value in $map {
+    @if $result {
+      $result: map-merge($result, ($key: $value));
+    } @else {
+      $result: ($replace: $value);
+    }
+  }
+
+  @return $result;
+}
+
 @function map-force($map, $force) {
   $result: false;
 
@@ -83,7 +97,7 @@
   @return $result;
 }
 
-@function maps-merge($args...) {
+@function style($args...) {
   $result: ('': false);
 
   @for $i from 1 through length($args) {
@@ -98,5 +112,5 @@
 }
 
 @function rule($selector, $args...) {
-  @return ($selector: maps-merge($args...));
+  @return ($selector: style($args...));
 }

@@ -8,7 +8,7 @@
 
 // MARSCSS BUILDERS
 @include marscss;
-@include map(helpers());
+@include style(helpers());
 
 // CUSTOM CSS
 @import 'base/code';

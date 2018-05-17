@@ -14,7 +14,7 @@ $mars-debug: true;
 //--- card
 
 .card {
-  @include map(
+  @include style(
     card(),
     card--shadow()
   );
@@ -23,7 +23,7 @@ $mars-debug: true;
 //--- card-rounded
 
 .card-rounded {
-  @include map(
+  @include style(
     card(),
     card--rounded(),
     card--shadow()
@@ -33,7 +33,7 @@ $mars-debug: true;
 //--- card-transparent
 
 .card-transparent {
-  @include map(
+  @include style(
     card(),
     card--transparent()
   );
@@ -42,7 +42,7 @@ $mars-debug: true;
 //--- card-hover
 
 .card-hover {
-  @include map(
+  @include style(
     card(),
     card--rounded(),
     card--image-hover-scale()

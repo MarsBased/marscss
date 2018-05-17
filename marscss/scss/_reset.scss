@@ -125,22 +125,3 @@
   );
 }
 
-@include map(
-  reset-heading(),
-  $selector: '%reset-heading'
-);
-
-@include map(
-  reset-text-block(),
-  $selector: '%reset-text-block'
-);
-
-@include map(
-  reset-list(),
-  $selector: '%reset-list'
-);
-
-@include map(
-  reset-checks(),
-  $selector: '%reset-checks'
-);

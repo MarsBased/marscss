@@ -9,7 +9,7 @@ $mainTitle: (
   )
 );
 
-@include map($mainTitle);
+@include style($mainTitle);
 
 /* --- e-2 */
 $mainTitleHover: (
@@ -22,10 +22,10 @@ $mainTitleHover: (
   )
 );
 
-@include map($mainTitle, $mainTitleHover);
+@include style($mainTitle, $mainTitleHover);
 
 /* --- e-3 */
-@include map($mainTitleHover, $mainTitle);
+@include style($mainTitleHover, $mainTitle);
 
 /* --- e-4 */
 $titleBig: (
@@ -37,10 +37,8 @@ $titleBig: (
 );
 
 .outside {
-  @include map($titleBig);
+  @include style($titleBig);
 }
-
-@include map($titleBig, $selector: '.inside');
 
 /* --- e-5 */
 $titleBigHover: rule(
@@ -51,7 +49,7 @@ $titleBigHover: rule(
 );
 
 .withRule {
-  @include map($titleBig,$titleBigHover);
+  @include style($titleBig,$titleBigHover);
 }
 
 /* --- extend */

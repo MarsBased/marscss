@@ -2,7 +2,7 @@
   url: ''
 - name: '@include marscss'
 - name: '@include extend'
-- name: '@include map'
+- name: '@include style'
 - name: 'map reset()'
 - name: 'map elements()'
 - name: 'map helpers()'
