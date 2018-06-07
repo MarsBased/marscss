@@ -6,7 +6,7 @@
       {
         scrollTop: $(hash).offset().top
       },
-      0,
+      600,
       function() {
         window.location.hash = hash;
       }
@@ -21,7 +21,7 @@
       if (this.hash !== '') {
         event.preventDefault();
         var hash = this.hash;
-        scroll(hash)
+        scroll(hash);
       }
     });
   });

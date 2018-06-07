@@ -1,8 +1,5 @@
 //--- forms
-/////////////////////////////////////////////////////////////////////////////////////////
-// group all the form selectors using the extend
-
-@function forms($prefix: '.') {
+@function forms($prefix: $prefix-forms) {
   @return style(
     rule('#{$prefix}checkbox', extend('%checkbox')),
     rule('#{$prefix}input', extend('%input')),
@@ -14,19 +11,18 @@
 }
 
 //--- form-element
-/////////////////////////////////////////////////////////////////////////////////////////
-// used by extend and forms items
-
 @function form-element() {
   @return style(
-    form-element-root(),
-    form-element-is-focus(),
-    form-element-is-placeholder(),
-    form-element-is-active()
+    form-element--root(),
+    form-element--is-focus(),
+    form-element--is-disabled(),
+    form-element--is-placeholder(),
+    form-element--is-active()
   );
 }
 
-@function form-element-root() {
+//--- form-element--root
+@function form-element--root() {
   @return this(
     display(block),
     width(100%),
@@ -43,7 +39,8 @@
   );
 }
 
-@function form-element-is-focus() {
+//--- form-element--is-focus
+@function form-element--is-focus() {
   @return this(
     this-focus(
       extend('%focus')
@@ -51,7 +48,8 @@
   );
 }
 
-@function form-element-is-placeholder() {
+//--- form-element--is-placeholder
+@function form-element--is-placeholder() {
   @return this(
     this-placeholder(
       color($form-element-placeholder),
@@ -60,35 +58,35 @@
   );
 }
 
-@function form-element-is-disabled() {
+//--- form-element--is-disabled
+@function form-element--is-disabled() {
   @return this(
     this-disabled(
       pointer-events(none),
+      cursor(not-allowed),
       opacity($form-element-disabled)
     )
   );
 }
 
 //--- form-checks
-/////////////////////////////////////////////////////////////////////////////////////////
-// used by extend and radio and checks elements
-
 @function form-checks() {
   @return style(
-    form-checks-root(),
-    form-checks-is-disabled()
+    form-checks--root(),
+    form-checks--is-disabled()
   );
 }
 
-@function form-checks-root() {
+//--- form-checks--root
+@function form-checks--root() {
   @return this(
     display(inline-block),
-    margin-bottom(.5em),
     cursor(pointer)
   );
 }
 
-@function form-checks-is-disabled() {
+//--- form-checks--is-disabled
+@function form-checks--is-disabled() {
   @return this(
     this-disabled(
       cursor(not-allowed),
@@ -98,23 +96,22 @@
 }
 
 //--- form-checkbox
-/////////////////////////////////////////////////////////////////////////////////////////
-// used by extend and forms()
-
 @function form-checkbox() {
   @return style(
-    form-checkbox-root(),
-    form-checkbox-after-checkbox()
+    form-checkbox--root(),
+    form-checkbox--after-checkbox()
   );
 }
 
-@function form-checkbox-root() {
+//--- form-checkbox--root
+@function form-checkbox--root() {
   @return this(
     extend('%form-checks')
   );
 }
 
-@function form-checkbox-after-checkbox() {
+//--- form-checkbox--after-checkbox
+@function form-checkbox--after-checkbox() {
   @return this(
     rule(
       '& + &',
@@ -124,25 +121,24 @@
 }
 
 //--- form-label
-/////////////////////////////////////////////////////////////////////////////////////////
-// used by extend and radio and checks elements
-
 @function form-label() {
   @return style(
-    form-label-root(),
-    form-label-required(),
-    form-label-hover()
+    form-label--root(),
+    form-label--required(),
+    form-label--hover()
   );
 }
 
-@function form-label-root() {
+//--- form-label--root
+@function form-label--root() {
   @return this(
     display(inline-block),
     margin-bottom(.5em)
   );
 }
 
-@function form-label-hover() {
+//--- form-label--hover
+@function form-label--hover() {
   @return this(
     this-for(
       cursor(pointer),
@@ -153,7 +149,8 @@
   );
 }
 
-@function form-label-required() {
+//--- form-label--required
+@function form-label--required() {
   @return this(
     this-required-after(
       margin-left(.5em),
@@ -164,25 +161,25 @@
 }
 
 //--- form-input
-/////////////////////////////////////////////////////////////////////////////////////////
-// used by extend and forms() is extended by textarea
-
 @function form-input() {
   @return style(
-    form-input-required(),
-    form-input-root()
+    form-input--root(),
+    form-input--required()
   );
 }
 
-@function form-input-root() {
+//--- form-input--root
+@function form-input--root() {
   @return this(
     extend('%form-element')
   );
 }
 
-@function form-input-required() {
+//--- form-input--required
+@function form-input--required() {
   @return this(
-    this-hover(
+    rule(
+      '&[required]',
       padding-right(2em),
       background-image(icon-required())
     )
@@ -190,23 +187,22 @@
 }
 
 //--- form-radio
-/////////////////////////////////////////////////////////////////////////////////////////
-// used by extend and forms()
-
 @function form-radio() {
   @return style(
-    form-radio-root(),
-    form-radio-after-radio()
+    form-radio--root(),
+    form-radio--after-radio()
   );
 }
 
-@function form-radio-root() {
+//--- form-radio--root
+@function form-radio--root() {
   @return this(
     extend('%form-checks')
   );
 }
 
-@function form-radio-after-radio() {
+//--- form-radio--after-radio
+@function form-radio--after-radio() {
   @return this(
     rule(
       '& + &',
@@ -216,23 +212,22 @@
 }
 
 //--- form-textarea
-/////////////////////////////////////////////////////////////////////////////////////////
-// used by extend and forms()
-
 @function form-textarea() {
   @return style(
-    form-textarea-root(),
-    form-textarea-no-resize()
+    form-textarea--root(),
+    form-textarea--no-resize()
   );
 }
 
-@function form-textarea-root() {
+//--- form-textarea--root
+@function form-textarea--root() {
   @return this(
     extend('%input')
   );
 }
 
-@function form-textarea-no-resize() {
+//--- form-textarea--no-resize
+@function form-textarea--no-resize() {
   @return this(
     this-no-resize(
       resize(none)
@@ -241,18 +236,16 @@
 }
 
 //--- form-select
-/////////////////////////////////////////////////////////////////////////////////////////
-// used by extend and forms()
-
 @function form-select() {
   @return style(
-    form-select-root(),
-    form-select-invalid(),
-    form-select-reset()
+    form-select--root(),
+    form-select--invalid(),
+    form-select--reset()
   );
 }
 
-@function form-select-root() {
+//--- form-select--root
+@function form-select--root() {
   @return this(
     extend('%form-element'),
     padding-right(2em),
@@ -260,18 +253,19 @@
   );
 }
 
-@function form-select-invalid() {
+//--- form-select--invalid
+@function form-select--invalid() {
   @return this(
     color($form-element-placeholder)
   );
 }
 
-@function form-select-reset() {
-  @return this(
-    rule(
-      '&::-ms-expand',
-      display(none)
-    )
+//--- form-select--reset
+@function form-select--reset() {
+  @return rule(
+    '&::-ms-expand',
+    display(none)
   );
 }
+
 //---

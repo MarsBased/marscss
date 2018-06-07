@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const Clean = require('clean-webpack-plugin');
 const { resolve } = require('path');
@@ -20,6 +20,7 @@ module.exports = {
     exampleReset: examplePath + 'example-reset.scss',
     exampleElements: examplePath + 'example-elements.scss',
     exampleCard: examplePath + 'example-card.scss',
+    exampleWorkingWithMaps: examplePath + 'example-working-with-maps.scss',
     exampleComponents: examplePath + 'example-components.scss',
     images: sync('./source/images/**/*', { nodir: true }),
     vendor: ['lodash', 'jquery']
@@ -48,31 +49,13 @@ module.exports = {
         enforce: 'pre'
       },
       {
-        test: /\.(scss|sass|css)$/i,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                minimize: false
-              }
-            },
-            {
-              loader: 'postcss-loader',
-              options: {
-                sourceMap: true
-              }
-            },
-            {
-              loader: 'sass-loader',
-              options: {
-                sourceMap: true,
-                includePaths: [resolve('node_modules')]
-              }
-            }
-          ]
-        })
+        test: /\.s?[ac]ss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
+          'sass-loader'
+        ]
       },
       {
         test: /fonts\/.*\.(svg|eot|ttf|woff|woff2)(\?v=\d+\.\d+\.\d+)?$/i,
@@ -82,9 +65,7 @@ module.exports = {
             options: {
               publicPath: '',
               // can't use 'fonts' because it conflicts with Middleman
-              name: isProduction
-                ? 'fnt/[name]-[hash].[ext]'
-                : 'fnt/[name].[ext]'
+              name: isProduction ? 'fnt/[name]-[hash].[ext]' : 'fnt/[name].[ext]'
             }
           }
         ]
@@ -99,9 +80,7 @@ module.exports = {
               outputPath: 'img/',
               context: 'source/images/',
               // can't use 'images' because it conflicts with Middleman
-              name: isProduction
-                ? '[path][name]-[hash].[ext]'
-                : '[path][name].[ext]'
+              name: isProduction ? '[path][name]-[hash].[ext]' : '[path][name].[ext]'
             }
           }
         ]
@@ -122,17 +101,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: [
-      '.js',
-      '.ts',
-      '.sass',
-      '.scss',
-      '.css',
-      '.png',
-      '.svg',
-      '.gif',
-      '.jpeg'
-    ],
+    extensions: ['.js', '.ts', '.sass', '.scss', '.css', '.png', '.svg', '.gif', '.jpeg'],
     modules: [resolve('source/javascripts'), 'node_modules'],
     alias: {
       assets: resolve('source/'),
@@ -144,21 +113,32 @@ module.exports = {
     modules: ['node_modules']
   },
 
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          name: 'vendor'
+        }
+      }
+    },
+    runtimeChunk: {
+      name: 'manifest'
+    }
+  },
+
   plugins: [
     new webpack.EnvironmentPlugin(JSON.parse(JSON.stringify(process.env))),
     new Clean([publicPath], {
       root: resolve()
     }),
-    new ExtractTextPlugin(
-      isProduction ? '[name].bundle-[hash].css' : '[name].bundle.css'
-    ),
+    new MiniCssExtractPlugin({
+      filename: isProduction ? '[name].bundle-[hash].css' : '[name].bundle.css',
+      chunkFilename: isProduction ? '[id].[hash].css' : '[id].css'
+    }),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
       'window.jQuery': 'jquery'
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      names: ['vendor', 'manifest']
     }),
     new ManifestPlugin({
       publicPath: '/',

@@ -1,31 +1,15 @@
-- name: Getting started
+- name: 'Documentation'
   url: ''
-- name: '@include marscss'
-- name: '@include extend'
-- name: '@include style'
-- name: 'map reset()'
-- name: 'map elements()'
-- name: 'map helpers()'
-- name: Core
-  url: 'core'
   subpages:
-  - name: Functions
-    url: functions
-  - name: Properties
-    url: properties
-  - name: Names
-    url: names
-  - name: Tags
-    url: tags
-- name: Component
-  url: 'component'
-  subpages:
-  - name: Alert
-    url: component/alert
-  - name: Badge
-    url: badge
-  - name: Card
-    url: component/card
-  - name: Hamburger
-    url: hamburger
-
+  - name: Getting started
+    url: ''
+  - name: '@include marscss'
+  - name: '@include extend'
+  - name: '@include grid'
+  - name: 'elements()'
+  - name: 'forms()'
+  - name: 'helpers()'
+  - name: 'working with maps'
+  - name: 'recipes'
+- name: 'Api'
+  url: '../api'

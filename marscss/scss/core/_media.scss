@@ -1,13 +1,36 @@
-@function media($content) {
+@function media($content, $args...) {
   @return '@media #{$content}';
 }
 
-@function media-up($name, $content: '', $breakpoints: $grid-breakpoints ) {
-  $min: breakpoint-min($name, $breakpoints);
-  @return '@media (#{$min})';
+@function media-up($name, $args...) {
+  $min: breakpoint-min($name, $grid-breakpoints);
   @if $min {
-    @return '@media (#{$min})';
+    @return rule('@media (min-width: #{$min})', $args...);
   } @else {
-    @return false; // move content to main selector
+    @error 'this rule is unnecessary';
+  }
+}
+
+@function media-down($name, $args...) {
+  $max: breakpoint-max($name, $grid-breakpoints);
+  @if $max {
+    @return rule('@media (#{$max})', $args...);
+  } @else {
+    @error 'this rule is unnecessary';
+  }
+}
+
+@function media-between($lower, $upper, $args...) {
+  $min: breakpoint-min($lower, $grid-breakpoints);
+  $max: breakpoint-max($upper, $grid-breakpoints);
+  @if $min != null and $max != null {
+    @return rule(
+      '@media (max-width: #{$min}) and (max-width: #{$max})',
+      $args...
+    );
+  } @else if $max == null {
+    @return media-up($lower, $args...);
+  } @else if $min == null {
+    @return media-down($upper, $args...);
   }
 }

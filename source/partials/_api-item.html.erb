@@ -1,0 +1,34 @@
+<% locals[:data].each do |item| %>
+  <% item['type'] ||= 'rule' %>
+  <tr class="table-collapse__btn is-<%= item['type'] %>" >
+    <td class="cell-type">
+      <div class="type">
+        <i class="icon-type-<%= item['type'] %>"
+           title="<%= item['type'] %>"></i>
+      </div>
+    </td>
+    <td class="cell-name search-by-name">
+      <i class="table-collapse__icon"></i>
+      <%= item['name'] %>
+    </td>
+    <td class="cell-file search-by-file">
+      <%= "scss/#{item['file'] ||= locals[:file]}" %>
+    </td>
+  </tr>
+  <tr class="table-collapse__item is-<%= item['type'] %>">
+    <td colspan="3">
+      <div class="table-collapse__resize">
+        <div class="table-collapse__container">
+          <% if(item['value']) %>
+          <% code('scss') do %>
+<%= "#{item['name']}: #{item['value']};" %>
+          <% end %>
+          <% else %>
+          <%= code_snippet(item['name'],
+                 "#{config.marscss_path}/#{item['file']}") %>
+          <% end %>
+        </div>
+      </div>
+    </td>
+  </tr>
+<% end %>

@@ -1,0 +1,74 @@
+$navbar--fixed-zindex: 10 !default;
+$navbar--fixed-height: 5rem !default;
+$navbar-background: $black;
+$navbar-color: $white;
+
+@function navbar__root($args...) {
+  @return rule('&', $args...);
+}
+
+@function navbar__logo($args...) {
+  @return rule('&__logo', $args...);
+}
+
+@function navbar__container($args...) {
+  @return rule('&__container', $args...);
+}
+
+@function navbar__menu($args...) {
+  @return rule('&__menu', $args...);
+}
+
+@function navbar__menu-item($args...) {
+  @return rule('& a', $args...);
+}
+
+@function navbar__menu-hover($args...) {
+  @return rule('&:hover, &:focus', $args...);
+}
+
+@function navbar__menu-active($args...) {
+  @return rule('&.is-active', $args...);
+}
+
+@function navbar(
+  $background: $navbar-background,
+  $color: $navbar-color,
+  $padding: $gutter/2
+) {
+  @return style(
+    navbar__root(
+      display(flex),
+      justify-content(space-between),
+      color($color),
+      background-color($background),
+      position(relative)
+    ),
+    navbar__logo(padding($padding)),
+    navbar__container(padding($padding)),
+    navbar__menu(
+      display(flex),
+      align-items(center),
+      navbar__menu-item(
+        display(block),
+        padding($padding/4 $padding/2) transition(background-color .3s ease-out),
+        background-color(transparent),
+        navbar__menu-hover(background-color(rgba($white, .3))),
+        navbar__menu-active(background-color(rgba($white, .15)))
+      )
+    )
+  );
+}
+
+@function navbar--fixed($zindex: $navbar--fixed-zindex) {
+  @debug 'navbar--fixed';
+  @return style(
+    navbar__root(
+      position(fixed),
+      height($navbar--fixed-height),
+      top(0),
+      z-index($zindex),
+      width(100%)
+    )
+  );
+}

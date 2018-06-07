@@ -1,0 +1,64 @@
+%icon-type {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  color: $white;
+  text-align: center;
+  border-radius: 3px;
+
+  &::after {
+    font-family: $font-family-code;
+    font-size: .8em;
+    font-style: initial;
+    font-weight: 700;
+    vertical-align: middle;
+  }
+}
+
+@mixin icon-type($character, $bg: $gray-700) {
+  @extend %icon-type;
+  background-color: $bg;
+
+  &::after {
+    text-shadow: 0 0 2px rgba($black, .3);
+    content: $character;
+  }
+}
+
+.icon-type {
+  &-variable {
+    @include icon-type('$', $yellow);
+  }
+
+  &-builder {
+    @include icon-type('B', $red);
+  }
+
+  &-rule {
+    @include icon-type('R');
+  }
+
+  &-common {
+    @include icon-type('C', $orange);
+  }
+
+  &-composed {
+    @include icon-type('C', $indigo);
+  }
+
+  &-modifier {
+    @include icon-type('M', $purple);
+  }
+
+  &-selector {
+    @include icon-type('S', $cyan);
+  }
+
+  &-property {
+    @include icon-type('P', $teal);
+  }
+
+  &-value {
+    @include icon-type('V', $green);
+  }
+}

@@ -1,0 +1,279 @@
+---
+title: forms
+layout: documentation
+active: forms()
+anchors_menu: '> h2'
+---
+
+## forms
+
+since
+: 1.0.0
+
+arguments
+: `$prefix`: `$prefix-form` *[string]*: this is added to the beginning of selectors.
+
+
+Add all the marscss forms class.
+
+~~~scss
+@include style(forms());
+~~~
+
+
+## customize forms
+
+There is a set of variables in default-variable that allow you to modify some properties of these mixins and not have to rewrite them for small adjustments
+
+<%= code_snippet('forms',
+                 "#{config.marscss_path}/core/_default-variables.scss") %>
+
+##form-element
+
+This function generates the styles of the common parts of most form elements, it is used by the `@extend %form-element`.
+
+since
+: 1.0.0
+
+extend
+: `%form-element`
+
+used by:
+: [input](#input)
+: [textarea](#textarea)
+: [select](#select)
+
+
+##form-checks
+
+This function generates the styles of the common parts of most form elements, it is used by the `@extend %form-checks`.
+
+since
+: 1.0.0
+
+extend
+: <%= link_to '%form-checks', '/documentation/include-extend' %>
+
+used by:
+: [checkbox](#checkbox)
+: [radio](#radio)
+
+
+##input
+
+Is used by `<input type="text">` tag , extends [form-element](#form-element) styles with small modifications
+
+since
+: 1.0.0
+
+extend
+: <%= link_to '%input', '/documentation/include-extend' %>
+
+<% example_html do %>
+<div class="container-20em">
+  <p>
+    <input class="input" name="simple-input">
+  </p>
+  <p>
+    <input class="input" name="disabled-input" disabled
+     value="disabled">
+  </p>
+  <p>
+    <input class="input" id="readonly-input" name="readonly-input"
+     readonly value="readonly">
+  </p>
+  <p>
+    <input class="input" id="country" name="country"
+     placeholder="Country" required>
+  </p>
+</div>
+<% end %>
+
+
+##textarea
+
+Is used by `<textarea>` tag, extends [input](#input) styles with small modifications
+
+since
+: 1.0.0
+
+extend
+: <%= link_to '%textarea', '/documentation/include-extend' %>
+
+<% example_html do %>
+<div class="container-20em">
+  <p>
+    <textarea class="textarea" name="simple-textarea"></textarea>
+  </p>
+  <p>
+    <textarea class="textarea no-resize" name="no-resize-textarea"
+     placeholder="without resize in firefox, chrome and safari"></textarea>
+  </p>
+  <p>
+    <textarea class="textarea" name="rows-textarea" rows="6"></textarea>
+  </p>
+</div>
+<% end %>
+
+
+##select
+
+Is used by `<select>` tag, extends [form-element](#form-element) styles with small modifications
+
+since
+: 1.0.0
+
+extend
+: <%= link_to '%select', '/documentation/include-extend' %>
+
+<% example_html do %>
+<div class="container-20em">
+  <p>
+    <select class="select">
+      <option>Harrison Kulas</option>
+      <option>Tess Hegmann V</option>
+      <option>Adelle Paucek</option>
+      <option>Burley Pfeffer</option>
+      <option>Mr. Maiya Kilback</option>
+    </select>
+  </p>
+  <p>
+    <select class="select" required>
+      <option value="" disabled selected>Select your option</option>
+      <option>Harrison Kulas</option>
+      <option>Tess Hegmann V</option>
+      <option>Adelle Paucek</option>
+      <option>Burley Pfeffer</option>
+      <option>Mr. Maiya Kilback</option>
+    </select>
+  </p>
+</div>
+<% end %>
+
+
+##label
+
+Is used by `<label>` tag
+
+since
+: 1.0.0
+
+extend
+: <%= link_to '%label', '/documentation/include-extend' %>
+
+<% example_html do %>
+<div class="container-20em">
+  <p>
+    <label class="label">Without for</label>
+    <input class="input">
+  </p>
+  <p>
+    <label class="label" for="description">Description</label>
+    <textarea class="input" id="description" name="description"></textarea>
+  </p>
+  <p>
+    <label class="label is-required" for="brand">Brand</label>
+    <input class="input" id="brand" name="brand" required>
+  </p>
+</div>
+<% end %>
+
+
+##checkbox
+
+Is used by `<input type="checkbox">` tag , extends [form-checks](#form-checks) styles with small modifications
+
+since
+: 1.0.0
+
+extend
+: <%= link_to '%checkbox', '/documentation/include-extend' %>
+
+<% example_html do %>
+<div class="container-20em">
+  <p>
+    <label class="checkbox">
+      <input type="checkbox" name="i1">
+      Inline 1
+    </label>
+    <label class="checkbox" name="i2">
+      <input type="checkbox">
+      Inline 2
+    </label>
+    <label class="checkbox" name="i3">
+      <input type="checkbox">
+      Inline 3
+    </label>
+  </p>
+  <p>
+    <div>
+      <label class="checkbox">
+        <input type="checkbox" name="b1">
+        Block
+      </label>
+    </div>
+    <div>
+      <label class="checkbox" disabled>
+        <input type="checkbox" name="b2" disabled>
+        Block disabled
+      </label>
+    </div>
+    <div>
+      <label class="checkbox">
+        <input type="checkbox" name="agree">
+        I agree to the <a href="#">terms and conditions</a>
+      </label>
+    </div>
+  </p>
+</div>
+<% end %>
+
+
+## radio
+
+Is used by `<input type="radio">` tag , extends [form-checks](#form-checks) styles with small modifications
+
+since
+: 1.0.0
+
+extend
+: <%= link_to '%radio', '/documentation/include-extend' %>
+
+<% example_html do %>
+<div class="container-20em">
+  <p>
+    <label class="radio">
+      <input type="radio" name="radio">
+      Inline 1
+    </label>
+    <label class="radio" name="radio">
+      <input type="radio">
+      Inline 2
+    </label>
+    <label class="radio" name="radio">
+      <input type="radio">
+      Inline 3
+    </label>
+  </p>
+  <p>
+    <div>
+      <label class="checkbox">
+        <input type="checkbox" name="radio-block">
+        Block
+      </label>
+    </div>
+    <div>
+      <label class="checkbox" disabled>
+        <input type="checkbox" name="radio-block" disabled>
+        Block disabled
+      </label>
+    </div>
+    <div>
+      <label class="checkbox">
+        <input type="checkbox" name="radio-block" checked>
+        Block checked
+      </label>
+    </div>
+  </p>
+</div>
+<% end %>

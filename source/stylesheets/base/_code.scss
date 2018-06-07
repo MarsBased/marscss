@@ -25,7 +25,7 @@ pre {
 
 code {
   padding: 0 .15em;
-  font-family: Consolas, 'Courier New', monospace;
+  font-family: $font-family-code;
   font-weight: 700;
   color: $primary;
   background: $white;

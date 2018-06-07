@@ -4,15 +4,26 @@
       <%= link_to page.name,
       "/documentation/#{page.url || page.name.parameterize}" %>
     <% end %>
-    <% if active(page.name) && page.subpages %>
-      <ul>
-        <% page.subpages.each do |subpage|%>
-          <% content_tag(:li, class: active(subpage.name)) do %>
-            <%= link_to subpage.name,
-              "/documentation/#{subpage.url || subpage.name.parameterize}" %>
-          <% end %>
+    <% if page.name == 'Api' && active(page.name) %>
+      <div class="api-buttons">
+        <% data.api.api_types.each do |item| %>
+          <button class="is-active" data-target="<%= item.name.parameterize %>">
+            <i class="icon-type-<%= item.name %>"></i>
+            <%= item.name %>
+          </button>
         <% end %>
-      </ul>
+      </div>
+    <% else %>
+      <% if active(page.name) && page.subpages %>
+        <ul>
+          <% page.subpages.each do |subpage|%>
+            <% content_tag(:li, class: active(subpage.name)) do %>
+              <%= link_to subpage.name,
+                "/documentation/#{subpage.url || subpage.name.parameterize}" %>
+            <% end %>
+          <% end %>
+        </ul>
+      <% end %>
     <% end %>
   <% end %>
 </ul>

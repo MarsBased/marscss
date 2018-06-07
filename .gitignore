@@ -25,3 +25,6 @@
 # Webpack output directory
 dist
 *.orig
+
+# Idea
+.idea/

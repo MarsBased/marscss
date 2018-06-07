@@ -2,7 +2,8 @@
   "extends": [ "@marsbased/marstyle-stylelint" ],
   "rules": {
     "rule-empty-line-before": [
-      "always-multi-line"
+      "always-multi-line",
+      except: ["after-single-line-comment", "first-nested"]
     ],
     "block-closing-brace-newline-after": [
       "always",

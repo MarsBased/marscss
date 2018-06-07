@@ -19,11 +19,11 @@ module.exports = merge(sharedConfig, {
     depth: false,
     entrypoints: false,
     errors: true,
-    errorDetails: true,
+    errorDetails: false,
     hash: false,
     maxModules: 0,
     modules: false,
-    performance: false,
+    performance: true,
     providedExports: false,
     publicPath: false,
     reasons: false,
@@ -31,7 +31,7 @@ module.exports = merge(sharedConfig, {
     timings: true,
     usedExports: false,
     version: false,
-    warnings: false
+    warnings: true
   },
   output: {
     pathinfo: false

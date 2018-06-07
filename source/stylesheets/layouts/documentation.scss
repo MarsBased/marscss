@@ -9,7 +9,6 @@ body.documentation {
 
   %sidebar-columns {
     flex: 0 0 260px;
-    padding-top: $gutter;
   }
 
   .documentation-anchors {
@@ -30,9 +29,11 @@ body.documentation {
 
     li {
       margin-bottom: .3em;
+      @extend %reset-list;
     }
 
     a {
+      color: inherit;
       display: block;
 
       &:hover {
@@ -45,7 +46,7 @@ body.documentation {
     }
 
     @for $i from 2 through 6 {
-      .anchor-h#{$i}{
+      .anchor-h#{$i} {
         padding-left: ($i - 2) * .5em;
       }
     }
@@ -58,14 +59,6 @@ body.documentation {
 
     @include media-breakpoint-down('md') {
       display: none;
-    }
-
-    .sidebar-menu {
-      position: sticky;
-      top: 0;
-      max-height: 100vh;
-      padding: $gutter $gutter $gutter;
-      overflow-y: auto;
     }
   }
 
@@ -84,14 +77,16 @@ body.documentation {
     padding: $gutter*2 $gutter;
 
     > {
+      $fix-menu: 6rem;
+
       h1, h2, h3, h4 {
         &:not(:first-child) {
           margin-top: 3em;
         }
         &::before {
           display: block;
-          height: 3rem;
-          margin-top: -3rem;
+          height: $fix-menu;
+          margin-top: -$fix-menu;
           visibility: hidden;
           content: '';
         }

@@ -9,6 +9,7 @@
 // MARSCSS BUILDERS
 @include marscss;
 @include style(helpers());
+@include style(forms());
 
 // CUSTOM CSS
 @import 'base/code';
@@ -21,8 +22,10 @@
 @import 'blocks/header';
 @import 'blocks/hero-block';
 @import 'blocks/hero-space';
+@import 'blocks/icon-type';
 @import 'blocks/responsive-menu';
 @import 'blocks/sidebar-menu';
 
 @import 'layouts/home';
+@import 'layouts/api';
 @import 'layouts/documentation';

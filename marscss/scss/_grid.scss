@@ -1,5 +1,4 @@
-//add extends bootstrap grid
-
+//--- grid
 @mixin grid (
   $prefix-container: 'container',
   $container-max-widths: $container-max-widths,
@@ -10,6 +9,7 @@
   @include grid-columns;
 }
 
+//--- grid-container
 @mixin grid-container(
   $prefix: 'container',
   $container-max-widths: $container-max-widths
@@ -29,6 +29,7 @@
   }
 }
 
+//--- grid-row
 @mixin grid-row($prefix: 'row') {
   @include log('🚀 grid-row');
 
@@ -51,7 +52,10 @@
   }
 }
 
+//--- grid-columns
 @mixin grid-columns {
   @include log('🚀 grid-columns');
   @include make-grid-columns();
 }
+
+//---

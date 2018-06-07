@@ -8,17 +8,18 @@ activate :pry
 activate :directory_indexes
 activate :syntax
 activate :webpack,
- development_webpack_cmd: './node_modules/webpack/bin/webpack.js ' \
-      '--watch --config config/webpack/development.js'
+ development_webpack_cmd: './node_modules/webpack/bin/webpack.js --mode development ' \
+      '--watch --config config/webpack/development.js',
+ production_webpack_cmd: 'NODE_ENV=production ./node_modules/webpack/bin/webpack.js ' \
+      '--bail --config config/webpack/production.js'
 
 
 set :examples_path, File.dirname(__FILE__)+'/source/stylesheets/examples'
 set :marscss_path, File.dirname(__FILE__)+'/marscss/scss'
 set :root_path, File.dirname(__FILE__)
 
-
 # configure :development do
-  # activate :livereload, no_swf: true, ignore: [/.*.map/]
+#   activate :livereload, no_swf: true, ignore: [/images.bundle.js/]
 # end
 
 ready do

@@ -1,8 +1,11 @@
+//--- extend
 @mixin extend() {
   %reset-heading { @include style(reset-heading()); }
   %reset-text-block { @include style(reset-text-block()); }
+  %reset-button { @include style(reset-button()); }
   %reset-list { @include style(reset-list()); }
   %reset-checks { @include style(reset-checks()); }
+  %reset-link { @include style(reset-link()); }
 
   %grid-column { @include make-col-ready; }
   %container { @include make-container; }
@@ -34,22 +37,5 @@
   %dl { @include style(element-dl()); }
   %dt { @include style(element-dt()); }
   %dd { @include style(element-dd()); }
-
-  %raw-html-styles {
-    a { @extend %a; }
-    h1 { @extend %h1; }
-    h2 { @extend %h2; }
-    h3 { @extend %h3; }
-    h4 { @extend %h4; }
-    h5 { @extend %h5; }
-    h6 { @extend %h6; }
-    blockquote { @extend %blockquote; }
-    p { @extend %p; }
-    ul { @extend %ul; }
-    ol { @extend %ol; }
-    li { @extend %li; }
-    dl { @extend %dl; }
-    dt { @extend %dt; }
-    dd { @extend %dd; }
-  }
 }
+//---

@@ -7,9 +7,6 @@
       <%= partial 'partials/logo' %>
     <% end %>
     <nav class="header__menu">
-      <% link_to '/', class: "btn-home #{active('home')}" do %>
-        <%= svg('icon-marsbased') %>
-      <% end %>
       <% link_to '/documentation', class: "btn-doc #{active('documentation')}" do %>
         <%= svg('icon-doc') %>
       <% end %>

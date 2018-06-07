@@ -5,6 +5,6 @@
     $(this)
       .find('.icon-hamburger')
       .toggleClass('is-active');
-    $('body').toggleClass('is-menu-open');
+    $('html').toggleClass('is-menu-open');
   });
 })();

@@ -1,17 +1,15 @@
 @mixin map-print($properties) {
   @each $key, $value in $properties {
     @if (type-of($value) == map) {
-      @if str-index($key, '&') or str-index($key, '.') or str-index($key, '#') {
+      @if str-index($key, '&') {
         #{$key} {
           @include map-print(map-get($properties, $key));
         }
       } @else if str-index($key, '@media') {
-        $contentKey:  str-replace($key, '@media', '');
+        $contentKey:  str-replace($key, '@media ', '');
         @media #{$contentKey} {
           @include map-print(map-get($properties, $key));
         }
-      } @else if str-index($key, 'function') {
-        @include map-print(map-get($properties, $key));
       }
     }
     @else {

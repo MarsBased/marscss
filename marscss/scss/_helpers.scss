@@ -1,187 +1,162 @@
-$prefix-helper-align: '.align' !default;
-$prefix-helper-bg: '.bg' !default;
-$prefix-helper-border: '.border' !default;
-$prefix-helper-color: '.color' !default;
-$prefix-helper-columns: '.columns' !default;
-$prefix-helper-display: '.display' !default;
-$prefix-helper-fs: '.fs' !default;
-$prefix-helper-pull: '.pull' !default;
-$prefix-helper-ratio: '.ratio' !default;
-$prefix-helper-text: '.text' !default;
-$prefix-helper-utilities: '.' !default;
-
-$helper-colors: $colors !default;
-$helper-bg-colors: $colors !default;
-$helper-border-colors: $colors !default;
-$helper-columns-sizes: $grid-breakpoints !default;
-
-@function helpers(
-  $prefix-align: $prefix-helper-align,
-  $prefix-bg: $prefix-helper-bg,
-  $prefix-border: $prefix-helper-border,
-  $prefix-color: $prefix-helper-color,
-  $prefix-columns: $prefix-helper-columns,
-  $prefix-display: $prefix-helper-display,
-  $prefix-fs: $prefix-helper-fs,
-  $prefix-pull: $prefix-helper-pull,
-  $prefix-ratio: $prefix-helper-ratio,
-  $prefix-text: $prefix-helper-text,
-  $prefix-utilities: $prefix-helper-utilities,
-  $colors: $helper-colors,
-  $bg-colors: $helper-bg-colors,
-  $border-colors: $helper-border-colors,
-  $columns-sizes: $helper-columns-sizes
-) {
+//--- helpers
+@function helpers() {
   @return style(
-    helpers-align($prefix-align),
-    helpers-bg($prefix-bg, $bg-colors),
-    helpers-border($prefix-border, $border-colors),
-    helpers-colors($prefix-color, $colors),
-    helpers-columns($prefix-columns, $columns-sizes),
-    helpers-display($prefix-display),
-    helpers-fs($prefix-fs),
-    helpers-pull($prefix-pull),
-    helpers-ratio($prefix-ratio),
-    helpers-text($prefix-text),
-    helpers-utilities($prefix-utilities)
-
+    helpers-align(),
+    helpers-bg(),
+    helpers-border(),
+    helpers-colors(),
+    helpers-columns(),
+    helpers-display(),
+    helpers-elements(),
+    helpers-fs(),
+    helpers-pull(),
+    helpers-ratio(),
+    helpers-text(),
+    helpers-utilities()
   );
 }
 
-//--- align
+//--- helpers-align
 @function helpers-align($prefix: $prefix-helper-align) {
   @return style(
-    helper-align-baseline($prefix),
-    helper-align-top($prefix),
-    helper-align-middle($prefix),
-    helper-align-bottom($prefix),
-    helper-align-text-bottom($prefix),
-    helper-align-text-top($prefix)
+    rule('#{$prefix-helper}#{$prefix}-baseline', helper-align-baseline()),
+    rule('#{$prefix-helper}#{$prefix}-top', helper-align-top()),
+    rule('#{$prefix-helper}#{$prefix}-middle', helper-align-middle()),
+    rule('#{$prefix-helper}#{$prefix}-bottom', helper-align-bottom()),
+    rule('#{$prefix-helper}#{$prefix}-text-bottom', helper-align-text-bottom()),
+    rule('#{$prefix-helper}#{$prefix}-text-top', helper-align-text-top())
   );
 }
 
-@function helper-align-baseline($prefix: $prefix-helper-align) {
-  @return ('#{$prefix}-baseline' : (
-    vertical-align: baseline !important
-  ));
+//--- helper-align-baseline
+@function helper-align-baseline() {
+  @return this(
+    vertical-align(baseline !important)
+  );
 }
 
-@function helper-align-top($prefix: $prefix-helper-align) {
-  @return ('#{$prefix}-top' : (
-    vertical-align: top !important
-  ));
+//--- helper-align-top
+@function helper-align-top() {
+  @return this(
+    vertical-align(top !important)
+  );
 }
 
-@function helper-align-middle($prefix: $prefix-helper-align) {
-  @return ('#{$prefix}-middle' : (
-    vertical-align: middle !important
-  ));
+//--- helper-align-middle
+@function helper-align-middle() {
+  @return this(
+    vertical-align(middle !important)
+  );
 }
 
-@function helper-align-bottom($prefix: $prefix-helper-align) {
-  @return ('#{$prefix}-bottom' : (
-    vertical-align: bottom !important
-  ));
+//--- helper-align-bottom
+@function helper-align-bottom() {
+  @return this(
+    vertical-align(bottom !important)
+  );
 }
 
-@function helper-align-text-bottom($prefix: $prefix-helper-align) {
-  @return ('#{$prefix}-bottom' : (
-    vertical-align: text-bottom !important
-  ));
+//--- helper-align-text-bottom
+@function helper-align-text-bottom() {
+  @return this(
+    vertical-align(text-bottom !important)
+  );
 }
 
-@function helper-align-text-top($prefix: $prefix-helper-align) {
-  @return ('#{$prefix}-top' : (
-    vertical-align: text-top !important
-  ));
+//--- helper-align-text-top
+@function helper-align-text-top() {
+  @return this(
+    vertical-align(text-top !important)
+  );
 }
 
-//--- bg
+//--- helpers-bg
 @function helpers-bg(
   $prefix: $prefix-helper-bg,
-  $colors: $helper-bg-colors
+  $colors: $helper-bg-colors,
+  $transparent: $helper-bg-colors-transparent
 ) {
-  @return style(
-    helper-bg-colors($prefix, $colors),
-    helper-bg-transparent($prefix)
-  );
-}
 
-@function helper-bg-colors(
-  $prefix: $prefix-helper-bg,
-  $colors: $helper-bg-colors
-) {
   $result: ();
+
+  @if ($transparent) {
+    $result: rule(
+      '#{$prefix-helper}#{$prefix}-#{$helper-bg-colors-transparent}',
+      background-color(transparent !important)
+    );
+  }
 
   @each $color in $colors {
     $result: map-merge(
       $result,
-      ('#{$prefix}-#{nth($color, 1)}' : (
-        background-color: nth($color, 2) !important
-      ))
+      rule(
+        '#{$prefix-helper}#{$prefix}-#{nth($color, 1)}',
+        background-color(nth($color, 2) !important)
+      )
     );
   }
   @return $result;
 }
 
-@function helper-bg-transparent($prefix: $prefix-helper-bg) {
-  @return ('#{$prefix}-transparent' : (
-    background-color: transparent !important
-  ));
-}
-
-//--- border
+//--- helpers-border
 @function helpers-border(
   $prefix: $prefix-helper-border,
   $colors: $helper-border-colors
 ) {
   @return style(
-    helper-border($prefix),
-    helper-border-0($prefix),
-    helper-border-top($prefix),
-    helper-border-right($prefix),
-    helper-border-bottom($prefix),
-    helper-border-left($prefix),
+    rule('#{$prefix-helper}#{$prefix}', helper-border()),
+    rule('#{$prefix-helper}#{$prefix}-0', helper-border-0()),
+    rule('#{$prefix-helper}#{$prefix}-top', helper-border-top()),
+    rule('#{$prefix-helper}#{$prefix}-right', helper-border-right()),
+    rule('#{$prefix-helper}#{$prefix}-bottom', helper-border-bottom()),
+    rule('#{$prefix-helper}#{$prefix}-left', helper-border-left()),
     helper-border-colors($prefix, $colors)
   );
 }
 
-@function helper-border($prefix: $prefix-helper-border) {
-  @return (#{$prefix} : (
-    border: 1px solid !important
-  ));
+//--- helper-border
+@function helper-border() {
+  @return this(
+    border(1px solid !important)
+  );
 }
 
-@function helper-border-0($prefix: $prefix-helper-border) {
-  @return ('#{$prefix}-0' : (
-    border: 0 !important
-  ));
+//--- helper-border-0
+@function helper-border-0() {
+  @return this(
+    border(0 !important)
+  );
 }
 
-@function helper-border-top($prefix: $prefix-helper-border) {
-  @return ('#{$prefix}-top' : (
-    border-top: 1px solid !important
-  ));
+//--- helper-border-top
+@function helper-border-top() {
+  @return this(
+    border-top(1px solid !important)
+  );
 }
 
-@function helper-border-right($prefix: $prefix-helper-border) {
-  @return ('#{$prefix}-right' : (
-    border-right: 1px solid !important
-  ));
+//--- helper-border-right
+@function helper-border-right() {
+  @return this(
+    border-right(1px solid !important)
+  );
 }
 
-@function helper-border-bottom($prefix: $prefix-helper-border) {
-  @return ('#{$prefix}-bottom' : (
-    border-bottom: 1px solid !important
-  ));
+//--- helper-border-bottom
+@function helper-border-bottom() {
+  @return this(
+    border-bottom(1px solid !important)
+  );
 }
 
-@function helper-border-left($prefix: $prefix-helper-border) {
-  @return ('#{$prefix}-left' : (
-    border-left: 1px solid !important
-  ));
+//--- helper-border-left
+@function helper-border-left() {
+  @return this(
+    border-left(1px solid !important)
+  );
 }
 
+//--- helper-border-colors
 @function helper-border-colors(
   $prefix: $prefix-helper-border,
   $colors: $helper-border-colors
@@ -191,33 +166,42 @@ $helper-columns-sizes: $grid-breakpoints !default;
   @each $color in $colors {
     $result: map-merge(
       $result,
-      ('#{$prefix}-#{nth($color, 1)}' : (
-        background-color: nth($color, 2) !important
-      ))
+      rule(
+        '#{$prefix-helper}#{$prefix}-#{nth($color, 1)}',
+        border-color(nth($color, 2) !important)
+      )
     );
   }
   @return $result;
 }
 
-//--- colors
+//--- helpers-colors
 @function helpers-colors(
   $prefix: $prefix-helper-color,
-  $colors: $helper-colors
+  $colors: $helper-colors,
+  $inherit: $helper-colors-inherit
 ) {
   $result: ();
+
+  @if ($inherit) {
+    $result: rule(
+      '#{$prefix-helper}#{$prefix}-#{$helper-colors-inherit}',
+      color(inherit !important)
+    );
+  }
 
   @each $color in $colors {
     $result: map-merge(
       $result,
-      ('#{$prefix}-#{nth($color, 1)}' : (
-        background-color: nth($color, 2) !important
+      ('#{$prefix-helper}#{$prefix}-#{nth($color, 1)}' : (
+        color: nth($color, 2) !important
       ))
     );
   }
   @return $result;
 }
 
-//--- columns
+//--- helpers-columns
 @function helpers-columns(
   $prefix: $prefix-helper-columns,
   $sizes: $helper-columns-sizes
@@ -228,19 +212,19 @@ $helper-columns-sizes: $grid-breakpoints !default;
     $media: display(flex);
 
     @if (nth($size, 2) > 0) {
-      $media: (media-up(nth($size, 1)): (
-        display: flex
-      ));
+      $media: media-up(
+        nth($size, 1),
+        display(flex)
+      );
     }
 
     $result: map-merge(
       $result,
-      ('#{$prefix}-#{nth($size, 1)}' : (
-        style(
-          $media,
-          ('extend': '%columns')
-        )
-      ))
+      rule(
+        '#{$prefix-helper}#{$prefix}-#{nth($size, 1)}',
+        $media,
+        extend('%columns')
+      )
     );
   }
   @return $result;
@@ -258,169 +242,220 @@ $helper-columns-sizes: $grid-breakpoints !default;
   }
 }
 
-//--- display
+//--- helpers-display
 @function helpers-display($prefix: $prefix-helper-display) {
   @return style(
-    helper-display-block($prefix),
-    helper-display-flex($prefix),
-    helper-display-inline($prefix),
-    helper-display-inline-block($prefix),
-    helper-display-inline-flex($prefix),
-    helper-display-none($prefix),
-    helper-display-table($prefix),
-    helper-display-table-cell($prefix)
+    rule('#{$prefix-helper}#{$prefix}-block', helper-display-block()),
+    rule('#{$prefix-helper}#{$prefix}-flex', helper-display-flex()),
+    rule('#{$prefix-helper}#{$prefix}-inline', helper-display-inline()),
+    rule('#{$prefix-helper}#{$prefix}-inline-block', helper-display-inline-block()),
+    rule('#{$prefix-helper}#{$prefix}-inline-flex', helper-display-inline-flex()),
+    rule('#{$prefix-helper}#{$prefix}-none', helper-display-none()),
+    rule('#{$prefix-helper}#{$prefix}-table', helper-display-table()),
+    rule('#{$prefix-helper}#{$prefix}-table-cell', helper-display-table-cell())
   );
 }
 
-@function helper-display-block($prefix: $prefix-helper-display) {
-  @return ('#{$prefix}-block' : (
-    display: block !important
-  ));
+//--- helper-display-block
+@function helper-display-block() {
+  @return this(
+    display(block !important)
+  );
 }
 
-@function helper-display-flex($prefix: $prefix-helper-display) {
-  @return ('#{$prefix}-flex' : (
-    display: flex !important
-  ));
+//--- helper-display-flex
+@function helper-display-flex() {
+  @return this(
+    display(flex !important)
+  );
 }
 
-@function helper-display-inline($prefix: $prefix-helper-display) {
-  @return ('#{$prefix}-inline' : (
-    display: inline !important
-  ));
+//--- helper-display-inline
+@function helper-display-inline() {
+  @return this(
+    display(inline !important)
+  );
 }
 
-@function helper-display-inline-block($prefix: $prefix-helper-display) {
-  @return ('#{$prefix}-inline-block' : (
-    display: inline-block !important
-  ));
+//--- helper-display-inline-block
+@function helper-display-inline-block() {
+  @return this(
+    display(inline-block !important)
+  );
 }
 
-@function helper-display-inline-flex($prefix: $prefix-helper-display) {
-  @return ('#{$prefix}-inline-flex' : (
-    display: inline-flex !important
-  ));
+//--- helper-display-inline-flex
+@function helper-display-inline-flex() {
+  @return this(
+    display(inline-flex !important)
+  );
 }
 
-@function helper-display-none($prefix: $prefix-helper-display) {
-  @return ('#{$prefix}-none' : (
-    display: none !important
-  ));
+//--- helper-display-none
+@function helper-display-none() {
+  @return this(
+    display(none !important)
+  );
 }
 
-@function helper-display-table($prefix: $prefix-helper-display) {
-  @return ('#{$prefix}-table' : (
-    display: table !important
-  ));
+//--- helper-display-table
+@function helper-display-table() {
+  @return this(
+    display(table !important)
+  );
 }
 
-@function helper-display-table-cell($prefix: $prefix-helper-display) {
-  @return ('#{$prefix}-table-cell' : (
-    display: table-cell !important
-  ));
+//--- helper-display-table-cell
+@function helper-display-table-cell() {
+  @return this(
+    display(table-cell !important)
+  );
 }
 
-//--- fs
+//--- helpers-elements
+@function helpers-elements($prefix: $prefix-helper-elements) {
+  @return style(
+    rule('#{$prefix}h1', extend('%h1')),
+    rule('#{$prefix}h2', extend('%h2')),
+    rule('#{$prefix}h3', extend('%h3')),
+    rule('#{$prefix}h4', extend('%h4')),
+    rule('#{$prefix}h5', extend('%h5')),
+    rule('#{$prefix}h6', extend('%h6')),
+    rule('#{$prefix}a', extend('%a')),
+    rule('#{$prefix}blockquote', extend('%blockquote')),
+    rule('#{$prefix}p', extend('%p')),
+    rule('#{$prefix}ul', extend('%ul')),
+    rule('#{$prefix}ol', extend('%ol')),
+    rule('#{$prefix}li', extend('%li')),
+    rule('#{$prefix}dl', extend('%dl')),
+    rule('#{$prefix}dt', extend('%dt')),
+    rule('#{$prefix}dd', extend('%dd'))
+  );
+}
+
+
+//--- helpers-fs
 @function helpers-fs($prefix: $prefix-helper-fs) {
   @return style(
-    helper-fs-hero($prefix),
-    helper-fs-h1($prefix),
-    helper-fs-h2($prefix),
-    helper-fs-h3($prefix),
-    helper-fs-h4($prefix),
-    helper-fs-h5($prefix),
-    helper-fs-h6($prefix),
-    helper-fs-large($prefix),
-    helper-fs-small($prefix)
+    rule('#{$prefix-helper}#{$prefix}-hero',helper-fs-hero()),
+    rule('#{$prefix-helper}#{$prefix}-h1',helper-fs-h1()),
+    rule('#{$prefix-helper}#{$prefix}-h2',helper-fs-h2()),
+    rule('#{$prefix-helper}#{$prefix}-h3',helper-fs-h3()),
+    rule('#{$prefix-helper}#{$prefix}-h4',helper-fs-h4()),
+    rule('#{$prefix-helper}#{$prefix}-h5',helper-fs-h5()),
+    rule('#{$prefix-helper}#{$prefix}-h6',helper-fs-h6()),
+    rule('#{$prefix-helper}#{$prefix}-large',helper-fs-large()),
+    rule('#{$prefix-helper}#{$prefix}-small',helper-fs-small())
   );
 }
 
-@function helper-fs-hero($prefix: $prefix-helper-fs) {
-  @return ('#{$prefix}-hero' : (
-    font-size: $font-size-hero !important
-  ));
+//--- helper-fs-hero
+@function helper-fs-hero() {
+  @return this(
+    font-size($font-size-hero !important)
+  );
 }
 
-@function helper-fs-h1($prefix: $prefix-helper-fs) {
-  @return ('#{$prefix}-h1' : (
-    font-size: $font-size-h1 !important
-  ));
+//--- helper-fs-h1
+@function helper-fs-h1() {
+  @return this(
+    font-size($font-size-h1 !important)
+  );
 }
 
-@function helper-fs-h2($prefix: $prefix-helper-fs) {
-  @return ('#{$prefix}-h2' : (
-    font-size: $font-size-h2 !important
-  ));
+//--- helper-fs-h2
+@function helper-fs-h2() {
+  @return this(
+    font-size($font-size-h2 !important)
+  );
 }
 
-@function helper-fs-h3($prefix: $prefix-helper-fs) {
-  @return ('#{$prefix}-h3' : (
-    font-size: $font-size-h3 !important
-  ));
+//--- helper-fs-h3
+@function helper-fs-h3() {
+  @return this(
+    font-size($font-size-h3 !important)
+  );
 }
 
-@function helper-fs-h4($prefix: $prefix-helper-fs) {
-  @return ('#{$prefix}-h4' : (
-    font-size: $font-size-h4 !important
-  ));
+//--- helper-fs-h4
+@function helper-fs-h4() {
+  @return this(
+    font-size($font-size-h4 !important)
+  );
 }
 
-@function helper-fs-h5($prefix: $prefix-helper-fs) {
-  @return ('#{$prefix}-h5' : (
-    font-size: $font-size-h5 !important
-  ));
+//--- helper-fs-h5
+@function helper-fs-h5() {
+  @return this(
+    font-size($font-size-h5 !important)
+  );
 }
 
-@function helper-fs-h6($prefix: $prefix-helper-fs) {
-  @return ('#{$prefix}-h6' : (
-    font-size: $font-size-h6 !important
-  ));
+//--- helper-fs-h6
+@function helper-fs-h6() {
+  @return this(
+    font-size($font-size-h6 !important)
+  );
 }
 
-@function helper-fs-large($prefix: $prefix-helper-fs) {
-  @return ('#{$prefix}-large' : (
-    font-size: $font-size-large !important
-  ));
+//--- helper-fs-large
+@function helper-fs-large() {
+  @return this(
+    font-size($font-size-large !important)
+  );
 }
 
-@function helper-fs-small($prefix: $prefix-helper-fs) {
-  @return ('#{$prefix}-small' : (
-    font-size: $font-size-small !important
-  ));
+//--- helper-fs-small
+@function helper-fs-small() {
+  @return this(
+    font-size($font-size-small !important)
+  );
 }
 
-//--- pull
+//--- helpers-pull
 @function helpers-pull($prefix: $prefix-helper-pull) {
   @return style(
-    helper-pull-right($prefix),
-    helper-pull-left($prefix)
+    rule('#{$prefix-helper}#{$prefix}-clear', helper-pull-clear()),
+    rule('#{$prefix-helper}#{$prefix}-right', helper-pull-right()),
+    rule('#{$prefix-helper}#{$prefix}-left', helper-pull-left())
   );
 }
 
-@function helper-pull-right($prefix: $prefix-helper-pull) {
-  @return ('#{$prefix}-right' : (
-    float: right !important
-  ));
+//--- helper-pull-clear
+@function helper-pull-clear() {
+  @return this(
+    clear(both !important)
+  );
 }
 
-@function helper-pull-left($prefix: $prefix-helper-pull) {
-  @return ('#{$prefix}-left' : (
-    float: left !important
-  ));
+//--- helper-pull-right
+@function helper-pull-right() {
+  @return this(
+    float(right !important)
+  );
 }
 
-//--- ratio
+//--- helper-pull-left
+@function helper-pull-left() {
+  @return this(
+    float(left !important)
+  );
+}
+
+//--- helpers-ratio
 @function helpers-ratio($prefix: $prefix-helper-ratio) {
   @return style(
-    helper-ratio-16-9($prefix),
-    helper-ratio-4-3($prefix),
-    helper-ratio-1-1($prefix)
+    rule('#{$prefix-helper}#{$prefix}-16-9', helper-ratio-16-9()),
+    rule('#{$prefix-helper}#{$prefix}-4-3', helper-ratio-4-3()),
+    rule('#{$prefix-helper}#{$prefix}-1-1', helper-ratio-1-1())
   );
 }
 
 %ratio {
   position: relative;
   overflow: hidden;
+  background-position: center;
+  background-size: cover;
 
   > * {
     position: absolute;
@@ -433,141 +468,142 @@ $helper-columns-sizes: $grid-breakpoints !default;
   }
 }
 
-@function helper-ratio-16-9($prefix: $prefix-helper-ratio) {
-  @return ('#{$prefix}-16-9' : (
-    '@extend': '%ratio',
-    padding-top: 9 / 16 * 100%
-  ));
+//--- helper-ratio-16-9
+@function helper-ratio-16-9() {
+  @return this(
+    extend('%ratio'),
+    padding-top(9 / 16 * 100%)
+  );
 }
 
-@function helper-ratio-4-3($prefix: $prefix-helper-ratio) {
-  @return ('#{$prefix}-4-3' : (
-    '@extend': '%ratio',
-    padding-top: 3 / 4 * 100%
-  ));
+//--- helper-ratio-4-3
+@function helper-ratio-4-3() {
+  @return this(
+    extend('%ratio'),
+    padding-top(3 / 4 * 100%)
+  );
 }
 
-@function helper-ratio-1-1($prefix: $prefix-helper-ratio) {
-  @return ('#{$prefix}-1-1' : (
-    '@extend': '%ratio',
-    padding-top: 100%
-  ));
+//--- helper-ratio-1-1
+@function helper-ratio-1-1() {
+  @return this(
+    extend('%ratio'),
+    padding-top(100%)
+  );
 }
 
-//--- text
+//--- helpers-text
 @function helpers-text($prefix: $prefix-helper-text) {
   @return style(
-    helper-text-center($prefix),
-    helper-text-left($prefix),
-    helper-text-right($prefix),
-    helper-text-capitalize($prefix),
-    helper-text-lowercase($prefix),
-    helper-text-uppercase($prefix),
-    helper-text-nowrapp($prefix),
-    helper-text-truncate($prefix),
-    helper-text-hide($prefix)
+    rule('#{$prefix-helper}#{$prefix}-center', helper-text-center()),
+    rule('#{$prefix-helper}#{$prefix}-left', helper-text-left()),
+    rule('#{$prefix-helper}#{$prefix}-right', helper-text-right()),
+    rule('#{$prefix-helper}#{$prefix}-capitalize', helper-text-capitalize()),
+    rule('#{$prefix-helper}#{$prefix}-hide', helper-text-hide()),
+    rule('#{$prefix-helper}#{$prefix}-lowercase', helper-text-lowercase()),
+    rule('#{$prefix-helper}#{$prefix}-uppercase', helper-text-uppercase()),
+    rule('#{$prefix-helper}#{$prefix}-nowrapp', helper-text-nowrapp()),
+    rule('#{$prefix-helper}#{$prefix}-truncate', helper-text-truncate())
   );
 }
 
-@function helper-text-center($prefix: $prefix-helper-text) {
-  @return ('#{$prefix}-center' : (
-    text-align: center !important
-  ));
+//--- helper-text-center
+@function helper-text-center() {
+  @return this(
+    text-align(center !important)
+  );
 }
 
-@function helper-text-left($prefix: $prefix-helper-text) {
-  @return ('#{$prefix}-left' : (
-    text-align: left !important
-  ));
+//--- helper-text-left
+@function helper-text-left() {
+  @return this(
+    text-align(left !important)
+  );
 }
 
-@function helper-text-right($prefix: $prefix-helper-text) {
-  @return ('#{$prefix}-right' : (
-    text-align: right !important
-  ));
+//--- helper-text-right
+@function helper-text-right() {
+  @return this(
+    text-align(right !important)
+  );
 }
 
-@function helper-text-capitalize($prefix: $prefix-helper-text) {
-  @return ('#{$prefix}-capitalize' : (
-    text-transform: capitalize !important
-  ));
+//--- helper-text-capitalize
+@function helper-text-capitalize() {
+  @return this(
+    text-transform(capitalize !important)
+  );
 }
 
-@function helper-text-lowercase($prefix: $prefix-helper-text) {
-  @return ('#{$prefix}-lowercase' : (
-    text-transform: lowercase !important
-  ));
+//--- helper-text-hide
+@function helper-text-hide() {
+  @return this(
+    font(0/0 a),
+    color(transparent),
+    text-shadow(none),
+    background-color(transparent),
+    border(0)
+  );
 }
 
-@function helper-text-uppercase($prefix: $prefix-helper-text) {
-  @return ('#{$prefix}-uppercase' : (
-    text-transform: uppercase !important
-  ));
+//--- helper-text-lowercase
+@function helper-text-lowercase() {
+  @return this(
+    text-transform(lowercase !important)
+  );
 }
 
-@function helper-text-nowrapp($prefix: $prefix-helper-text) {
-  @return ('#{$prefix}-nowrapp' : (
-    white-space: nowrap !important
-  ));
+//--- helper-text-uppercase
+@function helper-text-uppercase() {
+  @return this(
+    text-transform(uppercase !important)
+  );
 }
 
-@function helper-text-truncate($prefix: $prefix-helper-text) {
-  @return ('#{$prefix}-truncate' : (
-    overflow: hidden,
-    text-overflow: ellipsis,
-    white-space: nowrap
-  ));
+//--- helper-text-nowrapp
+@function helper-text-nowrapp() {
+  @return this(
+    white-space(nowrap !important)
+  );
 }
 
-@function helper-text-hide($prefix: $prefix-helper-text) {
-  @return ('#{$prefix}-hide' : (
-    font: 0/0 a,
-    color: transparent,
-    text-shadow: none,
-    background-color: transparent,
-    border: 0
-  ));
+//--- helper-text-truncate
+@function helper-text-truncate() {
+  @return this(
+    overflow(hidden),
+    text-overflow(ellipsis),
+    white-space(nowrap)
+  );
 }
 
-//--- utilities
+//--- helpers-utilities
 @function helpers-utilities($prefix: $prefix-helper-utilities) {
   @return style(
-    helper-utilities-clear($prefix),
-    helper-utilities-focus($prefix),
-    helper-utilities-is-hidden($prefix),
-    helper-utilities-sr-only($prefix)
+    rule('#{$prefix-helper}#{$prefix}last-margin-0', helper-utilities-last-margin-0()),
+    rule('#{$prefix-helper}#{$prefix}sr-only', helper-utilities-sr-only())
   );
 }
 
-@function helper-utilities-clear($prefix: $prefix-helper-utilities) {
-  @return ('#{$prefix}focus' : (
-    clear: both !important
-  ));
+//--- helper-utilities-last-margin-0
+@function helper-utilities-last-margin-0() {
+  @return rule(
+    '& > *:last-child',
+    margin-bottom(0 !important)
+  );
 }
 
-@function helper-utilities-focus($prefix: $prefix-helper-utilities) {
-  @return ('#{$prefix}focus' : (
-    outline: none,
-    box-shadow: 0 0 4px rgba($black, .4)
-  ));
+//--- helper-utilities-sr-only
+@function helper-utilities-sr-only() {
+  @return this(
+    position(absolute),
+    width(1px),
+    height(1px),
+    padding(0),
+    margin(-1px),
+    overflow(hidden),
+    clip(rect(0, 0, 0, 0)),
+    border(0)
+  );
 }
 
-@function helper-utilities-is-hidden($prefix: $prefix-helper-utilities) {
-  @return ('#{$prefix}is-hidden' : (
-    display: none !important
-  ));
-}
-
-@function helper-utilities-sr-only($prefix: $prefix-helper-utilities) {
-  @return ('#{$prefix}sr-only' : (
-    position: absolute,
-    width: 1px,
-    height: 1px,
-    padding: 0,
-    margin: -1px,
-    overflow: hidden,
-    clip: rect(0, 0, 0, 0),
-    border: 0
-  ));
-}
 //---

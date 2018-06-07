@@ -3,12 +3,8 @@ title: Getting started
 layout: documentation
 active: Getting started
 example: example-getting-started
+anchors_menu: '> h2'
 ---
-
-<%
-@exampleFile = "#{config.examples_path}/example-getting-started.scss" 
-@exampleDistFile = dist_file('exampleGettingStarted.css')
-%>
 
 
 #Getting started
@@ -60,92 +56,6 @@ If you want to access the extends and the default reset of the html marckup you 
 
 The way marscss works allows us to rewrite any part of its core since until we do the @include marscss we do not release any of its functions and mixins
 
-###Your first application.scss
-
-The organization within your main file can follow the following order
-
-1. **marscss core**
-This is preferable to load first
-
-2. **custom variables**
-copy the [default-variables.scss](https://github.com/MarsBased/marscss/blob/master/marscss/scss/_default-variables.scss) file in your project, replace name by variables.scss and import, it is preferable to duplicate it whole since there are values of variables that depend on others.
-
-3. **custom core**
-This is one of the differential points of this framework, the core is designed to be extended and modified, so for that we reserve this space.
-I suggest creating a folder `/core` and that those mixins and extends modify the things you need from marscss
-
-4. **marscss init and builders**
-This is the function that starts the extensions and by default the reset unless it is passed as an argument false
-At this point we can add the different builders that we need for our project.
-
-5. **Custom CSS**
-In this part we include the scss of our project, from here we can access the core with its modifications so it is important that it always loads last.
-It also allows us to use the extends that marscss generates in our code
-
-### Example application.scss
-~~~scss
-// MARSCSS CORE
-@import 'node_modules/marscss/marscss';
-
-// CUSTOM VARIABLES
-@import 'utilities/variables';
-
-// CUSTOM CORE
-@import 'core.scss';
-
-// MARSCSS BUILDERS
-@include marscss;
-@include style(helpers());
-// etc...
-
-// CUSTOM SCSS
-@import 'layout/index';
-@import 'blocks/header';
-@import 'blocks/footer';
-// etc...
-~~~
-
-
-## Working with maps
-
-Marscss stores and works the selectors through scss maps, this allows you to manipulate them and save them until they have to be printed in our css file.
-
-The structure of the maps is as follows, in scss the maps are enclosed with (), the maps can be composed of other maps, they work like arrays in the programming languages.
-
-<% example_tabs do %>
-<%= css_snippet('e-1',@exampleFile) %>
-<%= css_snippet('e-1',@exampleDistFile) %>
-<% end %>
-
-A particularity of the maps is that we can merge with others and get a new map, in this case we will also create a map with an internal selector, which will be responsible for generating the hover styles of the title
-
-<% example_tabs do %>
-<%= css_snippet('e-2',@exampleFile) %>
-<%= css_snippet('e-2',@exampleDistFile) %>
-<% end %>
-
-When we add values to false these are canceled, it is also very important the order of the elements when making a merge, the last element predominates.
-
-<% example_tabs do %>
-<%= css_snippet('e-3',@exampleFile) %>
-<%= css_snippet('e-3',@exampleDistFile) %>
-<% end %>
-
-We can be generated using directly &, this allows us to integrate it better with the normal css rules, we can also add more arguments to modify it directly from `@include style`
-
-<% example_tabs do %>
-<%= css_snippet('e-4',@exampleFile) %>
-<%= css_snippet('e-4',@exampleDistFile) %>
-<% end %>
-
-marscss has tools to simplify the writing of these maps, with functions to generate the rules more quickly or to add and work directly on the css properties
-
-<% example_tabs do %>
-<%= css_snippet('e-5',@exampleFile) %>
-<%= css_snippet('e-5',@exampleDistFile) %>
-<% end %>
-
-
 ## Resets
 
 After many years working in CSS, we have realized that when we work with html elements from the css we restart most of their properties, this makes us waste time and generates a lot of unusable code.
@@ -162,9 +72,5 @@ The philosophy of marscss is to separate the markup of the style with what is el
 
 marscss includes a set of selectors to work directly from @extend, these are included from `@include marscss` but if you prefer you can use `@include extend`
 
-If you need a part to continue having styles by html markup you can use the `%raw-html-styles`  for this purpose in the part of the page that you need, this will generate the styles for the elements under that selector.
+Some functions such as helpers or other builders use the extends to optimize the resulting code
 
-<% example_tabs do %>
-<%= css_snippet('extend',@exampleFile) %>
-<%= css_snippet('extend',@exampleDistFile) %>
-<% end %>

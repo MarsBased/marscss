@@ -1,5 +1,3 @@
 @import '../../../marscss/marscss';
 
-@include extend;
-
-@include style(reset());
+@include marscss;

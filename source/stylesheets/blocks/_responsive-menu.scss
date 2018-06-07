@@ -7,7 +7,6 @@ $menu-width: 250px;
   left: -$menu-width;
   z-index: 1;
   width: $menu-width;
-  padding: $gutter $gutter/2;
   overflow-y: auto;
   background-color: $gray-200;
   box-shadow: 0;
@@ -35,9 +34,9 @@ $menu-width: 250px;
   transform: translateX(0);
 }
 
-.is-menu-open {
+html.is-menu-open {
   @include media-breakpoint-down('md') {
-    overflow-x: hidden;
+    overflow: hidden;
 
     @include responsive-menu-elements {
       transform: translateX($menu-width);

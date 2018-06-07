@@ -1,10 +1,10 @@
 ---
-title: mars-build-grid
+title: grid
 layout: documentation
-active: Builders, mars-build-grid
+active: '@include grid'
 ---
 
-# mars-build-grid
+# @include grid
 
 marscss uses as [bootstrap 4.0 grid](https://getbootstrap.com/docs/4.0/layout/grid/) you can look in your documentation how to use the different classes that these helpers will generate.
 
@@ -20,7 +20,7 @@ arguments
 : `$container-max-widths: $containers-max-widths` *[map]*:
 
 
-## grid-container
+## @include grid-container
 
 Generating the class for the container uses $containers-max-widths to generate the media queries for each $breakpoints.
 
@@ -37,7 +37,7 @@ arguments
 : `$containers-max-widths: $containers-max-widths` *[map]*:
 
 
-## grid-row
+## @include grid-row
 
 It is responsible for working as a container for the generation of the columns, it has a negative margin to justify the margin of the internal columns.
 
@@ -52,7 +52,7 @@ arguments
 
 
 
-## grid-columns
+## @include grid-columns
 
 Is responsible for generating the markup to work directly with the bootstrap class, it also adds order and offset.
 

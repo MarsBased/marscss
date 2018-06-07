@@ -2,13 +2,16 @@
   color: $white;
   background-color: $black;
 
+  a {
+    @extend %reset-link;
+  }
+
   &__container {
     display: flex;
-    align-items: center;
     flex-direction: row;
-    justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: space-between;
   }
 
   &__hamburger {
@@ -43,6 +46,7 @@
       &:hover,
       &:focus {
         background-color: rgba($white, .3);
+        color: inherit;
       }
 
       &.is-active {

@@ -1,4 +1,5 @@
-import './body/$_get.js'
+import './body/$_get.js';
+import './body/api-search.js';
 import './body/auto-anchor.js';
 import './body/data-click-is-active.js';
 import './body/data-click-toggle-class.js';
@@ -9,3 +10,4 @@ import './body/example-tabs.js';
 import './body/modernizr.objectfit';
 import './body/onscreen.js';
 import './body/source-button.js';
+import './body/table-collapse.js';

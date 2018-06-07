@@ -1,0 +1,75 @@
+---
+title: Api of marscss
+body: api
+active: api
+---
+
+<%
+
+require 'yaml'
+
+# build all documentation
+apiData = []
+apiData += YAML::load(File.open('data/api/api_elements.yml')).each {|e| e['file'] ||= '_elements.scss'}
+apiData += YAML::load(File.open('data/api/api_extend.yml')).each {|e| e['file'] ||= '_extend.scss'}
+apiData += YAML::load(File.open('data/api/api_forms.yml')).each {|e| e['file'] ||= '_forms.scss'}
+apiData += YAML::load(File.open('data/api/api_grid.yml')).each {|e| e['file'] ||= '_grid.scss'}
+apiData += YAML::load(File.open('data/api/api_helpers.yml')).each {|e| e['file'] ||= '_helpers.scss'}
+apiData += YAML::load(File.open('data/api/api_icons.yml')).each {|e| e['file'] ||= '_icons.scss'}
+apiData += YAML::load(File.open('data/api/api_init.yml')).each {|e| e['file'] ||= '_init.scss'}
+apiData += YAML::load(File.open('data/api/api_reset.yml')).each {|e| e['file'] = '_reset.scss'}
+apiData += YAML::load(File.open('data/api/api_properties.yml')).each {|e| e['file'] = 'core/_properties.scss'}
+apiData += YAML::load(File.open('data/api/api_utilities.yml')).each {|e| e['file'] = '_utilities.scss'}
+
+varsData = File
+  .open("#{config.marscss_path}/core/_default-variables.scss",'rb')
+  .read
+  .force_encoding("UTF-8")
+  .scan(/(\$[^:]+):([^;]+);/m)
+  .map {|item| {'name' => item[0],'value' => item[1], 'type' => 'variable', 'file' => 'core/_default-variables.scss' } }
+
+apiData += varsData
+
+apiData.each {|e| e['type'] ||= 'rule' }
+
+%>
+
+<div class="wrapper">
+  <div class="api-sidebar">
+    <%= partial 'partials/sidebar-menu' %>
+  </div>
+  <div class="api-content">
+    <h1 class="text-center">API</h1>
+    <div class="api-search">
+      <input type="text" class="input" placeholder="search by name">
+    </div>
+    <div class="container-table">
+      <table class="table-collapse">
+        <thead>
+          <tr>
+            <th class="cell-type">
+              Type
+            </th>
+            <th class="cell-name">
+              <label class="checkbox">
+                Name
+                <input type="checkbox" data-target=".search-by-name" data-placeholder="name" checked>
+              </label>
+            </th>
+            <th class="cell-file">
+              <label class="checkbox">
+                marscss file
+                <input type="checkbox" data-target=".search-by-file" data-placeholder="file">
+              </label>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+        <%= partial 'partials/api-item', locals:{
+          data: apiData.sort_by {|e| [e['type'], e['name']] }
+        } %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

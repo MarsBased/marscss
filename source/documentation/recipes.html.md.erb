@@ -1,0 +1,147 @@
+---
+title: Recipes
+layout: documentation
+active: recipes
+anchors_menu: 'h2,h3'
+---
+
+
+# Recipes
+
+## Basic configuration
+
+The organization within your main file can follow the following order
+
+1. **marscss core**
+<br>
+This is preferable to load first
+
+2. **custom variables**
+<br>
+copy the [default-variables.scss](https://github.com/MarsBased/marscss/blob/master/marscss/scss/_default-variables.scss) file in your project, replace name by variables.scss and import, it is preferable to duplicate it whole since there are values of variables that depend on others.
+
+3. **custom core**
+<br>
+This is one of the differential points of this framework, the core is designed to be extended and modified, so for that we reserve this space.
+I suggest creating a folder `/core` and that those mixins and extends modify the things you need from marscss
+
+4. **@include marscss**
+<br>
+This is the function that starts the extensions and by default the reset unless it is passed as an argument false
+At this point we can add the different builders that we need for our project.
+
+5. **Custom CSS**
+<br>
+In this part we include the scss of our project, from here we can access the core with its modifications so it is important that it always loads last.
+It also allows us to use the extends that marscss generates in our code
+
+### Example application.scss
+~~~scss
+// MARSCSS CORE
+@import 'node_modules/marscss/marscss';
+
+// CUSTOM VARIABLES
+@import 'utilities/variables';
+
+// CUSTOM CORE
+@import 'core.scss';
+
+// MARSCSS BUILDERS
+@include marscss;
+@include style(helpers());
+@include style(elements());
+// etc...
+
+// CUSTOM SCSS
+@import 'layout/index';
+@import 'blocks/header';
+@import 'blocks/footer';
+// etc...
+~~~
+
+## marscss in react
+
+marscss is perfect for working with the new javascript libraries as it react, in this case I advise a slightly different configuration, using a file as shared core by both the general App and one of its components.
+
+### Shared core
+
+We will create in the first place a file that is responsible for loading marscss and apply our modifications on the core.
+
+It is a good practice to add as the name of the main file the one of the dependence we are using, if the configuration of this file becomes very complex we can choose to create a folder called `/marscss` and divide it into different files.
+
+This file will be the main file of our configuration and will be added to the beginning of all the other components.
+
+1. **marscss**<br>
+First of all add to this file marscss from our folder node_modules
+
+2. **custom variables**<br>
+To overwrite the variables we can duplicate the entire file and add only the variables that we are going to modify.
+
+3. **custom core**<br>
+Here we can overwrite any marscss function, if we are going to make many modifications on the core it is preferable, as we have said before, to generate a new folder and separate it in a more structured way.
+
+4. **include extend**<br>
+Last but not least we will add @include extend that will allow us to use the different extensions from any component.
+
+#### Example src/marscss.scss
+
+~~~scss
+// marscss
+@import "../node_modules/@marsbased/marscss/marscss";
+
+// custom variables
+$primary: $blue;
+
+// custom core
+@function common-heading() {
+  @return margin-bottom(2rem);
+}
+
+// include extend
+@include extend;
+~~~
+
+
+### Main App
+
+The application file is the main component that we will use in react, since it will always be loaded in all the different views, this will be in charge of adding the common elements like resets, elements, helpers, grid ...
+
+1. Import our configuration of **src/marscss.scss**
+
+2. Add the reset and after parts that we need from the core
+
+3. Add your global rules
+
+#### Example src/components/App.scss
+
+~~~scss
+@import "../marscss";
+
+@include style(reset());
+@include style(helpers());
+@include style(forms());
+@include style(elements(""));
+
+@include grid-container;
+
+// global css
+body {
+  padding-top: $navbar--fixed-height;
+  background-color: $gray-900;
+}
+~~~
+
+### Others components
+
+In the other components add our marscss configuration at the beginning
+
+#### Example src/components/Others.scss
+
+~~~scss
+@import "../marscss";
+
+// custom css
+.other {
+  // ...
+}
+~~~

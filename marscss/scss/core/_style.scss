@@ -9,10 +9,7 @@ $marscss-global-styles: false !default;
 
   @each $key, $value in $styles {
     @if $value {
-      $full-selector: $key;
-
-      #{$full-selector} {
-        // finaly
+      #{$key} {
         @include map-print($value);
       }
     }

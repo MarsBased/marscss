@@ -6,13 +6,12 @@
       <%= partial 'partials/sidebar-menu' %>
     </div>
     <div class="documentation-content html-content"
-     data-headings-add-anchor data-anchors-menu>
+         data-headings-add-anchor
+         data-anchors-menu="<%= current_page.data['anchors_menu'] %>"
+         data-target=".documentation-anchors">
       <%= yield %>
     </div>
     <div class="documentation-anchors">
-      <ul class="anchors-menu">
-        
-      </ul>
     </div>
   </div>
 <% end %>

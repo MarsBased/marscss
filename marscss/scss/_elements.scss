@@ -1,27 +1,31 @@
-@function elements($prefix: '.') {
+//--- elements
+@function elements() {
   @return style(
-    rule('#{$prefix}h1', extend('%h1')),
-    rule('#{$prefix}h2', extend('%h2')),
-    rule('#{$prefix}h3', extend('%h3')),
-    rule('#{$prefix}h4', extend('%h4')),
-    rule('#{$prefix}h5', extend('%h5')),
-    rule('#{$prefix}h6', extend('%h6')),
-    rule('#{$prefix}a', extend('%a')),
-    rule('#{$prefix}blockquote', extend('%blockquote')),
-    rule('#{$prefix}p', extend('%p')),
-    rule('#{$prefix}ul', extend('%ul')),
-    rule('#{$prefix}ol', extend('%ol')),
-    rule('#{$prefix}li', extend('%li')),
-    rule('#{$prefix}dl', extend('%dl')),
-    rule('#{$prefix}dt', extend('%dt')),
-    rule('#{$prefix}dd', extend('%dd'))
+    rule('h1', extend('%h1')),
+    rule('h1', extend('%h1')),
+    rule('h2', extend('%h2')),
+    rule('h3', extend('%h3')),
+    rule('h4', extend('%h4')),
+    rule('h5', extend('%h5')),
+    rule('h6', extend('%h6')),
+    rule('a', extend('%a')),
+    rule('blockquote', extend('%blockquote')),
+    rule('p', extend('%p')),
+    rule('ul', extend('%ul')),
+    rule('ol', extend('%ol')),
+    rule('li', extend('%li')),
+    rule('dl', extend('%dl')),
+    rule('dt', extend('%dt')),
+    rule('dd', extend('%dd'))
   );
 }
 
+//--- common-heading
 @function common-heading() {
   @return margin-bottom(1rem);
 }
 
+//--- common-text-block
 @function common-text-block() {
   @return style(
     margin-top(0),
@@ -29,23 +33,24 @@
   );
 }
 
+//--- common-list-block
 @function common-list-block() {
   @return margin-bottom(.5em);
 }
 
+//--- element-a
 @function element-a() {
   @return this(
     color($link-color),
-    border-bottom(1px solid rgba(0, 0, 0, .2)),
-    transition('border .3s ease-out, color .3s ease-out'),
+    transition('color .3s ease-out'),
     rule(
       '&:hover,&:focus',
       color(darken($link-color, 20%)),
-      border-bottom-color(currentColor)
     )
   );
 }
 
+//--- element-h1
 @function element-h1() {
   @return this(
     font-size($font-size-h1),
@@ -55,6 +60,7 @@
   );
 }
 
+//--- element-h2
 @function element-h2() {
   @return this(
     font-size($font-size-h2),
@@ -64,6 +70,7 @@
   );
 }
 
+//--- element-h3
 @function element-h3() {
   @return this(
     font-size($font-size-h3),
@@ -73,6 +80,7 @@
   );
 }
 
+//--- element-h4
 @function element-h4() {
   @return this(
     font-size($font-size-h4),
@@ -82,6 +90,7 @@
   );
 }
 
+//--- element-h5
 @function element-h5() {
   @return this(
     font-size($font-size-h5),
@@ -91,6 +100,7 @@
   );
 }
 
+//--- element-h6
 @function element-h6() {
   @return this(
     font-size($font-size-h6),
@@ -100,10 +110,12 @@
   );
 }
 
+//--- element-p
 @function element-p() {
   @return this(common-text-block());
 }
 
+//--- element-blockquote
 @function element-blockquote() {
   @return this(
     max-width(600px),
@@ -117,36 +129,46 @@
   );
 }
 
+//--- element-ul
 @function element-ul() {
   @return this(
     padding-left(1),
     list-style-type(disc),
+    margin-left(3rem),
     rule('& ul', margin-bottom(0)),
     common-text-block()
   );
 }
 
+//--- element-ol
 @function element-ol() {
   @return this(
     padding-left(1),
     list-style-type(decimal),
+    margin-left(3rem),
     rule('& ol', margin-bottom(0)),
     common-text-block()
   );
 }
 
+//--- element-li
 @function element-li() {
   @return this(common-list-block());
 }
 
+//--- element-dl
 @function element-dl() {
   @return this(common-text-block());
 }
 
+//--- element-dt
 @function element-dt() {
   @return this(font-weight(800));
 }
 
+//--- element-dd
 @function element-dd() {
   @return this(common-list-block());
 }
+
+//---

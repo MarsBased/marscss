@@ -10,7 +10,6 @@ module.exports = merge(sharedConfig, {
   },
 
   plugins: [
-    new webpack.optimize.UglifyJsPlugin(),
     new CompressionPlugin({
       asset: '[path].gz[query]',
       algorithm: 'gzip',

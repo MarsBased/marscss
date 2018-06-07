@@ -1,12 +1,21 @@
 .sidebar-menu {
   $color-is-active: $gray-800;
   $color: $gray-600;
-  position: relative;
+  @extend %reset-list;
+  position: sticky;
+  top: 0;
+  max-height: 100vh;
+  overflow-y: auto;
+
+  a {
+    @extend %reset-link;
+    display: block;
+    padding: .5em;
+  }
 
   li {
     position: relative;
-    padding-left: .5em;
-    margin-bottom: .5em;
+    margin-bottom: 0;
     color: $color;
 
     > & a {
@@ -16,33 +25,73 @@
   }
 
   > li {
+    font-weight: 700;
     color: $color-is-active;
+    border-bottom: 1px solid $darkened;
+
+    a {
+      padding-right: 1em;
+      padding-left: 1em;
+    }
 
     &.is-active {
       font-weight: 700;
-    }
-  }
+      border-bottom-color: currentColor;
 
-  ul li {
-    padding-left: 1.5em;
-
-    &.is-active {
-      color: $color-is-active;
-
-      &::after {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        width: 2px;
-        content: '';
-        background-color: $primary;
+      a {
+        background-image: linear-gradient(rgba($black, 0), rgba($black, .1));
       }
     }
   }
 
-  a {
-    color: inherit;
-    text-decoration: none;
+  ul {
+    @extend %reset-list;
+
+    li {
+      padding-left: 1.5em;
+
+      &.is-active {
+        color: $color-is-active;
+
+        &::after {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          width: 2px;
+          content: '';
+          background-color: $primary;
+        }
+      }
+    }
+  }
+
+  button {
+    display: block;
+    width: 100%;
+    padding: .75em 1em;
+    line-height: 1.4;
+    text-align: inherit;
+    transition: opacity .3s ease-out;
+
+    &:first-of-type {
+      padding-top: 1.25em;
+    }
+
+    &:last-of-type {
+      padding-bottom: 1.25em;
+    }
+
+    &:hover {
+      background-color: $white;
+    }
+
+    &:focus {
+      outline: 0;
+    }
+
+    &:not(.is-active) {
+      opacity: .4;
+    }
   }
 }

@@ -1,14 +1,26 @@
 (function() {
   'use strict';
 
-  var $headings = $('*[data-anchors-menu] > :header').not('h1');
+  var $data = $('*[data-anchors-menu]');
 
-  $headings.each(function() {
-    let link = '#' + $(this).attr('id'),
-      title = $(this).html(),
-      cssClass = `anchor-${this.tagName.toLowerCase()}`;
+  if ($data.length) {
+    $data.each(function() {
+      var targetMenu = $data.data('target') || 'body',
+        classMenu = $data.data('class-menu') || 'anchors-menu',
+        anchors = $data.data('anchors-menu') || '> :header :not(h1)',
+        $elements = $data.find(anchors);
 
-    $('.documentation-anchors ul')
-      .append(`<li><a class="${cssClass}" href="${link}">${title}</a></li>`);
-  });
+      $(targetMenu).append('<ul class="' + classMenu + '"></ul>');
+
+      $elements.each(function() {
+        var link = '#' + $(this).attr('id'),
+          title = $(this).html(),
+          cssClass = 'anchor-' + this.tagName.toLowerCase();
+
+        $('.' + classMenu).append(
+          '<li><a class="' + cssClass + '" href="' + link + '">' + title + '</a></li>'
+        );
+      });
+    });
+  }
 })();
