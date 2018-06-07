@@ -1,16 +1,20 @@
 .sidebar-menu {
   $color-is-active: $gray-800;
   $color: $gray-600;
-  @extend %reset-list;
+  @extend %reset;
   position: sticky;
   top: 0;
   max-height: 100vh;
   overflow-y: auto;
 
   a {
-    @extend %reset-link;
     display: block;
     padding: .5em;
+    color: inherit;
+
+    &:hover, &focus {
+      color: $gray-800;
+    }
   }
 
   li {
@@ -48,20 +52,20 @@
     @extend %reset-list;
 
     li {
-      padding-left: 1.5em;
+      padding-left: 1rem;
 
       &.is-active {
         color: $color-is-active;
 
-        &::after {
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          left: 0;
-          width: 2px;
-          content: '';
-          background-color: $primary;
-        }
+        // &::after {
+        //   position: absolute;
+        //   top: 0;
+        //   bottom: 0;
+        //   left: 0;
+        //   width: 2px;
+        //   content: '';
+        //   background-color: $primary;
+        // }
       }
     }
   }

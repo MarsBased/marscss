@@ -1,5 +1,6 @@
 //--- extend
 @mixin extend() {
+  %reset { @include style(reset-all()); }
   %reset-heading { @include style(reset-heading()); }
   %reset-text-block { @include style(reset-text-block()); }
   %reset-button { @include style(reset-button()); }

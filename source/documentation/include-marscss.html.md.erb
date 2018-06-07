@@ -6,7 +6,7 @@ active: '@include marscss'
 
 # @include marscss
 
-This mixin is responsible for adding the simple initial configuration, it is very important that it is always loaded after our modifications in the core, since it is responsible for initializing <%= link_to 'extend', '/documentation/include-extend' %> that is used by other components, If it is not added as a false argument it will also add the <%= link_to 'reset', '/documentation/#resets' %>.
+This mixin is responsible for adding the simple initial configuration, it is very important that it is always loaded after our modifications in the core, since it is responsible for initializing <%= link_to 'extend', '/documentation/include-extend' %> that is used by other components, If it is not added as a false argument it will also add the <%= link_to 'reset', '/documentation/reset' %> and <%= link_to 'elements', '/documentation/elements' %>.
 
 
 
@@ -15,6 +15,7 @@ since
 
 arguments
 : `$reset: true` *(boolean)*: include reset
+: `$elements: true` *(boolean)*: include elements
 
 ~~~scss
 @include marscss;

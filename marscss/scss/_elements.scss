@@ -2,7 +2,6 @@
 @function elements() {
   @return style(
     rule('h1', extend('%h1')),
-    rule('h1', extend('%h1')),
     rule('h2', extend('%h2')),
     rule('h3', extend('%h3')),
     rule('h4', extend('%h4')),
@@ -153,7 +152,7 @@
 
 //--- element-li
 @function element-li() {
-  @return this(common-list-block());
+  @return this(common-list-block(),list-style-type(inherit));
 }
 
 //--- element-dl

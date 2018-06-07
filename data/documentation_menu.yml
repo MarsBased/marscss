@@ -7,6 +7,7 @@
   - name: '@include extend'
   - name: '@include grid'
   - name: 'elements()'
+  - name: 'reset()'
   - name: 'forms()'
   - name: 'helpers()'
   - name: 'working with maps'

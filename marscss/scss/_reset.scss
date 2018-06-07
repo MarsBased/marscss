@@ -1,138 +1,148 @@
 //--- reset
 @function reset() {
-  @return (
-    '*': reset-box-sizing(),
-    'html': reset-html(),
-    'body': reset-body(),
-    'input[type="checkbox"]': extend('%reset-checks'),
-    'input[type="radio"]': extend('%reset-checks'),
-    'button': extend('%reset-button'),
-    'a': extend('%reset-link'),
-    'h1.reset': extend('%reset-heading'),
-    'h2.reset': extend('%reset-heading'),
-    'h3.reset': extend('%reset-heading'),
-    'h4.reset': extend('%reset-heading'),
-    'h5.reset': extend('%reset-heading'),
-    'h6.reset': extend('%reset-heading'),
-    'p.reset': extend('%reset-text-block'),
-    'blockquote.reset': extend('%reset-text-block'),
-    'ul.reset': extend('%reset-list'),
-    'ol.reset': extend('%reset-list'),
-    'dl.reset': extend('%reset-list')
+  @return style(
+    rule('*', reset-box-sizing(), extend('%reset')),
+    (
+      'html': reset-html(),
+      'body': reset-body(),
+      'input[type="checkbox"]': extend('%reset-checks'),
+      'input[type="radio"]': extend('%reset-checks'),
+      'button': extend('%reset-button'),
+      '#{$reset}': extend('%reset'),
+      'a#{$reset}': extend('%reset-link'),
+      '#{$reset-all} *': extend('%reset'),
+      '#{$reset-all} button': extend('%reset-button'),
+      '#{$reset-all} a': extend('%reset-link'),
+      '#{$reset-all} h1': extend('%reset-heading'),
+      '#{$reset-all} h2': extend('%reset-heading'),
+      '#{$reset-all} h3': extend('%reset-heading'),
+      '#{$reset-all} h4': extend('%reset-heading'),
+      '#{$reset-all} h5': extend('%reset-heading'),
+      '#{$reset-all} h6': extend('%reset-heading'),
+      '#{$reset-all} p': extend('%reset-text-block'),
+      '#{$reset-all} blockquote': extend('%reset-text-block'),
+      '#{$reset-all} ul': extend('%reset-list'),
+      '#{$reset-all} ol': extend('%reset-list'),
+      '#{$reset-all} dl': extend('%reset-list'),
+      '#{$reset-all} dd': extend('%reset-list'),
+      '#{$reset-all} li': extend('%reset-list')
+    )
   );
 }
 
 //--- reset-box-sizing
 @function reset-box-sizing() {
-  @return (
-    (
-      '&,&::before,&::after': (
-        box-sizing: border-box
-      )
-    )
+  @return rule(
+    '&,&::before,&::after',
+    box-sizing(border-box)
+  );
+}
+
+//--- reset-all
+@function reset-all() {
+  @return this(
+    padding(0),
+    margin(0),
+    border(0),
+    font-size(inherit),
+    line-height(inherit),
+    font-weight(inherit),
+    color(inherit),
+    list-style(none),
+    text-decoration(none),
+    vertical-align(baseline)
   );
 }
 
 //--- reset-html
 @function reset-html() {
-  @return (
-    '&': (
-      height: 100%,
-      font-size: 62.5%, // Now 10px = 1rem!
-      -webkit-font-smoothing: antialiased,
-      -moz-osx-font-smoothing: grayscale,
-      text-shadow: rgba(0, 0, 0, .01) 0 0 1px
-    )
+  @return this(
+    height(100%),
+    font-size(62.5%),
+    (-webkit-font-smoothing: antialiased),
+    (-moz-osx-font-smoothing: grayscale),
+    text-shadow(rgba(0, 0, 0, .01) 0 0 1px)
   );
 }
 
 //--- reset-body
 @function reset-body() {
-  @return(
-    '&': (
-      min-width: 320px,
-      margin: 0,
-      font-family: $font-family,
-      font-size: $font-size,
-      font-weight: $font-weight,
-      line-height: $line-height,
-      color: $font-color
-    )
+  @return this(
+    min-width(320px),
+    font-family($font-family),
+    font-size($font-size),
+    font-weight($font-weight),
+    line-height($line-height),
+    color($font-color)
   );
 }
 
 //--- reset-link
 @function reset-link() {
-  @return style(
-    this(
+  @return this(
+    cursor(pointer),
+    color(inherit),
+    text-decoration(none),
+    rule(
+      '&:hover,&:focus,&:active',
+      text-decoration(none),
       color(inherit),
-      text-decoration(none)
+      outline(0)
     )
   );
 }
 
 //--- reset-button
 @function reset-button() {
-  @return(
-    '&': (
-      padding: 0,
-      margin: 0,
-      cursor: pointer,
-      font-size: inherit,
-      color: inherit,
-      background-color: transparent,
-      border: 0,
-      appearance: none,
-      line-height: inherit
-    ),
-    '&::hover,&::focus,&::active': (
-      text-decoration: none,
-      outline: 0
+  @return this(
+    padding(0),
+    margin(0),
+    cursor(pointer),
+    font-size(inherit),
+    color(inherit),
+    background-color(transparent),
+    border(0),
+    appearance(none),
+    line-height(inherit),
+    rule(
+      '&:hover,&:focus,&:active',
+      outline(0)
     )
   );
 }
 
 //--- reset-heading
 @function reset-heading() {
-  @return (
-    '&': (
-      margin-top: 0,
-      margin-bottom: 0,
-      font-size: inherit,
-      font-weight: $font-weight,
-      color: inherit
-    )
+  @return this(
+    margin-top(0),
+    margin-bottom(0),
+    font-size(inherit),
+    line-height(inherit),
+    font-weight(inherit),
+    color(inherit)
   );
 }
 
 //--- reset-text-block
 @function reset-text-block() {
-  @return (
-    '&': (
-      margin: 0
-    )
+  @return this(
+    margin(0)
   );
 }
 
 //--- reset-list
 @function reset-list() {
-  @return(
-    '&': (
-      padding: 0,
-      margin: 0,
-      list-style-type: none
-    )
+  @return this(
+    padding(0),
+    margin(0),
+    list-style-type(none)
   );
 }
 
 //--- reset-checks
 @function reset-checks() {
-  @return(
-    '&': (
-      margin: 4px 0,
-      vertical-align: middle,
-      cursor: pointer
-    )
+  @return this(
+    cursor(pointer)
   );
 }
 

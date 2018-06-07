@@ -1,5 +1,6 @@
 - name: reset
   type: builder
+- name: reset-all
 - name: reset-box-sizing
 - name: reset-html
 - name: reset-body

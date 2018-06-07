@@ -2,10 +2,6 @@
   color: $white;
   background-color: $black;
 
-  a {
-    @extend %reset-link;
-  }
-
   &__container {
     display: flex;
     flex-direction: row;
@@ -25,6 +21,7 @@
   &__logo {
     padding-right: $gutter;
     padding-left: $gutter;
+    @extend %reset-link;
 
     svg {
       display: block;
@@ -40,13 +37,14 @@
       width: 5rem + $gutter;
       height: 5rem;
       padding: $gutter/4 $gutter/2;
+      color: inherit;
       background-color: transparent;
       transition: background-color .3s ease-out;
 
       &:hover,
       &:focus {
-        background-color: rgba($white, .3);
         color: inherit;
+        background-color: rgba($white, .3);
       }
 
       &.is-active {

@@ -11,6 +11,7 @@
     helpers-fs(),
     helpers-pull(),
     helpers-ratio(),
+    helpers-reset(),
     helpers-text(),
     helpers-utilities()
   );
@@ -315,24 +316,23 @@
 //--- helpers-elements
 @function helpers-elements($prefix: $prefix-helper-elements) {
   @return style(
-    rule('#{$prefix}h1', extend('%h1')),
-    rule('#{$prefix}h2', extend('%h2')),
-    rule('#{$prefix}h3', extend('%h3')),
-    rule('#{$prefix}h4', extend('%h4')),
-    rule('#{$prefix}h5', extend('%h5')),
-    rule('#{$prefix}h6', extend('%h6')),
-    rule('#{$prefix}a', extend('%a')),
-    rule('#{$prefix}blockquote', extend('%blockquote')),
-    rule('#{$prefix}p', extend('%p')),
-    rule('#{$prefix}ul', extend('%ul')),
-    rule('#{$prefix}ol', extend('%ol')),
-    rule('#{$prefix}li', extend('%li')),
-    rule('#{$prefix}dl', extend('%dl')),
-    rule('#{$prefix}dt', extend('%dt')),
-    rule('#{$prefix}dd', extend('%dd'))
+    rule('#{$prefix-helper}#{$prefix}h1', extend('%h1')),
+    rule('#{$prefix-helper}#{$prefix}h2', extend('%h2')),
+    rule('#{$prefix-helper}#{$prefix}h3', extend('%h3')),
+    rule('#{$prefix-helper}#{$prefix}h4', extend('%h4')),
+    rule('#{$prefix-helper}#{$prefix}h5', extend('%h5')),
+    rule('#{$prefix-helper}#{$prefix}h6', extend('%h6')),
+    rule('#{$prefix-helper}#{$prefix}a', extend('%a')),
+    rule('#{$prefix-helper}#{$prefix}blockquote', extend('%blockquote')),
+    rule('#{$prefix-helper}#{$prefix}p', extend('%p')),
+    rule('#{$prefix-helper}#{$prefix}ul', extend('%ul')),
+    rule('#{$prefix-helper}#{$prefix}ol', extend('%ol')),
+    rule('#{$prefix-helper}#{$prefix}li', extend('%li')),
+    rule('#{$prefix-helper}#{$prefix}dl', extend('%dl')),
+    rule('#{$prefix-helper}#{$prefix}dt', extend('%dt')),
+    rule('#{$prefix-helper}#{$prefix}dd', extend('%dd'))
   );
 }
-
 
 //--- helpers-fs
 @function helpers-fs($prefix: $prefix-helper-fs) {
@@ -489,6 +489,16 @@
   @return this(
     extend('%ratio'),
     padding-top(100%)
+  );
+}
+
+//--- helpers-reset
+@function helpers-reset($prefix: $prefix-helper-reset) {
+  @return style(
+    rule('#{$prefix-helper}#{$prefix}-link', extend('%reset-link')),
+    rule('#{$prefix-helper}#{$prefix}-heading', extend('%reset-heading')),
+    rule('#{$prefix-helper}#{$prefix}-text-block', extend('%reset-text-block')),
+    rule('#{$prefix-helper}#{$prefix}-list', extend('%reset-list'))
   );
 }
 

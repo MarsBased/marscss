@@ -1,6 +1,10 @@
 // marscss config
 $mars-debug: false !default;
 
+//--- global variables
+$reset: '.reset';
+$reset-all: '.reset-all';
+
 //--- colors
 $white: #fff !default;
 $gray-100: #f8f9fa !default;
@@ -121,6 +125,7 @@ $prefix-helper-elements: '' !default;
 $prefix-helper-fs: 'fs' !default;
 $prefix-helper-pull: 'pull' !default;
 $prefix-helper-ratio: 'ratio' !default;
+$prefix-helper-reset: 'reset' !default;
 $prefix-helper-text: 'text' !default;
 $prefix-helper-utilities: '' !default;
 
