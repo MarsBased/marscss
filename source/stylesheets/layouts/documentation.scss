@@ -3,6 +3,13 @@
 //stylelint-disable max-nesting-depth
 //stylelint-disable selector-max-compound-selectors
 body.documentation {
+
+  hr {
+    margin-top: $gutter*2;
+    // margin-bottom: $gutter;
+    border-top: 2px solid $gray-400;
+  }
+
   .wrapper {
     display: flex;
   }
@@ -17,6 +24,7 @@ body.documentation {
       display: none;
     }
     color: $gray-600;
+
     .anchors-menu {
       position: sticky;
       top: 0;
@@ -33,12 +41,13 @@ body.documentation {
     }
 
     a {
-      color: inherit;
       display: block;
+      color: inherit;
 
       &:hover {
         color: $gray-800;
       }
+
       &::before {
         color: $gray-500;
         content: '';
@@ -74,15 +83,19 @@ body.documentation {
     flex: 1 1 auto;
     width: 500px;
     max-width: 100%;
-    padding: $gutter*2 $gutter;
+    padding: $gutter * 2 $gutter;
 
     > {
       $fix-menu: 6rem;
 
-      h1, h2, h3, h4 {
+      h1,
+      h2,
+      h3,
+      h4 {
         &:not(:first-child) {
           margin-top: 3em;
         }
+
         &::before {
           display: block;
           height: $fix-menu;
@@ -95,10 +108,12 @@ body.documentation {
 
     dt {
       @extend %dt;
+      margin-top: 1rem;
     }
 
     dd {
       margin-bottom: 0;
+
       code ~ em {
         @extend code;
         padding: 0;
@@ -132,3 +147,11 @@ body.documentation {
   }
 }
 
+body.include-marscss {
+  .documentation-content {
+    > h2 {
+      padding-bottom: .5em;
+      border-bottom: 1px solid;
+    }
+  }
+}

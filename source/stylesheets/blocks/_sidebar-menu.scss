@@ -2,6 +2,7 @@
   $color-is-active: $gray-800;
   $color: $gray-600;
   @extend %reset;
+  @extend %reset-all;
   position: sticky;
   top: 0;
   max-height: 100vh;
@@ -31,6 +32,7 @@
   > li {
     font-weight: 700;
     color: $color-is-active;
+    border-top: 1px solid $darkened;
     border-bottom: 1px solid $darkened;
 
     a {
@@ -40,7 +42,7 @@
 
     &.is-active {
       font-weight: 700;
-      border-bottom-color: currentColor;
+      border-color: currentColor;
 
       a {
         background-image: linear-gradient(rgba($black, 0), rgba($black, .1));
@@ -49,8 +51,6 @@
   }
 
   ul {
-    @extend %reset-list;
-
     li {
       padding-left: 1rem;
 

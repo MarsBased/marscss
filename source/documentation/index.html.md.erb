@@ -46,7 +46,7 @@ marscss was invented by Javier Artero and it's backed up by MarsBased, a leading
 
 Once introduced, this will not add a line to your processed CSS file, but you will have access to all the mixins and functions of the core.
 
-If you want to access the extends and the default reset of the html marckup you need to call marscss after the @import
+If you want to access the extends, elements and the default reset of the html marckup you need to call marscss after the @import
 
 ~~~scss
 @import 'node_modules/marscss/marscss';
@@ -54,23 +54,5 @@ If you want to access the extends and the default reset of the html marckup you 
 @include marscss;
 ~~~
 
-The way marscss works allows us to rewrite any part of its core since until we do the @include marscss we do not release any of its functions and mixins
-
-## Resets
-
-After many years working in CSS, we have realized that when we work with html elements from the css we restart most of their properties, this makes us waste time and generates a lot of unusable code.
-
-In the <%= link_to 'reset', '/documentation/reset' %> section you can see how it works and examples of how to use the reset within marcss
-
-<% example_tabs do %>
-<%= file_example_scss('example-reset.scss') %>
-<%= file_example_dist('exampleReset.css') %>
-<% end %>
-
-
-## Extend
-
-marscss includes a set of selectors to work directly from @extend, these are included from `@include marscss` but if you prefer you can use `@include extend`
-
-Some functions such as helpers or other builders use the extends to optimize the resulting code
+The way marscss works allows us to rewrite any part of its core since until we do the [@include marscss](include-marscss) we do not release any of its functions, mixins or extend
 

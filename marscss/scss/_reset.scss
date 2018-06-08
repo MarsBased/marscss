@@ -8,24 +8,9 @@
       'input[type="checkbox"]': extend('%reset-checks'),
       'input[type="radio"]': extend('%reset-checks'),
       'button': extend('%reset-button'),
-      '#{$reset}': extend('%reset'),
-      'a#{$reset}': extend('%reset-link'),
-      '#{$reset-all} *': extend('%reset'),
-      '#{$reset-all} button': extend('%reset-button'),
-      '#{$reset-all} a': extend('%reset-link'),
-      '#{$reset-all} h1': extend('%reset-heading'),
-      '#{$reset-all} h2': extend('%reset-heading'),
-      '#{$reset-all} h3': extend('%reset-heading'),
-      '#{$reset-all} h4': extend('%reset-heading'),
-      '#{$reset-all} h5': extend('%reset-heading'),
-      '#{$reset-all} h6': extend('%reset-heading'),
-      '#{$reset-all} p': extend('%reset-text-block'),
-      '#{$reset-all} blockquote': extend('%reset-text-block'),
-      '#{$reset-all} ul': extend('%reset-list'),
-      '#{$reset-all} ol': extend('%reset-list'),
-      '#{$reset-all} dl': extend('%reset-list'),
-      '#{$reset-all} dd': extend('%reset-list'),
-      '#{$reset-all} li': extend('%reset-list')
+      '#{$class-reset}': extend('%reset'),
+      'a#{$class-reset}': extend('%reset-link'),
+      '#{$class-reset-all} *': extend('%reset-all')
     )
   );
 }

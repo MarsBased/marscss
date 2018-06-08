@@ -1,9 +1,9 @@
 // marscss config
 $mars-debug: false !default;
 
-//--- global variables
-$reset: '.reset';
-$reset-all: '.reset-all';
+//--- reset
+$class-reset: '.reset';
+$class-reset-all: '.reset-all';
 
 //--- colors
 $white: #fff !default;
@@ -61,9 +61,8 @@ $colors: (
 //--- fonts
 $font-family: sans-serif !default;
 $font-family-code: 'Consolas', 'Courier New', monospace !default;
-
 $font-weight: 400 !default;
-$font-margin: 1rem !default;
+$line-height: 1.5 !default;
 
 $font-size: 1.6rem !default;
 $font-size-small: 1.44rem !default;
@@ -75,8 +74,6 @@ $font-size-h3: 2.13rem !default;
 $font-size-h4: 1.94rem !default;
 $font-size-h5: $font-size-large !default;
 $font-size-h6: $font-size !default;
-
-$line-height: 1.5 !default;
 
 //--- commons
 $border-radius: 3px !default;

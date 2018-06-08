@@ -21,14 +21,14 @@
 
 //--- common-heading
 @function common-heading() {
-  @return margin-bottom(1rem);
+  @return margin-bottom(1.5rem);
 }
 
 //--- common-text-block
 @function common-text-block() {
   @return style(
     margin-top(0),
-    margin-bottom($font-margin)
+    margin-bottom(1.5rem)
   );
 }
 

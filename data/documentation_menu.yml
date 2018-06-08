@@ -4,12 +4,9 @@
   - name: Getting started
     url: ''
   - name: '@include marscss'
-  - name: '@include extend'
   - name: '@include grid'
-  - name: 'elements()'
-  - name: 'reset()'
-  - name: 'forms()'
   - name: 'helpers()'
+  - name: 'forms()'
   - name: 'working with maps'
   - name: 'recipes'
 - name: 'Api'

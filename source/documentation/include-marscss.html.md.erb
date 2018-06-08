@@ -2,13 +2,14 @@
 title: '@include marscss'
 layout: documentation
 active: '@include marscss'
+anchors_menu: '> h1, > h2'
 ---
 
 # @include marscss
 
-This mixin is responsible for adding the simple initial configuration, it is very important that it is always loaded after our modifications in the core, since it is responsible for initializing <%= link_to 'extend', '/documentation/include-extend' %> that is used by other components, If it is not added as a false argument it will also add the <%= link_to 'reset', '/documentation/reset' %> and <%= link_to 'elements', '/documentation/elements' %>.
+This mixin is responsible for adding the simple initial configuration, it is very important that it is always loaded after our modifications in the core, since it is responsible for initializing [extend](#extend) that is used by other components.
 
-
+Also takes care if we do not specify the opposite of adding the [reset](#reset) and styles to the default tags with [elements](#elements)
 
 since
 : 1.0.0
@@ -20,3 +21,185 @@ arguments
 ~~~scss
 @include marscss;
 ~~~
+
+
+---------------------------------------------------
+
+
+## extend
+
+Add the main selectors starting with "%" to be used from `@extend` from your code or other parts of the application.
+
+The main advantage of working with these extends is that they do not send any content to our css until they are called and on the other hand they help us to reuse the selectors in a more compact way.
+
+since
+: 1.0.0
+
+dependencies
+: map reset()
+: map forms()
+: map elements()
+
+~~~scss
+@include extend
+~~~
+
+### Resets
+
+` %reset, %reset-link, %reset-heading, %reset-text-block, %reset-list, %reset-checks`
+
+### Grid
+
+`%grid-column, %container, %row`
+
+### Elements
+
+`%a, %h1, %h2, %h3, %h4, %h5, %h6, %blockquote, %p, %ul, %ol, %li, %dl, %dt, %dd`
+
+### forms
+
+`%focus, %%form-element, %form-checks, %label, %input, %textarea, %select, %radio, %checkbox`
+
+
+---------------------------------------------------
+
+## reset
+
+Add a reset to the html tags and add tools to control the reset of the element styles.
+
+marscss by default is designed to work with generic styles on the labels, the reset has 2 functions.
+
+1. Reset all browser styles.
+2. Tools that allow to cancel the default styles in the elements that interest us both in containers from [.reset-all](#example-with-reset-all) and directly in the tags with [.reset](#example-use-reset).
+
+since
+: 1.0.0
+
+~~~scss
+@include style(reset());
+~~~
+
+### Example without reset
+
+<% example_tabs do %>
+<% example_html do %>
+<h1>Heading H1</h1>
+<p>Ipsa quia quidem soluta aut <a href="#">link</a> illum eaque provident consequatur</p>
+<h2>Heading H2</h2>
+<ul>
+  <li>Rosalyn Jakubowski</li>
+  <li>Felicita Olson</li>
+  <li>Eliezer Hamill III</li>
+</ul>
+<% end %>
+<% end %>
+
+
+### Example with reset-all
+
+We have the possibility to add the class `.reset-all` to a container to reset the styles of `elements()`.
+
+You can edit the variable `$class-reset-all` if you want to change the name
+
+<% example_tabs do %>
+<% example_html do %>
+<div class="reset-all">
+  <h1>Heading H1</h1>
+  <p>Ipsa quia quidem soluta aut <a href="#">link</a> illum eaque provident consequatur</p>
+  <h2>Heading H2</h2>
+  <ul>
+    <li>Rosalyn Jakubowski</li>
+    <li>Felicita Olson</li>
+    <li>Eliezer Hamill III</li>
+  </ul>
+</div>
+<% end %>
+<% end %>
+
+
+### Example use .reset
+
+In marscss we attach the class `.reset` to clean the styles of the tags.
+
+If you want to modify the name you can rewrite the value of the `$class-reset` variable.
+
+<% example_tabs do %>
+<% example_html do %>
+  <h1 class="reset">Heading H1</h1>
+  <p>Ipsa quia quidem soluta aut <a class="reset" href="#">link</a> illum eaque provident consequatur</p>
+  <h2>Heading H2</h2>
+  <ul>
+    <li class="reset">Rosalyn Jakubowski</li>
+    <li>Felicita Olson</li>
+    <li>Eliezer Hamill III</li>
+  </ul>
+<% end %>
+<% end %>
+
+### You can use extend and customize your rules
+
+You can use the reset extends to directly clean the elements when creating the styles of the components.
+
+You can override the reset functions if you want to add or modify those rules, as long as we modify the core it is important that this modification is done before loading the builders
+
+
+---------------------------------------------------
+
+## elements
+
+Add styles for the main tags of the page, `elements()` if included if we did not specify otherwise from [@include marscss](#include-marscss), but if we wish we can include it directly, you can see an example of a complex configuration in recipes.
+
+since
+: 1.0.0
+
+~~~scss
+@include style(elements());
+~~~
+
+
+---------------------------------------------------
+
+
+## customize elements
+
+marscss is designed so that all its core can be modified, that's why everything is assigned through functions and that's why it is very important that no builder is added before finishing the modifications of the core.
+
+You have a group of variables that you can use to modify some of the properties.
+
+<%= code_snippet('fonts',
+                 "#{config.marscss_path}/core/_default-variables.scss") %>
+
+<%= code_snippet('reset',
+                 "#{config.marscss_path}/core/_default-variables.scss") %>
+
+### rewrite common-heading()
+
+As when working with any other part of the core it is enough to modify the functions before making the elements call or use any of the functions, there are 2 global functions that help us rewrite several elements at the same time `common-heading` `common-text-block` `common-list-block`.
+
+In the first example we are going to directly rewrite `common-heading`
+
+~~~scss
+@function common-heading() {
+  @return style(
+    margin-bottom(3rem),
+    margin-top(1rem)
+  );
+}
+~~~
+
+### rewrite element-h1()
+
+If we wanted to modify a function reusing its previous value we could do it in this way, in this example we are going to add the red color to the rules that have `element-h1`
+
+~~~scss
+$my-h1: style(
+  element-h1(),
+  this(color($red))
+);
+
+@function element-h1() {
+  @return $my-h1;
+}
+~~~
+
+In this way, we call [extend](#extend) later to this modification of the core the color of the `%h1` will be generated with our rule modification, that is why it is very important that the modifications of the core are grouped before the [@include marscss](#include-marscss) or [extend](#extend), as you can see in <%= link_to 'recipes', '/documentation/recipes#recipes' %>.

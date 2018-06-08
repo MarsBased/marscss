@@ -1,42 +1,153 @@
 //--- extend
 @mixin extend() {
-  %reset { @include style(reset-all()); }
-  %reset-heading { @include style(reset-heading()); }
-  %reset-text-block { @include style(reset-text-block()); }
-  %reset-button { @include style(reset-button()); }
-  %reset-list { @include style(reset-list()); }
-  %reset-checks { @include style(reset-checks()); }
-  %reset-link { @include style(reset-link()); }
+  %reset {
+    @include style(reset-all());
+  }
 
-  %grid-column { @include make-col-ready; }
-  %container { @include make-container; }
-  %row { @include make-row; }
+  %reset-all {
+    * {
+      @extend %reset;
+    }
 
-  %focus { @include style(focus()); }
+    a {
+      @extend %reset-link;
+    }
 
-  %form-element { @include style(form-element()); }
-  %form-checks { @include style(form-checks()); }
-  %label { @include style(form-label()); }
-  %input { @include style(form-input()); }
-  %textarea { @include style(form-textarea()); }
-  %select { @include style(form-select()); }
-  %radio { @include style(form-radio()); }
-  %checkbox { @include style(form-checkbox()); }
+    button {
+      @extend %reset-button;
+    }
+  }
 
-  %h1 { @include style(element-h1()); }
-  %h2 { @include style(element-h2()); }
-  %h3 { @include style(element-h3()); }
-  %h4 { @include style(element-h4()); }
-  %h5 { @include style(element-h5()); }
-  %h6 { @include style(element-h6()); }
-  %a { @include style(element-a()); }
-  %blockquote { @include style(element-blockquote()); }
-  %p { @include style(element-p()); }
-  %ul { @include style(element-ul()); }
-  %ol { @include style(element-ol()); }
-  %li { @include style(element-li()); }
-  %dl { @include style(element-dl()); }
-  %dt { @include style(element-dt()); }
-  %dd { @include style(element-dd()); }
+  %reset-heading {
+    @include style(reset-heading());
+  }
+
+  %reset-text-block {
+    @include style(reset-text-block());
+  }
+
+  %reset-button {
+    @include style(reset-button());
+  }
+
+  %reset-list {
+    @include style(reset-list());
+  }
+
+  %reset-checks {
+    @include style(reset-checks());
+  }
+
+  %reset-link {
+    @include style(reset-link());
+  }
+
+  %grid-column {
+    @include make-col-ready;
+  }
+
+  %container {
+    @include make-container;
+  }
+
+  %row {
+    @include make-row;
+  }
+
+  %focus {
+    @include style(focus());
+  }
+
+  %form-element {
+    @include style(form-element());
+  }
+
+  %form-checks {
+    @include style(form-checks());
+  }
+
+  %label {
+    @include style(form-label());
+  }
+
+  %input {
+    @include style(form-input());
+  }
+
+  %textarea {
+    @include style(form-textarea());
+  }
+
+  %select {
+    @include style(form-select());
+  }
+
+  %radio {
+    @include style(form-radio());
+  }
+
+  %checkbox {
+    @include style(form-checkbox());
+  }
+
+  %h1 {
+    @include style(element-h1());
+  }
+
+  %h2 {
+    @include style(element-h2());
+  }
+
+  %h3 {
+    @include style(element-h3());
+  }
+
+  %h4 {
+    @include style(element-h4());
+  }
+
+  %h5 {
+    @include style(element-h5());
+  }
+
+  %h6 {
+    @include style(element-h6());
+  }
+
+  %a {
+    @include style(element-a());
+  }
+
+  %blockquote {
+    @include style(element-blockquote());
+  }
+
+  %p {
+    @include style(element-p());
+  }
+
+  %ul {
+    @include style(element-ul());
+  }
+
+  %ol {
+    @include style(element-ol());
+  }
+
+  %li {
+    @include style(element-li());
+  }
+
+  %dl {
+    @include style(element-dl());
+  }
+
+  %dt {
+    @include style(element-dt());
+  }
+
+  %dd {
+    @include style(element-dd());
+  }
 }
 //---
