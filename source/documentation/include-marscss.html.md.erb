@@ -46,7 +46,7 @@ dependencies
 
 ### Resets
 
-` %reset, %reset-link, %reset-heading, %reset-text-block, %reset-list, %reset-checks`
+`%reset, %reset-all, %reset-link, %reset-heading, %reset-text-block, %reset-list, %reset-checks`
 
 ### Grid
 
@@ -148,7 +148,7 @@ You can override the reset functions if you want to add or modify those rules, a
 
 ## elements
 
-Add styles for the main tags of the page, `elements()` if included if we did not specify otherwise from [@include marscss](#include-marscss), but if we wish we can include it directly, you can see an example of a complex configuration in recipes.
+Add styles for the main tags of the page, `elements()` if included if we did not specify otherwise from [@include marscss](#include-marscss), but if we wish we can include it directly, you can see an example of a complex configuration in <%= link_to 'recipes', '/documentation/recipes#recipes' %>.
 
 since
 : 1.0.0
@@ -157,6 +157,15 @@ since
 @include style(elements());
 ~~~
 
+### Html tags
+
+`h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `a`, `blockquote`, `p`, `ul`, `ol`, `li`, `dl`, `dt`, `dd`
+
+If you want to see what selectors a builder is acting on, you can do it using the function map-keys($map)
+
+~~~scss
+@debug map-keys(elements());
+~~~
 
 ---------------------------------------------------
 
