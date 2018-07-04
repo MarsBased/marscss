@@ -10,16 +10,10 @@ require 'yaml'
 
 # build all documentation
 apiData = []
-apiData += YAML::load(File.open('data/api/api_elements.yml')).each {|e| e['file'] ||= '_elements.scss'}
-apiData += YAML::load(File.open('data/api/api_extend.yml')).each {|e| e['file'] ||= '_extend.scss'}
-apiData += YAML::load(File.open('data/api/api_forms.yml')).each {|e| e['file'] ||= '_forms.scss'}
-apiData += YAML::load(File.open('data/api/api_grid.yml')).each {|e| e['file'] ||= '_grid.scss'}
-apiData += YAML::load(File.open('data/api/api_helpers.yml')).each {|e| e['file'] ||= '_helpers.scss'}
-apiData += YAML::load(File.open('data/api/api_icons.yml')).each {|e| e['file'] ||= '_icons.scss'}
-apiData += YAML::load(File.open('data/api/api_init.yml')).each {|e| e['file'] ||= '_init.scss'}
-apiData += YAML::load(File.open('data/api/api_reset.yml')).each {|e| e['file'] = '_reset.scss'}
-apiData += YAML::load(File.open('data/api/api_properties.yml')).each {|e| e['file'] = 'core/_properties.scss'}
-apiData += YAML::load(File.open('data/api/api_utilities.yml')).each {|e| e['file'] = '_utilities.scss'}
+
+data.api.api.each do |item|
+  apiData += YAML::load(File.open(item.yml)).each {|e| e['file'] = item.file}
+end
 
 varsData = File
   .open("#{config.marscss_path}/core/_default-variables.scss",'rb')
@@ -30,8 +24,7 @@ varsData = File
 
 apiData += varsData
 
-apiData.each {|e| e['type'] ||= 'rule' }
-
+apiData.each {|e| e['type'] ||= 'block' }
 %>
 
 <div class="wrapper">

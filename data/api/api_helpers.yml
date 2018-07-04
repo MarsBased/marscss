@@ -18,7 +18,8 @@
 - name: helper-border-right
 - name: helper-border-bottom
 - name: helper-border-left
-- name: helper-border-colors
+- name: helpers-border-colors
+  type: builder
 - name: helpers-colors
   type: builder
 - name: helpers-columns
@@ -72,5 +73,5 @@
 - name: helpers-utilities
   type: builder
 - name: helper-utilities-last-margin-0
+  type: builder
 - name: helper-utilities-sr-only
-

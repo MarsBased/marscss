@@ -1,47 +1,53 @@
 //--- reset
 @function reset() {
   @return style(
-    rule('*', reset-box-sizing(), extend('%reset')),
-    (
-      'html': reset-html(),
-      'body': reset-body(),
-      'input[type="checkbox"]': extend('%reset-checks'),
-      'input[type="radio"]': extend('%reset-checks'),
-      'button': extend('%reset-button'),
-      '#{$class-reset}': extend('%reset'),
-      'a#{$class-reset}': extend('%reset-link'),
-      '#{$class-reset-all} *': extend('%reset-all')
-    )
+    rule('*,*::before,*::after', common-reset(), reset-box-sizing()),
+    rule('h1,h2,h3,h4,h5,h6,a', extend('%reset')),
+    rule('html', reset-html()),
+    rule('body', reset-body()),
+    rule('input[type="checkbox"]', extend('%reset-checks')),
+    rule('input[type="radio"]', extend('%reset-checks')),
+    rule('button', extend('%reset-button')),
+    rule('#{$reset-selector}', extend('%reset')),
+    rule('a#{$reset-selector}', extend('%reset')),
+    rule('#{$reset-all-selector}', extend('%reset-all'))
   );
 }
 
-//--- reset-box-sizing
-@function reset-box-sizing() {
-  @return rule(
-    '&,&::before,&::after',
-    box-sizing(border-box)
-  );
-}
-
-//--- reset-all
-@function reset-all() {
-  @return this(
+//--- common-reset
+@function common-reset() {
+  @return style(
     padding(0),
     margin(0),
     border(0),
-    font-size(inherit),
-    line-height(inherit),
-    font-weight(inherit),
-    color(inherit),
-    list-style(none),
     text-decoration(none),
     vertical-align(baseline)
   );
 }
 
+//--- reset-box-sizing
+@function reset-box-sizing() {
+  @return style(
+    box-sizing('inherit')
+  );
+}
+
+//--- reset-all
+@function reset-all() {
+  @return style(
+    common-reset(),
+    font-size(inherit),
+    line-height(inherit),
+    font-weight(inherit),
+    color(inherit),
+    list-style(none),
+  );
+}
+
 //--- reset-html
 @function reset-html() {
-  @return this(
+  @return style(
+    box-sizing(border-box),
     height(100%),
     font-size(62.5%),
     (-webkit-font-smoothing: antialiased),
@@ -52,7 +58,7 @@
 
 //--- reset-body
 @function reset-body() {
-  @return this(
+  @return style(
     min-width(320px),
     font-family($font-family),
     font-size($font-size),
@@ -64,7 +70,7 @@
 
 //--- reset-link
 @function reset-link() {
-  @return this(
+  @return style(
     cursor(pointer),
     color(inherit),
     text-decoration(none),
@@ -79,16 +85,16 @@
 
 //--- reset-button
 @function reset-button() {
-  @return this(
+  @return style(
     padding(0),
     margin(0),
-    cursor(pointer),
-    font-size(inherit),
-    color(inherit),
-    background-color(transparent),
+    cursor('pointer'),
+    font-size('inherit'),
+    color('inherit'),
+    background-color('transparent'),
     border(0),
-    appearance(none),
-    line-height(inherit),
+    appearance('none'),
+    line-height('inherit'),
     rule(
       '&:hover,&:focus,&:active',
       outline(0)
@@ -98,36 +104,36 @@
 
 //--- reset-heading
 @function reset-heading() {
-  @return this(
-    margin-top(0),
-    margin-bottom(0),
-    font-size(inherit),
-    line-height(inherit),
-    font-weight(inherit),
-    color(inherit)
+  @return style(
+    margin(0),
+    padding(0),
+    font-size('inherit'),
+    line-height('inherit'),
+    font-weight('inherit'),
+    color('inherit')
   );
 }
 
 //--- reset-text-block
 @function reset-text-block() {
-  @return this(
+  @return style(
     margin(0)
   );
 }
 
 //--- reset-list
 @function reset-list() {
-  @return this(
+  @return style(
     padding(0),
     margin(0),
-    list-style-type(none)
+    list-style-type('none')
   );
 }
 
 //--- reset-checks
 @function reset-checks() {
-  @return this(
-    cursor(pointer)
+  @return style(
+    cursor('pointer')
   );
 }
 

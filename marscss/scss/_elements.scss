@@ -39,7 +39,7 @@
 
 //--- element-a
 @function element-a() {
-  @return this(
+  @return style(
     color($link-color),
     transition('color .3s ease-out'),
     rule(
@@ -51,7 +51,7 @@
 
 //--- element-h1
 @function element-h1() {
-  @return this(
+  @return style(
     font-size($font-size-h1),
     font-weight(700),
     line-height(1),
@@ -61,7 +61,7 @@
 
 //--- element-h2
 @function element-h2() {
-  @return this(
+  @return style(
     font-size($font-size-h2),
     font-weight(700),
     line-height(1),
@@ -71,7 +71,7 @@
 
 //--- element-h3
 @function element-h3() {
-  @return this(
+  @return style(
     font-size($font-size-h3),
     font-weight(800),
     line-height(1.2),
@@ -81,7 +81,7 @@
 
 //--- element-h4
 @function element-h4() {
-  @return this(
+  @return style(
     font-size($font-size-h4),
     font-weight(800),
     line-height(1),
@@ -91,7 +91,7 @@
 
 //--- element-h5
 @function element-h5() {
-  @return this(
+  @return style(
     font-size($font-size-h5),
     font-weight(800),
     line-height(1),
@@ -101,7 +101,7 @@
 
 //--- element-h6
 @function element-h6() {
-  @return this(
+  @return style(
     font-size($font-size-h6),
     font-weight(800),
     line-height(1),
@@ -111,12 +111,12 @@
 
 //--- element-p
 @function element-p() {
-  @return this(common-text-block());
+  @return style(common-text-block());
 }
 
 //--- element-blockquote
 @function element-blockquote() {
-  @return this(
+  @return style(
     max-width(600px),
     padding-left(1em),
     margin-top(0),
@@ -130,7 +130,7 @@
 
 //--- element-ul
 @function element-ul() {
-  @return this(
+  @return style(
     padding-left(1),
     list-style-type(disc),
     margin-left(3rem),
@@ -141,7 +141,7 @@
 
 //--- element-ol
 @function element-ol() {
-  @return this(
+  @return style(
     padding-left(1),
     list-style-type(decimal),
     margin-left(3rem),
@@ -152,22 +152,22 @@
 
 //--- element-li
 @function element-li() {
-  @return this(common-list-block(),list-style-type(inherit));
+  @return style(common-list-block(),list-style-type(inherit));
 }
 
 //--- element-dl
 @function element-dl() {
-  @return this(common-text-block());
+  @return style(common-text-block());
 }
 
 //--- element-dt
 @function element-dt() {
-  @return this(font-weight(800));
+  @return style(font-weight(800));
 }
 
 //--- element-dd
 @function element-dd() {
-  @return this(common-list-block());
+  @return style(common-list-block());
 }
 
 //---

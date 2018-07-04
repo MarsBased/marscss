@@ -94,10 +94,6 @@
   type: property
 - name: box-sizing
   type: property
-- name: calc-spacing
-  type: property
-- name: calc-color
-  type: property
 - name: caption-side
   type: property
 - name: clear

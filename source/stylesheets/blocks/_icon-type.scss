@@ -34,8 +34,8 @@
     @include icon-type('B', $red);
   }
 
-  &-rule {
-    @include icon-type('R');
+  &-block {
+    @include icon-type('{}');
   }
 
   &-common {

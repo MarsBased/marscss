@@ -1,7 +1,7 @@
 - name: builder
 - name: variable
 - name: common
-- name: rule
+- name: block
 - name: composed
 - name: modifier
 - name: selector

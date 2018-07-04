@@ -1,5 +1,5 @@
 //stylelint-disable
-@mixin map-print($styles) {
+@mixin map-print-test($styles) {
   @each $key, $value in $styles {
     @if (type-of($value) == map) {
       @if type-of($key) == string {

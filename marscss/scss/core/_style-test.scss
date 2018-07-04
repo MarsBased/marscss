@@ -1,16 +1,19 @@
 $marscss-global-styles: false !default;
 
-@mixin style($args...) {
-  $styles: style($args...);
+@mixin style-test($args...) {
+  @debug 'test';
+  $styles: style-test($args...);
 
   @if $marscss-global-styles {
     $marscss-global-styles: map-merge-recursive($marscss-global-styles, $styles) !global;
   }
 
-  @include map-print($styles);
+  @debug $styles;
+
+  @include map-print-test($styles);
 }
 
-@function style($args...) {
+@function style-test($args...) {
   $k: keywords($args);
   // $selector: if(map-get($k, 'selector'), map-get($k, 'selector'), false);
   $styles: ('': false);

@@ -2,8 +2,8 @@
 $mars-debug: false !default;
 
 //--- reset
-$class-reset: '.reset';
-$class-reset-all: '.reset-all';
+$reset-selector: '.reset';
+$reset-all-selector: '.reset-all';
 
 //--- colors
 $white: #fff !default;

@@ -1,0 +1,1511 @@
+
+@function test-type-of() {
+  @return (
+    (
+     'name': 'elements',
+     'function': elements(),
+     'type': 'builder',
+     'args': 'false'),
+    (
+     'name': 'common-heading',
+     'function': common-heading(),
+     'type': 'common',
+     'args': 'false'),
+    (
+     'name': 'common-text-block',
+     'function': common-text-block(),
+     'type': 'common',
+     'args': 'false'),
+    (
+     'name': 'common-list-block',
+     'function': common-list-block(),
+     'type': 'common',
+     'args': 'false'),
+    (
+     'name': 'element-a',
+     'function': element-a(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'element-h1',
+     'function': element-h1(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'element-h2',
+     'function': element-h2(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'element-h3',
+     'function': element-h3(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'element-h4',
+     'function': element-h4(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'element-h5',
+     'function': element-h5(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'element-h6',
+     'function': element-h6(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'element-p',
+     'function': element-p(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'element-blockquote',
+     'function': element-blockquote(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'element-ul',
+     'function': element-ul(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'element-ol',
+     'function': element-ol(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'element-li',
+     'function': element-li(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'element-dl',
+     'function': element-dl(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'element-dt',
+     'function': element-dt(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'element-dd',
+     'function': element-dd(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'forms',
+     'function': forms(),
+     'type': 'builder',
+     'args': 'false'),
+    (
+     'name': 'form-element',
+     'function': form-element(),
+     'type': 'composed',
+     'args': 'false'),
+    (
+     'name': 'form-element--root',
+     'function': form-element--root(),
+     'type': 'modifier',
+     'args': 'false'),
+    (
+     'name': 'form-element--is-focus',
+     'function': form-element--is-focus(),
+     'type': 'modifier',
+     'args': 'false'),
+    (
+     'name': 'form-element--is-placeholder',
+     'function': form-element--is-placeholder(),
+     'type': 'modifier',
+     'args': 'false'),
+    (
+     'name': 'form-element--is-disabled',
+     'function': form-element--is-disabled(),
+     'type': 'modifier',
+     'args': 'false'),
+    (
+     'name': 'form-checks',
+     'function': form-checks(),
+     'type': 'composed',
+     'args': 'false'),
+    (
+     'name': 'form-checks--root',
+     'function': form-checks--root(),
+     'type': 'modifier',
+     'args': 'false'),
+    (
+     'name': 'form-checks--is-disabled',
+     'function': form-checks--is-disabled(),
+     'type': 'modifier',
+     'args': 'false'),
+    (
+     'name': 'form-checkbox',
+     'function': form-checkbox(),
+     'type': 'composed',
+     'args': 'false'),
+    (
+     'name': 'form-checkbox--root',
+     'function': form-checkbox--root(),
+     'type': 'modifier',
+     'args': 'false'),
+    (
+     'name': 'form-checkbox--after-checkbox',
+     'function': form-checkbox--after-checkbox(),
+     'type': 'modifier',
+     'args': 'false'),
+    (
+     'name': 'form-label',
+     'function': form-label(),
+     'type': 'composed',
+     'args': 'false'),
+    (
+     'name': 'form-label--root',
+     'function': form-label--root(),
+     'type': 'modifier',
+     'args': 'false'),
+    (
+     'name': 'form-label--required',
+     'function': form-label--required(),
+     'type': 'modifier',
+     'args': 'false'),
+    (
+     'name': 'form-label--hover',
+     'function': form-label--hover(),
+     'type': 'modifier',
+     'args': 'false'),
+    (
+     'name': 'form-input',
+     'function': form-input(),
+     'type': 'composed',
+     'args': 'false'),
+    (
+     'name': 'form-input--root',
+     'function': form-input--root(),
+     'type': 'modifier',
+     'args': 'false'),
+    (
+     'name': 'form-input--required',
+     'function': form-input--required(),
+     'type': 'modifier',
+     'args': 'false'),
+    (
+     'name': 'form-radio',
+     'function': form-radio(),
+     'type': 'composed',
+     'args': 'false'),
+    (
+     'name': 'form-radio--root',
+     'function': form-radio--root(),
+     'type': 'modifier',
+     'args': 'false'),
+    (
+     'name': 'form-radio--after-radio',
+     'function': form-radio--after-radio(),
+     'type': 'modifier',
+     'args': 'false'),
+    (
+     'name': 'form-textarea',
+     'function': form-textarea(),
+     'type': 'composed',
+     'args': 'false'),
+    (
+     'name': 'form-textarea--root',
+     'function': form-textarea--root(),
+     'type': 'modifier',
+     'args': 'false'),
+    (
+     'name': 'form-textarea--no-resize',
+     'function': form-textarea--no-resize(),
+     'type': 'modifier',
+     'args': 'false'),
+    (
+     'name': 'form-select',
+     'function': form-select(),
+     'type': 'composed',
+     'args': 'false'),
+    (
+     'name': 'form-select--root',
+     'function': form-select--root(),
+     'type': 'modifier',
+     'args': 'false'),
+    (
+     'name': 'form-select--invalid',
+     'function': form-select--invalid(),
+     'type': 'modifier',
+     'args': 'false'),
+    (
+     'name': 'form-select--reset',
+     'function': form-select--reset(),
+     'type': 'modifier',
+     'args': 'false'),
+    (
+     'name': 'helpers',
+     'function': helpers(),
+     'type': 'builder',
+     'args': 'false'),
+    (
+     'name': 'helpers-align',
+     'function': helpers-align(),
+     'type': 'builder',
+     'args': 'false'),
+    (
+     'name': 'helper-align-baseline',
+     'function': helper-align-baseline(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helper-align-top',
+     'function': helper-align-top(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helper-align-middle',
+     'function': helper-align-middle(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helper-align-bottom',
+     'function': helper-align-bottom(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helper-align-text-bottom',
+     'function': helper-align-text-bottom(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helper-align-text-top',
+     'function': helper-align-text-top(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helpers-bg',
+     'function': helpers-bg(),
+     'type': 'builder',
+     'args': 'false'),
+    (
+     'name': 'helpers-border',
+     'function': helpers-border(),
+     'type': 'builder',
+     'args': 'false'),
+    (
+     'name': 'helper-border',
+     'function': helper-border(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helper-border-0',
+     'function': helper-border-0(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helper-border-top',
+     'function': helper-border-top(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helper-border-right',
+     'function': helper-border-right(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helper-border-bottom',
+     'function': helper-border-bottom(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helper-border-left',
+     'function': helper-border-left(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helpers-border-colors',
+     'function': helpers-border-colors(),
+     'type': 'builder',
+     'args': 'false'),
+    (
+     'name': 'helpers-colors',
+     'function': helpers-colors(),
+     'type': 'builder',
+     'args': 'false'),
+    (
+     'name': 'helpers-columns',
+     'function': helpers-columns(),
+     'type': 'builder',
+     'args': 'false'),
+    (
+     'name': 'helpers-display',
+     'function': helpers-display(),
+     'type': 'builder',
+     'args': 'false'),
+    (
+     'name': 'helper-display-block',
+     'function': helper-display-block(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helper-display-flex',
+     'function': helper-display-flex(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helper-display-inline',
+     'function': helper-display-inline(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helper-display-inline-block',
+     'function': helper-display-inline-block(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helper-display-inline-flex',
+     'function': helper-display-inline-flex(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helper-display-none',
+     'function': helper-display-none(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helper-display-table',
+     'function': helper-display-table(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helper-display-table-cell',
+     'function': helper-display-table-cell(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helpers-elements',
+     'function': helpers-elements(),
+     'type': 'builder',
+     'args': 'false'),
+    (
+     'name': 'helpers-fs',
+     'function': helpers-fs(),
+     'type': 'builder',
+     'args': 'false'),
+    (
+     'name': 'helper-fs-hero',
+     'function': helper-fs-hero(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helper-fs-h1',
+     'function': helper-fs-h1(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helper-fs-h2',
+     'function': helper-fs-h2(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helper-fs-h3',
+     'function': helper-fs-h3(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helper-fs-h4',
+     'function': helper-fs-h4(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helper-fs-h5',
+     'function': helper-fs-h5(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helper-fs-h6',
+     'function': helper-fs-h6(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helper-fs-large',
+     'function': helper-fs-large(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helper-fs-small',
+     'function': helper-fs-small(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helpers-pull',
+     'function': helpers-pull(),
+     'type': 'builder',
+     'args': 'false'),
+    (
+     'name': 'helper-pull-clear',
+     'function': helper-pull-clear(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helper-pull-right',
+     'function': helper-pull-right(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helper-pull-left',
+     'function': helper-pull-left(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helpers-ratio',
+     'function': helpers-ratio(),
+     'type': 'builder',
+     'args': 'false'),
+    (
+     'name': 'helper-ratio-16-9',
+     'function': helper-ratio-16-9(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helper-ratio-4-3',
+     'function': helper-ratio-4-3(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helper-ratio-1-1',
+     'function': helper-ratio-1-1(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helpers-reset',
+     'function': helpers-reset(),
+     'type': 'builder',
+     'args': 'false'),
+    (
+     'name': 'helpers-text',
+     'function': helpers-text(),
+     'type': 'builder',
+     'args': 'false'),
+    (
+     'name': 'helper-text-center',
+     'function': helper-text-center(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helper-text-left',
+     'function': helper-text-left(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helper-text-right',
+     'function': helper-text-right(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helper-text-capitalize',
+     'function': helper-text-capitalize(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helper-text-hide',
+     'function': helper-text-hide(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helper-text-lowercase',
+     'function': helper-text-lowercase(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helper-text-uppercase',
+     'function': helper-text-uppercase(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helper-text-nowrapp',
+     'function': helper-text-nowrapp(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helper-text-truncate',
+     'function': helper-text-truncate(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'helpers-utilities',
+     'function': helpers-utilities(),
+     'type': 'builder',
+     'args': 'false'),
+    (
+     'name': 'helper-utilities-last-margin-0',
+     'function': helper-utilities-last-margin-0(),
+     'type': 'builder',
+     'args': 'false'),
+    (
+     'name': 'helper-utilities-sr-only',
+     'function': helper-utilities-sr-only(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'icon-required',
+     'function': icon-required(),
+     'type': 'value',
+     'args': 'false'),
+    (
+     'name': 'icon-caret-down',
+     'function': icon-caret-down(),
+     'type': 'value',
+     'args': 'false'),
+    (
+     'name': 'icon-search',
+     'function': icon-search(),
+     'type': 'value',
+     'args': 'false'),
+    (
+     'name': 'reset',
+     'function': reset(),
+     'type': 'builder',
+     'args': 'false'),
+    (
+     'name': 'common-reset',
+     'function': common-reset(),
+     'type': 'common',
+     'args': 'false'),
+    (
+     'name': 'reset-all',
+     'function': reset-all(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'reset-box-sizing',
+     'function': reset-box-sizing(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'reset-html',
+     'function': reset-html(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'reset-body',
+     'function': reset-body(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'reset-link',
+     'function': reset-link(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'reset-button',
+     'function': reset-button(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'reset-heading',
+     'function': reset-heading(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'reset-text-block',
+     'function': reset-text-block(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'reset-list',
+     'function': reset-list(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'reset-checks',
+     'function': reset-checks(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'focus',
+     'function': focus(),
+     'type': 'block',
+     'args': 'false'),
+    (
+     'name': 'calc-spacing',
+     'function': calc-spacing(0),
+     'type': 'values',
+     'args': '0'),
+    (
+     'name': 'calc-color',
+     'function': calc-color(0),
+     'type': 'values',
+     'args': '0'),
+    (
+     'name': 'appearance',
+     'function': appearance(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'background',
+     'function': background(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'background-attachment',
+     'function': background-attachment(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'background-color',
+     'function': background-color(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'background-image',
+     'function': background-image(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'background-position',
+     'function': background-position(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'background-repeat',
+     'function': background-repeat(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'border',
+     'function': border(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'border-bottom',
+     'function': border-bottom(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'border-bottom-color',
+     'function': border-bottom-color(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'border-bottom-style',
+     'function': border-bottom-style(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'border-bottom-width',
+     'function': border-bottom-width(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'border-color',
+     'function': border-color(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'border-image',
+     'function': border-image(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'border-collapse',
+     'function': border-collapse(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'border-image-source',
+     'function': border-image-source(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'border-image-outset',
+     'function': border-image-outset(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'border-image-repeat',
+     'function': border-image-repeat(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'border-image-slice',
+     'function': border-image-slice(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'border-image-source',
+     'function': border-image-source(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'border-image-width',
+     'function': border-image-width(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'border-left',
+     'function': border-left(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'border-left-color',
+     'function': border-left-color(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'border-left-style',
+     'function': border-left-style(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'border-left-width',
+     'function': border-left-width(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'border-radius',
+     'function': border-radius(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'border-radius-bottom',
+     'function': border-radius-bottom(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'border-radius-top',
+     'function': border-radius-top(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'border-right',
+     'function': border-right(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'border-right-color',
+     'function': border-right-color(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'border-right-style',
+     'function': border-right-style(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'border-right-width',
+     'function': border-right-width(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'border-spacing',
+     'function': border-spacing(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'border-style',
+     'function': border-style(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'border-top',
+     'function': border-top(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'border-top-color',
+     'function': border-top-color(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'border-top-style',
+     'function': border-top-style(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'border-top-width',
+     'function': border-top-width(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'border-width',
+     'function': border-width(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'background-attachment',
+     'function': background-attachment(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'background-color',
+     'function': background-color(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'background-image',
+     'function': background-image(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'background-position',
+     'function': background-position(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'background-repeat',
+     'function': background-repeat(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'bottom',
+     'function': bottom(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'box-decoration-break',
+     'function': box-decoration-break(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'box-shadow',
+     'function': box-shadow(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'box-sizing',
+     'function': box-sizing(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'caption-side',
+     'function': caption-side(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'clear',
+     'function': clear(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'color',
+     'function': color(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'column-count',
+     'function': column-count(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'column-fill',
+     'function': column-fill(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'column-rule',
+     'function': column-rule(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'column-rule-color',
+     'function': column-rule-color(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'column-rule-style',
+     'function': column-rule-style(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'column-rule-width',
+     'function': column-rule-width(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'column-gap',
+     'function': column-gap(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'column-span',
+     'function': column-span(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'column-width',
+     'function': column-width(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'columns',
+     'function': columns(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'content',
+     'function': content(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'counter-increment',
+     'function': counter-increment(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'counter-reset',
+     'function': counter-reset(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'cursor',
+     'function': cursor(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'direction',
+     'function': direction(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'display',
+     'function': display(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'empty-cells',
+     'function': empty-cells(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'extend',
+     'function': extend(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'filter',
+     'function': filter(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'flex',
+     'function': flex(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'flex-basis',
+     'function': flex-basis(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'flex-direction',
+     'function': flex-direction(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'flex-flow',
+     'function': flex-flow(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'flex-grow',
+     'function': flex-grow(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'flex-shrink',
+     'function': flex-shrink(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'flex-wrap',
+     'function': flex-wrap(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'float',
+     'function': float(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'font',
+     'function': font(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'font-family',
+     'function': font-family(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'font-kerning',
+     'function': font-kerning(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'font-size',
+     'function': font-size(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'font-size-adjust',
+     'function': font-size-adjust(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'font-stretch',
+     'function': font-stretch(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'font-style',
+     'function': font-style(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'font-variant',
+     'function': font-variant(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'font-weight',
+     'function': font-weight(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'hanging-punctuation',
+     'function': hanging-punctuation(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'height',
+     'function': height(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'justify-content',
+     'function': justify-content(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'left',
+     'function': left(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'letter-spacing',
+     'function': letter-spacing(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'line-height',
+     'function': line-height(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'list-style',
+     'function': list-style(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'list-style-image',
+     'function': list-style-image(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'list-style-position',
+     'function': list-style-position(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'list-style-type',
+     'function': list-style-type(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'list-style-type',
+     'function': list-style-type(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'margin',
+     'function': margin(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'margin-top',
+     'function': margin-top(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'margin-bottom',
+     'function': margin-bottom(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'margin-left',
+     'function': margin-left(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'margin-right',
+     'function': margin-right(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'margin-x',
+     'function': margin-x(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'margin-y',
+     'function': margin-y(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'margin',
+     'function': margin(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'max-height',
+     'function': max-height(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'max-width',
+     'function': max-width(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'min-height',
+     'function': min-height(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'min-width',
+     'function': min-width(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'object-fit',
+     'function': object-fit(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'opacity',
+     'function': opacity(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'order',
+     'function': order(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'outline',
+     'function': outline(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'outline-color',
+     'function': outline-color(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'outline-offset',
+     'function': outline-offset(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'outline-style',
+     'function': outline-style(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'outline-width',
+     'function': outline-width(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'overflow',
+     'function': overflow(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'overflow-x',
+     'function': overflow-x(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'overflow-y',
+     'function': overflow-y(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'padding',
+     'function': padding(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'padding-top',
+     'function': padding-top(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'padding-bottom',
+     'function': padding-bottom(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'padding-left',
+     'function': padding-left(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'padding-right',
+     'function': padding-right(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'padding-x',
+     'function': padding-x(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'padding-y',
+     'function': padding-y(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'padding',
+     'function': padding(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'page-break-after',
+     'function': page-break-after(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'page-break-before',
+     'function': page-break-before(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'page-break-inside',
+     'function': page-break-inside(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'perspective',
+     'function': perspective(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'perspective-origin',
+     'function': perspective-origin(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'pointer-events',
+     'function': pointer-events(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'position',
+     'function': position(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'quotes',
+     'function': quotes(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'resize',
+     'function': resize(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'right',
+     'function': right(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'tab-size',
+     'function': tab-size(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'table-layout',
+     'function': table-layout(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'text-align',
+     'function': text-align(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'text-align-last',
+     'function': text-align-last(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'text-decoration',
+     'function': text-decoration(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'text-decoration-color',
+     'function': text-decoration-color(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'text-decoration-line',
+     'function': text-decoration-line(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'text-decoration-style',
+     'function': text-decoration-style(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'text-indent',
+     'function': text-indent(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'text-justify',
+     'function': text-justify(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'text-overflow',
+     'function': text-overflow(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'text-shadow',
+     'function': text-shadow(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'text-transform',
+     'function': text-transform(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'transform',
+     'function': transform(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'transformRotate',
+     'function': transformRotate(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'transformSkewY',
+     'function': transformSkewY(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'transformScaleY',
+     'function': transformScaleY(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'transform-origin',
+     'function': transform-origin(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'transform-style',
+     'function': transform-style(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'transition',
+     'function': transition(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'transition-delay',
+     'function': transition-delay(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'transition-duration',
+     'function': transition-duration(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'transition-property',
+     'function': transition-property(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'transition-timing-function',
+     'function': transition-timing-function(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'top',
+     'function': top(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'unicode-bidi',
+     'function': unicode-bidi(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'user-select',
+     'function': user-select(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'vertical-align',
+     'function': vertical-align(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'visibility',
+     'function': visibility(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'white-space',
+     'function': white-space(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'width',
+     'function': width(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'word-break',
+     'function': word-break(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'word-spacing',
+     'function': word-spacing(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'word-wrap',
+     'function': word-wrap(0),
+     'type': 'property',
+     'args': '0'),
+    (
+     'name': 'z-index',
+     'function': z-index(0),
+     'type': 'property',
+     'args': '0'),
+
+  );
+}

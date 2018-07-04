@@ -10,3 +10,8 @@ Framework for professional front-end for faster and easier web development.
 2. Run `yarn install` to install Node.js dependencies.
 3. Run `bundle exec middleman server` to up middleman server
 4. Open http://localhost:4567/documentation in you browser
+
+## Create the tests
+
+1. Run `ruby scripts/tests-type-of.rb``
+2. Add `@include tests()` in your scss file after marscss importer

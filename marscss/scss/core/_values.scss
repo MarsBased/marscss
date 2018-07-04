@@ -1,0 +1,21 @@
+//--- calc-spacing
+@function calc-spacing($arg) {
+  @if (is-length($arg) or (is-percent($arg)) ) {
+    @return $arg;
+  } @else if (is-number($arg)) {
+    @return $mod-spacing * $arg;
+  } @else {
+    @return false;
+  }
+}
+
+//--- calc-color
+@function calc-color($arg) {
+  @if (is-length($arg)) {
+    @return $arg;
+  } @else if (is-number($arg)) {
+    @return $mod-spacing * $arg;
+  } @else {
+    @return false;
+  }
+}

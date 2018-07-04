@@ -1,0 +1,136 @@
+@function test-builder($builder, $name-function, $type, $verbose) {
+  // Does the test meet the following structure?
+  // ('': ('':''))
+
+  @if (type-of($builder) != map) {
+    @debug '❌  #{$type}: #{$name-function}: is not a map';
+    @return false;
+  } @else {
+    @each $rule in $builder {
+
+      @if (type-of(nth($rule, 1)) != string) {
+        @debug '❌ #{$type}: #{$name-function}: selector is not a string';
+        @return false;
+      } @else if (type-of(nth($rule, 2)) != map) {
+        @debug '❌ #{$type}: #{$name-function}: declaration block is not a map';
+        @return false;
+      }
+    }
+  }
+
+  @return true;
+}
+
+@function test-property($property, $name-function, $type, $verbose) {
+  // Does the test meet the following structure?
+  // ('': exist and !list )
+
+  @if (type-of($property) != map) {
+    @debug '❌ #{$type}: #{$name-function}: is not a map';
+    @return false;
+  } @else {
+    $first-node: nth($property, 1);
+
+    @if (type-of(nth($first-node, 2)) == map) {
+      @debug '❌ #{$type}: #{$name-function}: value is a map';
+      @return false;
+    }
+
+    @each $property-name, $property-value in $property {
+      @if (type-of($property-name) != string) {
+        @debug '❌ #{$type}: #{$name-function}: property is not a string';
+        @return false;
+      } @else if not (type-of($property-value)) {
+        @debug '❌ #{$type}: #{$name-function}: value is not exist';
+        @return false;
+      }
+    }
+  }
+
+  @return true;
+}
+
+@function test-value($value, $name-function, $type, $verbose) {
+  // Does the test meet the following structure?
+  // 'string'
+
+  @if (type-of($value) == map) {
+    @debug '❌ #{$type}: #{$name-function}: is a map';
+    @return false;
+  } @else if (type-of($value) != string) {
+    @debug '❌ #{$type}: #{$name-function}: is not a string';
+    @return false;
+  }
+
+  @return true;
+}
+
+@mixin test-ok($marscss-tests-ok, $name) {
+  @if $marscss-tests-ok {
+    $marscss-tests-ok: append($marscss-tests-ok, $name, 'comma') !global;
+  } @else {
+    $marscss-tests-ok: $name !global;
+  }
+}
+
+@mixin test-fail($marscss-tests-fail, $name) {
+  @if $marscss-tests-fail {
+    $marscss-tests-fail: append($marscss-tests-fail, $name, 'comma') !global;
+  } @else {
+    $marscss-tests-fail: $name !global;
+  }
+}
+
+@mixin tests($tests: test-type-of(), $verbose: false) {
+  $marscss-tests-ok: false !global;
+  $marscss-tests-fail: false !global;
+  @each $test in $tests {
+    $name: map-get($test, 'name');
+    $function: map-get($test, 'function');
+    $type: map-get($test, 'type');
+
+    @if ($type == 'block') {
+      @if test-property($function, $name, $type, $verbose) {
+        @include test-ok($marscss-tests-ok, $name);
+      } @else {
+        @include test-fail($marscss-tests-fail, $name);
+      }
+    }
+    @if ($type == 'property') {
+      @if test-property($function, $name, $type, $verbose) {
+        @include test-ok($marscss-tests-ok, $name);
+      } @else {
+        @include test-fail($marscss-tests-fail, $name);
+      }
+    }
+    @if ($type == 'builder') {
+      @if test-builder($function, $name, $type, $verbose) {
+        @include test-ok($marscss-tests-ok, $name);
+      } @else {
+        @include test-fail($marscss-tests-fail, $name);
+      }
+    }
+    @if ($type == 'value') {
+      @if test-value($function, $name, $type, $verbose) {
+        @include test-ok($marscss-tests-ok, $name);
+      } @else {
+        @include test-fail($marscss-tests-fail, $name);
+      }
+    }
+  }
+
+  @debug 'API elements: #{length($tests)}';
+  @if $verbose {
+    @debug 'tests ✅ #{length($marscss-tests-ok)} => #{$marscss-tests-ok}';
+
+    @if ($marscss-tests-fail) {
+      @debug 'tests ❌ #{length($marscss-tests-fail)} => #{$marscss-tests-fail}';
+    }
+  } @else {
+    $tests-fail: '';
+    @if ($marscss-tests-fail) {
+      $tests-fail: ' | ❌ #{length($marscss-tests-fail)} => #{$marscss-tests-fail}';
+    }
+    @debug 'tests ✅ #{length($marscss-tests-ok)}';
+  }
+}

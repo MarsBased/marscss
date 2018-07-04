@@ -5,9 +5,11 @@
 @import 'scss/core/map-print';
 @import 'scss/core/style';
 @import 'scss/core/media';
-@import 'scss/core/names';
 @import 'scss/core/properties';
-@import 'scss/core/tags';
+@import 'scss/core/selectors';
+// @import 'scss/core/tags';
+@import 'scss/core/values';
+@import 'scss/core/tests';
 
 @import 'scss/external/breakpoints';
 @import 'scss/external/grid';
@@ -28,3 +30,5 @@
 @import 'scss/component/hamburger';
 @import 'scss/component/navbar';
 
+//tests
+@import 'scss/tests/type-of';
