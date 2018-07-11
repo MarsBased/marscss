@@ -2,8 +2,8 @@
 $mars-debug: false !default;
 
 //--- reset
-$reset-selector: '.reset';
-$reset-all-selector: '.reset-all';
+$reset-selector: '.reset' !default;
+$reset-all-selector: '.reset-all' !default;
 
 //--- colors
 $white: #fff !default;
@@ -28,7 +28,7 @@ $grays: (
   '700': $gray-700,
   '800': $gray-800,
   '900': $gray-900
-);
+) !default;
 
 $blue: #0064fb !default;
 $indigo: #4752e4 !default;
@@ -56,7 +56,7 @@ $colors: (
   'white': $white,
   'black': $black,
   'gray': $gray-600
-);
+) !default;
 
 //--- fonts
 $font-family: sans-serif !default;
