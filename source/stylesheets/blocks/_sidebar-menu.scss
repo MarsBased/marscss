@@ -2,11 +2,11 @@
   @extend %reset;
   @extend %reset-all;
   position: sticky;
-  color: $white;
   top: 0;
   z-index: 1;
   max-height: 100vh;
   overflow-y: auto;
+  color: $white;
 
   a {
     display: block;
@@ -44,17 +44,35 @@
     border-top: 1px solid $darkened;
     border-bottom: 1px solid $darkened;
 
-    &::after {
-
-    }
-
     a {
-      padding-right: 1em;
+      position: relative;
+      padding-right: 2em;
       padding-left: 1em;
+
+
+      &::after {
+        position: absolute;
+        right: .5em;
+        top: 50%;
+        display: inline-block;
+        line-height: 1.5em;
+        vertical-align: middle;
+        content: '';
+        border: .4em solid transparent;
+        border-top-color: rgba($white, .5);
+      }
+
+      &:hover::after {
+        border-top-color: rgba($white, 1);
+      }
     }
 
     &.is-active {
       font-weight: 700;
+
+      a::after {
+        content: initial;
+      }
 
       & + ul {
         background-color: $darkened;
