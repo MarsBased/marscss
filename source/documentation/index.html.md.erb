@@ -2,7 +2,6 @@
 title: Getting started
 layout: documentation
 active: Getting started
-example: example-getting-started
 anchors_menu: '> h2'
 ---
 
@@ -44,15 +43,18 @@ marscss was invented by Javier Artero and it's backed up by MarsBased, a leading
 
 ## Basic Usage
 
+I recommend you copy the file of [default-variables.scss](https://github.com/MarsBased/marscss/blob/master/marscss/scss/core/_default-variables.scss){:target="_blank"} of marscss and save it with the name variables.scss, here you can rewrite the variables removing `!default` at the end of the variables.
+
 Once introduced, this will not add a line to your processed CSS file, but you will have access to all the mixins and functions of the core.
 
 If you want to access the extends, elements and the default reset of the html marckup you need to call marscss after the @import
 
 ~~~scss
-@import 'node_modules/marscss/marscss';
+@import 'custom-variables';
+
+@import 'node_modules/@marsbased/marscss';
 
 @include marscss;
 ~~~
 
 The way marscss works allows us to rewrite any part of its core since until we do the [@include marscss](include-marscss) we do not release any of its functions, mixins or extend
-

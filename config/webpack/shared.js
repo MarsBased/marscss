@@ -19,12 +19,8 @@ module.exports = {
     api: './source/stylesheets/layouts/api.scss',
     home: './source/stylesheets/layouts/home.scss',
     documentation: './source/stylesheets/layouts/documentation.scss',
-    exampleGettingStarted: examplePath + 'example-getting-started.scss',
-    exampleReset: examplePath + 'example-reset.scss',
-    exampleElements: examplePath + 'example-elements.scss',
     exampleCard: examplePath + 'example-card.scss',
     exampleWorkingWithMaps: examplePath + 'example-working-with-maps.scss',
-    exampleComponents: examplePath + 'example-components.scss',
     images: sync('./source/images/**/*', { nodir: true }),
     vendor: ['jquery']
   },
