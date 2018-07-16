@@ -13,17 +13,15 @@
           </button>
         <% end %>
       </div>
-    <% else %>
-      <% if active(page.name) && page.subpages %>
-        <ul>
-          <% page.subpages.each do |subpage|%>
-            <% content_tag(:li, class: active(subpage.name)) do %>
-              <%= link_to subpage.name,
-                "/documentation/#{subpage.url || subpage.name.parameterize}" %>
-            <% end %>
+    <% elsif !active('api') && page.subpages %>
+      <ul>
+        <% page.subpages.each do |subpage|%>
+          <% content_tag(:li, class: active(subpage.name)) do %>
+            <%= link_to subpage.name,
+              "/documentation/#{subpage.url || subpage.name.parameterize}" %>
           <% end %>
-        </ul>
-      <% end %>
+        <% end %>
+      </ul>
     <% end %>
   <% end %>
 </ul>

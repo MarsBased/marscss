@@ -1,10 +1,10 @@
 .sidebar-menu {
-  $color-is-active: $gray-800;
-  $color: $gray-600;
   @extend %reset;
   @extend %reset-all;
   position: sticky;
+  color: $white;
   top: 0;
+  z-index: 1;
   max-height: 100vh;
   overflow-y: auto;
 
@@ -12,28 +12,41 @@
     display: block;
     padding: .5em;
     color: inherit;
-
-    &:hover, &focus {
-      color: $gray-800;
-    }
   }
 
   li {
     position: relative;
     margin-bottom: 0;
-    color: $color;
+    transition: background-color .5s ease-out;
+
+    a {
+      padding-left: 2rem;
+    }
 
     > & a {
       font-weight: 800;
-      color: $color-is-active;
+    }
+  }
+
+  > ul {
+    li.is-active {
+      background-color: $darkened;
+    }
+
+    a:hover,
+    a:focus {
+      background-color: $darkened;
     }
   }
 
   > li {
     font-weight: 700;
-    color: $color-is-active;
     border-top: 1px solid $darkened;
     border-bottom: 1px solid $darkened;
+
+    &::after {
+
+    }
 
     a {
       padding-right: 1em;
@@ -42,32 +55,15 @@
 
     &.is-active {
       font-weight: 700;
-      border-color: currentColor;
 
-      a {
-        background-image: linear-gradient(rgba($black, 0), rgba($black, .1));
+      & + ul {
+        background-color: $darkened;
       }
     }
   }
 
-  ul {
-    li {
-      padding-left: 1rem;
-
-      &.is-active {
-        color: $color-is-active;
-
-        // &::after {
-        //   position: absolute;
-        //   top: 0;
-        //   bottom: 0;
-        //   left: 0;
-        //   width: 2px;
-        //   content: '';
-        //   background-color: $primary;
-        // }
-      }
-    }
+  .api-buttons {
+    background-color: $darkened;
   }
 
   button {
@@ -86,8 +82,13 @@
       padding-bottom: 1.25em;
     }
 
-    &:hover {
-      background-color: $white;
+    &:hover,
+    &:focus:not(.is-active) {
+      background-color: $darkened;
+
+      &:not(.is-active) {
+        opacity: .6;
+      }
     }
 
     &:focus {

@@ -1,15 +1,15 @@
-//stylelint-disable selector-max-id
-#home-why {
-  
-}
+@import '../marscss';
+
+@import '../blocks/hero-block';
+@import '../blocks/hero-space';
 
 #home-install {
-  background-image:linear-gradient(to top right, $gray-100, $gray-200);
+  background-image: linear-gradient(to top right, $gray-100, $gray-200);
 }
 
 #home-cassete {
   color: $white;
-  background-image:linear-gradient(to top right, $primary, lighten($orange, 10%));
+  background-image: linear-gradient(to top right, $primary, lighten($orange, 10%));
 
   svg {
     display: block;
@@ -24,13 +24,13 @@
     color: $primary;
 
     #coil1 {
-      animation: RotateCoil 7s linear 1s infinite;
       transform-origin: 27.8% 40.8%;
+      animation: RotateCoil 7s linear 1s infinite;
     }
 
     #coil2 {
-      animation: RotateCoil 7s linear 1s infinite;
       transform-origin: 70.6% 40.8%;
+      animation: RotateCoil 7s linear 1s infinite;
     }
   }
 }

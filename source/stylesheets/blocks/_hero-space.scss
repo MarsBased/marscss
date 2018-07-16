@@ -9,12 +9,12 @@
     position: relative;
     z-index: 1;
     display: flex;
-    align-content: center;
     flex-wrap: wrap;
     height: inherit;
     min-height: 400px;
     padding: $gutter;
     text-align: center;
+    align-content: center;
   }
 
   &__background {
@@ -63,8 +63,8 @@
           @for $i from 0 through $items {
             &:nth-child(#{$i}) {
               $time: ($i * $delay) + 3000ms;
-              transition: opacity $time ease-out ($i *300ms)
-               ,transform 3s ease-out ($i *300ms);
+              transition: opacity $time ease-out ($i * 300ms),
+                transform 3s ease-out ($i * 300ms);
             }
           }
         }

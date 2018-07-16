@@ -1,129 +1,108 @@
-body.api {
-  .wrapper {
-    display: flex;
+@import '../marscss';
+
+.wrapper {
+  display: flex;
+}
+
+%sidebar-columns {
+  flex: 0 0 260px;
+}
+
+.api-search {
+  position: sticky;
+  top: $header-height;
+  padding: $gutter 0;
+  @include media-breakpoint-up('sm') {
+    top: 0;
+  }
+  background: linear-gradient(rgba($white, .8) 80%, rgba($white, 0));
+
+  .input {
+    @extend %form-element;
+    max-width: 500px;
+    padding-left: 2em;
+    margin: auto;
+    background-color: $gray-100;
+    background-image: icon-search();
+    background-position-x: .7rem;
+    background-size: 1em;
+    transition: background-color .5s ease-out;
+
+    &:focus {
+      background-color: $white;
+    }
+  }
+}
+
+.cell-name {
+  font-weight: 700;
+}
+
+.container-table {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.table-collapse {
+  width: 100%;
+  min-width: 400px;
+  table-layout: fixed;
+  border-collapse: collapse;
+
+  td, th {
+    padding: .5em 1em;
+    vertical-align: top;
   }
 
-  %sidebar-columns {
-    flex: 0 0 260px;
-  }
+  thead {
+    th {
+      text-align: left;
+      border-bottom: 1px solid;
 
-  .api-sidebar {
-    @extend %sidebar-columns;
-    position: relative;
-    background-color: $gray-200;
-
-    @include media-breakpoint-down('md') {
-      display: none;
+      > * {
+        margin-bottom: 0;
+        vertical-align: middle;
+      }
     }
   }
 
-  .api-content {
-    position: relative;
-    flex: 1 1 auto;
-    width: 500px;
+  &__btn {
+    cursor: pointer;
+    transition: background-color .3s ease-out;
+
+    &:hover {
+      background-color: rgba($black, .05);
+    }
+
+    &.is-active {
+      background-color: rgba($black, .1);
+    }
+  }
+
+  &__item {
+    > td {
+      padding: 0;
+      border: 0;
+    }
+  }
+
+  &__resize {
+    display: none;
+    border-top: 1px solid $gray-200;
+  }
+
+  &__icon {
+    margin-right: .25em;
+    transition: transform .5s ease-out;
+    transform: rotate(0deg);
+  }
+
+  .highlight {
     max-width: 100%;
-    padding: $gutter $gutter/2;
-    @include media-breakpoint-up('sm') {
-      padding: $gutter $gutter;
-    }
+    margin-bottom: 0;
   }
 
-  .api-search {
-    position: sticky;
-    top: $header-height;
-    padding: $gutter 0;
-    @include media-breakpoint-up('sm') {
-      top: 0;
-    }
-    background: linear-gradient(rgba($white, .8) 80%, rgba($white, 0));
-
-    .input {
-      @extend %form-element;
-      max-width: 500px;
-      padding-left: 2em;
-      margin: auto;
-      background-color: $gray-100;
-      background-image: icon-search();
-      background-position-x: .7rem;
-      background-size: 1em;
-      transition: background-color .5s ease-out;
-
-      &:focus {
-        background-color: $white;
-      }
-    }
-  }
-
-  .cell-name {
-    font-weight: 700;
-  }
-
-  .container-table {
-    overflow-x: auto;
-    overflow-y: hidden;
-  }
-
-  .table-collapse {
-    width: 100%;
-    min-width: 400px;
-    table-layout: fixed;
-    border-collapse: collapse;
-
-    td, th {
-      padding: .5em 1em;
-      vertical-align: top;
-    }
-
-    thead {
-      th {
-        text-align: left;
-        border-bottom: 1px solid;
-
-        > * {
-          margin-bottom: 0;
-          vertical-align: middle;
-        }
-      }
-    }
-
-    &__btn {
-      cursor: pointer;
-      transition: background-color .3s ease-out;
-
-      &:hover {
-        background-color: rgba($black, .05);
-      }
-
-      &.is-active {
-        background-color: rgba($black, .1);
-      }
-    }
-
-    &__item {
-      > td {
-        padding: 0;
-        border: 0;
-      }
-    }
-
-    &__resize {
-      display: none;
-      border-top: 1px solid $gray-200;
-    }
-
-    &__icon {
-      margin-right: .25em;
-      transition: transform .5s ease-out;
-      transform: rotate(0deg);
-    }
-
-    .highlight {
-      max-width: 100%;
-      margin-bottom: 0;
-    }
-
-    .cell-type {
-      width: 75px;
-    }
+  .cell-type {
+    width: 75px;
   }
 }

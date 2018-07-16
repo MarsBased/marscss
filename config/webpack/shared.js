@@ -16,6 +16,9 @@ module.exports = {
     body: './source/javascripts/body.js',
     head: './source/javascripts/head.js',
     application: './source/stylesheets/application.scss',
+    api: './source/stylesheets/layouts/api.scss',
+    home: './source/stylesheets/layouts/home.scss',
+    documentation: './source/stylesheets/layouts/documentation.scss',
     exampleGettingStarted: examplePath + 'example-getting-started.scss',
     exampleReset: examplePath + 'example-reset.scss',
     exampleElements: examplePath + 'example-elements.scss',
@@ -23,7 +26,7 @@ module.exports = {
     exampleWorkingWithMaps: examplePath + 'example-working-with-maps.scss',
     exampleComponents: examplePath + 'example-components.scss',
     images: sync('./source/images/**/*', { nodir: true }),
-    vendor: ['lodash', 'jquery']
+    vendor: ['jquery']
   },
 
   output: {
@@ -50,12 +53,7 @@ module.exports = {
       },
       {
         test: /\.s?[ac]ss$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'postcss-loader',
-          'sass-loader'
-        ]
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader']
       },
       {
         test: /fonts\/.*\.(svg|eot|ttf|woff|woff2)(\?v=\d+\.\d+\.\d+)?$/i,
@@ -89,10 +87,10 @@ module.exports = {
         test: require.resolve('jquery'),
         use: ['expose-loader?$', 'expose-loader?jQuery']
       },
-      {
-        test: /bootstrap-sass[\/\\]assets[\/\\]javascripts[\/\\]/,
-        loader: 'imports-loader?jQuery=jquery'
-      },
+      // {
+      //   test: /bootstrap-sass[\/\\]assets[\/\\]javascripts[\/\\]/,
+      //   loader: 'imports-loader?jQuery=jquery'
+      // }
       {
         test: /\.modernizrrc(\.json)?$/,
         use: ['modernizr-loader', 'json-loader']

@@ -14,8 +14,13 @@
     <% if example = current_page.data.example %>
     <%= stylesheet_pack_tag example.tr('/-', '_').camelize(:lower) %>
     <% end %>
+    <% if (class_active = current_page.metadata[:page][:css].to_s) %>
+      <% class_active.split(',').map(&:lstrip).each do |item| %>
+        <%= stylesheet_pack_tag item %>
+      <% end %>
+    <% end %>
+
     <%= javascript_pack_tag 'manifest' %>
-    <%= javascript_pack_tag 'head' %>
     <%= javascript_pack_tag 'vendor' %>
   </head>
   <body class="<%= current_page.data.body %> <%= current_page.options[:layout] %>">

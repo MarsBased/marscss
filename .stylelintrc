@@ -8,6 +8,8 @@
     "block-closing-brace-newline-after": [
       "always",
       "ignoreAtRules": ["if", "else"]
-    ]
+    ],
+    "selector-max-id": 2,
+    "selector-max-type": 3
   }
 }

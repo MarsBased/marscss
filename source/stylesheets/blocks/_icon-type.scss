@@ -15,9 +15,10 @@
   }
 }
 
-@mixin icon-type($character, $bg: $gray-700) {
+@mixin icon-type($character, $bg) {
   @extend %icon-type;
   background-color: $bg;
+  border: 1px solid $darkened;
 
   &::after {
     text-shadow: 0 0 2px rgba($black, .3);
@@ -35,7 +36,7 @@
   }
 
   &-block {
-    @include icon-type('{}');
+    @include icon-type('{}', $gray-700);
   }
 
   &-common {

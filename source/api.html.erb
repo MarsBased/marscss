@@ -2,6 +2,7 @@
 title: Api of marscss
 body: api
 active: api
+css: documentation, api
 ---
 
 <%
@@ -28,10 +29,10 @@ apiData.each {|e| e['type'] ||= 'block' }
 %>
 
 <div class="wrapper">
-  <div class="api-sidebar">
+  <div class="documentation-menu">
     <%= partial 'partials/sidebar-menu' %>
   </div>
-  <div class="api-content">
+  <div class="documentation-content">
     <h1 class="text-center">API</h1>
     <div class="api-search">
       <input type="text" class="input" placeholder="search by name">

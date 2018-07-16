@@ -2,10 +2,10 @@
   'use strict';
 
   const input = '.api-search input',
-    table = '.api-content table',
-    tableItem = '.api-content .table-collapse__btn',
+    table = '.documentation-content table',
+    tableItem = '.documentation-content .table-collapse__btn',
     filterButtons = '.api-buttons button',
-    checkboxColumns = '.api-content th .checkbox input';
+    checkboxColumns = '.documentation-content th .checkbox input';
 
   $(input).on('keyup', searchTable);
   $(checkboxColumns).on('change', setPlaceholder);

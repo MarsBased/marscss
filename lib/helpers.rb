@@ -71,6 +71,14 @@ module Helpers
     end
   end
 
+  def add_each_stylesheets(key = :css)
+    if (class_active = current_page.metadata[:page][key].to_s)
+      class_active.split(',').map(&:lstrip).each do |item|
+        stylesheet_pack_tag item
+      end
+    end
+  end
+
   def file_marscss (
     file_name = current_page.data.example.gsub(/(.*\/)(.+)/, '\1_\2'),
     file_path = config.marscss_path

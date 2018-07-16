@@ -2,149 +2,173 @@
 //stylelint-disable selector-max-type
 //stylelint-disable max-nesting-depth
 //stylelint-disable selector-max-compound-selectors
-body.documentation {
+@import '../marscss';
 
-  hr {
-    margin-top: $gutter*2;
-    // margin-bottom: $gutter;
-    border-top: 2px solid $gray-400;
+@include style(helpers());
+
+@import '../blocks/example-tabs';
+
+hr {
+  margin-top: $gutter * 2;
+  border-top: 2px solid $gray-400;
+}
+
+.wrapper {
+  display: flex;
+}
+
+%sidebar-columns {
+  flex: 0 0 260px;
+}
+
+.documentation-anchors {
+  @extend %sidebar-columns;
+  color: $gray-600;
+  @include media-breakpoint-down('lg') {
+    display: none;
   }
 
-  .wrapper {
-    display: flex;
+  .anchors-menu {
+    position: sticky;
+    top: 0;
+    max-height: 100vh;
+    padding: $gutter $gutter $gutter;
+    overflow-y: auto;
+    font-size: $font-size-small;
+    line-height: 1.5;
   }
 
-  %sidebar-columns {
-    flex: 0 0 260px;
+  li {
+    margin-bottom: .3em;
+    @extend %reset-list;
   }
 
-  .documentation-anchors {
-    @extend %sidebar-columns;
-    @include media-breakpoint-down('lg') {
-      display: none;
-    }
-    color: $gray-600;
+  a {
+    display: block;
+    color: inherit;
 
-    .anchors-menu {
-      position: sticky;
-      top: 0;
-      max-height: 100vh;
-      padding: $gutter $gutter $gutter;
-      overflow-y: auto;
-      font-size: $font-size-small;
-      line-height: 1.5;
+    &:hover {
+      color: $gray-800;
     }
 
-    li {
-      margin-bottom: .3em;
-      @extend %reset-list;
+    &::before {
+      color: $gray-500;
+      content: '';
     }
+  }
 
-    a {
-      display: block;
-      color: inherit;
+  @for $i from 2 through 6 {
+    .anchor-h#{$i} {
+      padding-left: ($i - 2) * .5em;
+    }
+  }
+}
 
-      &:hover {
-        color: $gray-800;
+%background-gradient {
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  height: 700px;
+  max-height: 100%;
+  content: '';
+}
+
+.documentation-menu {
+  @extend %sidebar-columns;
+  position: relative;
+  color: $white;
+  background-color: $red;
+
+  &::after {
+    top: 0;
+    @extend %background-gradient;
+    background: linear-gradient($orange, rgba($orange, 0));
+  }
+
+  &::before {
+    bottom: 0;
+    @extend %background-gradient;
+    background: linear-gradient(rgba($purple, 0), $purple);
+  }
+
+  @include media-breakpoint-down('md') {
+    display: none;
+  }
+}
+
+.documentation-source {
+  margin-bottom: 1rem;
+
+  strong {
+    @extend %dt;
+  }
+}
+
+.documentation-content {
+  flex: 1 1 auto;
+  width: 500px;
+  max-width: 100%;
+  padding: $gutter;
+
+  > {
+    $fix-menu: 3rem;
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      &:not(:first-child) {
+        margin-top: 3em;
       }
 
       &::before {
-        color: $gray-500;
+        display: block;
+        height: $fix-menu;
+        margin-top: -$fix-menu;
+        visibility: hidden;
         content: '';
       }
     }
-
-    @for $i from 2 through 6 {
-      .anchor-h#{$i} {
-        padding-left: ($i - 2) * .5em;
-      }
-    }
   }
 
-  .documentation-menu {
-    @extend %sidebar-columns;
-    position: relative;
-    background-color: $gray-200;
-
-    @include media-breakpoint-down('md') {
-      display: none;
-    }
+  dt {
+    @extend %dt;
+    margin-top: 1rem;
   }
 
-  .documentation-source {
-    margin-bottom: 1rem;
+  dd {
+    margin-bottom: 0;
 
-    strong {
-      @extend %dt;
+    code ~ em {
+      @extend code;
+      padding: 0;
     }
   }
+}
 
-  .documentation-content {
-    flex: 1 1 auto;
-    width: 500px;
-    max-width: 100%;
-    padding: $gutter * 2 $gutter;
+.documentation-example {
+  padding: $gutter/2;
+  border: 2px dashed $gray-200;
 
-    > {
-      $fix-menu: 6rem;
-
-      h1,
-      h2,
-      h3,
-      h4 {
-        &:not(:first-child) {
-          margin-top: 3em;
-        }
-
-        &::before {
-          display: block;
-          height: $fix-menu;
-          margin-top: -$fix-menu;
-          visibility: hidden;
-          content: '';
-        }
-      }
-    }
-
-    dt {
-      @extend %dt;
-      margin-top: 1rem;
-    }
-
-    dd {
-      margin-bottom: 0;
-
-      code ~ em {
-        @extend code;
-        padding: 0;
-      }
-    }
+  .row {
+    @extend %row;
   }
 
-  .documentation-example {
-    padding: $gutter/2;
-    border: 2px dashed $gray-200;
-
-    .row {
-      @extend %row;
-    }
-
-    .col {
-      @extend %grid-column;
-      flex: 1 1 0;
-    }
+  .col {
+    @extend %grid-column;
+    flex: 1 1 0;
   }
+}
 
-  .box {
-    width: 100px;
-    height: 100px;
-    background-color: rgba($primary, .5);
-  }
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: rgba($primary, .5);
+}
 
-  .container-20em {
-    max-width: 20em;
-    margin: auto;
-  }
+.container-20em {
+  max-width: 20em;
+  margin: auto;
 }
 
 body.include-marscss {

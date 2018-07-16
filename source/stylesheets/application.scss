@@ -1,32 +1,17 @@
-// CUSTOM VARIABLES
-@import 'utilities/variables';
-
-// MARSCSS CORE
-@import '../../marscss/marscss';
-
-// CUSTOM CORE
+// CONFIG MARSCSS
+@import 'marscss';
 
 // MARSCSS BUILDERS
 @include tests();
 @include marscss;
-@include style(helpers());
-@include style(forms());
 
 // CUSTOM CSS
 @import 'base/code';
 @import 'base/general';
 
-@import 'blocks/column-block';
 @import 'blocks/data-anchor-js';
-@import 'blocks/example-tabs';
 @import 'blocks/footer';
 @import 'blocks/header';
-@import 'blocks/hero-block';
-@import 'blocks/hero-space';
 @import 'blocks/icon-type';
 @import 'blocks/responsive-menu';
 @import 'blocks/sidebar-menu';
-
-@import 'layouts/home';
-@import 'layouts/api';
-@import 'layouts/documentation';
