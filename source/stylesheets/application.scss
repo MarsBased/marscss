@@ -4,6 +4,7 @@
 // MARSCSS BUILDERS
 @include tests();
 @include marscss;
+@include style(forms());
 
 // CUSTOM CSS
 @import 'base/code';
