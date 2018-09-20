@@ -85,12 +85,18 @@
   }
 
   button {
-    display: block;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: initial;
     width: 100%;
     padding: .75em 1em;
-    line-height: 1.4;
     text-align: inherit;
     transition: opacity .3s ease-out;
+
+    i {
+      margin-right: .5em;
+    }
 
     &:first-of-type {
       padding-top: 1.25em;

@@ -5,39 +5,108 @@ active: home
 css: home
 ---
 
-<div class="hero-space" data-onscreen>
+<section class="hero-space" data-onscreen>
 	<div class="hero-space__background">
 		<div class="hero-space__container">
       <div class="hero-space__logo">
         <%= partial 'partials/logo' %>
       </div>
-			<p class="hero-space__text">
-				The framework for front-end, from 0 KB
-			</p>
+			<h1 class="hero-space__title">
+        The framework for front-end, from 0 KB
+      </h1>
+      <div class="hero-space__text">
+        <p>Unlike other CSS frameworks, it does not work with css rules, but with sass mixins and functions, which allows us to access an infinite number of possibilities without adding a line to the CSS file.</p>
+			</div>
 		</div>
 	</div>
-</div>
-<div class="hero-block" data-onscreen id="home-why">
-  <div class="hero-block__container">
-    <div class="hero-block__column">
-      [TODO]
-    </div>
-    <div class="hero-block__column">
-      <h1 class="hero-block__title">Why is the marscss framework different?</h1>
-      <p>Unlike other CSS frameworks it works through mixins and not with rules, which allows us to have access to an infinite number of possibilities without adding a line to CSS file</p>
+</section>
 
-      <p>Although there are mechanisms to generate css such as builders or components, their potential lies in that they in turn work generating code from mixins with what can be rewritten.</p>
+<div class="highlights" data-onscreen id="home-why">
+  <div class="highlights__container">
+    <div class="highlights__column">
+      <easy-slides>
+        <%= image_pack_tag 'highlights/unused-css-bootstrap.png', class:'highlights__image' %>
+        <%= image_pack_tag 'highlights/unused-css-foundation.png', class:'highlights__image' %>
+      </easy-slides>
+      <h2 class="highlights__title">
+        Reduce the amount of unused CSS in your pages
+      </h2>
+      <div class="highlights__text">
+        <p>
+          Among the many improvements to generate CSS on demand is that we can only load what we need, where we need it, by lowering the amount of unused CSS
+        </p>
+      </div>
+      <%= link_to 'Defer unused CSS',
+                  'documentation/recipes',
+                  class:  'highlights__button',
+                  target: '_blank',
+                  title: 'Learn more about Defer unused CSS'  %>
+    </div>
+    <div class="highlights__column">
+      <%= image_pack_tag 'highlights/rewrite-marscss.png', class:'highlights__image' %>
+      <h2 class="highlights__title">
+        Rewrite and modify the core at your whim
+      </h2>
+      <div class="highlights__text">
+        <p>Although there are mechanisms to generate CSS as builders or components, its potential lies in the fact that the entire core is rewritable</p>
+      </div>
+      <%= link_to 'Learn more', 'documentation/include-marscss/#rewrite-element-h1',
+       class:  'highlights__button' %>
+    </div>
+    <div class="highlights__column">
+      <%= image_pack_tag 'highlights/angular-and-react.png', class:'highlights__image' %>
+      <h2 class="highlights__title">
+        Thought to work on Angular and React
+      </h2>
+      <div class="highlights__text">
+        <p>marscss is designed to work on components, you can access the entire core without the need to duplicate CSS, you can see an example of configuration in the <%= link_to 'recipes section',
+        'documentation/recipes' %>.
+        <p>
+      </div>
+      <%= link_to 'Learn more', 'documentation/recipes',
+       class:  'highlights__button' %>
     </div>
   </div>
 </div>
-<div class="hero-block" data-onscreen id="home-install">
+
+<section class="hero-block doc-type">
+  <div class="doc-type__slides">
+    <div class="doc-type__slide is-initial">
+      <div class="doc-type__container">
+        <h2 class="doc-type__title">
+          <%= link_to 'API', 'api' %>
+        </h2>
+        <div class="doc-type__content">
+          <p>You have different functions to manipulate maps in marscss, these are organized by different types. It makes sense!</p>
+        </div>
+      </div>
+    </div>
+    <% data.api.api_types.each do |type| %>
+    <div class="doc-type__slide is-<%= type.name.parameterize %>">
+      <div class="doc-type__container">
+        <h2 class="doc-type__title"><%= type.name %></h2>
+        <div class="doc-type__content">
+          <%= type.description || lorem.paragraph %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <div class="doc-type__dots">
+    <div class="doc-type__dot is-initial"></div>
+    <% data.api.api_types.each_with_index do |type, index| %>
+    <div class="doc-type__dot icon-type-<%= type.name %>" aria-label="slide <%= index + 1 %>"></div>
+    <% end %>
+  </div>
+</section>
+
+<div class="hero-block" data-onscreen id="home-cassete">
   <div class="hero-block__container">
     <div class="hero-block__column">
-      <h1 class="hero-block__title">
-        How to use?
-      </h1>
-
-      <h2 class="h3">Install the dependency</h2>
+      <%= partial 'partials/cassete' %>
+    </div>
+    <div class="hero-block__column is-first">
+      <h1 class="hero-block__title">Install the dependency</h1>
 
       <% markdown do %>
       ~~~shell
@@ -45,42 +114,16 @@ css: home
       ~~~~
       <% end %>
 
-      <h2 class="h3">Use it from your main scss file:</h2>
+      <h2>Use it from your main scss file:</h2>
 
       <% markdown do %>
       ~~~scss
       @import 'node_modules/@marsbased/marscss';
       ~~~
       <% end %>
-
       <p>
-      Alternatively, if you are using a bundler you probably can use a shortcut like:
-      </p>
-
-      <% markdown do %>
-      ~~~scss
-      @import '~@marsbased/marscss';
-      ~~~
-      <% end %>
-    </div>
-    <div class="hero-block__column is-first">
-      [TODO]
-    </div>
-  </div>
-</div>
-
-<div class="hero-block" data-onscreen id="home-cassete">
-  <div class="hero-block__container">
-    <div class="hero-block__column">
-      <%= partial 'partials/cassete' %>
-    </div>
-    <div class="hero-block__column">
-      <div class="h3">
         Now you can save your css compiled in magnetic tapes, enjoy listening to the wanderfull sound of your web.
-      </div>
-      <footer>
-        <button class="btn-primary">DOWNLOAD</button>
-      </footer>
+      </p>
     </div>
   </div>
 </div>

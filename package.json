@@ -6,6 +6,8 @@
     "> 5%"
   ],
   "devDependencies": {
+    "svgo": "^1.0.5",
+    "svgstore": "^2.0.3",
     "@marsbased/marstyle-stylelint": "^0.2.0",
     "clean-webpack-plugin": "^0.1.18",
     "css-loader": "^0.28.10",
@@ -44,10 +46,13 @@
     "postcss-smart-import": "^0.7.6",
     "precss": "^3.1.1",
     "resolve-url-loader": "^2.2.1",
+    "slick-carousel": "^1.8.1",
     "webpack-manifest-plugin": "^2.0.0-rc.1",
     "webpack-merge": "^4.1.2"
   },
   "scripts": {
+    "start": "bundle exec middleman server",
+    "svg": "node scripts/svg.js",
     "postinstall": "yarn build:marscss && npm rebuild node-sass",
     "build:marscss": "cd marscss && yarn"
   }

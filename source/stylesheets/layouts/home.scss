@@ -1,7 +1,11 @@
 @import '../marscss';
 
 @import '../blocks/hero-block';
+@import '../blocks/highlights';
 @import '../blocks/hero-space';
+@import '../blocks/slick';
+@import '../blocks/easy-slides';
+@import '../blocks/doc-type';
 
 #home-install {
   background-image: linear-gradient(to top right, $gray-100, $gray-200);

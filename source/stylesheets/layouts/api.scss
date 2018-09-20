@@ -11,11 +11,12 @@
 .api-search {
   position: sticky;
   top: $header-height;
+  z-index: 1;
   padding: $gutter 0;
+  background: linear-gradient(rgba($white, .8) 80%, rgba($white, 0));
   @include media-breakpoint-up('sm') {
     top: 0;
   }
-  background: linear-gradient(rgba($white, .8) 80%, rgba($white, 0));
 
   .input {
     @extend %form-element;
@@ -45,11 +46,12 @@
 
 .table-collapse {
   width: 100%;
-  min-width: 400px;
+  min-width: 600px;
   table-layout: fixed;
   border-collapse: collapse;
 
-  td, th {
+  td,
+  th {
     padding: .5em 1em;
     vertical-align: top;
   }
@@ -103,6 +105,17 @@
   }
 
   .cell-type {
-    width: 75px;
+    width: 40px;
+    @include media-breakpoint-up('sm'){
+      width: 75px;
+    }
+  }
+
+  .cell-name {
+    width: 250px;
+    @include media-breakpoint-up('sm'){
+      width: 300px;
+    }
   }
 }
+

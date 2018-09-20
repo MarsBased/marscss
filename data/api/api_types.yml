@@ -1,9 +1,36 @@
 - name: builder
+  description:
+   >
+    <p>They are responsible for generating the different css rules by adding a selector to the block or blocks, some examples are helpers, resets, extends, grid ...</p>
 - name: variable
-- name: common
+  description:
+  >
+    <p>The different variables of marscss for colors, fonts, sizes or internal configuration.</p>
 - name: block
-- name: composed
-- name: modifier
+  description:
+  >
+    <p>They are the different css declaration blocks, without the selector</p>
+- name: common
+  description:
+  >
+    <p>They are a special type of block, its function is to reuse a set of properties in several blocks at the same time, for example common-heading that is used in h1, h2, h3, h4, h5 and h6.</p>
 - name: selector
+  description:
+  >
+    <p>they are pregenerated functions that extend rule by adding a reusable selector, for example this-required (), they are useful when rewriting the css classes of the components or blocks that use them, for example the form elements</p>
 - name: property
+  description:
+  >
+    <p>The properties allow us to write in a more natural way in marscss, they allow to introduce special properties or calculations on the values that they receive for example padding-x()</p>
 - name: value
+  description:
+  >
+    <p>The values are responsible for entering complex content as icons in svg with the advantage of being able to pass parameters such as color</p>
+- name: composed
+  description:
+  >
+    <p>They are blocks composed of different modifiers, it is a new and powerful way to work with CSS, using the power of deep merge we can separate sets of properties that alter the appearance.</p>
+- name: modifier
+  description:
+  >
+    <p>They are a type of special block designed to join a set of properties that give shape to an aperience, to be used from composite blocks</p>

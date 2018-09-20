@@ -4,3 +4,5 @@
   type: value
 - name: icon-search
   type: value
+- name: icon-arrow-left
+  type: value

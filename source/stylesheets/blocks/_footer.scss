@@ -1,9 +1,31 @@
 .footer {
-  color: $white;
+  color: $gray-500;
+
+  a {
+    font-weight: 700;
+    color: $white;
+    @extend %reset-link;
+
+    &:hover,
+    &:focus {
+      color: $primary;
+    }
+  }
 
   &__container {
-    padding-top: $gutter;
-    padding-bottom: $gutter;
+    padding: $gutter $gutter;
     @extend %container;
+  }
+
+  &__menu {
+    margin-bottom: $gutter / 2;
+
+    a {
+      display: inline-block;
+
+      &:not(:last-of-type) {
+        margin-right: 1em;
+      }
+    }
   }
 }

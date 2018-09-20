@@ -1,0 +1,7 @@
+
+easy-slides {
+  background-color: $red;
+  > *:not(.is-active) {
+    display: none;
+  }
+}

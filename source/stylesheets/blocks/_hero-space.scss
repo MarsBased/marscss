@@ -18,7 +18,7 @@
   }
 
   &__background {
-    position: relative;
+    position: fixed;
     width: 100%;
     height: inherit;
     overflow: hidden;
@@ -44,8 +44,9 @@
 
   &__logo {
     width: 100%;
-    max-width: 400px;
+    max-width: 300px;
     margin: auto;
+    filter: drop-shadow(0 0 5px rgba($black, .5));
 
     #shape-marscss {
       & > * {
@@ -62,8 +63,9 @@
 
           @for $i from 0 through $items {
             &:nth-child(#{$i}) {
-              $time: ($i * $delay) + 3000ms;
-              transition: opacity $time ease-out ($i * 300ms),
+              $time: ($i * $delay) + 2000ms;
+              transition:
+                opacity $time ease-out ($i * 300ms),
                 transform 3s ease-out ($i * 300ms);
             }
           }
@@ -72,32 +74,40 @@
     }
   }
 
+  &__title {
+    width: 100%;
+    font-size: 2.2rem;
+    font-weight: 400;
+    text-shadow: 0 0 .5rem rgba($black, 1);
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity .5s ease-out 1s;
+    @include media-breakpoint-up('md') {
+      font-size: 2.6vw;
+    }
+
+    .on-screen & {
+      opacity: 1;
+      transition: opacity 3s ease-out 2s;
+    }
+  }
+
   &__text {
     width: 100%;
-    font-size: 2.6vw;
-    text-shadow: 0 0 .5rem rgba($black, .5);
+    max-width: 35em;
+    margin: auto;
+    font-size: 1.6rem;
+    font-weight: 400;
+    text-shadow: 0 0 .5rem rgba($black, 1);
     opacity: 0;
     transition: opacity 1s ease-out 1s;
+    @include media-breakpoint-up('md') {
+      font-size: 2vw;
+    }
 
     .on-screen & {
       opacity: 1;
       transition: opacity 3s ease-out 3s;
     }
-  }
-}
-
-@keyframes hero-space-title {
-  0% {
-    opacity: 0;
-    transform: translateY(50%) scale(2);
-  }
-
-  40% {
-    transform: translateY(0) scale(1);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
   }
 }

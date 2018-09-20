@@ -4,8 +4,11 @@
     display: flex;
     flex-wrap: wrap;
     min-height: inherit;
-    padding: $gutter*2 $gutter;
+    padding: 0;
     margin: auto;
+    @include media-breakpoint-up('sm') {
+      padding: $gutter*2 $gutter;
+    }
     @include media-breakpoint-up('md') {
       display: flex;
       flex-wrap: nowrap;
@@ -32,14 +35,25 @@
     }
   }
 
+  &__center {
+    max-width: 500px;
+  }
+
   &__title {
-    @extend %h1;
-    font-weight: 700;
+    @extend %hero;
+  }
+
+  &__text {
+    font-size: $font-size-large;
   }
 
   &__content {
     @extend %h3;
     line-height: 1.4;
     font-weight: 700;
+  }
+
+  h2 {
+    margin-top: 2rem;
   }
 }

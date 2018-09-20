@@ -1,10 +1,24 @@
 <footer class="footer">
   <div class="footer__container">
+    <nav class="footer__menu reset-all">
+      <%= link_to 'Github', 'https://github.com/MarsBased/marscss' , target: '_blank' %>
+      <%= link_to 'Api', '/api' %>
+      <%= link_to 'Documentation', '/documentation' , target: '_blank' %>
+    </nav>
     <div class="footer__copyright">
-      © Copyright 2018, Marsbased S.L.
+      Designed and programmed by
+      <%= link_to '@javierArtero',
+                  'https://twitter.com/javierArtero',
+                  target:'_blank' %>
+      with the help of
+      <%= link_to 'collaborators',
+                  'https://github.com/MarsBased/marscss/graphs/contributors',
+                  target:'_blank' %>,
+      thanks to the help and sponsorship of
+      <%= link_to 'marsbased',
+                  'https://marsbased.com/',
+                  title:'MarsBased is a development consultancy of Ruby on Rails and Angular',
+                  target:'_blank' %>
     </div>
-    <a href="#top" class="footer__top-page">
-      <i class="fa fa-angle-up" aria-hidden="true"></i>
-    </a>
   </div>
 </footer>

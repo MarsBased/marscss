@@ -18,10 +18,9 @@
     }
 
     $('a').on('click', function(event) {
-      if (this.hash !== '') {
+      if (this.hash !== '' && !this.includes('/')) {
         event.preventDefault();
-        var hash = this.hash;
-        scroll(hash);
+        scroll(this.hash);
       }
     });
   });

@@ -4,9 +4,12 @@
       <span class="icon-hamburger"></span>
     </button>
     <% link_to '/', class: 'header__logo' do %>
-      <%= partial 'partials/logo' %>
+      <%= svg('logo-marscss') %>
     <% end %>
     <nav class="header__menu">
+      <% link_to '/api', class: "btn-doc #{active('api')}" do %>
+        <%= svg('icon-api') %>
+      <% end %>
       <% link_to '/documentation', class: "btn-doc #{active('documentation')}" do %>
         <%= svg('icon-doc') %>
       <% end %>

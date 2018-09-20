@@ -1,65 +1,37 @@
 %icon-type {
+  position: relative;
   display: inline-block;
-  width: 1.5em;
-  height: 1.5em;
+  width: 1em;
+  height: 1em;
+  font-size: 1.5em;
   color: $white;
   text-align: center;
   border-radius: 3px;
 
   &::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: .1em;
     font-family: $font-family-code;
-    font-size: .8em;
-    font-style: initial;
+    font-size: .6em;
     font-weight: 700;
-    vertical-align: middle;
-  }
-}
-
-@mixin icon-type($character, $bg) {
-  @extend %icon-type;
-  background-color: $bg;
-  border: 1px solid $darkened;
-
-  &::after {
-    text-shadow: 0 0 2px rgba($black, .3);
-    content: $character;
+    transform: translate(-50%, -50%);
   }
 }
 
 .icon-type {
-  &-variable {
-    @include icon-type('$', $yellow);
-  }
+  @each $type, $values in $types {
+    &-#{$type} {
+      @extend %icon-type;
+      background-color: nth($values, 1);
+      border: 1px solid $darkened;
 
-  &-builder {
-    @include icon-type('B', $red);
-  }
-
-  &-block {
-    @include icon-type('{}', $gray-700);
-  }
-
-  &-common {
-    @include icon-type('C', $orange);
-  }
-
-  &-composed {
-    @include icon-type('C', $indigo);
-  }
-
-  &-modifier {
-    @include icon-type('M', $purple);
-  }
-
-  &-selector {
-    @include icon-type('S', $cyan);
-  }
-
-  &-property {
-    @include icon-type('P', $teal);
-  }
-
-  &-value {
-    @include icon-type('V', $green);
+      &::after {
+        text-shadow: 0 0 2px rgba($black, .3);
+        font-style: initial;
+        content: nth($values, 2);
+      }
+    }
   }
 }

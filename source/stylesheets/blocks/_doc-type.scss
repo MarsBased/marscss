@@ -1,0 +1,120 @@
+.doc-type {
+  $dots-size: 2rem;
+  $dots-height-sm: 12rem;
+  $dots-height: 8rem;
+  $slide-background: $gray-800;
+
+  .slick-list,
+  .slick-track {
+    height: 100%;
+  }
+
+  &__slides {
+    height: 50vh;
+    min-height: 40rem;
+  }
+
+  &__slide {
+    $last-element: nth($types, length($types));
+    $bg-last: nth(nth($last-element, 2), 1);
+    $bg-before: $slide-background;
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
+    padding: 0 $gutter ($gutter * 1.5);
+    padding-top: $dots-height;
+    color: $white;
+    text-align: center;
+    background: linear-gradient(to right, $bg-before 0%, $bg-before 70%);
+    @include media-breakpoint-up('sm') {
+      padding-top: $dots-height-sm;
+    }
+
+    &:not(.slick-slide) {
+      display: none;
+    }
+
+    @each $type, $values in $types {
+      $bg: nth($values, 1);
+
+      &.is-#{$type} {
+        color: $white;
+        text-shadow: 0 0 5px rgba(darken($bg, 40%), .3);
+        background: linear-gradient(to right, $bg-before 0%, $bg 50%);
+      }
+      $bg-before: $bg;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-flow: nowrap column;
+    justify-content: center;
+    max-width: 550px;
+    height: 100%;
+    margin: auto;
+  }
+
+  &__title {
+    margin-top: 0;
+    font-size: $font-size-h1;
+    color: inherit;
+    @include media-breakpoint-up('sm') {
+      font-size: $font-size-hero;
+    }
+
+    a {
+      color: inherit;
+    }
+  }
+
+  &__content {
+    font-size: $font-size-h3;
+    font-weight: 600;
+    @include media-breakpoint-up('sm') {
+      overflow: hidden;
+    }
+  }
+
+  &__dots {
+    display: none;
+  }
+
+  &__dot {
+    transition: all .3s ease-out;
+
+    .slick-active & {
+      font-size: 2.4em;
+      border-color: $white;
+      opacity: 1;
+      transform-origin: 50%;
+      @include media-breakpoint-up('sm') {
+        font-size: 3em;
+      }
+    }
+  }
+
+  .slick-dots {
+    @extend %reset-list;
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: $dots-height;
+
+    @include media-breakpoint-up('sm') {
+      height: $dots-height-sm;
+    }
+
+    li {
+      margin: 0 .15em;
+      font-size: 1em;
+      @include media-breakpoint-up('sm') {
+        font-size: 1.4em;
+      }
+    }
+  }
+}
