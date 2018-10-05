@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
+const autoprefixer = require('autoprefixer');
 const Clean = require('clean-webpack-plugin');
 const { resolve } = require('path');
 const { sync } = require('glob');
@@ -20,6 +21,7 @@ module.exports = {
     home: './source/stylesheets/layouts/home.scss',
     documentation: './source/stylesheets/layouts/documentation.scss',
     exampleCard: examplePath + 'example-card.scss',
+    exampleGrid: examplePath + 'example-grid.scss',
     exampleWorkingWithMaps: examplePath + 'example-working-with-maps.scss',
     images: sync('./source/images/**/*', { nodir: true }),
     vendor: ['jquery']
@@ -49,7 +51,27 @@ module.exports = {
       },
       {
         test: /\.s?[ac]ss$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader']
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader'
+            // options: {
+            //   // minimize: {
+            //   //   safe: true
+            //   // }
+            // }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: () => [autoprefixer({ grid: true })]
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {}
+          }
+        ]
       },
       {
         test: /fonts\/.*\.(svg|eot|ttf|woff|woff2)(\?v=\d+\.\d+\.\d+)?$/i,
