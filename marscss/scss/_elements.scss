@@ -1,6 +1,16 @@
 //--- elements
 @function elements() {
   @return style(
+    /* metas */
+    meta-name('elements()'),
+    meta-type('builder'),
+    meta-description(
+      'Add styles for the main tags of the page, elements()
+      \Dif included if we did not specify otherwise from @include marscss\A
+      \Dhttp://marscss.com/documentation/include-marscss/#elements-1'
+    ),
+
+    /* rules */
     rule('h1', extend('%h1')),
     rule('h2', extend('%h2')),
     rule('h3', extend('%h3')),

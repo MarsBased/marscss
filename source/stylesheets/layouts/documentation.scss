@@ -5,6 +5,7 @@
 @import '../marscss';
 
 @include style(helpers());
+@include style(forms());
 
 @import '../blocks/example-tabs';
 

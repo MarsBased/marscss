@@ -900,4 +900,24 @@ $mod-spacing: $gutter / 2 !default;
   @return ( z-index: $arg);
 }
 
-//--- 
+//--- meta-name
+@function meta-name($arg) {
+  @return ( meta-name: $arg);
+}
+
+//--- meta-type
+@function meta-type($arg) {
+  @return ( meta-type: $arg);
+}
+
+//--- meta-description
+@function meta-description($arg) {
+  @return ( meta-description: $arg);
+}
+
+//--- meta-modifers
+@function meta-modifiers($arg) {
+  @return ( meta-modifiers: $arg);
+}
+
+//---

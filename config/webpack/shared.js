@@ -21,7 +21,7 @@ module.exports = {
     home: './source/stylesheets/layouts/home.scss',
     documentation: './source/stylesheets/layouts/documentation.scss',
     exampleCard: examplePath + 'example-card.scss',
-    exampleGrid: examplePath + 'example-grid.scss',
+    exampleAlert: examplePath + 'example-alert.scss',
     exampleWorkingWithMaps: examplePath + 'example-working-with-maps.scss',
     images: sync('./source/images/**/*', { nodir: true }),
     vendor: ['jquery']

@@ -10,6 +10,7 @@
       "ignoreAtRules": ["if", "else"]
     ],
     "selector-max-id": 2,
+    "string-no-newline": null,
     "selector-max-type": 3
   }
 }

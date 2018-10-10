@@ -7,13 +7,15 @@
     @return false;
   } @else {
     @each $rule in $builder {
-
-      @if (type-of(nth($rule, 1)) != string) {
-        @debug '❌ #{$type}: #{$name-function}: selector is not a string';
-        @return false;
-      } @else if (type-of(nth($rule, 2)) != map) {
-        @debug '❌ #{$type}: #{$name-function}: declaration block is not a map';
-        @return false;
+      $p1: nth($rule, 1);
+      @if not ( str-index($p1, 'meta-')) {
+        @if (type-of($p1) != string) {
+          @debug '❌ #{$type}: #{$name-function}: selector is not a string';
+          @return false;
+        } @else if (type-of(nth($rule, 2)) != map) {
+          @debug '❌ #{$type}: #{$name-function}: declaration block is not a map';
+          @return false;
+        }
       }
     }
   }
@@ -118,19 +120,20 @@
       }
     }
   }
-
-  @debug 'API elements: #{length($tests)}';
+  $m: '\A\A marscss tests \A --------------------';
+  $m: $m + '\A API elements: #{length($tests)}';
   @if $verbose {
-    @debug 'tests ✅ #{length($marscss-tests-ok)} => #{$marscss-tests-ok}';
+    $m: $m + '\A tests ✅ #{length($marscss-tests-ok)} => #{$marscss-tests-ok}';
 
     @if ($marscss-tests-fail) {
-      @debug 'tests ❌ #{length($marscss-tests-fail)} => #{$marscss-tests-fail}';
+      $m: $m + '\A tests ❌ #{length($marscss-tests-fail)} => #{$marscss-tests-fail}';
     }
   } @else {
     $tests-fail: '';
     @if ($marscss-tests-fail) {
       $tests-fail: ' | ❌ #{length($marscss-tests-fail)} => #{$marscss-tests-fail}';
     }
-    @debug 'tests ✅ #{length($marscss-tests-ok)}';
+    $m: $m + '\A tests ✅ #{length($marscss-tests-ok)}';
+    @debug $m + '\A --------------------\A';
   }
 }

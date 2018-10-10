@@ -1,0 +1,69 @@
+---
+title: component alert
+layout: documentation
+active: Components, Alerts
+example: example-alert
+anchors_menu: '> h3'
+---
+
+<%
+@exampleFile = "#{config.examples_path}/example-working-with-maps.scss"
+@exampleDistFile = dist_file('exampleWorkingWithMaps.css')
+%>
+
+# Alerts()
+
+Component to send notifications to the user, this component is designed to have different designs depending on the type of message it contains.
+
+since
+: 1.0.0
+
+<%#= source %>
+
+
+## Examples
+
+<% example_tabs do %>
+<%= file_example_scss() %>
+<%= file_example_dist() %>
+<% end %>
+
+
+### Simple alert
+
+<% example_html do %>
+<div class="alert">
+  JPEG, PNG, GIF or BMP - 5MB file limit, at least 250x250 pixels.
+</div>
+<% end %>
+
+
+### Multiple alerts states
+
+<% example_html do %>
+<div class="alert">
+  JPEG, PNG, GIF or BMP - 5MB file limit, at least 250x250 pixels.
+</div>
+
+<div class="alert is-success">
+  Something really bad has happened.
+</div>
+
+<div class="alert is-warning">
+  This is fine and requires notification
+</div>
+<% end %>
+
+
+### Alert is-dismissible
+
+<% example_html do %>
+<div class="alert is-dismissible">
+  <h4>This is an alert sample!</h4>
+  You can add <a href="#">links</a> or texts with <strong>format</strong>
+  <button type="button"
+          class="alert__close"
+          data-dismiss="alert"
+          aria-label="Close"></button>
+</div>
+<% end %>

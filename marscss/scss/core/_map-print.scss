@@ -20,6 +20,7 @@
           @extend #{$value};
         } @else if ($key == 'content') {
           content: '#{$value}'; //fix content quotes
+        } @else if str-index($key, 'meta-') {
         } @else {
           #{$key}: #{$value};
         }

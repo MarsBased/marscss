@@ -28,6 +28,10 @@
     }
   }
 
+  li:not(.is-active) + ul {
+    display: none;
+  }
+
   > ul {
     li.is-active {
       background-color: $darkened;

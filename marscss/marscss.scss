@@ -2,6 +2,7 @@
 
 @import 'scss/core/default-variables';
 @import 'scss/core/log';
+@import 'scss/core/help';
 @import 'scss/core/map-print';
 @import 'scss/core/style';
 @import 'scss/core/media';
@@ -26,6 +27,7 @@
 @import 'scss/utilities';
 
 //components
+@import 'scss/component/alerts';
 @import 'scss/component/card';
 @import 'scss/component/hamburger';
 @import 'scss/component/navbar';

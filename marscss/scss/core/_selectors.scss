@@ -3,6 +3,16 @@
   @return rule('&', $args...);
 }
 
+//--- this-before
+@function this-before($args...) {
+  @return rule('&::before', content(''), $args...);
+}
+
+//--- this-before
+@function this-after($args...) {
+  @return rule('&::after', content(''), $args...);
+}
+
 //--- this-active
 @function this-active($args...) {
   @return rule('&.is-active', $args...);
@@ -21,6 +31,11 @@
 //--- this-hover
 @function this-hover($args...) {
   @return rule('&:hover', $args...);
+}
+
+//--- this-state
+@function this-state($args...) {
+  @return rule('&:hover, &:focus', $args...);
 }
 
 //--- this-placeholder

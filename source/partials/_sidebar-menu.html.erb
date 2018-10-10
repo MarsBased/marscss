@@ -2,7 +2,7 @@
   <% data.documentation_menu.each do |page| %>
     <% content_tag(:li, class: active(page.name)) do %>
       <%= link_to page.name,
-      "/documentation/#{page.url || page.name.parameterize}" %>
+      "#{page.url || page.name.parameterize}" %>
     <% end %>
     <% if page.name == 'Api' && active(page.name) %>
       <div class="api-buttons">
@@ -18,7 +18,7 @@
         <% page.subpages.each do |subpage|%>
           <% content_tag(:li, class: active(subpage.name)) do %>
             <%= link_to subpage.name,
-              "/documentation/#{subpage.url || subpage.name.parameterize}" %>
+              "#{subpage.url || subpage.name.parameterize}" %>
           <% end %>
         <% end %>
       </ul>

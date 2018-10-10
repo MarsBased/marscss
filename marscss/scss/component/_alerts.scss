@@ -1,0 +1,245 @@
+$alert-name: '.alert';
+$alert-color: $warning !default;
+$alert-bg: rgba($warning, .04) !default;
+$alert-padding: $gutter/2 !default;
+
+//--- alert__root
+@function alert__root($args...) {
+  @return style(
+    /* metas */
+    meta-name('alert__root($args...)'),
+    meta-type('selector'),
+
+    /* rules */
+    rule('&', $args...)
+  );
+}
+
+//--- alert__close
+@function alert__close($args...) {
+  @return style(
+    /* metas */
+    meta-name('alert__close($args...)'),
+    meta-type('selector'),
+
+    /* rules */
+    rule('&__close', $args...)
+  );
+}
+
+//--- alert__is-dismissible
+@function alert__is-dismissible($args...) {
+  @return style(
+    /* metas */
+    meta-name('alert__is-dismissible($args...)'),
+    meta-type('selector'),
+
+    /* rules */
+    rule('&.is-dismissible', $args...)
+  );
+}
+
+//--- alert__is-warning
+@function alert__is-warning($args...) {
+  @return style(
+    /* metas */
+    meta-name('alert__is-warning($args...)'),
+    meta-type('selector'),
+
+    /* rules */
+    rule('&.is-warning', $args...)
+  );
+}
+
+//--- alert__is-success
+@function alert__is-success($args...) {
+  @return style(
+    /* metas */
+    meta-name('alert__is-success($args...)'),
+    meta-type('selector'),
+
+    /* rules */
+    rule('&.is-success', $args...)
+  );
+}
+
+//--- alert__a
+@function alert__a($args...) {
+  @return style(
+    /* metas */
+    meta-name('alert__a($args...)'),
+    meta-type('selector'),
+
+    /* rules */
+    rule('a', $args...)
+  );
+}
+
+//--- alerts
+@function alerts() {
+  @return style(
+    /* metas */
+    meta-name('elements()'),
+    meta-type('builder'),
+    meta-description(
+      '\D generates a set of rules with different alerts'
+    ),
+
+    /* rules */
+    rule('#{$alert-name}', alert()),
+    rule('#{$alert-name}', mod-alert-is-warning()),
+    rule('#{$alert-name}', mod-alert-is-success()),
+    rule('#{$alert-name}', mod-alert-is-dismissible()),
+  );
+}
+
+//--- alert
+@function alert() {
+  @return style(
+    /* metas */
+    meta-name('alert()'),
+    meta-type('composer'),
+    meta-description('
+      \D generates the default configuration of the alert
+
+      \D <div class="alert">
+      \D    example
+      \D </div>
+    '),
+
+    /* rules */
+    mod-alert-base(),
+    mod-alert-reset-link()
+  );
+}
+
+//--- mod-alert-base
+@function mod-alert-base() {
+  @return style(
+    /* metas */
+    meta-name('mod-alert-base()'),
+    meta-type('modifier'),
+    meta-description('Generates the basic rules of the alert'),
+
+    /* rules */
+    alert__root(
+      padding($alert-padding),
+      border(1px solid),
+      border-radius($border-radius),
+      margin-bottom(1.5rem),
+      background-color($alert-bg),
+      border-color($alert-color),
+      color($alert-color)
+    )
+  );
+}
+
+//--- mod-alert-reset-link
+@function mod-alert-reset-link() {
+  @return style(
+    /* metas */
+    meta-name('mod-alert-reset-link()'),
+    meta-type('modifier'),
+
+    /* rules */
+    alert__root(
+      alert__a(
+        reset-link(),
+        font-weight(700),
+        text-decoration(underline)
+      )
+    )
+  );
+}
+
+//--- mod-alert-is-dismissible
+@function mod-alert-is-dismissible() {
+  @return style(
+    /* metas */
+    meta-name('mod-alert-is-dismissible()'),
+    meta-type('modifier'),
+    meta-description('
+      \D generates the is-dismisible modification,
+      \D to work correctly use of btn().
+
+      \D <div class="alert is-dismisible">
+      \D    <button type="button"
+      \D            class="alert__close"
+      \D            data-dismiss="alert"
+      \D            aria-label="Close"></button>
+      \D    Message
+      \D </div>'),
+
+    /* rules */
+    alert__root(
+      alert__is-dismissible(
+        padding-right(($alert-padding) * 2),
+        position(relative),
+      ),
+      alert__close(
+        position(absolute),
+        top(0),
+        padding(.5em 1em),
+        right(0),
+        color(inherit),
+        transition(.5s ease-out),
+        this-before(
+          content('x')
+        ),
+        this-state(
+          transform('scale(1.5)')
+        )
+      )
+    )
+  );
+}
+
+//--- mod-alert-is-warning
+@function mod-alert-is-warning() {
+  @return style(
+    /* metas */
+    meta-name('mod-alert-is-warning()'),
+    meta-type('modifier'),
+    meta-description('warning modification.
+
+      \D <div class="alert is-warning">
+      \D    Mesage warning
+      \D </div>
+    '),
+
+    /* rules */
+    alert__root(
+      alert__is-warning(
+        background-color($warning),
+        border-color($warning),
+        color($white)
+      )
+    )
+  );
+}
+
+//--- mod-alert-is-success
+@function mod-alert-is-success() {
+  @return style(
+    /* metas */
+    meta-name('mod-alert-is-warning()'),
+    meta-type('modifier'),
+    meta-description('success modification.
+
+      \D <div class="alert is-warning">
+      \D    Mesage warning
+      \D </div>
+    '),
+
+    /* rules */
+    alert__root(
+      alert__is-success(
+        background-color($success),
+        border-color($success),
+        color($white)
+      )
+    )
+  );
+}
+
+//---
