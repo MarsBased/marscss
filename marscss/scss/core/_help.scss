@@ -33,19 +33,11 @@
   $name: map-get($map, 'meta-name');
   $description: map-get($map, 'meta-description');
 
-  $mapWithoutMeta: ();
-
-  @each $key, $value in $map {
-    @if not str-index($key, 'meta-') {
-      $mapWithoutMeta: map-merge($mapWithoutMeta, ($key: $value));
-    }
-  }
-
   $m: '\A\A#{$name}
     \D --------------------
     \D TYPE: \A#{$type}\A
     \D DESCRIPTION:\A#{$description}\A
-    \A RULES:\A #{map-keys($mapWithoutMeta)}\A
+    \A RULES:\A #{map-keys(meta-clean($map))}\A
     -------------------- \A';
 
   @return $m;

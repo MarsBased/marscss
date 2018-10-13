@@ -4,6 +4,7 @@
   "author": "MarsBased",
   "scripts": {
     "start": "bundle exec middleman server",
+    "tests": "ruby scripts/tests-type-of.rb",
     "svg": "node scripts/svg.js",
     "postinstall": "yarn build:marscss && npm rebuild node-sass",
     "build:marscss": "cd marscss && yarn"

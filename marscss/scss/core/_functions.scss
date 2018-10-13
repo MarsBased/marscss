@@ -1,98 +1,13 @@
 // stylelint-disable function-url-quotes
 @import 'functions/is';
 @import 'functions/str';
+@import 'functions/metas';
+@import 'functions/maps';
 @import 'functions/bootstrap';
 
 @function image-url($url) {
   $images-path: 'images/' !default;
   @return url(quote($images-path + $url));
-}
-
-//https://medium.com/@pentzzsolt/a-non-destructive-map-merge-function-for-sass-f91637f87b2e
-@function map-merge-recursive($parent-map, $child-map) {
-  $result: $parent-map;
-  @each $key, $value in $child-map {
-    @if (not map-has-key($result, $key)) or (type-of(map-get($result, $key)) != type-of($value)) or (not (type-of(map-get($result, $key)) == map and type-of($value) == map)) {
-      $result: map-merge($result, ($key: $value));
-    }
-    @else {
-      $result: map-merge(
-        $result,
-        ($key: map-merge-recursive(map-get($result, $key), $value))
-      );
-    }
-  }
-  @return $result;
-}
-
-@function map-default($map, $default) {
-  $result: false;
-
-  @each $key, $value in $map {
-    $value: map-merge-recursive($default, $value);
-    @if $result {
-      $result: map-merge($result, ($key: $value));
-    } @else {
-      $result: ($key: $value);
-    }
-  }
-  @return $result;
-}
-
-@function selector($replace, $map) {
-  $result: false;
-
-  @each $key, $value in $map {
-    @if $result {
-      $result: map-merge($result, ($key: $value));
-    } @else {
-      $result: ($replace: $value);
-    }
-  }
-
-  @return $result;
-}
-
-@function replace-selector($replace, $map) {
-  $result: false;
-
-  @each $key, $value in $map {
-    @if $result {
-      $result: map-merge($result, ($key: $value));
-    } @else {
-      $result: ($replace: $value);
-    }
-  }
-
-  @return $result;
-}
-
-@function map-force($map, $force) {
-  $result: false;
-
-  @each $key, $value in $map {
-    $value: map-merge-recursive($value, $force);
-    @if $result {
-      $result: map-merge($result, ($key: $value));
-    } @else {
-      $result: ($key: $value);
-    }
-  }
-  @return $result;
-}
-
-@function style($args...) {
-  $result: ('': false);
-
-  @for $i from 1 through length($args) {
-    @if $i > 1 {
-      $result: map-merge-recursive($result, nth($args, $i));
-    }
-    @else {
-      $result: nth($args, 1);
-    }
-  }
-  @return $result;
 }
 
 @function rule($selector, $args...) {
