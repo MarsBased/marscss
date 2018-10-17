@@ -1,6 +1,6 @@
 {
   "name": "@marsbased/marscss",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "Front-end CSS framework",
   "main": "marscss.scss",
   "sass": "marscss.scss",

@@ -35,6 +35,11 @@ $mod-spacing: $gutter / 2 !default;
   @return (background-repeat: $arg);
 }
 
+//--- background-size
+@function background-size($arg) {
+  @return (background-size: $arg);
+}
+
 //--- border
 @function border($arg) {
   @return (border: $arg);

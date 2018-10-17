@@ -124,7 +124,7 @@
 
 //--- form-input--required
 @function form-input--required() {
-  @return this-required(padding-right(2em), background-image(icon-required()));
+  @return this-required(padding-right(2em), background-image(icon-required($primary)));
 }
 
 //--- form-radio
@@ -167,7 +167,8 @@
   @return style(
     extend('%form-element'),
     padding-right(2em),
-    background-image(icon-caret-down())
+    background-size(1.5em),
+    background-image(icon-caret-down($primary))
   );
 }
 

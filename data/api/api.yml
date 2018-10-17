@@ -8,8 +8,6 @@
   file: _grid.scss
 - yml: data/api/api_helpers.yml
   file: _helpers.scss
-- yml: data/api/api_icons.yml
-  file: _icons.scss
 - yml: data/api/api_init.yml
   file: _init.scss
 - yml: data/api/api_reset.yml

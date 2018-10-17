@@ -1,13 +1,16 @@
 {
   "name": "marscss",
-  "version": "0.7.0",
+  "version": "0.9.0",
   "author": "MarsBased",
   "scripts": {
     "start": "bundle exec middleman server",
-    "tests": "ruby scripts/tests-type-of.rb",
     "svg": "node scripts/svg.js",
-    "postinstall": "yarn build:marscss && npm rebuild node-sass",
-    "build:marscss": "cd marscss && yarn"
+    "build:sketch": "/Applications/Sketch.app/Contents/Resources/sketchtool/bin/sketchtool export slices marscss/icons/icons.sketch --output=marscss/icons",
+    "build:svgpack": "svgpack marscss/icons > marscss/scss/_icons.scss",
+    "build:icons": "yarn build:sketch && yarn build:svgpack",
+    "build:tests": "ruby scripts/tests-type-of.rb",
+    "build:marscss": "cd marscss && yarn",
+    "postinstall": "yarn build:marscss && npm rebuild node-sass"
   },
   "browserslist": [
     "> 1%"
