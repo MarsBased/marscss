@@ -6,7 +6,8 @@
   "files": [
     "index.scss",
     "icons",
-    "scss"
+    "scss",
+    "scripts/postinstall.js"
   ],
   "main": "index.scss",
   "sass": "index.scss",
