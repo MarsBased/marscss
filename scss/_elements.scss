@@ -54,7 +54,7 @@
     transition('color .3s ease-out'),
     rule(
       '&:hover,&:focus',
-      color(darken($link-color, 20%)),
+      color(darken($link-color, 20%))
     )
   );
 }

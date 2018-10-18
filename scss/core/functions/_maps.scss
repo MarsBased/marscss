@@ -1,9 +1,13 @@
+@mixin debug($map, $args...) {
+  @debug map-debug($map, $args...);
+}
+
 @function map-debug($map, $args...) {
   @if map-get($map, 'meta-type') == 'builder' {
     $newmap: ();
     @each $key, $value in meta-clean($map) {
       $value: meta-clean($value);
-      $newmap: map-merge($newmap, ($key: $value));
+      $newmap: map-merge($newmap, ('#{$key}': $value));
     }
     $map: $newmap;
   }

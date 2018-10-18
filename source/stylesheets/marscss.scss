@@ -15,16 +15,21 @@ $m-element-h1: element-h1();
   @return style($m-element-h1, font-weight(900));
 }
 
-// INCLUDE MARSCSS EXTEND
-@include extend;
-
-// INCLUDE CUSTOM EXTEND
-%hero {
-  @include style(
-    element-h1(),
-    font-size($font-size-hero),
-    margin-bottom(4rem),
-    font-weight(300),
-    line-height(1.2)
+// HOCK EXTENDS
+$old-extends: extends();
+@function extends() {
+  @return style(
+    map-remove($old-extends),
+    rule(
+      '%hero',
+      element-h1(),
+      font-size($font-size-hero),
+      margin-bottom(4rem),
+      font-weight(300),
+      line-height(1.2)
+    )
   );
 }
+
+// INCLUDE MARSCSS EXTEND
+@include extend;

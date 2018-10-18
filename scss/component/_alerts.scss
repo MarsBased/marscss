@@ -17,7 +17,7 @@ $alert-padding: $gutter/2 !default;
     rule('#{$alert-name}', alert()),
     rule('#{$alert-name}.is-warning', alert-mod-is-warning()),
     rule('#{$alert-name}.is-success', alert-mod-is-success()),
-    rule('#{$alert-name}.is-dismissible', alert-mod-is-dismissible()),
+    rule('#{$alert-name}.is-dismissible', alert-mod-is-dismissible())
   );
 }
 

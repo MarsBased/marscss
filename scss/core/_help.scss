@@ -1,6 +1,10 @@
+@mixin help($function) {
+  @debug help($function);
+}
+
 @function help($map: false) {
   @if ($map) {
-    @if (type-of($map ) == 'map') {
+    @if (type-of($map) == 'map') {
       $type: map-get($map, 'meta-type');
       @if $type == 'builder' {
         @return text-map-builder($map);
@@ -8,10 +12,12 @@
         @return text-map-selector($map);
       } @else if $type == 'composer' {
         @return text-map-composer($map);
+      } @else if $type == 'block' {
+        @return text-map-block($map);
       } @else if $type == 'modifier' {
         @return text-map-composer($map);
       } @else {
-        @return '#{$map} don\'t have type';
+        @return "#{$map} don't have type";
       }
     } @else {
       @return '#{$map} is not map';
@@ -38,7 +44,7 @@
     \D TYPE: \A#{$type}\A
     \D DESCRIPTION:\A#{$description}\A
     \A RULES:\A #{map-keys(meta-clean($map))}\A
-    -------------------- \A';
+    \D -------------------- \A';
 
   @return $m;
 }
@@ -70,6 +76,24 @@
     \D TYPE: #{$type}\A
     \D DESCRIPTION: #{$description}\A
     \D MODIFERS: #{$modifers}
+    \D --------------------';
+
+  @return $m;
+}
+
+@function text-map-block($map) {
+  $type: map-get($map, 'meta-type');
+  $name: map-get($map, 'meta-name');
+  $description: map-get($map, 'meta-description');
+  $debug: map-debug($map);
+
+  $m: '\A\A#{$name}
+    \D --------------------
+    \D TYPE: #{$type}\A
+    \D DESCRIPTION:
+    \D #{$description}
+    \A
+    \D CONTENT: #{$debug}
     \D --------------------';
 
   @return $m;

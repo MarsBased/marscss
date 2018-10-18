@@ -1,0 +1,63 @@
+// prettier-ignore
+//--- extends
+@function extends() {
+  @return style(
+    /* metas */
+    meta-name('extend()'),
+    meta-type('builder'),
+    meta-description(
+      'Add sass placeholders starting with "%" to be used from @extend.
+      \D Once included you can use @extend %name-placeholder to use them,
+      \D the different selectors that call the same placeholder in the same
+      \D compilation file scss will share the same declaration block by adding the selector
+      \D
+      \D It is automatically added when using @include marscss
+      \D http://marscss.com/documentation/include-marscss/#extend'
+    ),
+    /* rules */
+    rule('%reset', reset-all()),
+    rule('%reset-heading', reset-heading()),
+    rule('%reset-text-block', reset-text-block()),
+    rule('%reset-button', reset-button()),
+    rule('%reset-list', reset-list()),
+    rule('%reset-checks', reset-checks()),
+    rule('%reset-link', reset-link()),
+    rule(
+      '%reset-all',
+      rule('*', extend('%reset')),
+      rule('a', extend('%reset-link')),
+      rule('button', extend('%reset-button')),
+    ),
+    /*colums*/
+    rule('%columns', columns()),
+    rule('%container', make-container()),
+    rule('%row', make-row()),
+    rule('%column', make-col-ready()),
+    rule('%focus', focus()),
+    rule('%form-element', form-element()),
+    rule('%form-checks', form-checks()),
+    rule('%label', form-label()),
+    rule('%input', form-input()),
+    rule('%textarea', form-textarea()),
+    rule('%select', form-select()),
+    rule('%radio', form-radio()),
+    rule('%checkbox', form-checkbox()),
+    rule('%h1', element-h1()),
+    rule('%h2', element-h2()),
+    rule('%h3', element-h3()),
+    rule('%h4', element-h4()),
+    rule('%h5', element-h5()),
+    rule('%h6', element-h6()),
+    rule('%a', element-a()),
+    rule('%blockquote', element-blockquote()),
+    rule('%p', element-p()),
+    rule('%ul', element-ul()),
+    rule('%ol', element-ol()),
+    rule('%li', element-li()),
+    rule('%dl', element-dl()),
+    rule('%dt', element-dt()),
+    rule('%dd', element-dd()),
+    rule('%ratio', ratio())
+  );
+}
+//---

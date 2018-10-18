@@ -6,4 +6,128 @@
   );
 }
 
+//--- columns
+@function columns() {
+  @return style(
+    /* metas */
+    meta-name('columns()'),
+    meta-type('block'),
+    meta-description(
+      'Convert the first children into equal size columns'
+    ),
+
+    /* rules */
+    margin-right($gutter / -2),
+    margin-left($gutter / -2),
+    rule(
+      '> *',
+      display(block),
+      flex(1 1 0),
+      padding-right($gutter / 2),
+      padding-left($gutter / 2)
+    )
+  );
+}
+
+//--- make-container()
+@function make-container() {
+  @return style(
+    /* metas */
+    meta-name('make-container()'),
+    meta-type('block'),
+    meta-description(
+      'Adaptation of the bootstrap mixin used by %container
+      \D https://getbootstrap.com/docs/4.1/layout/grid/#mixins'
+    ),
+
+    /* rules */
+    width(100%),
+    padding-right($gutter / -2),
+    padding-left($gutter / -2),
+    margin-right(auto),
+    margin-left(auto)
+  );
+}
+
+//--- make-row
+@function make-row() {
+  @return style(
+    /* metas */
+    meta-name('make-row()'),
+    meta-type('block'),
+    meta-description(
+      'Adaptation of the bootstrap mixin used by %row
+      \D https://getbootstrap.com/docs/4.1/layout/grid/#mixins'
+    ),
+
+    /* rules */
+    display(flex),
+    flex-wrap(wrap),
+    margin-right($gutter / -2),
+    margin-left($gutter / -2)
+  );
+}
+
+//--- make-col-ready
+@function make-col-ready() {
+  @return style(
+    /* metas */
+    meta-name('make-col-ready()'),
+    meta-type('block'),
+    meta-description(
+      'adaptation of the bootstrap mixin used by %column
+      \D https://getbootstrap.com/docs/4.1/layout/grid/#mixins
+      \D
+      \D Bootstrap notes:
+      \D - position: relative;
+      \D relative: Prevent columns from becoming too narrow when at smaller grid tiers by
+      \D always setting `width: 100%;`. This works because we use `flex` values
+      \D later on to override this initial width.
+      \D - min-height: 1px
+      \D Prevent collapsing'
+    ),
+
+    /* rules */
+    width(100%),
+    min-height(1px),
+    padding-right($gutter / -2),
+    padding-left($gutter / -2)
+  );
+}
+
+//--- ratio
+@function ratio() {
+  @return style(
+    /* metas */
+    meta-name('ratio()'),
+    meta-type('block'),
+    meta-description(
+      'It is used to generate a block with a proportion, the value
+      \D of the proportion is assigned by the padding, in our case
+      \D we use the padding top.
+
+      \D Example ratio 16/9:
+      \D .ratio-16-9{
+      \D    @extend %ratio:
+      \D    padding-top: 9/16 * 100%;
+      \D }'
+    ),
+
+    /* rules */
+    position(relative),
+    overflow(hidden),
+    background-position(center),
+    background-size(cover),
+    rule(
+      '> *',
+      position(absolute),
+      top(0),
+      right(0),
+      bottom(0),
+      left(0),
+      width(100%),
+      height(100%)
+    )
+  );
+}
 //---
