@@ -1,0 +1,116 @@
+$card-shadow: 0 2px 3px rgba(31, 17, 17, .1),
+ 0 0 0 1px rgba(10, 10, 10, .1) !default;
+$card-border: 1px solid $gray-300 !default;
+$card-border-radius: 5px !default;
+// elements
+
+@function card__root($args...) {
+  @return rule('&', $args...);
+}
+
+@function card__image($args...) {
+  @return rule('&__image', $args...);
+}
+
+@function card__content($args...) {
+  @return rule('&__content', $args...);
+}
+
+@function card($background: $white, $padding: $gutter/2) {
+
+  @return style(
+    card__root(
+      background-color($background),
+      position(relative)
+    ),
+    card__image(
+      position(relative)
+    ),
+    card__content(
+      padding($padding),
+      position(relative)
+    )
+  );
+}
+
+@function card--border($border: $card-border) {
+  @return (
+    card__root(
+      border($border)
+    )
+  );
+}
+
+@function card--rounded($radius: $card-border-radius) {
+  @return style(
+    card__root(
+      border-radius($card-border-radius)
+    ),
+    card__image(
+      border-radius-top($card-border-radius)
+    )
+  );
+}
+
+@function card--background-color($color: false) {
+  @return (
+    card__root(
+      background-color($color)
+    )
+  );
+}
+
+@function card--color($color: inherit) {
+  @return (
+    card__root(
+      color($color)
+    )
+  );
+}
+
+@function card--image-over($color: inherit) {
+  @return (
+    card__root(
+      color($color)
+    )
+  );
+}
+
+@function card--transparent() {
+  @return card--background-color(false);
+}
+
+@function card--shadow($shadow: $card-shadow) {
+  @return card__root(
+    box-shadow($shadow)
+  );
+}
+
+@function card--image-hover-scale(
+  $scale: 1.2,
+  $transition: transform .5s ease-out
+) {
+
+  @return card__image(
+    overflow(hidden),
+    cursor(pointer),
+    this-hover(
+      rule(
+        '& img',
+        transform-origin(50% 50%),
+        transform(scale($scale))
+      )
+    ),
+    rule(
+      '& img',
+      transform(scale(1)),
+      display(block),
+      max-width(100%),
+      transition($transition)
+    )
+  );
+}
+
+@function card--remove-root() { @return card__root(false); }
+@function card--remove-image() { @return card__image(false); }
+@function card--remove-content() { @return card__content(false); }

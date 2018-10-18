@@ -1,0 +1,66 @@
+//--- this
+@function this($args...) {
+  @return rule('&', $args...);
+}
+
+//--- this-before
+@function this-before($args...) {
+  @return rule('&::before', content(''), $args...);
+}
+
+//--- this-before
+@function this-after($args...) {
+  @return rule('&::after', content(''), $args...);
+}
+
+//--- this-active
+@function this-active($args...) {
+  @return rule('&.is-active', $args...);
+}
+
+//--- this-focus
+@function this-focus($args...) {
+  @return rule('&:focus', $args...);
+}
+
+//--- this-for
+@function this-for($args...) {
+  @return rule('&[for]', $args...);
+}
+
+//--- this-hover
+@function this-hover($args...) {
+  @return rule('&:hover', $args...);
+}
+
+//--- this-state
+@function this-state($args...) {
+  @return rule('&:hover, &:focus', $args...);
+}
+
+//--- this-placeholder
+@function this-placeholder($args...) {
+  @return rule('&:placeholder', $args...);
+}
+
+//--- this-disabled
+@function this-disabled($args...) {
+  @return rule('&[disabled], &.is-disabled', $args...);
+}
+
+//--- this-required
+@function this-required($args...) {
+  @return rule('&[required], &.is-required', $args...);
+}
+
+//--- this-no-resize
+@function this-no-resize($args...) {
+  @return rule('&.no-resize', $args...);
+}
+
+//--- this-required-after
+@function this-required-after($args...) {
+  @return rule('&.is-required::after', $args...);
+}
+
+//---

@@ -1,0 +1,57 @@
+$marscss-global-styles: false !default;
+
+@mixin style($args...) {
+  $styles: style($args...);
+
+  @if $marscss-global-styles {
+    $marscss-global-styles: map-merge-recursive($marscss-global-styles, $styles) !global;
+  }
+
+  @include map-print($styles);
+}
+
+@function style($args...) {
+  $styles: nth($args, 1);
+  $total: length($args);
+  $name: false;
+  $type: false;
+  $description: false;
+  $modifers: false;
+
+  @for $i from 1 through $total {
+
+    //fix metas
+    @if type-of(nth($args, $i)) == 'map' {
+      @if not $name and map-get(nth($args, $i), 'meta-name') {
+        $name: map-get(nth($args, $i), 'meta-name');
+      }
+      @if not $type and map-get(nth($args, $i), 'meta-type') {
+        $type: map-get(nth($args, $i), 'meta-type');
+      }
+      @if not $description and map-get(nth($args, $i), 'meta-description') {
+        $description: map-get(nth($args, $i), 'meta-description');
+      }
+      @if $type == 'composer' and map-get(nth($args, $i), 'meta-type') == 'modifier' {
+        $modifer-name: map-get(nth($args, $i), 'meta-name');
+        @if $modifers {
+          $modifers: '#{$modifers}, #{$modifer-name}';
+        } @else {
+          $modifers: $modifer-name;
+        }
+      }
+    }
+
+    // MERGEEEEEEEE
+    $styles: map-merge-recursive($styles, nth($args, $i));
+  }
+
+  // fix metas
+  @if $name { $styles: map-merge($styles, meta-name($name)); }
+  @if $type { $styles: map-merge($styles, meta-type($type)); }
+  @if $modifers {
+    $styles: map-merge($styles, meta-modifiers($modifers));
+  }
+  @if $description { $styles: map-merge($styles, meta-description($description)); }
+
+  @return $styles;
+}

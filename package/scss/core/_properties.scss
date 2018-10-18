@@ -1,0 +1,928 @@
+$mod-border-radius: 5px !default;
+$mod-spacing: $gutter / 2 !default;
+//--- appearance
+@function appearance($arg) {
+  @return (appearance: $arg);
+}
+
+//--- background
+@function background($arg) {
+  @return (background: $arg);
+}
+
+//--- background-attachment
+@function background-attachment($arg) {
+  @return (background-attachment: $arg);
+}
+
+//--- background-color
+@function background-color($arg) {
+  @return (background-color: $arg);
+}
+
+//--- background-image
+@function background-image($arg) {
+  @return (background-image: $arg);
+}
+
+//--- background-position
+@function background-position($arg) {
+  @return (background-position: $arg);
+}
+
+//--- background-repeat
+@function background-repeat($arg) {
+  @return (background-repeat: $arg);
+}
+
+//--- background-size
+@function background-size($arg) {
+  @return (background-size: $arg);
+}
+
+//--- border
+@function border($arg) {
+  @return (border: $arg);
+}
+
+//--- border-bottom
+@function border-bottom($arg) {
+  @return (border-bottom: $arg);
+}
+//--- border-bottom-color
+@function border-bottom-color($arg) {
+  @return (border-bottom-color: $arg);
+}
+//--- border-bottom-style
+@function border-bottom-style($arg) {
+  @return (border-bottom-style: $arg);
+}
+//--- border-bottom-width
+@function border-bottom-width($arg) {
+  @return (border-bottom-width: $arg);
+}
+
+//--- border-color
+@function border-color($arg) {
+  @return (border-color: $arg);
+}
+
+//--- border-image
+@function border-image($arg) {
+  @return (border-image: $arg);
+}
+
+//--- border-collapse
+@function border-collapse($arg) {
+  @return (border-collapse: $arg);
+}
+
+//--- border-image-source
+@function border-image-source($arg) {
+  @return (border-image-source: $arg);
+}
+
+//--- border-image-outset
+@function border-image-outset($arg) {
+  @return (border-image-outset: $arg);
+}
+
+//--- border-image-repeat
+@function border-image-repeat($arg) {
+  @return (border-image-repeat: $arg);
+}
+
+//--- border-image-slice
+@function border-image-slice($arg) {
+  @return (border-image-slice: $arg);
+}
+
+//--- border-image-source
+@function border-image-source($arg) {
+  @return (border-image-source: $arg);
+}
+
+//--- border-image-width
+@function border-image-width($arg) {
+  @return (border-image-width: $arg);
+}
+
+//--- border-left
+@function border-left($arg) {
+  @return (border-left: $arg);
+}
+
+//--- border-left-color
+@function border-left-color($arg) {
+  @return (border-left-color: $arg);
+}
+
+//--- border-left-style
+@function border-left-style($arg) {
+  @return (border-left-style: $arg);
+}
+
+//--- border-left-width
+@function border-left-width($arg) {
+  @return (border-left-width: $arg);
+}
+
+//--- border-radius
+@function border-radius($arg: $mod-border-radius) {
+  @return (border-radius: $arg);
+}
+
+//--- border-radius-bottom
+@function border-radius-bottom($arg: $mod-border-radius) {
+  @return (
+    border-bottom-left-radius: $arg,
+    border-bottom-right-radius: $arg);
+}
+
+//--- border-radius-top
+@function border-radius-top($arg: $mod-border-radius) {
+  @return (
+    border-top-left-radius: $arg,
+    border-top-right-radius: $arg
+  );
+}
+
+//--- border-right
+@function border-right($arg) {
+  @return (border-right: $arg);
+}
+
+//--- border-right-color
+@function border-right-color($arg) {
+  @return (border-right-color: $arg);
+}
+
+//--- border-right-style
+@function border-right-style($arg) {
+  @return (border-right-style: $arg);
+}
+
+//--- border-right-width
+@function border-right-width($arg) {
+  @return (border-right-width: $arg);
+}
+
+//--- border-spacing
+@function border-spacing($arg) {
+  @return (border-spacing: $arg);
+}
+
+//--- border-style
+@function border-style($arg) {
+  @return (border-style: $arg);
+}
+
+//--- border-top
+@function border-top($arg) {
+  @return (border-top: $arg);
+}
+
+//--- border-top-color
+@function border-top-color($arg) {
+  @return (border-top-color: $arg);
+}
+
+//--- border-top-style
+@function border-top-style($arg) {
+  @return (border-top-color: $arg);
+}
+
+//--- border-top-width
+@function border-top-width($arg) {
+  @return (border-top-width: $arg);
+}
+
+//--- border-width
+@function border-width($arg) {
+  @return (border-width: $arg);
+}
+
+//--- background-attachment
+@function background-attachment($arg) {
+  @return (background-attachment: $arg);
+}
+
+//--- background-color
+@function background-color($arg) {
+  @return (background-color: $arg);
+}
+
+//--- background-image
+@function background-image($arg) {
+  @return (background-image: $arg);
+}
+
+//--- background-position
+@function background-position($arg) {
+  @return (background-position: $arg);
+}
+
+//--- background-repeat
+@function background-repeat($arg) {
+  @return (background-repeat: $arg);
+}
+
+//--- bottom
+@function bottom($arg) {
+  @return (bottom: $arg);
+}
+
+//--- box-decoration-break
+@function box-decoration-break($arg) {
+  @return (box-decoration-break: $arg);
+}
+
+//--- box-shadow
+@function box-shadow($arg...) {
+  @return (box-shadow: $arg);
+}
+
+//--- box-sizing
+@function box-sizing($arg) {
+  @return (box-sizing: $arg);
+}
+
+//--- caption-side
+@function caption-side($arg) {
+  @return (box-sizing: $arg);
+}
+
+//--- clear
+@function clear($arg) {
+  @return (clear: $arg);
+}
+
+//--- color
+@function color($arg) {
+  @return (color: $arg);
+}
+
+//--- column-count
+@function column-count($arg) {
+  @return (column-count: $arg);
+}
+
+//--- column-fill
+@function column-fill($arg) {
+  @return (column-fill: $arg);
+}
+
+//--- column-rule
+@function column-rule($arg) {
+  @return (column-rule: $arg);
+}
+
+//--- column-rule-color
+@function column-rule-color($arg) {
+  @return (column-fill-color: $arg);
+}
+
+//--- column-rule-style
+@function column-rule-style($arg) {
+  @return (column-fill-style: $arg);
+}
+
+//--- column-rule-width
+@function column-rule-width($arg) {
+  @return (column-fill-width: $arg);
+}
+
+//--- column-gap
+@function column-gap($arg) {
+  @return (column-gap: $arg);
+}
+
+//--- column-span
+@function column-span($arg) {
+  @return (column-span: $arg);
+}
+
+//--- column-width
+@function column-width($arg) {
+  @return (column-width: $arg);
+}
+
+//--- columns
+@function columns($arg) {
+  @return (columns: $arg);
+}
+
+//--- content
+@function content($arg) {
+  @return (content: $arg);
+}
+
+//--- counter-increment
+@function counter-increment($arg) {
+  @return (counter-increment: $arg);
+}
+
+//--- counter-reset
+@function counter-reset($arg) {
+  @return (counter-reset: $arg);
+}
+
+//--- cursor
+@function cursor($arg) {
+  @return (cursor: $arg);
+}
+
+//--- direction
+@function direction($arg) {
+  @return (direction: $arg);
+}
+
+//--- display
+@function display($arg) {
+  @return (display: $arg);
+}
+
+//--- empty-cells
+@function empty-cells($arg) {
+  @return (empty-cells: $arg);
+}
+
+//--- extend
+@function extend($arg) {
+  @return ('extend': $arg);
+}
+
+//--- filter
+@function filter($arg) {
+  @return (filter: $arg);
+}
+
+//--- flex
+@function flex($arg) {
+  @return (flex: $arg);
+}
+
+//--- flex-basis
+@function flex-basis($arg) {
+  @return (flex-basis: $arg);
+}
+
+//--- flex-direction
+@function flex-direction($arg) {
+  @return (flex-direction: $arg);
+}
+
+//--- flex-flow
+@function flex-flow($arg) {
+  @return (flex-flow: $arg);
+}
+
+//--- flex-grow
+@function flex-grow($arg) {
+  @return (flex-grow: $arg);
+}
+
+//--- flex-shrink
+@function flex-shrink($arg) {
+  @return (flex-shrink: $arg);
+}
+
+//--- flex-wrap
+@function flex-wrap($arg) {
+  @return (flex-wrap: $arg);
+}
+
+//--- float
+@function float($arg) {
+  @return (float: $arg);
+}
+
+//--- font
+@function font($arg) {
+  @return (font: $arg);
+}
+
+//--- font-family
+@function font-family($arg...) {
+  @return (font-family: $arg);
+}
+
+//--- font-kerning
+@function font-kerning($arg) {
+  @return (font-kerning: $arg);
+}
+
+//--- font-size
+@function font-size($arg) {
+  @return (font-size: $arg);
+}
+
+//--- font-size-adjust
+@function font-size-adjust($arg) {
+  @return (font-size-adjust: $arg);
+}
+
+//--- font-stretch
+@function font-stretch($arg) {
+  @return (font-stretch: $arg);
+}
+
+//--- font-style
+@function font-style($arg) {
+  @return (font-style: $arg);
+}
+
+//--- font-variant
+@function font-variant($arg) {
+  @return (font-variant: $arg);
+}
+
+//--- font-weight
+@function font-weight($arg) {
+  @return (font-weight: $arg);
+}
+
+// @function grid($arg) {
+//   @return (grid: $arg /auto auto auto);
+// }
+
+// @function grid-area($arg) {
+//   @return (grid-area: $arg);
+// }
+
+// @function grid-auto-columns($arg) {
+//   @return (grid-auto-columns: $arg);
+// }
+
+//--- hanging-punctuation
+@function hanging-punctuation($arg) {
+  @return (hanging-punctuation: $arg);
+}
+
+//--- height
+@function height($arg) {
+  @return (height: $arg);
+}
+
+//--- justify-content
+@function justify-content($arg) {
+  @return (justify-content: $arg);
+}
+
+//--- left
+@function left($arg) {
+  @return (left: $arg);
+}
+
+//--- letter-spacing
+@function letter-spacing($arg) {
+  @return (letter-spacing: $arg);
+}
+
+//--- line-height
+@function line-height($arg) {
+  @return (line-height: $arg);
+}
+
+//--- list-style
+@function list-style($arg) {
+  @return (list-style: $arg);
+}
+
+//--- list-style-image
+@function list-style-image($arg) {
+  @return (list-style-image: $arg);
+}
+
+//--- list-style-position
+@function list-style-position($arg) {
+  @return (list-style-position: $arg);
+}
+
+//--- list-style-type
+@function list-style-type($arg) {
+  @return (list-style-type: $arg);
+}
+
+//--- list-style-type
+@function list-style-type($arg) {
+  @return (list-style-type: $arg);
+}
+
+//--- margin
+@function margin($arg: $gutter/2) {
+  @return (margin: $arg);
+}
+
+//--- margin-top
+@function margin-top($arg) {
+  @return ( margin-top: calc-spacing($arg) );
+}
+
+//--- margin-bottom
+@function margin-bottom($arg) {
+  @return ( margin-bottom: calc-spacing($arg) );
+}
+
+//--- margin-left
+@function margin-left($arg) {
+  @return ( margin-left: calc-spacing($arg) );
+}
+
+//--- margin-right
+@function margin-right($arg) {
+  @return ( margin-right: calc-spacing($arg) );
+}
+
+//--- margin-x
+@function margin-x($arg) {
+  $arg: calc-spacing($arg);
+  @return (
+    margin-left: $arg,
+    margin-right: $arg
+  );
+}
+
+//--- margin-y
+@function margin-y($arg) {
+  $arg: calc-spacing($arg);
+  @return (
+    margin-top: $arg,
+    margin-bottom: $arg
+  );
+}
+
+//--- margin
+@function margin($arg) {
+  @return ( margin: calc-spacing($arg) );
+}
+
+//--- max-height
+@function max-height($arg) {
+  @return ( max-height: $arg);
+}
+
+//--- max-width
+@function max-width($arg) {
+  @return ( max-width: $arg);
+}
+
+//--- min-height
+@function min-height($arg) {
+  @return ( min-height: $arg);
+}
+
+//--- min-width
+@function min-width($arg) {
+  @return ( min-width: $arg);
+}
+
+//--- object-fit
+@function object-fit($arg) {
+  @return ( object-fit: $arg);
+}
+
+//--- opacity
+@function opacity($arg) {
+  @return ( opacity: $arg);
+}
+
+//--- order
+@function order($arg) {
+  @return ( order: $arg);
+}
+
+//--- outline
+@function outline($arg) {
+  @return ( outline: $arg);
+}
+
+//--- outline-color
+@function outline-color($arg) {
+  @return ( outline-color: $arg);
+}
+
+//--- outline-offset
+@function outline-offset($arg) {
+  @return ( outline-offset: $arg);
+}
+
+//--- outline-style
+@function outline-style($arg) {
+  @return ( outline-style: $arg);
+}
+
+//--- outline-width
+@function outline-width($arg) {
+  @return ( outline-width: $arg);
+}
+
+//--- overflow
+@function overflow($arg) {
+  @return ( overflow: $arg);
+}
+
+//--- overflow-x
+@function overflow-x($arg) {
+  @return ( overflow-x: $arg);
+}
+
+//--- overflow-y
+@function overflow-y($arg) {
+  @return ( overflow-y: $arg);
+}
+
+//--- padding
+@function padding($arg: $gutter/2) {
+  @return (padding: $arg);
+}
+
+//--- padding-top
+@function padding-top($arg) {
+  @return ( padding-top: calc-spacing($arg) );
+}
+
+//--- padding-bottom
+@function padding-bottom($arg) {
+  @return ( padding-bottom: calc-spacing($arg) );
+}
+
+//--- padding-left
+@function padding-left($arg) {
+  @return ( padding-left: calc-spacing($arg) );
+}
+
+//--- padding-right
+@function padding-right($arg) {
+  @return ( padding-right: calc-spacing($arg) );
+}
+
+//--- padding-x
+@function padding-x($arg) {
+  $arg: calc-spacing($arg);
+  @return (
+    padding-left: $arg,
+    padding-right: $arg
+  );
+}
+
+//--- padding-y
+@function padding-y($arg) {
+  $arg: calc-spacing($arg);
+  @return (
+    padding-top: $arg,
+    padding-bottom: $arg
+  );
+}
+
+//--- padding
+@function padding($arg) {
+  @return ( padding: calc-spacing($arg) );
+}
+
+//--- page-break-after
+@function page-break-after($arg) {
+  @return ( page-break-after: $arg);
+}
+
+//--- page-break-before
+@function page-break-before($arg) {
+  @return ( page-break-before: $arg);
+}
+
+//--- page-break-inside
+@function page-break-inside($arg) {
+  @return ( page-break-inside: $arg);
+}
+
+//--- perspective
+@function perspective($arg) {
+  @return ( perspective: $arg);
+}
+
+//--- perspective-origin
+@function perspective-origin($arg) {
+  @return ( perspective-origin: $arg);
+}
+
+//--- pointer-events
+@function pointer-events($arg) {
+  @return ( pointer-events: $arg);
+}
+
+//--- position
+@function position($arg) {
+  @return ( position: $arg);
+}
+
+//--- quotes
+@function quotes($arg) {
+  @return ( quotes: $arg);
+}
+
+//--- resize
+@function resize($arg) {
+  @return ( resize: $arg);
+}
+
+//--- right
+@function right($arg) {
+  @return ( right: $arg);
+}
+
+//--- tab-size
+@function tab-size($arg) {
+  @return ( tab-size: $arg);
+}
+
+//--- table-layout
+@function table-layout($arg) {
+  @return ( table-layout: $arg);
+}
+
+//--- text-align
+@function text-align($arg) {
+  @return ( text-align: $arg);
+}
+
+//--- text-align-last
+@function text-align-last($arg) {
+  @return ( text-align-last: $arg);
+}
+
+//--- text-decoration
+@function text-decoration($arg) {
+  @return ( text-decoration: $arg);
+}
+
+//--- text-decoration-color
+@function text-decoration-color($arg) {
+  @return ( text-decoration-color: $arg);
+}
+
+//--- text-decoration-line
+@function text-decoration-line($arg) {
+  @return ( text-decoration-line: $arg);
+}
+
+//--- text-decoration-style
+@function text-decoration-style($arg) {
+  @return ( text-decoration-style: $arg);
+}
+
+//--- text-indent
+@function text-indent($arg) {
+  @return ( text-indent: $arg);
+}
+
+//--- text-justify
+@function text-justify($arg) {
+  @return ( text-justify: $arg);
+}
+
+//--- text-overflow
+@function text-overflow($arg) {
+  @return ( text-overflow: $arg);
+}
+
+//--- text-shadow
+@function text-shadow($arg) {
+  @return ( text-shadow: $arg);
+}
+
+//--- text-transform
+@function text-transform($arg) {
+  @return ( text-transform: $arg);
+}
+
+//--- transform
+@function transform($arg...) {
+  @return ( transform: $arg);
+}
+
+//--- transformRotate
+@function transformRotate($arg) {
+  @return ( transform: rotate($arg));
+}
+
+//--- transformSkewY
+@function transformSkewY($arg) {
+  @return ( transform: skewY($arg));
+}
+
+//--- transformScaleY
+@function transformScaleY($arg) {
+  @return ( transform: scaleY($arg));
+}
+
+//--- transform-origin
+@function transform-origin($arg) {
+  @return ( transform-origin: $arg);
+}
+
+//--- transform-style
+@function transform-style($arg) {
+  @return ( transform-style: $arg);
+}
+
+//--- transition
+@function transition($arg...) {
+  @return ( transition: $arg);
+}
+
+//--- transition-delay
+@function transition-delay($arg) {
+  @return ( transition-delay: $arg);
+}
+
+//--- transition-duration
+@function transition-duration($arg) {
+  @return ( transition-duration: $arg);
+}
+
+//--- transition-property
+@function transition-property($arg) {
+  @return ( transition-property: $arg);
+}
+
+//--- transition-timing-function
+@function transition-timing-function($arg) {
+  @return ( transition-timing-function: $arg);
+}
+
+//--- top
+@function top($arg) {
+  @return ( top: $arg);
+}
+
+//--- unicode-bidi
+@function unicode-bidi($arg) {
+  @return ( unicode-bidi: $arg);
+}
+
+//--- user-select
+@function user-select($arg) {
+  @return ( user-select: $arg);
+}
+
+//--- vertical-align
+@function vertical-align($arg) {
+  @return ( vertical-align: $arg);
+}
+
+//--- visibility
+@function visibility($arg) {
+  @return ( visibility: $arg);
+}
+
+//--- white-space
+@function white-space($arg) {
+  @return ( white-space: $arg);
+}
+
+//--- width
+@function width($arg) {
+  @return ( width: $arg);
+}
+
+//--- word-break
+@function word-break($arg) {
+  @return ( width: $arg);
+}
+
+//--- word-spacing
+@function word-spacing($arg) {
+  @return ( word-spacing: $arg);
+}
+
+//--- word-wrap
+@function word-wrap($arg) {
+  @return ( word-wrap: $arg);
+}
+
+//--- z-index
+@function z-index($arg) {
+  @return ( z-index: $arg);
+}
+
+//--- meta-name
+@function meta-name($arg) {
+  @return ( meta-name: $arg);
+}
+
+//--- meta-type
+@function meta-type($arg) {
+  @return ( meta-type: $arg);
+}
+
+//--- meta-description
+@function meta-description($arg) {
+  @return ( meta-description: $arg);
+}
+
+//--- meta-modifers
+@function meta-modifiers($arg) {
+  @return ( meta-modifiers: $arg);
+}
+
+//---

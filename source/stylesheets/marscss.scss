@@ -2,23 +2,17 @@
 @import 'utilities/variables';
 
 // MARSCSS CORE
-@import '../../marscss/marscss';
+@import '../../index';
 
 // CUSTOM CORE
 @function common-heading() {
-  @return style(
-    font-weight(700),
-    margin-bottom(2rem)
-  );
+  @return style(font-weight(700), margin-bottom(2rem));
 }
 
 $m-element-h1: element-h1();
 
 @function element-h1() {
-  @return style(
-    $m-element-h1,
-    font-weight(900)
-  );
+  @return style($m-element-h1, font-weight(900));
 }
 
 // INCLUDE MARSCSS EXTEND

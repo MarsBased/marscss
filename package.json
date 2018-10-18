@@ -1,20 +1,49 @@
 {
-  "name": "marscss",
-  "version": "0.9.0",
+  "name": "@marsbased/marscss",
+  "version": "0.10.0",
   "author": "MarsBased",
+  "description": "Front-end CSS framework",
+  "files": [
+    "index.scss",
+    "icons",
+    "scss"
+  ],
+  "main": "index.scss",
+  "sass": "index.scss",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarsBased/marscss.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "marscss",
+    "marscss.scss",
+    "css",
+    "framework",
+    "marsbased",
+    "scss"
+  ],
+  "homepage": "https://marscss.com",
+  "bugs": {
+    "url": "https://github.com/MarsBased/marscss/issues"
+  },
   "scripts": {
     "start": "bundle exec middleman server",
     "svg": "node scripts/svg.js",
-    "build:sketch": "/Applications/Sketch.app/Contents/Resources/sketchtool/bin/sketchtool export slices marscss/icons/icons.sketch --output=marscss/icons",
-    "build:svgpack": "svgpack marscss/icons > marscss/scss/_icons.scss",
+    "build:sketch": "/Applications/Sketch.app/Contents/Resources/sketchtool/bin/sketchtool export slices icons/icons.sketch --output=icons",
+    "build:svgpack": "svgpack icons > scss/_icons.scss",
     "build:icons": "yarn build:sketch && yarn build:svgpack",
     "build:tests": "ruby scripts/tests-type-of.rb",
-    "build:marscss": "cd marscss && yarn",
-    "postinstall": "yarn build:marscss && npm rebuild node-sass"
+    "postinstall": "npm rebuild node-sass && node scripts/postinstall.js"
   },
   "browserslist": [
     "> 1%"
   ],
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "mz-modules": "^2.0.0",
+    "ncp": "^2.0.0"
+  },
   "devDependencies": {
     "@marsbased/marstyle-stylelint": "^0.2.0",
     "clean-webpack-plugin": "^0.1.18",
@@ -33,9 +62,7 @@
     "svgstore": "^2.0.3",
     "webpack": "4",
     "webpack-build-notifier": "^0.1.30",
-    "webpack-cli": "^2.1.3"
-  },
-  "dependencies": {
+    "webpack-cli": "^2.1.3",
     "autoprefixer": "^9.1.5",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",

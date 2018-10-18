@@ -1,0 +1,188 @@
+$alert-name: '.alert' !default;
+$alert-color: $warning !default;
+$alert-bg: rgba($warning, .04) !default;
+$alert-padding: $gutter/2 !default;
+
+//--- alerts
+@function alerts() {
+  @return style(
+    /* metas */
+    meta-name('elements()'),
+    meta-type('builder'),
+    meta-description(
+      '\D Add styles of the different alerts'
+    ),
+
+    /* rules */
+    rule('#{$alert-name}', alert()),
+    rule('#{$alert-name}.is-warning', alert-mod-is-warning()),
+    rule('#{$alert-name}.is-success', alert-mod-is-success()),
+    rule('#{$alert-name}.is-dismissible', alert-mod-is-dismissible()),
+  );
+}
+
+//--- alert
+@function alert() {
+  @return style(
+    /* metas */
+    meta-name('alert()'),
+    meta-type('composer'),
+    meta-description('
+      \D Block the default configuration of the alert
+      \D <div class="alert">
+      \D    example
+      \D </div>
+    '),
+
+    /* rules */
+    alert-mod-base(),
+    alert-mod-btn-close(),
+    alert-mod-reset-link()
+  );
+}
+
+//--- alert-s-close
+@function alert-s-close($args...) {
+  @return style(
+    /* metas */
+    meta-name('alert-s-close($args...)'),
+    meta-type('selector'),
+
+    /* rules */
+    rule('&__close', $args...)
+  );
+}
+
+//--- alert-s-a
+@function alert-s-a($args...) {
+  @return style(
+    /* metas */
+    meta-name('alert-s-a($args...)'),
+    meta-type('selector'),
+
+    /* rules */
+    rule('a', $args...)
+  );
+}
+
+//--- alert-mod-base
+@function alert-mod-base() {
+  @return style(
+    /* metas */
+    meta-name('alert-mod-base()'),
+    meta-type('modifier'),
+    meta-description('Block the base of the alert'),
+
+    /* rules */
+    padding($alert-padding),
+    border(1px solid),
+    border-radius($border-radius),
+    margin-bottom(1.5rem),
+    background-color($alert-bg),
+    border-color($alert-color),
+    color($alert-color)
+  );
+}
+
+//--- alert-mod-btn-close
+@function alert-mod-btn-close() {
+  @return style(
+    /* metas */
+    meta-name('alert-mod-btn-close()'),
+    meta-type('modifier'),
+    meta-description('Styles of the rule &__close'),
+
+    /* rules */
+    alert-s-close(
+      position(absolute),
+      top(0),
+      padding(.5em 1em),
+      right(0),
+      color(inherit),
+      transition(.5s ease-out),
+      this-before(content('x')),
+      this-state(transform('scale(1.5)'))
+    )
+  );
+}
+
+//--- alert-mod-reset-link
+@function alert-mod-reset-link() {
+  @return style(
+    /* metas */
+    meta-name('alert-mod-reset-link()'),
+    meta-type('modifier'),
+
+    /* rules */
+    alert-s-a(
+      reset-link(),
+      font-weight(700),
+      text-decoration(underline)
+    )
+  );
+}
+
+//--- alert-mod-is-dismissible
+@function alert-mod-is-dismissible() {
+  @return style(
+    /* metas */
+    meta-name('alert-mod-is-dismissible()'),
+    meta-type('modifier'),
+    meta-description('
+      \D Add a modification for dismissible alerts
+
+      \D <div class="alert is-dismissible">
+      \D    <button type="button"
+      \D            class="alert__close"
+      \D            data-dismiss="alert"
+      \D            aria-label="Close"></button>
+      \D    Alert message
+      \D </div>'),
+
+    /* rules */
+    padding-right(($alert-padding) * 2),
+    position(relative)
+  );
+}
+
+//--- alert-mod-is-warning
+@function alert-mod-is-warning() {
+  @return style(
+    /* metas */
+    meta-name('alert-mod-is-warning()'),
+    meta-type('modifier'),
+    meta-description('warning modification.
+
+      \D <div class="alert is-warning">
+      \D    Mesage warning
+      \D </div>
+    '),
+
+    /* rules */
+    background-color($warning),
+    border-color($warning),
+    color($white)
+  );
+}
+
+//--- alert-mod-is-success
+@function alert-mod-is-success() {
+  @return style(
+    /* metas */
+    meta-name('alert-mod-is-warning()'),
+    meta-type('modifier'),
+    meta-description('success modification.
+
+      \D <div class="alert is-warning">
+      \D    Mesage warning
+      \D </div>
+    '),
+
+    /* rules */
+    background-color($success),
+    border-color($success),
+    color($white)
+  );
+}
+
+//---

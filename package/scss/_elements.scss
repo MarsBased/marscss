@@ -1,0 +1,183 @@
+//--- elements
+@function elements() {
+  @return style(
+    /* metas */
+    meta-name('elements()'),
+    meta-type('builder'),
+    meta-description(
+      'Add styles for the main tags of the page, elements()
+      \Dif included if we did not specify otherwise from @include marscss\A
+      \Dhttp://marscss.com/documentation/include-marscss/#elements-1'
+    ),
+
+    /* rules */
+    rule('h1', extend('%h1')),
+    rule('h2', extend('%h2')),
+    rule('h3', extend('%h3')),
+    rule('h4', extend('%h4')),
+    rule('h5', extend('%h5')),
+    rule('h6', extend('%h6')),
+    rule('a', extend('%a')),
+    rule('blockquote', extend('%blockquote')),
+    rule('p', extend('%p')),
+    rule('ul', extend('%ul')),
+    rule('ol', extend('%ol')),
+    rule('li', extend('%li')),
+    rule('dl', extend('%dl')),
+    rule('dt', extend('%dt')),
+    rule('dd', extend('%dd'))
+  );
+}
+
+//--- common-heading
+@function common-heading() {
+  @return margin-bottom(1.5rem);
+}
+
+//--- common-text-block
+@function common-text-block() {
+  @return style(
+    margin-top(0),
+    margin-bottom(1.5rem)
+  );
+}
+
+//--- common-list-block
+@function common-list-block() {
+  @return margin-bottom(.5em);
+}
+
+//--- element-a
+@function element-a() {
+  @return style(
+    color($link-color),
+    transition('color .3s ease-out'),
+    rule(
+      '&:hover,&:focus',
+      color(darken($link-color, 20%)),
+    )
+  );
+}
+
+//--- element-h1
+@function element-h1() {
+  @return style(
+    font-size($font-size-h1),
+    font-weight(700),
+    line-height(1),
+    common-heading()
+  );
+}
+
+//--- element-h2
+@function element-h2() {
+  @return style(
+    font-size($font-size-h2),
+    font-weight(700),
+    line-height(1),
+    common-heading()
+  );
+}
+
+//--- element-h3
+@function element-h3() {
+  @return style(
+    font-size($font-size-h3),
+    font-weight(800),
+    line-height(1.2),
+    common-heading()
+  );
+}
+
+//--- element-h4
+@function element-h4() {
+  @return style(
+    font-size($font-size-h4),
+    font-weight(800),
+    line-height(1),
+    common-heading()
+  );
+}
+
+//--- element-h5
+@function element-h5() {
+  @return style(
+    font-size($font-size-h5),
+    font-weight(800),
+    line-height(1),
+    common-heading()
+  );
+}
+
+//--- element-h6
+@function element-h6() {
+  @return style(
+    font-size($font-size-h6),
+    font-weight(800),
+    line-height(1),
+    common-heading()
+  );
+}
+
+//--- element-p
+@function element-p() {
+  @return style(common-text-block());
+}
+
+//--- element-blockquote
+@function element-blockquote() {
+  @return style(
+    max-width(600px),
+    padding-left(1em),
+    margin-top(0),
+    margin-right(0),
+    margin-left(0),
+    font-size($font-size-large),
+    font-weight(800),
+    border-left(4px solid $primary)
+  );
+}
+
+//--- element-ul
+@function element-ul() {
+  @return style(
+    padding-left(1),
+    list-style-type(disc),
+    margin-left(3rem),
+    rule('& ul', margin-bottom(0)),
+    common-text-block()
+  );
+}
+
+//--- element-ol
+@function element-ol() {
+  @return style(
+    padding-left(1),
+    list-style-type(decimal),
+    margin-left(3rem),
+    rule('& ol', margin-bottom(0)),
+    common-text-block()
+  );
+}
+
+//--- element-li
+@function element-li() {
+  @return style(common-list-block(),list-style-type(inherit));
+}
+
+//--- element-dl
+@function element-dl() {
+  @return style(common-text-block());
+}
+
+//--- element-dt
+@function element-dt() {
+  @return style(font-weight(800));
+}
+
+//--- element-dd
+@function element-dd() {
+  @return style(common-list-block());
+}
+
+//---

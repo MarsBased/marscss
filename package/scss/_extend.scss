@@ -1,0 +1,182 @@
+//--- extend
+@mixin extend() {
+  %reset {
+    @include style(reset-all());
+  }
+
+  %reset-all {
+    * {
+      @extend %reset;
+    }
+
+    a {
+      @extend %reset-link;
+    }
+
+    button {
+      @extend %reset-button;
+    }
+  }
+
+  %reset-heading {
+    @include style(reset-heading());
+  }
+
+  %reset-text-block {
+    @include style(reset-text-block());
+  }
+
+  %reset-button {
+    @include style(reset-button());
+  }
+
+  %reset-list {
+    @include style(reset-list());
+  }
+
+  %reset-checks {
+    @include style(reset-checks());
+  }
+
+  %reset-link {
+    @include style(reset-link());
+  }
+
+  %grid-column {
+    @include make-col-ready;
+  }
+
+  %container {
+    @include make-container;
+  }
+
+  %row {
+    @include make-row;
+  }
+
+  %columns {
+    margin-right: $gutter / -2;
+    margin-left: $gutter / -2;
+
+    > * {
+      display: block;
+      flex: 1 1 0;
+      padding-right: $gutter / 2;
+      padding-left: $gutter / 2;
+    }
+  }
+
+  %focus {
+    @include style(focus());
+  }
+
+  %form-element {
+    @include style(form-element());
+  }
+
+  %form-checks {
+    @include style(form-checks());
+  }
+
+  %label {
+    @include style(form-label());
+  }
+
+  %input {
+    @include style(form-input());
+  }
+
+  %textarea {
+    @include style(form-textarea());
+  }
+
+  %select {
+    @include style(form-select());
+  }
+
+  %radio {
+    @include style(form-radio());
+  }
+
+  %checkbox {
+    @include style(form-checkbox());
+  }
+
+  %h1 {
+    @include style(element-h1());
+  }
+
+  %h2 {
+    @include style(element-h2());
+  }
+
+  %h3 {
+    @include style(element-h3());
+  }
+
+  %h4 {
+    @include style(element-h4());
+  }
+
+  %h5 {
+    @include style(element-h5());
+  }
+
+  %h6 {
+    @include style(element-h6());
+  }
+
+  %a {
+    @include style(element-a());
+  }
+
+  %blockquote {
+    @include style(element-blockquote());
+  }
+
+  %p {
+    @include style(element-p());
+  }
+
+  %ul {
+    @include style(element-ul());
+  }
+
+  %ol {
+    @include style(element-ol());
+  }
+
+  %li {
+    @include style(element-li());
+  }
+
+  %dl {
+    @include style(element-dl());
+  }
+
+  %dt {
+    @include style(element-dt());
+  }
+
+  %dd {
+    @include style(element-dd());
+  }
+
+  %ratio {
+    position: relative;
+    overflow: hidden;
+    background-position: center;
+    background-size: cover;
+
+    > * {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+//---

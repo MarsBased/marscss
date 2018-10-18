@@ -1,0 +1,517 @@
+//--- helpers
+@function helpers() {
+  @return style(
+    helpers-align(),
+    helpers-bg(),
+    helpers-border(),
+    helpers-border-colors(),
+    helpers-colors(),
+    helpers-columns(),
+    helpers-display(),
+    helpers-elements(),
+    helpers-fs(),
+    helpers-pull(),
+    helpers-ratio(),
+    helpers-reset(),
+    helpers-text(),
+    helpers-utilities()
+  );
+}
+
+//--- helpers-align
+@function helpers-align($prefix: $prefix-helper-align) {
+  @return style(
+    rule('#{$prefix-helper}#{$prefix}-baseline', helper-align-baseline()),
+    rule('#{$prefix-helper}#{$prefix}-top', helper-align-top()),
+    rule('#{$prefix-helper}#{$prefix}-middle', helper-align-middle()),
+    rule('#{$prefix-helper}#{$prefix}-bottom', helper-align-bottom()),
+    rule('#{$prefix-helper}#{$prefix}-text-bottom', helper-align-text-bottom()),
+    rule('#{$prefix-helper}#{$prefix}-text-top', helper-align-text-top())
+  );
+}
+
+//--- helper-align-baseline
+@function helper-align-baseline() {
+  @return vertical-align(baseline !important);
+}
+
+//--- helper-align-top
+@function helper-align-top() {
+  @return vertical-align(top !important);
+}
+
+//--- helper-align-middle
+@function helper-align-middle() {
+  @return vertical-align(middle !important);
+}
+
+//--- helper-align-bottom
+@function helper-align-bottom() {
+  @return vertical-align(bottom !important);
+}
+
+//--- helper-align-text-bottom
+@function helper-align-text-bottom() {
+  @return vertical-align(text-bottom !important);
+}
+
+//--- helper-align-text-top
+@function helper-align-text-top() {
+  @return vertical-align(text-top !important);
+}
+
+//--- helpers-bg
+@function helpers-bg(
+  $prefix: $prefix-helper-bg,
+  $colors: $helper-bg-colors,
+  $transparent: $helper-bg-colors-transparent
+) {
+
+  $result: ();
+
+  @if ($transparent) {
+    $result: rule(
+      '#{$prefix-helper}#{$prefix}-#{$helper-bg-colors-transparent}',
+      background-color(transparent !important)
+    );
+  }
+
+  @each $color in $colors {
+    $result: map-merge(
+      $result,
+      rule(
+        '#{$prefix-helper}#{$prefix}-#{nth($color, 1)}',
+        background-color(nth($color, 2) !important)
+      )
+    );
+  }
+  @return $result;
+}
+
+//--- helpers-border
+@function helpers-border(
+  $prefix: $prefix-helper-border,
+  $colors: $helper-border-colors
+) {
+  @return style(
+    rule('#{$prefix-helper}#{$prefix}', helper-border()),
+    rule('#{$prefix-helper}#{$prefix}-0', helper-border-0()),
+    rule('#{$prefix-helper}#{$prefix}-top', helper-border-top()),
+    rule('#{$prefix-helper}#{$prefix}-right', helper-border-right()),
+    rule('#{$prefix-helper}#{$prefix}-bottom', helper-border-bottom()),
+    rule('#{$prefix-helper}#{$prefix}-left', helper-border-left())
+  );
+}
+
+//--- helper-border
+@function helper-border() {
+  @return border(1px solid !important);
+}
+
+//--- helper-border-0
+@function helper-border-0() {
+  @return border(0 !important);
+}
+
+//--- helper-border-top
+@function helper-border-top() {
+  @return border-top(1px solid !important);
+}
+
+//--- helper-border-right
+@function helper-border-right() {
+  @return border-right(1px solid !important);
+}
+
+//--- helper-border-bottom
+@function helper-border-bottom() {
+  @return border-bottom(1px solid !important);
+}
+
+//--- helper-border-left
+@function helper-border-left() {
+  @return border-left(1px solid !important);
+}
+
+//--- helpers-border-colors
+@function helpers-border-colors(
+  $prefix: $prefix-helper-border,
+  $colors: $helper-border-colors
+) {
+  $result: ();
+
+  @each $color in $colors {
+    $result: map-merge(
+      $result,
+      rule(
+        '#{$prefix-helper}#{$prefix}-#{nth($color, 1)}',
+        border-color(nth($color, 2) !important)
+      )
+    );
+  }
+  @return $result;
+}
+
+//--- helpers-colors
+@function helpers-colors(
+  $prefix: $prefix-helper-color,
+  $colors: $helper-colors,
+  $inherit: $helper-colors-inherit
+) {
+  $result: ();
+
+  @if ($inherit) {
+    $result: rule(
+      '#{$prefix-helper}#{$prefix}-#{$helper-colors-inherit}',
+      color(inherit !important)
+    );
+  }
+
+  @each $color in $colors {
+    $result: map-merge(
+      $result,
+      ('#{$prefix-helper}#{$prefix}-#{nth($color, 1)}' : (
+        color: nth($color, 2) !important
+      ))
+    );
+  }
+  @return $result;
+}
+
+//--- helpers-columns
+// required extend %columns
+@function helpers-columns(
+  $prefix: $prefix-helper-columns,
+  $sizes: $helper-columns-sizes
+) {
+  $result: ();
+
+  @each $size in $sizes {
+    $media: display(flex);
+
+    @if (nth($size, 2) > 0) {
+      $media: media-up(
+        nth($size, 1),
+        display(flex)
+      );
+    }
+
+    $result: map-merge(
+      $result,
+      rule(
+        '#{$prefix-helper}#{$prefix}-#{nth($size, 1)}',
+        $media,
+        extend('%columns')
+      )
+    );
+  }
+  @return $result;
+}
+
+//--- helpers-display
+@function helpers-display($prefix: $prefix-helper-display) {
+  @return style(
+    rule('#{$prefix-helper}#{$prefix}-block', helper-display-block()),
+    rule('#{$prefix-helper}#{$prefix}-flex', helper-display-flex()),
+    rule('#{$prefix-helper}#{$prefix}-inline', helper-display-inline()),
+    rule('#{$prefix-helper}#{$prefix}-inline-block', helper-display-inline-block()),
+    rule('#{$prefix-helper}#{$prefix}-inline-flex', helper-display-inline-flex()),
+    rule('#{$prefix-helper}#{$prefix}-none', helper-display-none()),
+    rule('#{$prefix-helper}#{$prefix}-table', helper-display-table()),
+    rule('#{$prefix-helper}#{$prefix}-table-cell', helper-display-table-cell())
+  );
+}
+
+//--- helper-display-block
+@function helper-display-block() {
+  @return display(block !important);
+}
+
+//--- helper-display-flex
+@function helper-display-flex() {
+  @return display(flex !important);
+}
+
+//--- helper-display-inline
+@function helper-display-inline() {
+  @return display(inline !important);
+}
+
+//--- helper-display-inline-block
+@function helper-display-inline-block() {
+  @return display(inline-block !important);
+}
+
+//--- helper-display-inline-flex
+@function helper-display-inline-flex() {
+  @return display(inline-flex !important);
+}
+
+//--- helper-display-none
+@function helper-display-none() {
+  @return display(none !important);
+}
+
+//--- helper-display-table
+@function helper-display-table() {
+  @return display(table !important);
+}
+
+//--- helper-display-table-cell
+@function helper-display-table-cell() {
+  @return display(table-cell !important);
+}
+
+//--- helpers-elements
+@function helpers-elements($prefix: $prefix-helper-elements) {
+  @return style(
+    rule('#{$prefix-helper}#{$prefix}h1', extend('%h1')),
+    rule('#{$prefix-helper}#{$prefix}h2', extend('%h2')),
+    rule('#{$prefix-helper}#{$prefix}h3', extend('%h3')),
+    rule('#{$prefix-helper}#{$prefix}h4', extend('%h4')),
+    rule('#{$prefix-helper}#{$prefix}h5', extend('%h5')),
+    rule('#{$prefix-helper}#{$prefix}h6', extend('%h6')),
+    rule('#{$prefix-helper}#{$prefix}a', extend('%a')),
+    rule('#{$prefix-helper}#{$prefix}blockquote', extend('%blockquote')),
+    rule('#{$prefix-helper}#{$prefix}p', extend('%p')),
+    rule('#{$prefix-helper}#{$prefix}ul', extend('%ul')),
+    rule('#{$prefix-helper}#{$prefix}ol', extend('%ol')),
+    rule('#{$prefix-helper}#{$prefix}li', extend('%li')),
+    rule('#{$prefix-helper}#{$prefix}dl', extend('%dl')),
+    rule('#{$prefix-helper}#{$prefix}dt', extend('%dt')),
+    rule('#{$prefix-helper}#{$prefix}dd', extend('%dd'))
+  );
+}
+
+//--- helpers-fs
+@function helpers-fs($prefix: $prefix-helper-fs) {
+  @return style(
+    rule('#{$prefix-helper}#{$prefix}-hero',helper-fs-hero()),
+    rule('#{$prefix-helper}#{$prefix}-h1',helper-fs-h1()),
+    rule('#{$prefix-helper}#{$prefix}-h2',helper-fs-h2()),
+    rule('#{$prefix-helper}#{$prefix}-h3',helper-fs-h3()),
+    rule('#{$prefix-helper}#{$prefix}-h4',helper-fs-h4()),
+    rule('#{$prefix-helper}#{$prefix}-h5',helper-fs-h5()),
+    rule('#{$prefix-helper}#{$prefix}-h6',helper-fs-h6()),
+    rule('#{$prefix-helper}#{$prefix}-large',helper-fs-large()),
+    rule('#{$prefix-helper}#{$prefix}-small',helper-fs-small())
+  );
+}
+
+//--- helper-fs-hero
+@function helper-fs-hero() {
+  @return font-size($font-size-hero !important);
+}
+
+//--- helper-fs-h1
+@function helper-fs-h1() {
+  @return font-size($font-size-h1 !important);
+}
+
+//--- helper-fs-h2
+@function helper-fs-h2() {
+  @return font-size($font-size-h2 !important);
+}
+
+//--- helper-fs-h3
+@function helper-fs-h3() {
+  @return font-size($font-size-h3 !important);
+}
+
+//--- helper-fs-h4
+@function helper-fs-h4() {
+  @return font-size($font-size-h4 !important);
+}
+
+//--- helper-fs-h5
+@function helper-fs-h5() {
+  @return font-size($font-size-h5 !important);
+}
+
+//--- helper-fs-h6
+@function helper-fs-h6() {
+  @return font-size($font-size-h6 !important);
+}
+
+//--- helper-fs-large
+@function helper-fs-large() {
+  @return font-size($font-size-large !important);
+}
+
+//--- helper-fs-small
+@function helper-fs-small() {
+  @return font-size($font-size-small !important);
+}
+
+//--- helpers-pull
+@function helpers-pull($prefix: $prefix-helper-pull) {
+  @return style(
+    rule('#{$prefix-helper}#{$prefix}-clear', helper-pull-clear()),
+    rule('#{$prefix-helper}#{$prefix}-right', helper-pull-right()),
+    rule('#{$prefix-helper}#{$prefix}-left', helper-pull-left())
+  );
+}
+
+//--- helper-pull-clear
+@function helper-pull-clear() {
+  @return clear(both !important);
+}
+
+//--- helper-pull-right
+@function helper-pull-right() {
+  @return float(right !important);
+}
+
+//--- helper-pull-left
+@function helper-pull-left() {
+  @return float(left !important);
+}
+
+//--- helpers-ratio
+// required extend %ratio
+@function helpers-ratio($prefix: $prefix-helper-ratio) {
+  @return style(
+    rule('#{$prefix-helper}#{$prefix}-16-9', helper-ratio-16-9()),
+    rule('#{$prefix-helper}#{$prefix}-4-3', helper-ratio-4-3()),
+    rule('#{$prefix-helper}#{$prefix}-1-1', helper-ratio-1-1())
+  );
+}
+
+//--- helper-ratio-16-9
+// required extend %ratio
+@function helper-ratio-16-9() {
+  @return style(
+    extend('%ratio'),
+    padding-top(9 / 16 * 100%)
+  );
+}
+
+//--- helper-ratio-4-3
+// required extend %ratio
+@function helper-ratio-4-3() {
+  @return style(
+    extend('%ratio'),
+    padding-top(3 / 4 * 100%)
+  );
+}
+
+//--- helper-ratio-1-1
+// required extend %ratio
+@function helper-ratio-1-1() {
+  @return style(
+    extend('%ratio'),
+    padding-top(100%)
+  );
+}
+
+//--- helpers-reset
+@function helpers-reset($prefix: $prefix-helper-reset) {
+  @return style(
+    rule('#{$prefix-helper}#{$prefix}-link', extend('%reset-link')),
+    rule('#{$prefix-helper}#{$prefix}-heading', extend('%reset-heading')),
+    rule('#{$prefix-helper}#{$prefix}-text-block', extend('%reset-text-block')),
+    rule('#{$prefix-helper}#{$prefix}-list', extend('%reset-list'))
+  );
+}
+
+//--- helpers-text
+@function helpers-text($prefix: $prefix-helper-text) {
+  @return style(
+    rule('#{$prefix-helper}#{$prefix}-center', helper-text-center()),
+    rule('#{$prefix-helper}#{$prefix}-left', helper-text-left()),
+    rule('#{$prefix-helper}#{$prefix}-right', helper-text-right()),
+    rule('#{$prefix-helper}#{$prefix}-capitalize', helper-text-capitalize()),
+    rule('#{$prefix-helper}#{$prefix}-hide', helper-text-hide()),
+    rule('#{$prefix-helper}#{$prefix}-lowercase', helper-text-lowercase()),
+    rule('#{$prefix-helper}#{$prefix}-uppercase', helper-text-uppercase()),
+    rule('#{$prefix-helper}#{$prefix}-nowrapp', helper-text-nowrapp()),
+    rule('#{$prefix-helper}#{$prefix}-truncate', helper-text-truncate())
+  );
+}
+
+//--- helper-text-center
+@function helper-text-center() {
+  @return text-align(center !important);
+}
+
+//--- helper-text-left
+@function helper-text-left() {
+  @return text-align(left !important);
+}
+
+//--- helper-text-right
+@function helper-text-right() {
+  @return text-align(right !important);
+}
+
+//--- helper-text-capitalize
+@function helper-text-capitalize() {
+  @return text-transform(capitalize !important);
+}
+
+//--- helper-text-hide
+@function helper-text-hide() {
+  @return style(
+    font(0/0 a),
+    color(transparent),
+    text-shadow(none),
+    background-color(transparent),
+    border(0)
+  );
+}
+
+//--- helper-text-lowercase
+@function helper-text-lowercase() {
+  @return text-transform(lowercase !important);
+}
+
+//--- helper-text-uppercase
+@function helper-text-uppercase() {
+  @return text-transform(uppercase !important);
+}
+
+//--- helper-text-nowrapp
+@function helper-text-nowrapp() {
+  @return white-space(nowrap !important);
+}
+
+//--- helper-text-truncate
+@function helper-text-truncate() {
+  @return style(
+    overflow(hidden),
+    text-overflow(ellipsis),
+    white-space(nowrap)
+  );
+}
+
+//--- helpers-utilities
+@function helpers-utilities($prefix: $prefix-helper-utilities) {
+  @return style(
+    rule('#{$prefix-helper}#{$prefix}last-margin-0', helper-utilities-last-margin-0()),
+    rule('#{$prefix-helper}#{$prefix}sr-only', helper-utilities-sr-only())
+  );
+}
+
+//--- helper-utilities-last-margin-0
+@function helper-utilities-last-margin-0() {
+  @return rule(
+    '& > *:last-child',
+    margin-bottom(0 !important)
+  );
+}
+
+//--- helper-utilities-sr-only
+@function helper-utilities-sr-only() {
+  @return style(
+    position(absolute),
+    width(1px),
+    height(1px),
+    padding(0),
+    margin(-1px),
+    overflow(hidden),
+    clip(rect(0, 0, 0, 0)),
+    border(0)
+  );
+}
+
+//---

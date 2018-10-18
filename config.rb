@@ -15,7 +15,7 @@ activate :webpack,
 
 
 set :examples_path, File.dirname(__FILE__)+'/source/stylesheets/examples'
-set :marscss_path, File.dirname(__FILE__)+'/marscss/scss'
+set :marscss_path, File.dirname(__FILE__)+'/scss'
 set :root_path, File.dirname(__FILE__)
 
 # configure :development do

@@ -1,0 +1,30 @@
+//stylelint-disable
+@mixin map-print($styles) {
+  @each $key, $value in $styles {
+    @if (type-of($value) == map) {
+      @if type-of($key) == string {
+        @if str-index($key, '@media') {
+          $contentKey:  str-replace($key, '@media ', '');
+          @media #{$contentKey} {
+            @include map-print(map-get($styles, $key));
+          }
+        } @else {
+          #{$key} {
+            @include map-print(map-get($styles, $key));
+          }
+        }
+      }
+    } @else {
+      @if $value {
+        @if str-index($key, 'extend') {
+          @extend #{$value};
+        } @else if ($key == 'content') {
+          content: '#{$value}'; //fix content quotes
+        } @else if str-index($key, 'meta-') {
+        } @else {
+          #{$key}: #{$value};
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+// stylelint-disable function-url-quotes
+@import 'functions/is';
+@import 'functions/str';
+@import 'functions/metas';
+@import 'functions/maps';
+@import 'functions/bootstrap';
+
+@function image-url($url) {
+  $images-path: 'images/' !default;
+  @return url(quote($images-path + $url));
+}
+
+@function rule($selector, $args...) {
+  @return ($selector: style($args...));
+}

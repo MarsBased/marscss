@@ -1,0 +1,447 @@
+@function a($args...) {
+  @return rule('a', $args...);
+}
+
+@function abbr($args...) {
+  @return rule('abbr', $args...);
+}
+
+@function address($args...) {
+  @return rule('address', $args...);
+}
+
+@function area($args...) {
+  @return rule('area', $args...);
+}
+
+@function article($args...) {
+  @return rule('article', $args...);
+}
+
+@function aside($args...) {
+  @return rule('aside', $args...);
+}
+
+@function audio($args...) {
+  @return rule('audio', $args...);
+}
+
+@function b($args...) {
+  @return rule('b', $args...);
+}
+
+@function base($args...) {
+  @return rule('base', $args...);
+}
+
+@function bdi($args...) {
+  @return rule('bdi', $args...);
+}
+
+@function bdo($args...) {
+  @return rule('bdo', $args...);
+}
+
+@function blockquote($args...) {
+  @return rule('blockquote', $args...);
+}
+
+@function body($args...) {
+  @return rule('body', $args...);
+}
+
+@function blockquote($args...) {
+  @return rule('blockquote', $args...);
+}
+
+@function br($args...) {
+  @return rule('br', $args...);
+}
+
+@function button($args...) {
+  @return rule('button', $args...);
+}
+
+@function canvas($args...) {
+  @return rule('canvas', $args...);
+}
+
+@function caption($args...) {
+  @return rule('caption', $args...);
+}
+
+@function cite($args...) {
+  @return rule('cite', $args...);
+}
+
+@function code($args...) {
+  @return rule('code', $args...);
+}
+
+@function col($args...) {
+  @return rule('col', $args...);
+}
+
+@function colgroup($args...) {
+  @return rule('colgroup', $args...);
+}
+
+@function data($args...) {
+  @return rule('data', $args...);
+}
+
+@function datalist($args...) {
+  @return rule('datalist', $args...);
+}
+
+@function dd($args...) {
+  @return rule('dd', $args...);
+}
+
+@function del($args...) {
+  @return rule('del', $args...);
+}
+
+@function details($args...) {
+  @return rule('details', $args...);
+}
+
+@function dfn($args...) {
+  @return rule('dfn', $args...);
+}
+
+@function dialog($args...) {
+  @return rule('dialog', $args...);
+}
+
+@function div($args...) {
+  @return rule('div', $args...);
+}
+
+@function dl($args...) {
+  @return rule('dl', $args...);
+}
+
+@function dt($args...) {
+  @return rule('dt', $args...);
+}
+
+@function em($args...) {
+  @return rule('em', $args...);
+}
+
+@function embed($args...) {
+  @return rule('embed', $args...);
+}
+
+@function fieldset($args...) {
+  @return rule('fieldset', $args...);
+}
+
+@function figcaption($args...) {
+  @return rule('figcaption', $args...);
+}
+
+@function figure($args...) {
+  @return rule('figure', $args...);
+}
+
+@function footer($args...) {
+  @return rule('footer', $args...);
+}
+
+@function form($args...) {
+  @return rule('form', $args...);
+}
+
+@function h1($args...) {
+  @return rule('h1', $args...);
+}
+
+@function h2($args...) {
+  @return rule('h2', $args...);
+}
+
+@function h3($args...) {
+  @return rule('h3', $args...);
+}
+
+@function h4($args...) {
+  @return rule('h4', $args...);
+}
+
+@function h5($args...) {
+  @return rule('h5', $args...);
+}
+
+@function h6($args...) {
+  @return rule('h6', $args...);
+}
+
+@function head($args...) {
+  @return rule('head', $args...);
+}
+
+@function header($args...) {
+  @return rule('header', $args...);
+}
+
+@function hr($args...) {
+  @return rule('hr', $args...);
+}
+
+@function html($args...) {
+  @return rule('html', $args...);
+}
+
+@function i($args...) {
+  @return rule('i', $args...);
+}
+
+@function iframe($args...) {
+  @return rule('iframe', $args...);
+}
+
+@function img($args...) {
+  @return rule('img', $args...);
+}
+
+@function input($args...) {
+  @return rule('input', $args...);
+}
+
+@function ins($args...) {
+  @return rule('ins', $args...);
+}
+
+@function kbd($args...) {
+  @return rule('kbd', $args...);
+}
+
+@function label($args...) {
+  @return rule('label', $args...);
+}
+
+@function legend($args...) {
+  @return rule('label', $args...);
+}
+
+@function li($args...) {
+  @return rule('li', $args...);
+}
+
+@function link($args...) {
+  @return rule('link', $args...);
+}
+
+@function main($args...) {
+  @return rule('main', $args...);
+}
+
+@function map($args...) {
+  @return rule('map', $args...);
+}
+
+@function mark($args...) {
+  @return rule('mark', $args...);
+}
+
+@function menu($args...) {
+  @return rule('menu', $args...);
+}
+
+@function menuitem($args...) {
+  @return rule('menuitem', $args...);
+}
+
+@function meta($args...) {
+  @return rule('meta', $args...);
+}
+
+@function meter($args...) {
+  @return rule('meter', $args...);
+}
+
+@function nav($args...) {
+  @return rule('nav', $args...);
+}
+
+@function noscript($args...) {
+  @return rule('noscript', $args...);
+}
+
+@function object($args...) {
+  @return rule('object', $args...);
+}
+
+@function ol($args...) {
+  @return rule('ol', $args...);
+}
+
+@function optgroup($args...) {
+  @return rule('optgroup', $args...);
+}
+
+@function option($args...) {
+  @return rule('option', $args...);
+}
+
+@function output($args...) {
+  @return rule('output', $args...);
+}
+
+@function p($args...) {
+  @return rule('p', $args...);
+}
+
+@function param($args...) {
+  @return rule('param', $args...);
+}
+
+@function picture($args...) {
+  @return rule('picture', $args...);
+}
+
+@function pre($args...) {
+  @return rule('pre', $args...);
+}
+
+@function progress($args...) {
+  @return rule('progress', $args...);
+}
+
+@function q($args...) {
+  @return rule('q', $args...);
+}
+
+@function rp($args...) {
+  @return rule('rp', $args...);
+}
+
+@function rt($args...) {
+  @return rule('rt', $args...);
+}
+
+@function ruby($args...) {
+  @return rule('ruby', $args...);
+}
+
+@function s($args...) {
+  @return rule('s', $args...);
+}
+
+@function samp($args...) {
+  @return rule('samp', $args...);
+}
+
+@function script($args...) {
+  @return rule('script', $args...);
+}
+
+@function section($args...) {
+  @return rule('section', $args...);
+}
+
+@function select($args...) {
+  @return rule('select', $args...);
+}
+
+@function small($args...) {
+  @return rule('small', $args...);
+}
+
+@function source($args...) {
+  @return rule('source', $args...);
+}
+
+@function span($args...) {
+  @return rule('span', $args...);
+}
+
+@function strong($args...) {
+  @return rule('strong', $args...);
+}
+
+@function sub($args...) {
+  @return rule('sub', $args...);
+}
+
+@function summary($args...) {
+  @return rule('summary', $args...);
+}
+
+@function sup($args...) {
+  @return rule('sup', $args...);
+}
+
+@function svg($args...) {
+  @return rule('svg', $args...);
+}
+
+@function table($args...) {
+  @return rule('table', $args...);
+}
+
+@function tbody($args...) {
+  @return rule('tbody', $args...);
+}
+
+@function td($args...) {
+  @return rule('td', $args...);
+}
+
+@function template($args...) {
+  @return rule('template', $args...);
+}
+
+@function textarea($args...) {
+  @return rule('textarea', $args...);
+}
+
+@function tfoot($args...) {
+  @return rule('tfoot', $args...);
+}
+
+@function th($args...) {
+  @return rule('th', $args...);
+}
+
+@function thead($args...) {
+  @return rule('thead', $args...);
+}
+
+@function time($args...) {
+  @return rule('time', $args...);
+}
+
+@function title($args...) {
+  @return rule('title', $args...);
+}
+
+@function tr($args...) {
+  @return rule('tr', $args...);
+}
+
+@function track($args...) {
+  @return rule('track', $args...);
+}
+
+@function u($args...) {
+  @return rule('u', $args...);
+}
+
+@function ul($args...) {
+  @return rule('ul', $args...);
+}
+
+@function var($args...) {
+  @return rule('var', $args...);
+}
+
+@function video($args...) {
+  @return rule('video', $args...);
+}
+
+@function wbr($args...) {
+  @return rule('wbr', $args...);
+}

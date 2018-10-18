@@ -1,0 +1,185 @@
+//--- forms
+@function forms($prefix: $prefix-forms) {
+  @return style(
+    rule('#{$prefix}checkbox', extend('%checkbox')),
+    rule('#{$prefix}input', extend('%input')),
+    rule('#{$prefix}label', extend('%label')),
+    rule('#{$prefix}radio', extend('%radio')),
+    rule('#{$prefix}select', extend('%select')),
+    rule('#{$prefix}textarea', extend('%textarea'))
+  );
+}
+
+//--- form-element
+@function form-element() {
+  @return style(
+    form-element--root(),
+    form-element--is-focus(),
+    form-element--is-disabled(),
+    form-element--is-placeholder(),
+    form-element--is-active()
+  );
+}
+
+//--- form-element--root
+@function form-element--root() {
+  @return style(
+    display(block),
+    width(100%),
+    max-width(100%),
+    padding($form-element-padding),
+    font-size(inherit),
+    line-height($form-element-line-height),
+    background($form-element-bg none no-repeat calc(100% - .7em) center),
+    background-size(1em),
+    border($form-element-border),
+    border-radius($form-element-border-radius),
+    transition(background .2s ease-out, border .2s ease-out),
+    appearance(none)
+  );
+}
+
+//--- form-element--is-focus
+@function form-element--is-focus() {
+  @return this-focus(extend('%focus'));
+}
+
+//--- form-element--is-placeholder
+@function form-element--is-placeholder() {
+  @return this-placeholder(color($form-element-placeholder), opacity(1));
+}
+
+//--- form-element--is-disabled
+@function form-element--is-disabled() {
+  @return this-disabled(
+    pointer-events(none),
+    cursor(not-allowed),
+    opacity($form-element-disabled)
+  );
+}
+
+//--- form-checks
+@function form-checks() {
+  @return style(form-checks--root(), form-checks--is-disabled());
+}
+
+//--- form-checks--root
+@function form-checks--root() {
+  @return style(display(inline-block), cursor(pointer));
+}
+
+//--- form-checks--is-disabled
+@function form-checks--is-disabled() {
+  @return style(this-disabled(cursor(not-allowed), opacity($form-element-disabled)));
+}
+
+//--- form-checkbox
+@function form-checkbox() {
+  @return style(form-checkbox--root(), form-checkbox--after-checkbox());
+}
+
+//--- form-checkbox--root
+@function form-checkbox--root() {
+  @return extend('%form-checks');
+}
+
+//--- form-checkbox--after-checkbox
+@function form-checkbox--after-checkbox() {
+  @return rule('& + &', margin-left(.5em));
+}
+
+//--- form-label
+@function form-label() {
+  @return style(form-label--root(), form-label--required(), form-label--hover());
+}
+
+//--- form-label--root
+@function form-label--root() {
+  @return style(display(inline-block), margin-bottom(.5em));
+}
+
+//--- form-label--hover
+@function form-label--hover() {
+  @return this-for(cursor(pointer), this-hover(color($link-color)));
+}
+
+//--- form-label--required
+@function form-label--required() {
+  @return this-required-after(
+    margin-left(.5em),
+    color($form-element-icon-color),
+    content('*')
+  );
+}
+
+//--- form-input
+@function form-input() {
+  @return style(form-input--root(), form-input--required());
+}
+
+//--- form-input--root
+@function form-input--root() {
+  @return extend('%form-element');
+}
+
+//--- form-input--required
+@function form-input--required() {
+  @return this-required(padding-right(2em), background-image(icon-required($primary)));
+}
+
+//--- form-radio
+@function form-radio() {
+  @return style(form-radio--root(), form-radio--after-radio());
+}
+
+//--- form-radio--root
+@function form-radio--root() {
+  @return extend('%form-checks');
+}
+
+//--- form-radio--after-radio
+@function form-radio--after-radio() {
+  @return rule('& + &', margin-left(.5em));
+}
+
+//--- form-textarea
+@function form-textarea() {
+  @return style(form-textarea--root(), form-textarea--no-resize());
+}
+
+//--- form-textarea--root
+@function form-textarea--root() {
+  @return extend('%input');
+}
+
+//--- form-textarea--no-resize
+@function form-textarea--no-resize() {
+  @return this-no-resize(resize(none));
+}
+
+//--- form-select
+@function form-select() {
+  @return style(form-select--root(), form-select--invalid(), form-select--reset());
+}
+
+//--- form-select--root
+@function form-select--root() {
+  @return style(
+    extend('%form-element'),
+    padding-right(2em),
+    background-size(1.5em),
+    background-image(icon-caret-down($primary))
+  );
+}
+
+//--- form-select--invalid
+@function form-select--invalid() {
+  @return color($form-element-placeholder);
+}
+
+//--- form-select--reset
+@function form-select--reset() {
+  @return rule('&::-ms-expand', display(none));
+}
+
+//---
