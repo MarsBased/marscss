@@ -7,16 +7,16 @@ anchors_menu: '> h1, > h2'
 
 # @include marscss
 
-This mixin is responsible for adding the simple initial configuration, it is very important that it is always loaded after our modifications in the core, since it is responsible for initializing [placeholders](#placeholders) that is used by other components.
+In order to integrate marscss, first, you need to import `marscss` mixin in your .scss file. Take into account that  you need to import it after any custom modificacion of the marscss core, for example if you change color variables.
 
-Also takes care if we do not specify the opposite of adding the [resets](#resets) and styles to the default tags with [elements](#elements)
+This is the setup mixin that loads the configuration and  the [placeholders](#placeholders) needed by the rest of components
 
 since
 : 1.0.0
 
 arguments
-: `$reset: true` *(boolean)*: include reset
-: `$elements: true` *(boolean)*: include elements
+: `$reset: true` *(boolean)*: @include style([resets()](#resets))
+: `$elements: true` *(boolean)*: @include style([elements()](#elements))
 
 ~~~scss
 @include marscss;
