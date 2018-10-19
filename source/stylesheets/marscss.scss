@@ -34,7 +34,5 @@ $new-placeholders: style(
 
 ////////// INCLUDE MARSCSS PLACEHOLDERS
 @include style(
-  resets(),
-  elements(),
   placeholders()
 );
