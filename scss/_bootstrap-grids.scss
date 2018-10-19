@@ -1,20 +1,20 @@
-//--- grid
-@mixin grid (
+//--- bootstrap-grids
+@mixin bootstrap-grids (
   $prefix-container: 'container',
   $container-max-widths: $container-max-widths,
   $prefix-row: 'row'
 ) {
-  @include grid-container($prefix-container, $container-max-widths);
-  @include grid-row($prefix-row);
-  @include grid-columns;
+  @include bootstrap-containers($prefix-container, $container-max-widths);
+  @include bootstrap-row($prefix-row);
+  @include bootstrap-columns;
 }
 
-//--- grid-container
-@mixin grid-container(
+//--- bootstrap-containers
+@mixin bootstrap-containers(
   $prefix: 'container',
   $container-max-widths: $container-max-widths
 ) {
-  @include log('🚀 grid-container');
+  @include log('🚀 bootstrap-containers');
 
   .#{$prefix} {
     @extend %container;
@@ -29,9 +29,9 @@
   }
 }
 
-//--- grid-row
-@mixin grid-row($prefix: 'row') {
-  @include log('🚀 grid-row');
+//--- bootstrap-row
+@mixin bootstrap-row($prefix: 'row') {
+  @include log('🚀 bootstrap-row');
 
   .#{$prefix} {
     @extend %row;
@@ -52,8 +52,8 @@
   }
 }
 
-//--- grid-columns
-@mixin grid-columns {
+//--- bootstrap-columns
+@mixin bootstrap-columns {
   @include log('🚀 grid-columns');
   @include make-grid-columns();
 }

@@ -34,3 +34,8 @@
   description:
   >
     <p>They are a type of special block designed to join a set of properties that give shape to an aperience, to be used from composite blocks</p>
+
+- name: external
+  description:
+  >
+    <p>External libraries that we can call from marscss</p>

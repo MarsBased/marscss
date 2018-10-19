@@ -80,8 +80,8 @@ To overwrite the variables we can duplicate the entire file and add only the var
 3. **custom core**<br>
 Here we can overwrite any marscss function, if we are going to make many modifications on the core it is preferable, as we have said before, to generate a new folder and separate it in a more structured way.
 
-4. **include extend**<br>
-Last but not least we will add @include extend that will allow us to use the different extensions from any component.
+4. **include placeholders**<br>
+Last but not least we will add @include style(placeholders()) that will allow us to use the different extensions from any component.
 
 #### Example src/marscss.scss
 
@@ -97,8 +97,8 @@ $primary: $blue;
   @return margin-bottom(2rem);
 }
 
-// include extend
-@include style(extends());
+// include placeholders
+@include style(placeholders());
 ~~~
 
 
@@ -117,10 +117,11 @@ The application file is the main component that we will use in react, since it w
 ~~~scss
 @import "../marscss";
 
-@include style(reset());
-@include style(helpers());
-@include style(forms());
-@include style(elements());
+@include style(
+  reset(),
+  helpers(),
+  elements()
+);
 
 @include grid-container;
 

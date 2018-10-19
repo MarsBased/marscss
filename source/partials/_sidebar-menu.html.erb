@@ -1,5 +1,6 @@
 <ul class="sidebar-menu">
   <% data.documentation_menu.each do |page| %>
+
     <% content_tag(:li, class: active(page.name)) do %>
       <%= link_to page.name,
       "#{page.url || page.name.parameterize}" %>
@@ -16,7 +17,7 @@
     <% elsif !active('api') && page.subpages %>
       <ul>
         <% page.subpages.each do |subpage|%>
-          <% content_tag(:li, class: active(subpage.name)) do %>
+          <% content_tag(:li, class: active(subpage.name.parameterize)) do %>
             <%= link_to subpage.name,
               "#{subpage.url || subpage.name.parameterize}" %>
           <% end %>

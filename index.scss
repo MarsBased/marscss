@@ -9,7 +9,6 @@
 @import 'scss/core/media';
 @import 'scss/core/properties';
 @import 'scss/core/selectors';
-// @import 'scss/core/tags';
 @import 'scss/core/values';
 @import 'scss/core/tests';
 
@@ -17,15 +16,14 @@
 @import 'scss/external/grid';
 @import 'scss/external/grid-framework';
 
+@import 'scss/placeholders';
 @import 'scss/elements';
-@import 'scss/extend';
-@import 'scss/extends';
 @import 'scss/forms';
-@import 'scss/grid';
+@import 'scss/bootstrap-grids';
 @import 'scss/helpers';
 @import 'scss/icons';
 @import 'scss/init';
-@import 'scss/reset';
+@import 'scss/resets';
 @import 'scss/utilities';
 
 //components

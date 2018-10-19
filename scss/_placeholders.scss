@@ -1,19 +1,19 @@
 // prettier-ignore
-//--- extends
-@function extends() {
+//--- placeholders
+@function placeholders() {
   @return style(
     /* metas */
-    meta-name('extend()'),
+    meta-name('placeholders()'),
     meta-type('builder'),
     meta-description(
       'Add sass placeholders starting with "%" to be used from @extend.
       \D Once included you can use @extend %name-placeholder to use them,
       \D the different selectors that call the same placeholder in the same
-      \D compilation file scss will share the same declaration block by adding the selector
       \D
       \D It is automatically added when using @include marscss
-      \D http://marscss.com/documentation/include-marscss/#extend'
+      \D http://marscss.com/documentation/include-marscss/#placeholders'
     ),
+
     /* rules */
     rule('%reset', reset-all()),
     rule('%reset-heading', reset-heading()),
@@ -29,6 +29,7 @@
       rule('button', extend('%reset-button')),
     ),
     /*colums*/
+
     rule('%columns', columns()),
     rule('%container', make-container()),
     rule('%row', make-row()),

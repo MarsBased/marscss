@@ -1,14 +1,14 @@
 //--- marscss
 @mixin marscss($reset: true, $elements: true) {
   @if ($reset) {
-    @include style(reset());
+    @include style(resets());
   }
 
   @if ($elements) {
     @include style(elements());
   }
 
-  @include extend;
+  @include style(placeholders());
 }
 
 //---

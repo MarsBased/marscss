@@ -1,7 +1,0 @@
-//--- extend
-@mixin extend() {
-  // @warn 'this mixin is replaced by the extends function, removed in 1.0.0';
-
-  @include style(extends());
-}
-//---

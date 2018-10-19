@@ -1,35 +1,40 @@
-// CUSTOM VARIABLES
+////////// CUSTOM VARIABLES
 @import 'utilities/variables';
 
-// MARSCSS CORE
+////////// ADD MARSCSS
 @import '../../index';
 
-// CUSTOM CORE
+////////// CUSTOM CORE
 @function common-heading() {
   @return style(font-weight(700), margin-bottom(2rem));
 }
 
-$m-element-h1: element-h1();
+// MODIFY element-h1()
+$new-element-h1: style(element-h1(), font-weight(900));
 
 @function element-h1() {
-  @return style($m-element-h1, font-weight(900));
+  @return $new-element-h1;
 }
 
-// HOCK EXTENDS
-$old-extends: extends();
-@function extends() {
-  @return style(
-    map-remove($old-extends),
-    rule(
-      '%hero',
-      element-h1(),
-      font-size($font-size-hero),
-      margin-bottom(4rem),
-      font-weight(300),
-      line-height(1.2)
-    )
-  );
+$new-placeholders: style(
+  placeholders(),
+  rule(
+    '%hero',
+    element-h1(),
+    font-size($font-size-hero),
+    margin-bottom(4rem),
+    font-weight(300),
+    line-height(1.2)
+  )
+);
+
+@function placeholders() {
+  @return $new-placeholders;
 }
 
-// INCLUDE MARSCSS EXTEND
-@include extend;
+////////// INCLUDE MARSCSS PLACEHOLDERS
+@include style(
+  resets(),
+  elements(),
+  placeholders()
+);

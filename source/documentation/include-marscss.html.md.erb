@@ -1,15 +1,15 @@
 ---
 title: '@include marscss'
 layout: documentation
-active: Documentation, '@include marscss'
+active: Documentation, include-marscss
 anchors_menu: '> h1, > h2'
 ---
 
 # @include marscss
 
-This mixin is responsible for adding the simple initial configuration, it is very important that it is always loaded after our modifications in the core, since it is responsible for initializing [extend](#extend) that is used by other components.
+This mixin is responsible for adding the simple initial configuration, it is very important that it is always loaded after our modifications in the core, since it is responsible for initializing [placeholders](#placeholders) that is used by other components.
 
-Also takes care if we do not specify the opposite of adding the [reset](#reset) and styles to the default tags with [elements](#elements)
+Also takes care if we do not specify the opposite of adding the [resets](#resets) and styles to the default tags with [elements](#elements)
 
 since
 : 1.0.0
@@ -22,11 +22,21 @@ arguments
 @include marscss;
 ~~~
 
+By default is the same of:
+
+~~~scss
+@include style(
+  resets(),
+  elements(),
+  placeholders()
+);
+~~~
+
 
 ---------------------------------------------------
 
 
-## extend
+## builder placeholders
 
 Add the main selectors starting with "%" to be used from `@extend` from your code or other parts of the application.
 
@@ -41,29 +51,14 @@ dependencies
 : map elements()
 
 ~~~scss
-@include style(extends());
+@include style(placeholders());
 ~~~
 
-### Resets
-
-`%reset, %reset-all, %reset-link, %reset-heading, %reset-text-block, %reset-list, %reset-checks`
-
-### Grid
-
-`%column, %container, %row`
-
-### Elements
-
-`%a, %h1, %h2, %h3, %h4, %h5, %h6, %blockquote, %p, %ul, %ol, %li, %dl, %dt, %dd`
-
-### forms
-
-`%focus, %%form-element, %form-checks, %label, %input, %textarea, %select, %radio, %checkbox`
-
+%reset, %reset-heading, %reset-text-block, %reset-button, %reset-list, %reset-checks, %reset-link, %reset-all, %columns, %container, %row, %column, %focus, %form-element, %form-checks, %label, %input, %textarea, %select, %radio, %checkbox, %h1, %h2, %h3, %h4, %h5, %h6,%a, %blockquote, %p, %ul, %ol, %li, %dl, %dt, %dd, %ratio
 
 ---------------------------------------------------
 
-## reset
+## builder resets
 
 Add a reset to the html tags and add tools to control the reset of the element styles.
 
@@ -76,7 +71,7 @@ since
 : 1.0.0
 
 ~~~scss
-@include style(reset());
+@include style(resets());
 ~~~
 
 ### Example without reset
@@ -146,7 +141,7 @@ You can override the reset functions if you want to add or modify those rules, a
 
 ---------------------------------------------------
 
-## elements
+## builder elements
 
 Add styles for the main tags of the page, `elements()` if included if we did not specify otherwise from [@include marscss](#include-marscss), but if we wish we can include it directly, you can see an example of a complex configuration in <%= link_to 'recipes', '/documentation/recipes#recipes' %>.
 
@@ -161,10 +156,10 @@ since
 
 `h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `a`, `blockquote`, `p`, `ul`, `ol`, `li`, `dl`, `dt`, `dd`
 
-If you want to see what selectors a builder is acting on, you can do it using the function map-keys($map)
+If you want to see what selectors a builder is acting on, you can do it using:
 
 ~~~scss
-@debug map-keys(elements());
+@include help(elements());
 ~~~
 
 ---------------------------------------------------
@@ -202,13 +197,13 @@ In the first example we are going to directly rewrite `common-heading`
 If we wanted to modify a function reusing its previous value we could do it in this way, in this example we are going to add the red color to the rules that have `element-h1`
 
 ~~~scss
-$my-h1: style(
+$new-h1: style(
   element-h1(),
   color($red)
 );
 
 @function element-h1() {
-  @return $my-h1;
+  @return $new-h1;
 }
 ~~~
 

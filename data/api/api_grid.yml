@@ -1,8 +1,0 @@
-- name: grid
-  type: builder
-- name: grid-container
-  type: builder
-- name: grid-row
-  type: builder
-- name: grid-columns
-  type: builder

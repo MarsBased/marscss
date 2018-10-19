@@ -1,24 +1,27 @@
 - name: 'Documentation'
-  url: 'documentation'
+  url: '/documentation'
   subpages:
   - name: Getting started
     url: /documentation
   - name: '@include marscss'
     url: /documentation/include-marscss
-  - name: '@include grid'
-    url: /documentation/include-grid
-  - name: 'helpers()'
-    url: /documentation/helpers
-  - name: 'forms()'
-    url: /documentation/forms
   - name: 'working with maps'
     url: /documentation/working-with-maps
   - name: 'recipes'
+    url: /documentation/recipes
+  - name: 'builder helpers()'
+    url: /documentation/helpers
+  - name: 'builder forms()'
     url: /documentation/forms
 - name: 'Components'
-  url: 'component/alerts'
+  url: '/component/alerts'
   subpages:
   - name: Alerts
     url: '/component/alerts'
+- name: 'External'
+  url: '/external/include-bootstrap-grids'
+  subpages:
+  - name: '@include bootstrap-grids'
+    url: /external/include-bootstrap-grids
 - name: 'Api'
   url: '/api'
