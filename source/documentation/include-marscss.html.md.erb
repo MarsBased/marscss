@@ -9,14 +9,14 @@ anchors_menu: '> h1, > h2'
 
 In order to integrate marscss, first, you need to import `marscss` mixin in your .scss file. Take into account that  you need to import it after any custom modificacion of the marscss core, for example if you change color variables.
 
-This is the setup mixin that loads the configuration and  the [placeholders](#placeholders) needed by the rest of components
+This is the setup mixin that loads the configuration and  the [placeholders](#builder-placeholders) needed by the rest of components
 
 since
 : 1.0.0
 
 arguments
-: `$reset: true` *(boolean)*: @include style([resets()](#resets))
-: `$elements: true` *(boolean)*: @include style([elements()](#elements))
+: `$reset: true` *(boolean)*: @include style([resets()](#builder-resets))
+: `$elements: true` *(boolean)*: @include style([elements()](#builder-elements))
 
 ~~~scss
 @include marscss;
