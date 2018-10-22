@@ -1,7 +1,34 @@
-$alert-name: '.alert' !default;
 $alert-color: $warning !default;
 $alert-bg: rgba($warning, .04) !default;
 $alert-padding: $gutter/2 !default;
+
+$alert-selector: '.alert' !default;
+$alert-selector-close: '&__close' !default;
+$alert-selector-is-success: '.is-success' !default;
+$alert-selector-is-warning: '.is-warning' !default;
+$alert-selector-is-dismissible: '.is-dismissible' !default;
+
+@include placeholder('alert');
+
+//--- alert
+@function alert() {
+  @return style(
+    /* metas */
+    meta-name('alert()'),
+    meta-type('composer'),
+    meta-description('
+      \D Block the default configuration of the alert
+      \D <div #{meta-description-selector($alert-selector)}>
+      \D    example
+      \D </div>
+    '),
+
+    /* rules */
+    alert-mod-base(),
+    alert-mod-btn-close(),
+    alert-mod-reset-link()
+  );
+}
 
 //--- alerts
 @function alerts() {
@@ -14,54 +41,10 @@ $alert-padding: $gutter/2 !default;
     ),
 
     /* rules */
-    rule('#{$alert-name}', alert()),
-    rule('#{$alert-name}.is-warning', alert-mod-is-warning()),
-    rule('#{$alert-name}.is-success', alert-mod-is-success()),
-    rule('#{$alert-name}.is-dismissible', alert-mod-is-dismissible())
-  );
-}
-
-//--- alert
-@function alert() {
-  @return style(
-    /* metas */
-    meta-name('alert()'),
-    meta-type('composer'),
-    meta-description('
-      \D Block the default configuration of the alert
-      \D <div class="alert">
-      \D    example
-      \D </div>
-    '),
-
-    /* rules */
-    alert-mod-base(),
-    alert-mod-btn-close(),
-    alert-mod-reset-link()
-  );
-}
-
-//--- alert-s-close
-@function alert-s-close($args...) {
-  @return style(
-    /* metas */
-    meta-name('alert-s-close($args...)'),
-    meta-type('selector'),
-
-    /* rules */
-    rule('&__close', $args...)
-  );
-}
-
-//--- alert-s-a
-@function alert-s-a($args...) {
-  @return style(
-    /* metas */
-    meta-name('alert-s-a($args...)'),
-    meta-type('selector'),
-
-    /* rules */
-    rule('a', $args...)
+    rule('#{$alert-selector}', alert()),
+    rule('#{$alert-selector}#{$alert-selector-is-warning}', alert-mod-is-warning()),
+    rule('#{$alert-selector}#{$alert-selector-is-success}', alert-mod-is-success()),
+    rule('#{$alert-selector}#{$alert-selector-is-dismissible}', alert-mod-is-dismissible())
   );
 }
 
@@ -90,10 +73,11 @@ $alert-padding: $gutter/2 !default;
     /* metas */
     meta-name('alert-mod-btn-close()'),
     meta-type('modifier'),
-    meta-description('Styles of the rule &__close'),
+    meta-description('Styles of the rule #{$alert-selector-close}'),
 
     /* rules */
-    alert-s-close(
+    rule(
+      $alert-selector-close,
       position(absolute),
       top(0),
       padding(.5em 1em),
@@ -114,7 +98,8 @@ $alert-padding: $gutter/2 !default;
     meta-type('modifier'),
 
     /* rules */
-    alert-s-a(
+    rule(
+      'a',
       reset-link(),
       font-weight(700),
       text-decoration(underline)
@@ -131,12 +116,12 @@ $alert-padding: $gutter/2 !default;
     meta-description('
       \D Add a modification for dismissible alerts
 
-      \D <div class="alert is-dismissible">
+      \D <div #{meta-description-selector($alert-selector+$alert-selector-is-dismissible)}">
       \D    <button type="button"
-      \D            class="alert__close"
+      \D            class="alert#{$alert-selector-close}"
       \D            data-dismiss="alert"
       \D            aria-label="Close"></button>
-      \D    Alert message
+      \D    Alert message dismissible
       \D </div>'),
 
     /* rules */
@@ -151,10 +136,11 @@ $alert-padding: $gutter/2 !default;
     /* metas */
     meta-name('alert-mod-is-warning()'),
     meta-type('modifier'),
-    meta-description('warning modification.
+    meta-description('
+      \D Add a modification for warning alerts
 
-      \D <div class="alert is-warning">
-      \D    Mesage warning
+      \D <div #{meta-description-selector($alert-selector+$alert-selector-is-warning)}>
+      \D    warning message
       \D </div>
     '),
 
@@ -169,12 +155,13 @@ $alert-padding: $gutter/2 !default;
 @function alert-mod-is-success() {
   @return style(
     /* metas */
-    meta-name('alert-mod-is-warning()'),
+    meta-name('alert-mod-is-success()'),
     meta-type('modifier'),
-    meta-description('success modification.
+    meta-description('
+      \D Add a modification for success alerts
 
-      \D <div class="alert is-warning">
-      \D    Mesage warning
+      \D <div #{meta-description-selector($alert-selector+$alert-selector-is-success)}>
+      \D    success message
       \D </div>
     '),
 
@@ -184,5 +171,4 @@ $alert-padding: $gutter/2 !default;
     color($white)
   );
 }
-
 //---

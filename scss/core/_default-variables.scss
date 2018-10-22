@@ -1,5 +1,10 @@
 // marscss config
 $mars-debug: false !default;
+// he container of the different placeholders that will be processed with @include marscss
+$marscss-placeholders: ();
+// see if marscss have been previously executed
+$marscss-init: false;
+$marscss-process-placeholders: ();
 
 //--- reset
 $reset-selector: '.reset' !default;

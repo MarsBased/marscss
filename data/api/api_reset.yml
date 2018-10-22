@@ -1,7 +1,8 @@
-- name: reset
+- name: resets
   type: builder
 - name: common-reset
   type: common
+- name: reset
 - name: reset-all
 - name: reset-box-sizing
 - name: reset-html

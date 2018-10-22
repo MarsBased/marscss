@@ -1,4 +1,15 @@
-//--- reset
+@include placeholder(
+  'reset',
+  'reset-heading',
+  'reset-button',
+  'reset-list',
+  'reset-text-block',
+  'reset-checks',
+  'reset-link',
+  'reset-all'
+);
+
+//--- resets
 @function resets() {
   @return style(
     rule('*,*::before,*::after', common-reset(), reset-box-sizing()),
@@ -32,8 +43,8 @@
   );
 }
 
-//--- reset-all
-@function reset-all() {
+//--- reset
+@function reset() {
   @return style(
     common-reset(),
     font-size(inherit),
@@ -134,6 +145,15 @@
 @function reset-checks() {
   @return style(
     cursor('pointer')
+  );
+}
+
+//--- reset-all
+@function reset-all() {
+  @return style(
+    rule('*', extend('%reset')),
+    rule('a', extend('%reset-link')),
+    rule('button', extend('%reset-button'))
   );
 }
 

@@ -1,6 +1,0 @@
-@import '../../../../index';
-$mars-debug: true;
-
-@include mars-build-helpers(
-  $prefix-text: 'u-text-'
-);

@@ -1,9 +1,12 @@
-@mixin help($function) {
+@mixin help($function: false) {
   @debug help($function);
 }
 
 @function help($map: false) {
   @if ($map) {
+    @if type-of($map) == 'string' {
+      // TODO help extend if %
+    }
     @if (type-of($map) == 'map') {
       $type: map-get($map, 'meta-type');
       @if $type == 'builder' {
@@ -28,10 +31,44 @@
 }
 
 @function text-help() {
-  @return '\A\A marscss
-    \D -------------------- \A
+  $print: '
+      \D @include marscss has not been started, you have to
+      \D initialize it just after the changes in the marscss core
+      \D
+      \D http://marscss.com/documentation/include-marscss
+    ';
 
-    \D http://marscss.com/documentation/\A\A';
+  @if $marscss-init {
+    @debug $marscss-placeholders;
+    $sort: map-sort($marscss-placeholders);
+    $map-print: '
+      \D %placeholder        function()
+      \D -------------------------------------------
+    ';
+
+    @each $key, $value in $sort {
+      $space: str-slice('                   ', str-length($key) - 20);
+      $map-print: $map-print + '
+        \D #{$key+$space} #{$value}()';
+    }
+
+    $print: '
+      \A ------------------- 🚀
+      \D
+      \D @include marscss has been initiated.
+      \D
+      \D
+      \D #{length($marscss-process-placeholders)} active placeholders:
+      \D #{$map-print}
+      \D
+      \D If you want to know more about them, you just need to execute
+      \D this same command adding the %name with or the function()
+      \D
+      \D http://marscss.com/documentation/placeholders
+    ';
+  }
+
+  @return $print;
 }
 
 @function text-map-builder($map) {
@@ -58,7 +95,8 @@
   $m: '\A\A#{$name}
     \D --------------------
     \D TYPE: #{$type}\A
-    \D DESCRIPTION: #{$description}\A
+    \D DESCRIPTION: #{$description}
+    \D
     \D MODIFERS: #{$modifers}
     \D --------------------';
 

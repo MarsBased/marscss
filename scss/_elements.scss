@@ -1,3 +1,21 @@
+@include placeholder(
+  ('h1' : 'element-h1'),
+  ('h2' : 'element-h2'),
+  ('h3' : 'element-h3'),
+  ('h4' : 'element-h4'),
+  ('h5' : 'element-h5'),
+  ('h6' : 'element-h6'),
+  ('a' : 'element-a'),
+  ('blockquote' : 'element-blockquote'),
+  ('p' : 'element-p'),
+  ('ul' : 'element-ul'),
+  ('ol' : 'element-ol'),
+  ('li' : 'element-li'),
+  ('dl' : 'element-dl'),
+  ('dt' : 'element-dt'),
+  ('dd' : 'element-dd')
+);
+
 //--- elements
 @function elements() {
   @return style(

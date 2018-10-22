@@ -1,0 +1,30 @@
+---
+title: resets
+layout: documentation
+active: Documentation, builder-elements
+anchors_menu: '> h2'
+---
+
+# builder elements
+
+Add styles for the main tags of the page, `elements()`
+
+since
+: 1.0.0
+
+~~~scss
+@include style(elements());
+~~~
+
+## Html tags
+
+`h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `a`, `blockquote`, `p`, `ul`, `ol`, `li`, `dl`, `dt`, `dd`
+
+If you want to see what selectors a builder is acting on, you can do it using:
+
+~~~scss
+@include help(elements());
+~~~
+
+
+

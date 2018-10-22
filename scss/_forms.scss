@@ -1,3 +1,14 @@
+@include placeholder(
+  'form-element',
+  'form-checks',
+  ('label' : 'form-label'),
+  ('input' : 'form-input'),
+  ('textarea' : 'form-textarea'),
+  ('select' : 'form-select'),
+  ('radio' : 'form-radio'),
+  ('checkbox' : 'form-checkbox')
+);
+
 //--- forms
 @function forms($prefix: $prefix-forms) {
   @return style(

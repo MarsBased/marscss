@@ -13,3 +13,14 @@
 @function rule($selector, $args...) {
   @return ($selector: style($args...));
 }
+
+@function marscss-error($message) {
+  @return '
+    \D
+    \D ---------------------
+    \D -----> marscss:
+    \D #{$message}
+    \D ---------------------
+    \D
+  ';
+}

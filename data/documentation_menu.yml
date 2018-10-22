@@ -9,9 +9,13 @@
     url: /documentation/working-with-maps
   - name: 'recipes'
     url: /documentation/recipes
-  - name: 'builder helpers()'
+  - name: 'builder resets'
+    url: /documentation/resets
+  - name: 'builder elements'
+    url: /documentation/elements
+  - name: 'builder helpers'
     url: /documentation/helpers
-  - name: 'builder forms()'
+  - name: 'builder forms'
     url: /documentation/forms
 - name: 'Components'
   url: '/component/alerts'

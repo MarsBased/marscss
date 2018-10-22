@@ -22,3 +22,13 @@ $metas: 'name', 'description', 'type', 'modifiers';
     @return 'It is not a map';
   }
 }
+
+@function meta-description-selector($text) {
+  $replaced: str-replace($text, '.', ' ');
+
+  @if (str-index($replaced, ' ') == 1) {
+    $replaced: str-slice($replaced, 2, -1);
+  }
+
+  @return 'class="#{$replaced}';
+}

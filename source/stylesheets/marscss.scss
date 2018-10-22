@@ -16,23 +16,17 @@ $new-element-h1: style(element-h1(), font-weight(900));
   @return $new-element-h1;
 }
 
-$new-placeholders: style(
-  placeholders(),
-  rule(
-    '%hero',
+@function hero() {
+  @return style(
     element-h1(),
     font-size($font-size-hero),
     margin-bottom(4rem),
     font-weight(300),
     line-height(1.2)
-  )
-);
-
-@function placeholders() {
-  @return $new-placeholders;
+  );
 }
 
-////////// INCLUDE MARSCSS PLACEHOLDERS
-@include style(
-  placeholders()
-);
+@include placeholder('hero');
+
+////////// INCLUDE MARSCSS
+@include marscss;

@@ -1,3 +1,13 @@
+// prettier-ignore
+@include placeholder (
+  'columns',
+  'container',
+  'row',
+  'column',
+  'focus',
+  'ratio'
+);
+
 //--- focus
 @function focus() {
   @return style(
@@ -29,16 +39,16 @@
   );
 }
 
-//--- make-container
-@function make-container() {
+//--- container
+@function container() {
   @return style(
     /* metas */
-    meta-name('make-container()'),
+    meta-name('container()'),
     meta-type('block'),
-    meta-description(
-      'Adaptation of the bootstrap mixin used by %container
-      \D https://getbootstrap.com/docs/4.1/layout/grid/#mixins'
-    ),
+    meta-description('
+      \D Adaptation of the bootstrap mixin make-container used by %container
+      \D https://getbootstrap.com/docs/4.1/layout/grid/#mixins
+    '),
 
     /* rules */
     width(100%),
@@ -49,16 +59,16 @@
   );
 }
 
-//--- make-row
-@function make-row() {
+//--- row
+@function row() {
   @return style(
     /* metas */
-    meta-name('make-row()'),
+    meta-name('row()'),
     meta-type('block'),
-    meta-description(
-      'Adaptation of the bootstrap mixin used by %row
-      \D https://getbootstrap.com/docs/4.1/layout/grid/#mixins'
-    ),
+    meta-description('
+      \D Adaptation of the bootstrap mixin make-row used by %row
+      \D https://getbootstrap.com/docs/4.1/layout/grid/#mixins
+    '),
 
     /* rules */
     display(flex),
@@ -68,14 +78,14 @@
   );
 }
 
-//--- make-col-ready
-@function make-col-ready() {
+//--- column
+@function column() {
   @return style(
     /* metas */
-    meta-name('make-col-ready()'),
+    meta-name('column()'),
     meta-type('block'),
-    meta-description(
-      'adaptation of the bootstrap mixin used by %column
+    meta-description('
+      \D adaptation of the bootstrap mixin make-col-ready used by %column
       \D https://getbootstrap.com/docs/4.1/layout/grid/#mixins
       \D
       \D Bootstrap notes:
@@ -84,8 +94,8 @@
       \D always setting `width: 100%;`. This works because we use `flex` values
       \D later on to override this initial width.
       \D - min-height: 1px
-      \D Prevent collapsing'
-    ),
+      \D Prevent collapsing
+    '),
 
     /* rules */
     width(100%),

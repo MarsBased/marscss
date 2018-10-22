@@ -1,0 +1,43 @@
+//--- placeholder
+@mixin placeholder($one-or-more-string-or-map...) {
+  @if $marscss-init {
+    @error marscss-error(
+      'all placeholders must be generated before calling the marscss initializer'
+    );
+  }
+
+  @each $item in $one-or-more-string-or-map {
+    @if type-of($item) == 'string' {
+      $marscss-placeholders: map-merge(
+        $marscss-placeholders,
+        ('%#{$item}': $item)
+      ) !global;
+    } @else if type-of($item) == 'map' {
+      $list: join(map-keys($item), map-values($item) or map-keys($item));
+
+      $marscss-placeholders: map-merge(
+        $marscss-placeholders,
+        ('%#{nth($list,1)}': nth($list, 2))
+      ) !global;
+    } @else {
+      @error marscss-error(
+        'placeholder only can process string or map'
+      );
+    }
+  }
+
+  //($extend, $function: false)
+  // @if $marscss-init {
+  //   @error marscss-error(
+  //     'all placeholders must be generated before calling the marscss initializer'
+  //   );
+  // }
+
+  // $extend: str-replace($extend, '%', '');
+  // @if $function {
+  //   @return map-merge($marscss-placeholders, ('%#{$extend}':$function));
+  // } @else {
+  //   @return map-merge($marscss-placeholders, ('%#{$extend}':$extend));
+  // }
+}
+//---

@@ -1,14 +1,29 @@
 //--- marscss
-@mixin marscss($reset: true, $elements: true) {
-  @if ($reset) {
-    @include style(resets());
+@mixin marscss {
+
+  @if ($marscss-init) {
+    @error marscss-error('
+      \D You can only call MarsCss once, and this has to be
+      \D at the end of the loading of all the layers
+    ');
   }
 
-  @if ($elements) {
-    @include style(elements());
+  $marscss-init: true !global;
+
+  $placeholders: ();
+  // TODO manipular los meta sacarlos y ponerlos.
+  @each $key, $value in $marscss-placeholders {
+    @if is-string($value) {
+      $placeholders: map-merge($placeholders, ($key: call(get-function($value))));
+    }
   }
 
-  @include style(placeholders());
+  // @debug $placeholders;
+
+  $marscss-process-placeholders: $placeholders !global;
+
+  @include style(
+    $marscss-process-placeholders
+  );
 }
-
 //---

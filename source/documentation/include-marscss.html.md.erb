@@ -7,16 +7,12 @@ anchors_menu: '> h1, > h2'
 
 # @include marscss
 
-In order to integrate marscss, first, you need to import `marscss` mixin in your .scss file. Take into account that  you need to import it after any custom modificacion of the marscss core, for example if you change color variables.
+In order to integrate marscss, first, you need to import `marscss` mixin in your .scss file. Take into account that  you need to import it after any custom modificacion of the marscss core.
 
 This is the setup mixin that loads the configuration and  the [placeholders](#builder-placeholders) needed by the rest of components
 
 since
 : 1.0.0
-
-arguments
-: `$reset: true` *(boolean)*: @include style([resets()](#builder-resets))
-: `$elements: true` *(boolean)*: @include style([elements()](#builder-elements))
 
 ~~~scss
 @include marscss;
@@ -32,9 +28,7 @@ By default is the same of:
 );
 ~~~
 
-
 ---------------------------------------------------
-
 
 ## builder placeholders
 
@@ -56,118 +50,18 @@ dependencies
 
 %reset, %reset-heading, %reset-text-block, %reset-button, %reset-list, %reset-checks, %reset-link, %reset-all, %columns, %container, %row, %column, %focus, %form-element, %form-checks, %label, %input, %textarea, %select, %radio, %checkbox, %h1, %h2, %h3, %h4, %h5, %h6,%a, %blockquote, %p, %ul, %ol, %li, %dl, %dt, %dd, %ratio
 
----------------------------------------------------
+---------------------------------
 
-## builder resets
-
-Add a reset to the html tags and add tools to control the reset of the element styles.
-
-marscss by default is designed to work with generic styles on the labels, the reset has 2 functions.
-
-1. Reset all browser styles.
-2. Tools that allow to cancel the default styles in the elements that interest us both in containers from [.reset-all](#example-with-reset-all) and directly in the tags with [.reset](#example-use-reset).
-
-since
-: 1.0.0
-
-~~~scss
-@include style(resets());
-~~~
-
-### Example without reset
-
-<% example_tabs do %>
-<% example_html do %>
-<h1>Heading H1</h1>
-<p>Ipsa quia quidem soluta aut <a href="#">link</a> illum eaque provident consequatur</p>
-<h2>Heading H2</h2>
-<ul>
-  <li>Rosalyn Jakubowski</li>
-  <li>Felicita Olson</li>
-  <li>Eliezer Hamill III</li>
-</ul>
-<% end %>
-<% end %>
-
-
-### Example with reset-all
-
-We have the possibility to add the class `.reset-all` to a container to reset the styles of `elements()`.
-
-You can edit the variable `$reset-all-selector` if you want to change the name
-
-<% example_tabs do %>
-<% example_html do %>
-<div class="reset-all">
-  <h1>Heading H1</h1>
-  <p>Ipsa quia quidem soluta aut <a href="#">link</a> illum eaque provident consequatur</p>
-  <h2>Heading H2</h2>
-  <ul>
-    <li>Rosalyn Jakubowski</li>
-    <li>Felicita Olson</li>
-    <li>Eliezer Hamill III</li>
-  </ul>
-</div>
-<% end %>
-<% end %>
-
-
-### Example use .reset
-
-In marscss we attach the class `.reset` to clean the styles of the tags.
-
-If you want to modify the name you can rewrite the value of the `$reset-selector` variable.
-
-<% example_tabs do %>
-<% example_html do %>
-  <h1 class="reset">Heading H1</h1>
-  <p>Ipsa quia quidem soluta aut <a class="reset" href="#">link</a> illum eaque provident consequatur</p>
-  <h2>Heading H2</h2>
-  <ul>
-    <li class="reset">Rosalyn Jakubowski</li>
-    <li>Felicita Olson</li>
-    <li>Eliezer Hamill III</li>
-  </ul>
-<% end %>
-<% end %>
-
-
-### You can use extend and customize your rules
+## You can use extend and customize your rules
 
 You can use the reset extends to directly clean the elements when creating the styles of the components.
 
 You can override the reset functions if you want to add or modify those rules, as long as we modify the core it is important that this modification is done before loading the builders
 
-
----------------------------------------------------
-
-## builder elements
-
-Add styles for the main tags of the page, `elements()` if included if we did not specify otherwise from [@include marscss](#include-marscss), but if we wish we can include it directly, you can see an example of a complex configuration in <%= link_to 'recipes', '/documentation/recipes#recipes' %>.
-
-since
-: 1.0.0
-
-~~~scss
-@include style(elements());
-~~~
-
-### Html tags
-
-`h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `a`, `blockquote`, `p`, `ul`, `ol`, `li`, `dl`, `dt`, `dd`
-
-If you want to see what selectors a builder is acting on, you can do it using:
-
-~~~scss
-@include help(elements());
-~~~
-
----------------------------------------------------
+marscss is designed so that all its core can be modified, that's why everything is assigned through functions and that's why it is very important that no builder is added before finishing the modifications of the core.
 
 
 ## customize elements
-
-marscss is designed so that all its core can be modified, that's why everything is assigned through functions and that's why it is very important that no builder is added before finishing the modifications of the core.
 
 You have a group of variables that you can use to modify some of the properties.
 

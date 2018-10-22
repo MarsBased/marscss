@@ -1,7 +1,7 @@
 ---
 title: grid
 layout: documentation
-active: External, 'include-bootstrap-grids'
+active: External, include-bootstrap-grids
 ---
 
 # @include bootstrap-grids
@@ -20,7 +20,7 @@ arguments
 : `$container-max-widths: $containers-max-widths` *[map]*:
 
 
-## @include grid-container
+## @include bootstrap-containers
 
 Generating the class for the container uses $containers-max-widths to generate the media queries for each $breakpoints.
 
@@ -37,7 +37,7 @@ arguments
 : `$containers-max-widths: $containers-max-widths` *[map]*:
 
 
-## @include grid-row
+## @include bootstrap-row
 
 It is responsible for working as a container for the generation of the columns, it has a negative margin to justify the margin of the internal columns.
 
@@ -52,7 +52,7 @@ arguments
 
 
 
-## @include grid-columns
+## @include bootstrap-columns
 
 Is responsible for generating the markup to work directly with the bootstrap class, it also adds order and offset.
 
