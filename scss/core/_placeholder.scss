@@ -2,7 +2,7 @@
 @mixin placeholder($one-or-more-string-or-map...) {
   @if $marscss-init {
     @error marscss-error(
-      'all placeholders must be generated before calling the marscss initializer'
+      'all placeholders must be generated before marscss initializer'
     );
   }
 

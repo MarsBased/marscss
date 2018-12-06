@@ -39,7 +39,6 @@
     ';
 
   @if $marscss-init {
-    @debug $marscss-placeholders;
     $sort: map-sort($marscss-placeholders);
     $map-print: '
       \D %placeholder        function()
